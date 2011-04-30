@@ -1,5 +1,7 @@
 Stevegrossi::Application.routes.draw do
   
+  resources :books
+
   match 'is' => 'pages#about'
 
   root :to => "pages#home"
