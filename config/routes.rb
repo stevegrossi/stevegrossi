@@ -1,7 +1,6 @@
 Stevegrossi::Application.routes.draw do
-  get "pages/home"
-
-  get "pages/about"
+  
+  match 'is' => 'pages#about'
 
   root :to => "pages#home"
 
