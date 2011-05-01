@@ -1,34 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
-  <%= @book.title %>
-</p>
+<div class="book_info">
+  <img src='http://images.amazon.com/images/P/<%= @book.asin %>.01.LZZZZZZZ.jpg' alt=''>
+  <span class="book_title"><%= @book.title %></span>
+  <span class="book_author"><%= @book.author %></span>
+  <span class="book_publisher"><%= @book.publisher %>, <%= @book.pub_year %></span>
+  <%= link_to 'Buy', 'http://www.amazon.com/gp/product/' + @book.asin + '?ie=UTF8&tag=stevgros-20' %>
+</div>
 
-<p>
-  <b>Author:</b>
-  <%= @book.author %>
-</p>
+<h1><%= @book.title %></h1>
+<p class="meta"><%= @book.created_at.strftime('%b %d, %Y') %></p>
 
-<p>
-  <b>Publisher:</b>
-  <%= @book.publisher %>
-</p>
+<%= markdown(@book.thoughts) %>
 
-<p>
-  <b>Pub year:</b>
-  <%= @book.pub_year %>
-</p>
-
-<p>
-  <b>Asin:</b>
-  <%= @book.asin %>
-</p>
-
-<p>
-  <b>Thoughts:</b>
-  <%= markdown(@book.thoughts) %>
-</p>
 
 
 <%= link_to 'Edit', edit_book_path(@book) %> |

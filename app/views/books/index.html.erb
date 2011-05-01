@@ -1,33 +1,9 @@
-<h1>Listing books</h1>
+<h1>Read:</h1>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Author</th>
-    <th>Publisher</th>
-    <th>Pub year</th>
-    <th>Asin</th>
-    <th>Thoughts</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @books.each do |book| %>
-  <tr>
-    <td><%= book.title %></td>
-    <td><%= book.author %></td>
-    <td><%= book.publisher %></td>
-    <td><%= book.pub_year %></td>
-    <td><%= book.asin %></td>
-    <td><%= book.thoughts %></td>
-    <td><%= link_to 'Show', book %></td>
-    <td><%= link_to 'Edit', edit_book_path(book) %></td>
-    <td><%= link_to 'Destroy', book, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Book', new_book_path %>
+<ol class="books">
+  <% @books.each do |book| %>
+  <li>
+    <%= link_to raw("<img src='http://images.amazon.com/images/P/#{ book.asin }.01.LZZZZZZZ.jpg' alt=''>"), book %>
+  </li>
+  <% end %>
+</ol>

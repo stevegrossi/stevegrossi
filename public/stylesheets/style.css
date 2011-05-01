@@ -77,6 +77,18 @@ figcaption {color:#666;line-height:16px;font-size:13px;}
 
 .sitefooter {color:#999;border-top:1px dotted #ccc;padding:10px;}
   #contact {float:right;}
+  
+/*
+  Page Styles
+*/
+.books {list-style:none;overflow:hidden;padding:10px;}
+  .books li {float:left;}
+  .books a {display:block;}
+  .books img {width:140px;}
+.book_info {width:auto;text-align:center;}
+  .book_info img {width:140px;}
+  .book_info span {display:block;}
+
 
 /*
 	Helper Classes

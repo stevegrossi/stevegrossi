@@ -1,2 +1,18 @@
+# == Schema Information
+#
+# Table name: books
+#
+#  id         :integer(4)      not null, primary key
+#  title      :string(255)
+#  author     :string(255)
+#  publisher  :string(255)
+#  pub_year   :string(255)
+#  asin       :string(255)
+#  thoughts   :text
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 class Book < ActiveRecord::Base
+
 end

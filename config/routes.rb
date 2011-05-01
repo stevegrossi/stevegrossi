@@ -1,10 +1,10 @@
 Stevegrossi::Application.routes.draw do
-  
-  resources :books
-
-  match 'is' => 'pages#about'
 
   root :to => "pages#home"
+  
+  match 'is' => 'pages#about'
+  
+  resources :read, :as => :books, :controller => :books
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
