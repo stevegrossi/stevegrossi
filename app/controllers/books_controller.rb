@@ -1,4 +1,7 @@
 class BooksController < ApplicationController
+  
+  before_filter :logged_in?, :except => [:index, :show]
+  
   # GET /books
   # GET /books.xml
   def index

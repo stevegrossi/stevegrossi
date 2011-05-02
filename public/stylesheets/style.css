@@ -50,7 +50,8 @@ pre, code, kbd, samp { font-family: monospace, sans-serif; }
 /*
 	Primary Styles
 */
-body {color:#333;font:16px/24px Georgia, serif;padding:24px}
+body {color:#333;font:16px/24px Georgia, serif;}
+#wrapper {padding:24px; max-width:960px;margin:auto;}
 a:link {color:#2BA4BF;}
 	a:visited {color:#117A8F;}
 	a:hover, a:active {color:#53C8DF;}
@@ -68,6 +69,13 @@ blockquote {padding:0 12px;color:#666;}
 dt {font-weight:bold;}
 figure img {width:100%;}
 figcaption {color:#666;line-height:16px;font-size:13px;}
+
+#admin_bar {background:#ccc;background: -moz-linear-gradient(top, #CCCCCC 80%, #BBBBBB 100%);background: -webkit-gradient(linear, left top, left bottom, color-stop(80%,#CCCCCC), color-stop(100%,#BBBBBB));color:#fff;border-bottom:1px solid #bbb;}
+  #admin_bar ul {width:960px;margin:auto;overflow:hidden;}
+  #admin_bar li {float:left;}
+  #admin_bar li:last-child {float:right;}
+  #admin_bar a {display:block;padding:0 10px;}
+    #admin_bar a:hover {background:rgba(255,255,255,.2);}
 
 .siteheader ul {text-align:right;padding:10px;border-bottom:1px dotted #ccc;font-size:24px;}
   .siteheader li {display:inline;margin-left:24px;}
@@ -127,14 +135,8 @@ a[rel=footnote] {vertical-align:super;line-height:.5;}
 
 }
 
-@media screen and (max-device-width: 480px) {
-
-}
-
-@media all and (orientation: portrait) {
-
-}
-
-@media all and (orientation: landscape) {
-
+@media screen and (max-width: 480px) {
+  .siteheader ul {text-align:center;padding:0 0 10px;}
+    .siteheader li {margin:8px;}
+  #logo {float:none;display:block;clear:both;margin-bottom:24px;}
 }

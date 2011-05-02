@@ -5,6 +5,7 @@ gem "jquery-rails"
 gem 'rdiscount', '~> 1.6.8'
 gem 'friendly_id', '~> 3.2.1'
 gem 'annotate', '~> 2.4.0'
+gem 'bcrypt-ruby', :require => 'bcrypt'
 
 gem "rspec-rails", ">= 2.0.1", :group => [:development, :test]
 
