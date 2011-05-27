@@ -1,12 +1,13 @@
 Stevegrossi::Application.routes.draw do
 
+  resources :users
+  resources :books, :path => 'read'
+  
+  resources :sessions, :only => [:new, :create, :destroy]
   get 'log_in' => 'sessions#new'
   post 'log_in' => 'sessions#create' 
   get 'log_out' => 'sessions#destroy'
   match 'is' => 'pages#about'
-
-  resources :users
-  resources :read, :as => :books, :controller => :books
 
   root :to => "pages#home"
 

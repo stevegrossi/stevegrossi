@@ -38,18 +38,12 @@ article, aside, details, figcaption, figure,  footer, header, hgroup, menu, nav,
 .grid_12 { width:97.917%; } /* 940 */
 .column {margin: 0 1.04%;float: left;display: inline;}
 .row {max-width: 960px;width: 97.875%;margin: 0 auto;}
-.push_3 {margin-right:-240px !important;}
-.push_4 {margin-right:-320px !important;}
 
 /*
 	Base Styles
 */
 html { overflow-y: scroll; }
 pre, code, kbd, samp { font-family: monospace, sans-serif; }
-
-/*
-	Primary Styles
-*/
 body {color:#333;font:16px/24px Georgia, serif;}
 #wrapper {padding:24px; max-width:960px;margin:auto;}
 a:link {color:#2BA4BF;}
