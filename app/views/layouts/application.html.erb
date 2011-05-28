@@ -12,7 +12,7 @@
   <!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   <%= csrf_meta_tag %>
 </head>
-<body>
+<body<%= ' class = ' + @body_class if @body_class %>>
   <% if current_user %>
     <div id="admin_bar">
       <ul>
