@@ -1,4 +1,7 @@
 class WritingsController < ApplicationController
+  
+  before_filter :logged_in?, :except => [:index, :show]
+  
   # GET /writings
   # GET /writings.xml
   def index

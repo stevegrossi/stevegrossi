@@ -1,20 +1,7 @@
-<p id="notice"><%= notice %></p>
+<h1><%= @writing.title %></h1>
+<p class="meta"><%= @writing.created_at.strftime('%b %d, %Y') %></p>
 
-<p>
-  <b>Title:</b>
-  <%= @writing.title %>
-</p>
+<%= markdown(@writing.content) %>
 
-<p>
-  <b>Content:</b>
-  <%= @writing.content %>
-</p>
-
-<p>
-  <b>Summary:</b>
-  <%= @writing.summary %>
-</p>
-
-
-<%= link_to 'Edit', edit_writing_path(@writing) %> |
+<%= link_to 'Edit', edit_writing_path(@writing) if current_user %>
 <%= link_to 'Back', writings_path %>
