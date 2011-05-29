@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @writing.title %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @writing.content %>
+</p>
+
+<p>
+  <b>Summary:</b>
+  <%= @writing.summary %>
+</p>
+
+
+<%= link_to 'Edit', edit_writing_path(@writing) %> |
+<%= link_to 'Back', writings_path %>

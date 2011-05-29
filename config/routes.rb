@@ -2,6 +2,7 @@ Stevegrossi::Application.routes.draw do
 
   resources :users
   resources :books, :path => 'read'
+  resources :writings, :path => 'wrote'
   
   resources :sessions, :only => [:new, :create, :destroy]
   get 'log_in' => 'sessions#new'
