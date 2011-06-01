@@ -8,6 +8,7 @@ gem 'friendly_id', '~> 3.2.1'
 gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'taps', '~> 0.3.0'
 gem 'heroku', '~> 2.2.1'
+gem 'sass', '~> 3.1.2'
 
 group :development, :test do
   gem 'annotate', '~> 2.4.0'
