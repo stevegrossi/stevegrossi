@@ -1,9 +1,10 @@
-<h1>Read:</h1>
-
-<ol class="books">
-  <% @books.each do |book| %>
-  <li>
-    <%= link_to raw("<img src='http://images.amazon.com/images/P/#{ book.asin }.01.LZZZZZZZ.jpg' alt=''>"), book %>
-  </li>
-  <% end %>
-</ol>
+<div role="main" class="main">
+  <h1>I read books.</h1>
+  <ol class="books_list">
+    <% @books.each do |book| %>
+    <li>
+      <%= link_to( image_tag("http://images.amazon.com/images/P/#{ book.asin }.01.LZZZZZZZ.jpg", :alt => book.title, :class => 'cover'), book ) %>
+    </li>
+    <% end %>
+  </ol>
+</div>

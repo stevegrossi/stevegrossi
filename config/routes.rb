@@ -8,7 +8,7 @@ Stevegrossi::Application.routes.draw do
   get 'log_in' => 'sessions#new'
   post 'log_in' => 'sessions#create' 
   get 'log_out' => 'sessions#destroy'
-  match 'is' => 'pages#about'
+  match 'is' => 'pages#about', :as => 'about'
 
   root :to => "pages#home"
 

@@ -1,0 +1,91 @@
+/*
+  Base, 960px
+*/
+
+.container {position: relative; width: 960px; margin: 0 auto; padding: 0;}
+.column {float:left;display:inline;margin-left:10px;margin-right:10px;}
+.alpha {margin-left: 0;}
+.omega {margin-right: 0;}
+	
+.one {width: 60px; }
+.two {width: 140px;}
+.three {width: 220px;}
+.four {width: 300px;}
+.five {width: 380px;}
+.six {width: 460px;}
+.seven {width: 540px;}	
+.eight {width: 620px;}
+.nine {width: 700px;}
+.ten {width: 780px;}	
+.eleven {width: 860px;}	
+.twelve {width: 940px;}
+
+/*
+  Tablet portrait, 768px
+*/
+@media only screen and (min-width: 768px) and (max-width: 980px) {
+  
+.container {width: 768px;}
+.column  {margin-left: 6px; margin-right: 6px; }
+.alpha {margin-left: 0; margin-right: 6px;}
+.omega {margin-right: 0; margin-left: 6px;}
+
+.one {width: 52px; }
+.two {width: 116px; }
+.three {width: 180px;}
+.four {width: 244px;}
+.five {width: 308px;}
+.six {width: 372px;}
+.seven {width: 436px;}	
+.eight {width: 500px;}
+.nine {width: 564px;}
+.ten {width: 628px;}	
+.eleven {width: 692px;}	
+.twelve {width: 756px;}
+
+}
+
+/*
+  Handheld landscape
+*/
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+  .container {width: 420px;}
+  .column {margin: 0;}
+	.one, .two, .three, .four, .five, .six,
+	.seven, .eight, .nine, .ten, .eleven, .twelve {width: 420px;}
+	
+	.siteheader {
+	  li {
+	    text-align:center;
+	    float:left;
+	    width:25%;
+	    &:first-child {
+	      text-align:center;
+	      width:100%;
+	    }
+    }
+	}
+}	
+	
+/*
+  Handheld portrait
+*/
+@media only screen and (max-width: 479px) {
+	.container {width: 300px;}
+  .column {margin: 0;}
+	.one, .two, .three, .four, .five, .six, 
+	.seven, .eight, .nine, .ten, .eleven, .twelve {width: 300px;}
+	
+	.siteheader {
+	  li {
+	    text-align:center;
+	    float:left;
+	    width:25%;
+	    &:first-child {
+	      text-align:center;
+	      width:100%;
+	    }
+    }
+	}
+		
+}

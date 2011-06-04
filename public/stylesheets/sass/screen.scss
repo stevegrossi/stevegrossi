@@ -1,0 +1,255 @@
+@import "reset";
+
+$primary: #2BA4BF;
+$darker_gray: #333;
+$dark_gray: #666;
+$gray: #999;
+$light_gray: #ccc;
+$lighter_gray: #eee;
+$serif_stack: Georgia, serif;
+$mono_stack: Monaco, monospace;
+
+article, aside, details, figcaption, figure,  footer, header, hgroup, menu, nav, section, summary {display:block;}
+
+/*
+	Base Styles
+*/
+html { overflow-y: scroll; }
+body {
+  color:$darker_gray;
+  font:16px/24px $serif_stack;
+}
+a {
+  &:link {
+    color:$primary;
+  }
+  &:visited {
+    color:mix(#000, $primary, 10%);
+  }
+  &:hover, &:active {
+    color: mix(#fff, $primary, 10%);
+  }
+}
+h1, h2, h3, h4, h5, p, ul, ol, dl, dd {margin-bottom:24px;font-weight:normal;}
+h1 {font-size:42px;line-height:48px;}
+h2 {font-size:24px;line-height:24px;}
+h3 {font-size:21px;line-height:24px;}
+h4 {font-size:18px;line-height:24px;}
+h5 {font-size:16px;line-height:24px;}
+ul {
+  list-style:disc;
+  ul {
+    list-style:circle;
+  }
+}
+sup, sub {
+  position : relative;
+  font-size : 75%; 
+  line-height : 0;
+}
+sup {
+  top : -.5em;
+}
+sub {
+  bottom : -.25em;
+}
+blockquote {
+  padding:0 12px;
+  color:$dark_gray;
+}
+dt {
+  font-weight:bold;
+}
+figure img {
+  max-width:100%;
+}
+figcaption {
+  color:#dark_gray;
+  line-height:16px;
+  font-size:13px;
+}
+pre, code, kbd, samp {font-family:$mono_stack;}
+
+#wrapper {
+  @extend .container;
+}
+
+#admin_bar {
+  background: -moz-linear-gradient(top, #CCCCCC 80%, #BBBBBB 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(80%,#CCCCCC), color-stop(100%,#BBBBBB));
+  color:#fff;
+  border-bottom:1px solid #bbb;
+  ul {
+    list-style:none;
+    margin:0;
+  }
+  li {
+    display:inline;
+    margin-right:24px;
+    &:last-child {
+     float:right;
+     margin:0;
+    }
+  }
+
+}
+.siteheader {
+  ul {
+    border-bottom:1px dotted #ccc;
+    font-size:24px;
+    overflow:hidden;
+  }
+  li {
+    @extend .column;
+    @extend .two;
+    text-align:right;
+    &:first-child {
+      @extend .four;
+      text-align:left;
+    }
+  }
+  a {
+    display:block;
+    text-decoration:none;
+    color:#999;
+    padding:24px 0;
+    &:hover {
+      color:#666; 
+    }
+  }
+}
+.main {
+  @extend .eight;
+  @extend .column;
+}
+.sidebar {
+  @extend .four;
+  @extend .column;
+  margin-bottom:24px;
+}
+.sitefooter {
+  color:$gray;
+  border-top:1px dotted #ccc;
+  padding:10px;
+  clear:both;
+  #contact {
+    float:right;
+  }
+}
+  
+/*
+	Helper Classes
+*/
+.left {
+  float:left;
+  margin:0 10px 10px 0;
+}
+.right {
+  float:right;
+  margin:0 0 10px 10px;
+}
+.clearfix:before, .clearfix:after {
+	content: ".";    
+	display: block;    
+	height: 0;    
+	overflow: hidden;	
+}
+.clearfix:after {clear: both;}
+.clearfix {zoom: 1;} /* IE < 8 */
+
+.flash {
+  margin-bottom:24px;
+  background:#fafafa;
+  border:1px solid #eee;
+  padding:10px;
+}
+.success {
+  @extend .flash;
+  background:#90ee90;
+  border-color:#008000;
+}
+.error {
+  @extend .flash;
+  background:#ffc0cb;
+  border-color:#ff0000;
+}
+.books_list {
+  margin-left:-10px;
+  margin-right:-10px;
+  list-style:none;
+  overflow:hidden;
+  li {
+    display:inline-block;
+    vertical-align:middle;
+    margin:0 10px 24px;
+  }
+  a {
+    display:block;
+    text-decoration:none;
+  }
+  img {
+    width:148px;
+  }
+}
+.cover {
+  display:block;
+  max-width:148px;
+  min-height:180px;
+  padding:10px;
+  margin:0 auto;
+  color:$gray;
+  background-color:$lighter_gray;
+  text-align:center;
+  font-weight:italic;
+}
+
+/*
+  Page-Specific Styles
+*/
+.books .main {
+  @extend .twelve;
+}
+.book .sidebar {
+  span, a {
+    display:block;
+    text-align:center;
+  }
+  .book_title {
+    margin-top:24px;
+  }
+  .book_author {
+    font-size:14px;
+    font-variant:small-caps;
+    letter-spacing:1px;
+  }
+  .book_publisher, a {
+    font-size:14px;
+  }
+}
+
+/*
+  Footnotes
+*/
+#footnotes {
+  border-top:1px solid #ccc;
+  padding-top:23px;
+  margin-top:48px;
+  h2 {
+    font-size:16px;
+    font-weight:bold;
+    letter-spacing:2px;
+    text-transform:uppercase;
+  }
+}
+a[rel=footnote] {vertical-align:super;line-height:.5;}
+#footnotediv {
+	padding:10px;
+	background-color:#fff;
+	background-color:#EFECE0;
+	-moz-box-shadow:0 4px 8px #666;
+	-webkit-box-shadow:0 4px 8px #666;
+	box-shadow:0 4px 8px #666;
+	behavior: url(/js/PIE.htc);
+}
+
+@import "media_queries";

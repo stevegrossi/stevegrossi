@@ -6,6 +6,7 @@ class BooksController < ApplicationController
   # GET /books.xml
   def index
     @books = Book.all
+    @body_class = 'books'
 
     respond_to do |format|
       format.html # index.html.erb
@@ -17,6 +18,7 @@ class BooksController < ApplicationController
   # GET /books/1.xml
   def show
     @book = Book.find(params[:id])
+    @body_class = 'book'
 
     respond_to do |format|
       format.html # show.html.erb

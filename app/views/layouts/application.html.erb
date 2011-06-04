@@ -34,23 +34,23 @@
     <header class="siteheader">
     	<nav>
     		<ul>
-    	    <li><a id="logo" href="<%= root_path %>" title="Home">Steve Grossi</a></li>
+    	    <li><%= link_to 'Steve Grossi', root_path, :title => 'Home' %></li>
     	    <li><a href="/made" title="My Portfolio">makes</a></li>
-    	    <li><a href="/wrote" title="Articles">writes</a></li>
-    		  <li><a href="/read" title="Thoughts on Books">reads</a></li>
-          <li><a href="/is">is</a></li>
+    	    <li><%= link_to 'writes', writings_path, :title => 'Writings' %></li>
+    		  <li><%= link_to 'reads', books_path, :title => 'Thoughts on books' %></li>
+          <li><%= link_to 'is', about_path, :title => 'About Steve' %></li>
         </ul>
       </nav>
     </header>
-    <div class="row clearfix">
-      
+    
     <% flash.each do |key, value| %>
-      <%= content_tag(:div, raw(value), :class => "flash #{key}") %>
+      <%= content_tag(:div, raw(value), :class => "#{key}") %>
     <% end %>
+    
+    <article>
+      <%= yield %>
+    </article>
 
-    <%= yield %>
-
-    </div>
     <footer class="sitefooter">
     		<span class="copy">&copy; 2011</span>
     		<span id="contact">
@@ -59,7 +59,7 @@
     </footer>
   </div>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.5.1.min.js">\x3C/script>')</script>
+  <script>window.jQuery || document.write('<script src="/javascripts/jquery.min.js">\x3C/script>')</script>
   <%= javascript_include_tag 'footnotes.js' %>
   <%= javascript_include_tag 'rails', 'application' %>
 </body>
