@@ -5,7 +5,7 @@
 </div>
 
 <footer class="sidebar">
-  <img src='http://images.amazon.com/images/P/<%= @book.asin %>.01.LZZZZZZZ.jpg' class='cover' alt='<%= @book.title %>'>
+  <%= get_cover(@book) %>
   <span class="book_title"><%= @book.title %></span>
   <span class="book_author"><%= @book.author %></span>
   <span class="book_publisher"><%= @book.publisher %>, <%= @book.pub_year %></span>

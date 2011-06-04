@@ -20,6 +20,8 @@
 .eleven {width: 860px;}	
 .twelve {width: 940px;}
 
+.pull {width:300px;margin-right:-320px;float:right;}
+
 /*
   Tablet portrait, 768px
 */
@@ -43,6 +45,8 @@
 .eleven {width: 692px;}	
 .twelve {width: 756px;}
 
+.pull {width:244px;margin-right:-256px;}
+
 }
 
 /*
@@ -54,6 +58,8 @@
 	.one, .two, .three, .four, .five, .six,
 	.seven, .eight, .nine, .ten, .eleven, .twelve {width: 420px;}
 	
+	.pull {width:100%;margin-right:0;}
+	
 	.siteheader {
 	  li {
 	    text-align:center;
@@ -65,6 +71,7 @@
 	    }
     }
 	}
+	.home h1 {font-size:28px;line-height:36px;}
 }	
 	
 /*
@@ -76,6 +83,8 @@
 	.one, .two, .three, .four, .five, .six, 
 	.seven, .eight, .nine, .ten, .eleven, .twelve {width: 300px;}
 	
+	.pull {width:100%;margin-right:0;}
+	
 	.siteheader {
 	  li {
 	    text-align:center;
@@ -87,5 +96,6 @@
 	    }
     }
 	}
+	.home h1 {font-size:28px;line-height:36px;}
 		
 }

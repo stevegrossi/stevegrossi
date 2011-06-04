@@ -1,2 +1,21 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div role="main" class="main">
+  <h1>Hey, I'm Steve and I build things on the internet for people. I'm interested in just what the hell is going on, among other things. This, like me, is a work-in-progress.</h1>
+  
+  <article id="latest_work">
+    <h2>I just made</h2>
+    <p>A website will go here.</p>
+  </article>
+  
+  <article id="latest_writing">
+    <h2>I just wrote</h2>
+    <%= link_to @latest_writing.title, @latest_writing %>
+    <p><%= @latest_writing.summary %></p>
+  </article>
+  
+  <article id="latest_book">
+    <h2>I just read</h2>
+    <%= get_cover(@latest_book) %>
+    <%= link_to @latest_book.title, @latest_book %>
+  </article>
+  
+</div>

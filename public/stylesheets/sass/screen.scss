@@ -62,11 +62,20 @@ dt {
 }
 figure img {
   max-width:100%;
+  display:block;
+  margin:0 auto 12px;
 }
 figcaption {
   color:#dark_gray;
   line-height:16px;
   font-size:13px;
+}
+hr {
+  background-color: $light_gray;
+  border: 0;
+  height:1px;
+  margin:23px 0 24px;
+  clear:both;
 }
 pre, code, kbd, samp {font-family:$mono_stack;}
 
@@ -95,7 +104,7 @@ pre, code, kbd, samp {font-family:$mono_stack;}
 }
 .siteheader {
   ul {
-    border-bottom:1px dotted #ccc;
+    border-bottom:1px dotted $light_gray;
     font-size:24px;
     overflow:hidden;
   }
@@ -129,7 +138,7 @@ pre, code, kbd, samp {font-family:$mono_stack;}
 }
 .sitefooter {
   color:$gray;
-  border-top:1px dotted #ccc;
+  border-top:1px dotted $light_gray;
   padding:10px;
   clear:both;
   #contact {
@@ -147,6 +156,10 @@ pre, code, kbd, samp {font-family:$mono_stack;}
 .right {
   float:right;
   margin:0 0 10px 10px;
+}
+.main .pull {
+  @extend .four;
+  float:right;
 }
 .clearfix:before, .clearfix:after {
 	content: ".";    
@@ -206,6 +219,44 @@ pre, code, kbd, samp {font-family:$mono_stack;}
 /*
   Page-Specific Styles
 */
+.home {
+  .main {
+    @extend .twelve;
+    article {
+      @extend .column;
+      @extend .four;
+      font-size:18px;
+      a {
+        font-size:24px;
+        line-height:32px;
+      }
+    }
+  }
+  #latest_work {
+    @extend .alpha;
+  }
+  #latest_book {
+    @extend .omega;
+  }
+  h1 {
+    font-size:36px;
+  }
+  h2 {
+    color:$gray;
+    text-transform:uppercase;
+    font-size:16px;
+    letter-spacing:2px;
+    padding:6px 0;
+    border-top:1px dotted $light_gray;
+    border-bottom:1px dotted $light_gray;
+  }
+  .cover {
+    @extend .column;
+    @extend .two;
+    float:right !important;
+    margin-bottom:24px;
+  }
+}
 .books .main {
   @extend .twelve;
 }
@@ -231,7 +282,7 @@ pre, code, kbd, samp {font-family:$mono_stack;}
   Footnotes
 */
 #footnotes {
-  border-top:1px solid #ccc;
+  border-top:1px solid $light_gray;
   padding-top:23px;
   margin-top:48px;
   h2 {
@@ -241,7 +292,16 @@ pre, code, kbd, samp {font-family:$mono_stack;}
     text-transform:uppercase;
   }
 }
-a[rel=footnote] {vertical-align:super;line-height:.5;}
+a[rel=footnote] {
+  vertical-align:super;
+  line-height:.5;
+  &:before {
+    content:"[";
+  }
+  &:after {
+    content:"]";
+  }
+}
 #footnotediv {
 	padding:10px;
 	background-color:#fff;

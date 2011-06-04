@@ -3,7 +3,7 @@
   <ol class="books_list">
     <% @books.each do |book| %>
     <li>
-      <%= link_to( image_tag("http://images.amazon.com/images/P/#{ book.asin }.01.LZZZZZZZ.jpg", :alt => book.title, :class => 'cover'), book ) %>
+      <%= link_to( get_cover(book), book ) %>
     </li>
     <% end %>
   </ol>
