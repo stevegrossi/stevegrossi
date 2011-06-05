@@ -215,11 +215,10 @@ pre, code, kbd, samp {
 /*
   Page-Specific Styles
 */
-.home .main article {
-  font-size: 18px; }
-  .home .main article a {
-    font-size: 24px;
-    line-height: 32px; }
+.home .main article a {
+  font-size: 21px;
+  display: block;
+  margin-bottom: 12px; }
 .home h1 {
   font-size: 36px; }
 .home h2 {
@@ -341,7 +340,7 @@ a[rel=footnote] {
 /*
   Tablet portrait, 768px
 */
-@media only screen and (min-width: 768px) and (max-width: 980px) {
+@media only screen and (min-width:768px) and (max-width:980px) {
   .container, #wrapper {
     width: 768px; }
 
@@ -399,7 +398,7 @@ a[rel=footnote] {
 /*
   Handheld landscape
 */
-@media only screen and (min-width: 480px) and (max-width: 767px) {
+@media only screen and (min-width:480px) and (max-width:767px) {
   .container, #wrapper {
     width: 420px; }
 
@@ -428,7 +427,7 @@ a[rel=footnote] {
 /*
   Handheld portrait
 */
-@media only screen and (max-width: 479px) {
+@media only screen and (max-width:479px) {
   .container, #wrapper {
     width: 300px; }
 

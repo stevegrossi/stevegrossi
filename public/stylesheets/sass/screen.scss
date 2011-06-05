@@ -225,10 +225,10 @@ pre, code, kbd, samp {font-family:$mono_stack;}
     article {
       @extend .column;
       @extend .four;
-      font-size:18px;
       a {
-        font-size:24px;
-        line-height:32px;
+        font-size:21px;
+        display:block;
+        margin-bottom:12px;
       }
     }
   }
