@@ -1,0 +1,29 @@
+<h1>Listing works</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>About</th>
+    <th>Url</th>
+    <th>Client</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @works.each do |work| %>
+  <tr>
+    <td><%= work.title %></td>
+    <td><%= work.about %></td>
+    <td><%= work.url %></td>
+    <td><%= work.client %></td>
+    <td><%= link_to 'Show', work %></td>
+    <td><%= link_to 'Edit', edit_work_path(work) %></td>
+    <td><%= link_to 'Destroy', work, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Work', new_work_path %>
