@@ -34,7 +34,8 @@ a:link {
 a:visited {
   color: #228398; }
 a:hover, a:active {
-  color: #55b6cb; }
+  color: #55b6cb;
+  text-decoration: none; }
 
 h1, h2, h3, h4, h5, p, ul, ol, dl, dd, figure {
   margin-bottom: 24px;
@@ -145,6 +146,8 @@ pre, code, kbd, samp {
   clear: both; }
   .sitefooter #contact {
     float: right; }
+    .sitefooter #contact a {
+      color: #999999; }
 
 /*
 	Helper Classes

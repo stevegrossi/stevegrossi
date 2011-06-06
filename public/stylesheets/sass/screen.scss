@@ -35,6 +35,7 @@ a {
   }
   &:hover, &:active {
     color: mix(#fff, $primary, 20%);
+    text-decoration:none;
   }
 }
 h1, h2, h3, h4, h5, p, ul, ol, dl, dd, figure {margin-bottom:24px;font-weight:normal;}
@@ -151,6 +152,9 @@ pre, code, kbd, samp {font-family:$mono_stack;}
   clear:both;
   #contact {
     float:right;
+    a {
+      color:$gray;
+    }
   }
 }
   
