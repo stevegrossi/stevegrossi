@@ -278,6 +278,21 @@ pre, code, kbd, samp {font-family:$mono_stack;}
   }
 }
 
+.work, .works {
+  .info {
+    @extend .column;
+    @extend .four;
+  }
+  figure {
+    @extend .column;
+    @extend .eight;
+  }
+}
+.works h1 {
+  @extend .column;
+  @extend .twelve;
+}
+
 /*
   Footnotes
 */

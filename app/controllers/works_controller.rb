@@ -2,6 +2,7 @@ class WorksController < ApplicationController
   # GET /works
   # GET /works.xml
   def index
+    @body_class = 'works'
     @works = Work.all
 
     respond_to do |format|
@@ -13,6 +14,7 @@ class WorksController < ApplicationController
   # GET /works/1
   # GET /works/1.xml
   def show
+    @body_class = 'work'
     @work = Work.find(params[:id])
 
     respond_to do |format|
