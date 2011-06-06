@@ -1,8 +1,8 @@
+<figure>
+  <%= image_tag "work/#{@work.image_filename}" %>
+</figure>
 <div class="info">
   <h1><%= @work.title %></h1>
   <%= markdown( @work.about ) %>
   <%= link_to 'Visit Site', @work.url %>
 </div>
-<figure>
-  <%= image_tag "work/#{@work.image_filename}" %>
-</figure>

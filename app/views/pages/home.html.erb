@@ -3,7 +3,7 @@
   
   <article id="latest_work">
     <h2>I just made</h2>
-    <p>A website will go here.</p>
+    <figure><%= link_to image_tag('work/'+@latest_work.image_filename, :alt => @latest_work.title), works_path %></figure>
   </article>
   
   <article id="latest_writing">

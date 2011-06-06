@@ -1,11 +1,11 @@
 <h1>I make websites.</h1>
 <% @works.each do |work| %>
+<figure>
+  <%= image_tag "work/#{ work.image_filename }" %>
+</figure>
   <div class="info">
     <h2><%= work.title %></h2>
     <%= markdown( work.about ) %>
     <%= link_to 'Visit Site', work.url %>
   </div>
-  <figure>
-    <%= image_tag "work/#{ work.image_filename }" %>
-  </figure>
 <% end %>
