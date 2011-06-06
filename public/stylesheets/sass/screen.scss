@@ -254,7 +254,7 @@ pre, code, kbd, samp {font-family:$mono_stack;}
     @extend .column;
     @extend .two;
     float:right !important;
-    margin-bottom:24px;
+    margin-bottom:24px !important;
   }
 }
 .books .main {

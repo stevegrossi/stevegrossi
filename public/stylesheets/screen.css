@@ -231,7 +231,7 @@ pre, code, kbd, samp {
   border-bottom: 1px dotted #cccccc; }
 .home .cover {
   float: right !important;
-  margin-bottom: 24px; }
+  margin-bottom: 24px !important; }
 
 .book .sidebar span, .book .sidebar a {
   display: block;
