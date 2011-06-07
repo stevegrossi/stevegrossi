@@ -14,7 +14,7 @@
   
   <article id="latest_book">
     <h2>I just read</h2>
-    <%= get_cover(@latest_book) %>
+    <%= link_to get_cover(@latest_book), @latest_book %>
     <%= link_to @latest_book.title, @latest_book %>
     <%= @latest_book.author %>
   </article>

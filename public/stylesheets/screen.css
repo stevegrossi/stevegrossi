@@ -30,12 +30,13 @@ body {
   font: 16px/24px Georgia, serif; }
 
 a:link {
-  color: #2ba4bf; }
+  color: #2ba4bf;
+  text-decoration: none; }
 a:visited {
   color: #228398; }
 a:hover, a:active {
   color: #55b6cb;
-  text-decoration: none; }
+  text-decoration: underline; }
 
 h1, h2, h3, h4, h5, p, ul, ol, dl, dd, figure {
   margin-bottom: 24px;
@@ -243,7 +244,8 @@ pre, code, kbd, samp {
   letter-spacing: 2px;
   padding: 6px 0;
   border-top: 1px dotted #cccccc;
-  border-bottom: 1px dotted #cccccc; }
+  border-bottom: 1px dotted #cccccc;
+  margin-bottom: 10px; }
 .home .cover {
   float: right !important;
   margin-bottom: 24px !important; }

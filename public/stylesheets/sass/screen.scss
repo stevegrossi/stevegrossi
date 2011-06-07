@@ -29,13 +29,14 @@ body {
 a {
   &:link {
     color:$primary;
+    text-decoration:none;
   }
   &:visited {
     color:mix(#000, $primary, 20%);
   }
   &:hover, &:active {
     color: mix(#fff, $primary, 20%);
-    text-decoration:none;
+    text-decoration:underline;
   }
 }
 h1, h2, h3, h4, h5, p, ul, ol, dl, dd, figure {margin-bottom:24px;font-weight:normal;}
@@ -273,6 +274,7 @@ pre, code, kbd, samp {font-family:$mono_stack;}
     padding:6px 0;
     border-top:1px dotted $light_gray;
     border-bottom:1px dotted $light_gray;
+    margin-bottom:10px;
   }
   .cover {
     @extend .column;
