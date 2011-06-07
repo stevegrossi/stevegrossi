@@ -25,28 +25,27 @@
 /*
   Tablet portrait, 768px
 */
-@media only screen and (min-width:768px) and (max-width:980px) {
-  
-.container {width:768px;}
-.column  {margin-left:6px; margin-right:6px; }
-.alpha {margin-left:0; margin-right:6px;}
-.omega {margin-right:0; margin-left:6px;}
+@media only screen and (min-width:768px) and (max-width:980px) {  
+  .container {width:768px;}
+  .column  {margin-left:6px; margin-right:6px; }
+  .alpha {margin-left:0; margin-right:6px;}
+  .omega {margin-right:0; margin-left:6px;}
 
-.one {width:52px; }
-.two {width:116px; }
-.three {width:180px;}
-.four {width:244px;}
-.five {width:308px;}
-.six {width:372px;}
-.seven {width:436px;}	
-.eight {width:500px;}
-.nine {width:564px;}
-.ten {width:628px;}	
-.eleven {width:692px;}	
-.twelve {width:756px;}
+  .one {width:52px; }
+  .two {width:116px; }
+  .three {width:180px;}
+  .four {width:244px;}
+  .five {width:308px;}
+  .six {width:372px;}
+  .seven {width:436px;}	
+  .eight {width:500px;}
+  .nine {width:564px;}
+  .ten {width:628px;}	
+  .eleven {width:692px;}	
+  .twelve {width:756px;}
 
-.pull {width:244px;margin-right:-256px;}
-
+  .pull {width:244px;margin-right:-256px;}
+  .books .main ol img {width: 132px;}
 }
 
 /*
@@ -72,6 +71,7 @@
     }
 	}
 	.home h1 {font-size:28px;line-height:36px;}
+	.books .main ol img {width: 124px;}
 }	
 	
 /*
@@ -97,5 +97,5 @@
     }
 	}
 	.home h1 {font-size:28px;line-height:36px;}
-		
+
 }

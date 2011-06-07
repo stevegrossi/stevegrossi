@@ -199,34 +199,16 @@ pre, code, kbd, samp {font-family:$mono_stack;}
   background:#ffc0cb;
   border-color:#ff0000;
 }
-.books_list {
-  margin-left:-10px;
-  margin-right:-10px;
-  list-style:none;
-  overflow:hidden;
-  li {
-    display:inline-block;
-    vertical-align:middle;
-    margin:0 10px 24px;
-  }
-  a {
-    display:block;
-    text-decoration:none;
-  }
-  img {
-    width:148px;
-  }
-}
 .cover {
   display:block;
   max-width:148px;
   min-height:180px;
-  padding:10px;
   margin:0 auto;
   color:$gray;
   background-color:$lighter_gray;
   text-align:center;
   font-weight:italic;
+  @include shadow;
 }
 
 /*
@@ -285,6 +267,24 @@ pre, code, kbd, samp {font-family:$mono_stack;}
 }
 .books .main {
   @extend .twelve;
+  ol {
+    margin-left:-10px;
+    margin-right:-10px;
+    list-style:none;
+    overflow:hidden;
+    li {
+      display:inline-block;
+      vertical-align:middle;
+      margin:0 10px 24px;
+    }
+    a {
+      display:block;
+      text-decoration:none;
+    }
+    img {
+      width:136px;
+    }
+  }
 }
 .book .sidebar {
   span, a {
