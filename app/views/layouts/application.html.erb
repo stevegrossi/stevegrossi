@@ -44,7 +44,7 @@
     </header>
     
     <% flash.each do |key, value| %>
-      <%= content_tag(:div, raw(value), :class => "#{key}") %>
+      <%= content_tag(:div, raw(value), :class => key) %>
     <% end %>
     
     <article>
@@ -52,10 +52,10 @@
     </article>
 
     <footer class="sitefooter">
-    		<span class="copy">&copy; 2011</span>
-    		<span id="contact">
-    			<noscript>say hello: me at stevegrossi dot com</noscript>
-    		</span>
+  		<span class="copy">&copy; 2011</span>
+  		<span id="contact">
+  			<noscript>say hello: me at stevegrossi dot com</noscript>
+  		</span>
     </footer>
   </div>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>

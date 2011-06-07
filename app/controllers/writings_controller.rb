@@ -5,7 +5,8 @@ class WritingsController < ApplicationController
   # GET /writings
   # GET /writings.xml
   def index
-    @writings = Writing.all
+    @body_class = 'writings'
+    @writings = Writing.order('created_at DESC')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -16,6 +17,7 @@ class WritingsController < ApplicationController
   # GET /writings/1
   # GET /writings/1.xml
   def show
+    @body_class = 'writing'
     @writing = Writing.find(params[:id])
 
     respond_to do |format|

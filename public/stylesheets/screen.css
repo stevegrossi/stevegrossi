@@ -270,6 +270,20 @@ pre, code, kbd, samp {
   -o-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); }
 
+.writings article .written {
+  text-align: right;
+  color: #cccccc; }
+.writings article ol {
+  list-style: none;
+  clear: both;
+  overflow: hidden; }
+  .writings article ol a {
+    display: block;
+    font-size: 24px; }
+.writings article li {
+  overflow: hidden;
+  margin-bottom: 24px; }
+
 /*
   Footnotes
 */
@@ -309,7 +323,7 @@ a[rel=footnote] {
   margin: 0 auto;
   padding: 0; }
 
-.column, .siteheader li, .main, .sidebar, .home .main article, .home .cover, .work .info, .works .info, .work figure, .works figure, .works h1 {
+.column, .siteheader li, .main, .sidebar, .home .main article, .home .cover, .work .info, .works .info, .work figure, .works figure, .works h1, .writings article h1, .writings article .written, .writings article article {
   float: left;
   display: inline;
   margin-left: 10px;
@@ -330,7 +344,7 @@ a[rel=footnote] {
 .three {
   width: 220px; }
 
-.four, .siteheader li:first-child, .sidebar, .main .pull, .home .main article, .work .info, .works .info {
+.four, .siteheader li:first-child, .sidebar, .main .pull, .home .main article, .work .info, .works .info, .writings article .written {
   width: 300px; }
 
 .five {
@@ -342,7 +356,7 @@ a[rel=footnote] {
 .seven {
   width: 540px; }
 
-.eight, .main, .work figure, .works figure {
+.eight, .main, .work figure, .works figure, .writings article article {
   width: 620px; }
 
 .nine {
@@ -354,7 +368,7 @@ a[rel=footnote] {
 .eleven {
   width: 860px; }
 
-.twelve, .home .main, .books .main, .works h1 {
+.twelve, .home .main, .books .main, .works h1, .writings article h1 {
   width: 940px; }
 
 .pull {
@@ -369,7 +383,7 @@ a[rel=footnote] {
   .container, #wrapper {
     width: 768px; }
 
-  .column, .siteheader li, .main, .sidebar, .home .main article, .home .cover, .work .info, .works .info, .work figure, .works figure, .works h1 {
+  .column, .siteheader li, .main, .sidebar, .home .main article, .home .cover, .work .info, .works .info, .work figure, .works figure, .works h1, .writings article h1, .writings article .written, .writings article article {
     margin-left: 6px;
     margin-right: 6px; }
 
@@ -390,7 +404,7 @@ a[rel=footnote] {
   .three {
     width: 180px; }
 
-  .four, .siteheader li:first-child, .sidebar, .main .pull, .home .main article, .work .info, .works .info {
+  .four, .siteheader li:first-child, .sidebar, .main .pull, .home .main article, .work .info, .works .info, .writings article .written {
     width: 244px; }
 
   .five {
@@ -402,7 +416,7 @@ a[rel=footnote] {
   .seven {
     width: 436px; }
 
-  .eight, .main, .work figure, .works figure {
+  .eight, .main, .work figure, .works figure, .writings article article {
     width: 500px; }
 
   .nine {
@@ -414,7 +428,7 @@ a[rel=footnote] {
   .eleven {
     width: 692px; }
 
-  .twelve, .home .main, .books .main, .works h1 {
+  .twelve, .home .main, .books .main, .works h1, .writings article h1 {
     width: 756px; }
 
   .pull {
@@ -427,11 +441,11 @@ a[rel=footnote] {
   .container, #wrapper {
     width: 420px; }
 
-  .column, .siteheader li, .main, .sidebar, .home .main article, .home .cover, .work .info, .works .info, .work figure, .works figure, .works h1 {
+  .column, .siteheader li, .main, .sidebar, .home .main article, .home .cover, .work .info, .works .info, .work figure, .works figure, .works h1, .writings article h1, .writings article .written, .writings article article {
     margin: 0; }
 
-  .one, .two, .siteheader li, .home .cover, .three, .four, .siteheader li:first-child, .sidebar, .main .pull, .home .main article, .work .info, .works .info, .five, .six,
-  .seven, .eight, .main, .work figure, .works figure, .nine, .ten, .eleven, .twelve, .home .main, .books .main, .works h1 {
+  .one, .two, .siteheader li, .home .cover, .three, .four, .siteheader li:first-child, .sidebar, .main .pull, .home .main article, .work .info, .works .info, .writings article .written, .five, .six,
+  .seven, .eight, .main, .work figure, .works figure, .writings article article, .nine, .ten, .eleven, .twelve, .home .main, .books .main, .works h1, .writings article h1 {
     width: 420px; }
 
   .pull {
@@ -456,11 +470,11 @@ a[rel=footnote] {
   .container, #wrapper {
     width: 300px; }
 
-  .column, .siteheader li, .main, .sidebar, .home .main article, .home .cover, .work .info, .works .info, .work figure, .works figure, .works h1 {
+  .column, .siteheader li, .main, .sidebar, .home .main article, .home .cover, .work .info, .works .info, .work figure, .works figure, .works h1, .writings article h1, .writings article .written, .writings article article {
     margin: 0; }
 
-  .one, .two, .siteheader li, .home .cover, .three, .four, .siteheader li:first-child, .sidebar, .main .pull, .home .main article, .work .info, .works .info, .five, .six,
-  .seven, .eight, .main, .work figure, .works figure, .nine, .ten, .eleven, .twelve, .home .main, .books .main, .works h1 {
+  .one, .two, .siteheader li, .home .cover, .three, .four, .siteheader li:first-child, .sidebar, .main .pull, .home .main article, .work .info, .works .info, .writings article .written, .five, .six,
+  .seven, .eight, .main, .work figure, .works figure, .writings article article, .nine, .ten, .eleven, .twelve, .home .main, .books .main, .works h1, .writings article h1 {
     width: 300px; }
 
   .pull {

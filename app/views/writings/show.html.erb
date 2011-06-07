@@ -1,7 +1,6 @@
-<h1><%= @writing.title %></h1>
-<p class="meta"><%= @writing.created_at.strftime('%b %d, %Y') %></p>
+<div class="main">
+  <h1><%= @writing.title %></h1>
+  <p class="meta"><%= @writing.created_at.strftime('%b %d, %Y') %></p>
 
-<%= markdown(@writing.content) %>
-
-<%= link_to 'Edit', edit_writing_path(@writing) if current_user %>
-<%= link_to 'Back', writings_path %>
+  <%= markdown(@writing.content) %>
+</div>

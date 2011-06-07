@@ -2,8 +2,11 @@
 <ol>
 <% @writings.each do |writing| %>
   <li>
-    <%= link_to writing.title, writing %>
-    <%= writing.summary %>
+    <span class="written"><%= writing.created_at.strftime('%b %d, %Y') %></span>
+    <article>
+      <%= link_to writing.title, writing %>
+      <%= writing.summary %>
+    </article>
   </li>
 <% end %>
 </ol>

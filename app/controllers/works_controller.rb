@@ -3,7 +3,7 @@ class WorksController < ApplicationController
   # GET /works.xml
   def index
     @body_class = 'works'
-    @works = Work.all
+    @works = Work.order('created_at DESC')
 
     respond_to do |format|
       format.html # index.html.erb

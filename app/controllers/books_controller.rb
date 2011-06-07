@@ -5,7 +5,7 @@ class BooksController < ApplicationController
   # GET /books
   # GET /books.xml
   def index
-    @books = Book.all
+    @books = Book.order('created_at DESC')
     @body_class = 'books'
 
     respond_to do |format|

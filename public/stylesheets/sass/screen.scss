@@ -303,7 +303,6 @@ pre, code, kbd, samp {font-family:$mono_stack;}
     font-size:14px;
   }
 }
-
 .work, .works {
   .info {
     @extend .column;
@@ -321,6 +320,35 @@ pre, code, kbd, samp {font-family:$mono_stack;}
 .works h1 {
   @extend .column;
   @extend .twelve;
+}
+.writings article {
+  h1 {
+    @extend .column;
+    @extend .twelve;
+  }
+  .written {
+    @extend .column;
+    @extend .four;
+    text-align:right;
+    color:$light_gray;
+  }
+  ol {
+    list-style:none;
+    clear:both;
+    overflow:hidden;
+    a {
+      display:block;
+      font-size:24px;
+    }
+  }
+  li {
+    overflow:hidden;
+    margin-bottom:24px;
+  }
+  article {
+    @extend .column;
+    @extend .eight;
+  }
 }
 
 /*
