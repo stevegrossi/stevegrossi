@@ -8,6 +8,6 @@ $(function() {
 	two = 'stevegrossi';
 	three = 'com';
 	four = 'mail';
-	$('#contact').html('<a href="'+four+'">' + one+'@'+two+'.'+three+'</a>');
+	$('#contact').html('<a href="'+four+'to:'+one+'@'+two+'.'+three+'">' + one+'@'+two+'.'+three+'</a>');
 	
 });

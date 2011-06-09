@@ -53,7 +53,7 @@
 */
 @media only screen and (min-width:480px) and (max-width:767px) {
   .container {width:420px;}
-  .column {margin:0;}
+  .column {margin-left:0;margin-right:0;}
 	.one, .two, .three, .four, .five, .six,
 	.seven, .eight, .nine, .ten, .eleven, .twelve {width:420px;}
 	
@@ -72,6 +72,7 @@
 	}
 	.home h1 {font-size:28px;line-height:36px;}
 	.books .main ol img {width: 124px;}
+	.writings article .written {text-align:left;}
 }	
 	
 /*
@@ -79,7 +80,7 @@
 */
 @media only screen and (max-width:479px) {
 	.container {width:300px;}
-  .column {margin:0;}
+  .column {margin-left:0;margin-right:0;}
 	.one, .two, .three, .four, .five, .six, 
 	.seven, .eight, .nine, .ten, .eleven, .twelve {width:300px;}
 	
@@ -97,5 +98,5 @@
     }
 	}
 	.home h1 {font-size:28px;line-height:36px;}
-
+	.writings article .written {text-align:left;}
 }

@@ -195,7 +195,9 @@ pre, code, kbd, samp {
   display: block;
   max-width: 148px;
   min-height: 180px;
-  margin: 0 auto;
+  font-size: 16px;
+  margin-left: auto;
+  margin-right: auto;
   color: #999999;
   background-color: #eeeeee;
   text-align: center;
@@ -235,8 +237,8 @@ pre, code, kbd, samp {
   border-bottom: 1px dotted #cccccc;
   margin-bottom: 10px; }
 .home .cover {
-  float: right !important;
-  margin-bottom: 24px !important; }
+  margin-bottom: 24px;
+  float: right !important; }
 
 .books .main ol {
   margin-left: -10px;
@@ -448,7 +450,8 @@ a[rel=footnote] {
     width: 420px; }
 
   .column, .siteheader li, .main, .sidebar, .home .main article, .home .cover, .work .info, .works .info, .work figure, .works figure, .works h1, .writings article h1, .writings article .written, .writings article article {
-    margin: 0; }
+    margin-left: 0;
+    margin-right: 0; }
 
   .one, .two, .siteheader li, .home .cover, .three, .four, .siteheader li:first-child, .sidebar, .main .pull, .home .main article, .work .info, .works .info, .writings article .written, .five, .six,
   .seven, .eight, .main, .work figure, .works figure, .writings article article, .nine, .ten, .eleven, .twelve, .home .main, .books .main, .works h1, .writings article h1 {
@@ -471,7 +474,10 @@ a[rel=footnote] {
     line-height: 36px; }
 
   .books .main ol img {
-    width: 124px; } }
+    width: 124px; }
+
+  .writings article .written {
+    text-align: left; } }
 /*
   Handheld portrait
 */
@@ -480,7 +486,8 @@ a[rel=footnote] {
     width: 300px; }
 
   .column, .siteheader li, .main, .sidebar, .home .main article, .home .cover, .work .info, .works .info, .work figure, .works figure, .works h1, .writings article h1, .writings article .written, .writings article article {
-    margin: 0; }
+    margin-left: 0;
+    margin-right: 0; }
 
   .one, .two, .siteheader li, .home .cover, .three, .four, .siteheader li:first-child, .sidebar, .main .pull, .home .main article, .work .info, .works .info, .writings article .written, .five, .six,
   .seven, .eight, .main, .work figure, .works figure, .writings article article, .nine, .ten, .eleven, .twelve, .home .main, .books .main, .works h1, .writings article h1 {
@@ -500,4 +507,7 @@ a[rel=footnote] {
 
   .home h1 {
     font-size: 28px;
-    line-height: 36px; } }
+    line-height: 36px; }
+
+  .writings article .written {
+    text-align: left; } }

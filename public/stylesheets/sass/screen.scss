@@ -203,7 +203,9 @@ pre, code, kbd, samp {font-family:$mono_stack;}
   display:block;
   max-width:148px;
   min-height:180px;
-  margin:0 auto;
+  font-size:16px;
+  margin-left:auto;
+  margin-right:auto;
   color:$gray;
   background-color:$lighter_gray;
   text-align:center;
@@ -261,8 +263,8 @@ pre, code, kbd, samp {font-family:$mono_stack;}
   .cover {
     @extend .column;
     @extend .two;
+    margin-bottom:24px;
     float:right !important;
-    margin-bottom:24px !important;
   }
 }
 .books .main {
