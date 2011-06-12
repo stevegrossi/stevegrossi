@@ -10,6 +10,7 @@ Stevegrossi::Application.routes.draw do
   post 'log_in' => 'sessions#create' 
   get 'log_out' => 'sessions#destroy'
   match 'is' => 'pages#about', :as => 'about'
+  match 'colophon' => 'pages#colophon'
 
   root :to => "pages#home"
 
