@@ -1,5 +1,9 @@
 module ApplicationHelper
   
+  def title
+    @title ? @title + ' | Steve Grossi' : 'Steve Grossi makes websites often and sense sometimes.'
+  end
+  
   def markdown(text)
     md = RDiscount.new(text, :smart)
     raw md.to_html

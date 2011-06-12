@@ -8,9 +8,11 @@ class PagesController < ApplicationController
   end
 
   def about
+    @title = 'A Bit About Me'
   end
   
   def colophon
+    @title = "Credit Where It's Due"
   end
 
 end

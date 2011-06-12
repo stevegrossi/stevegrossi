@@ -5,6 +5,7 @@ class WritingsController < ApplicationController
   # GET /writings
   # GET /writings.xml
   def index
+    @title = "Some thoughts I've liked enough to write down"
     @body_class = 'writings'
     @writings = Writing.order('created_at DESC')
 
@@ -17,8 +18,9 @@ class WritingsController < ApplicationController
   # GET /writings/1
   # GET /writings/1.xml
   def show
-    @body_class = 'writing'
     @writing = Writing.find(params[:id])
+    @title = "I wrote #{@writing.title}"
+    @body_class = 'writing'
 
     respond_to do |format|
       format.html # show.html.erb
