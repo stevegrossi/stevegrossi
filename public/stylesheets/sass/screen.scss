@@ -151,11 +151,14 @@ pre, code, kbd, samp {font-family:$mono_stack;}
   border-top:1px dotted $light_gray;
   padding:10px;
   clear:both;
+  a {
+    color:$gray;
+    &:active, &:hover {
+      color:$dark_gray
+    }
+  }
   #contact {
     float:right;
-    a {
-      color:$gray;
-    }
   }
 }
   
