@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
-  
+
   before_filter :logged_in?, :except => [:index, :show]
-  
+
   # GET /books
   # GET /books.xml
   def index
@@ -20,7 +20,7 @@ class BooksController < ApplicationController
   def show
     @book = Book.find(params[:id])
     @body_class = 'book'
-    @title = "I read #{@book.title}"
+    @title = "#{@book.title}"
 
     respond_to do |format|
       format.html # show.html.erb

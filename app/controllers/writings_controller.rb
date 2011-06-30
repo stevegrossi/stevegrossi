@@ -1,7 +1,7 @@
 class WritingsController < ApplicationController
-  
+
   before_filter :logged_in?, :except => [:index, :show]
-  
+
   # GET /writings
   # GET /writings.xml
   def index
@@ -19,7 +19,7 @@ class WritingsController < ApplicationController
   # GET /writings/1.xml
   def show
     @writing = Writing.find(params[:id])
-    @title = "I wrote #{@writing.title}"
+    @title = "#{@writing.title}"
     @body_class = 'writing'
 
     respond_to do |format|
