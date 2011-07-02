@@ -7,7 +7,6 @@ class BooksController < ApplicationController
   def index
     @title = "Things I don't want to forget about the books I've read"
     @books = Book.order('created_at DESC')
-    @body_class = 'books'
 
     respond_to do |format|
       format.html # index.html.erb
@@ -19,7 +18,6 @@ class BooksController < ApplicationController
   # GET /books/1.xml
   def show
     @book = Book.find(params[:id])
-    @body_class = 'book'
     @title = "#{@book.title}"
 
     respond_to do |format|
@@ -51,7 +49,7 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       if @book.save
-        format.html { redirect_to(@book, :notice => 'Book was successfully created.') }
+        format.html { redirect_to(@book, :flash[:success] => 'Yay, you read another book!' ) }
         format.xml  { render :xml => @book, :status => :created, :location => @book }
       else
         format.html { render :action => "new" }
@@ -67,7 +65,7 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       if @book.update_attributes(params[:book])
-        format.html { redirect_to(@book, :notice => 'Book was successfully updated.') }
+        format.html { redirect_to(@book, :flash[:success] => 'Update successful.' ) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

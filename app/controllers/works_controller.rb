@@ -2,7 +2,6 @@ class WorksController < ApplicationController
   # GET /works
   # GET /works.xml
   def index
-    @body_class = 'works'
     @works = Work.order('created_at DESC')
 
     respond_to do |format|
@@ -14,7 +13,6 @@ class WorksController < ApplicationController
   # GET /works/1
   # GET /works/1.xml
   def show
-    @body_class = 'work'
     @work = Work.find(params[:id])
 
     respond_to do |format|
@@ -46,7 +44,7 @@ class WorksController < ApplicationController
 
     respond_to do |format|
       if @work.save
-        format.html { redirect_to(@work, :notice => 'Work was successfully created.') }
+        format.html { redirect_to(@work, :flash[:success] => 'Yay, you made another website!' ) }
         format.xml  { render :xml => @work, :status => :created, :location => @work }
       else
         format.html { render :action => "new" }
@@ -62,7 +60,7 @@ class WorksController < ApplicationController
 
     respond_to do |format|
       if @work.update_attributes(params[:work])
-        format.html { redirect_to(@work, :notice => 'Work was successfully updated.') }
+        format.html { redirect_to(@work, :flash[:success] => 'Yay, you wrote another thing!' ) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

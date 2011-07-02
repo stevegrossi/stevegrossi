@@ -2,7 +2,7 @@
 <ol>
 <% @writings.each do |writing| %>
   <li>
-    <span class="written"><%= writing.created_at.strftime('%b %d, %Y') %></span>
+    <span class="written"><%= writing.created_at.strftime('%B %e, %Y') %></span>
     <article>
       <%= link_to writing.title, writing %>
       <%= writing.summary %>

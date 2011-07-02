@@ -1,6 +1,6 @@
 <div class="main" role="main">
   <h1><%= @book.title %></h1>
-  <p class="meta"><%= @book.created_at.strftime('%B %d, %Y') %></p>
+  <p class="meta"><%= @book.created_at.strftime('%B %e, %Y') %></p>
   <%= markdown(@book.thoughts) %>
 </div>
 

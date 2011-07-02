@@ -19,7 +19,7 @@ $mono_stack: Monaco, monospace;
 article, aside, details, figcaption, figure,  footer, header, hgroup, menu, nav, section, summary {display:block;}
 
 /*
-	Base Styles
+  Base Styles
 */
 html { overflow-y: scroll; }
 body {
@@ -53,7 +53,7 @@ ul {
 }
 sup, sub {
   position : relative;
-  font-size : 75%; 
+  font-size : 75%;
   line-height : 0;
 }
 sup {
@@ -133,7 +133,7 @@ pre, code, kbd, samp {font-family:$mono_stack;}
     color:#999;
     padding:24px 0;
     &:hover {
-      color:#666; 
+      color:#666;
     }
   }
 }
@@ -161,9 +161,9 @@ pre, code, kbd, samp {font-family:$mono_stack;}
     float:right;
   }
 }
-  
+
 /*
-	Helper Classes
+  Helper Classes
 */
 .left {
   float:left;
@@ -178,10 +178,10 @@ pre, code, kbd, samp {font-family:$mono_stack;}
   float:right;
 }
 .clearfix:before, .clearfix:after {
-	content: ".";    
-	display: block;    
-	height: 0;    
-	overflow: hidden;	
+  content: ".";
+  display: block;
+  height: 0;
+  overflow: hidden;
 }
 .clearfix:after {clear: both;}
 .clearfix {zoom: 1;} /* IE < 8 */
@@ -219,7 +219,7 @@ pre, code, kbd, samp {font-family:$mono_stack;}
 /*
   Page-Specific Styles
 */
-.home {
+.pages.home {
   .main {
     @extend .twelve;
     article {
@@ -241,7 +241,7 @@ pre, code, kbd, samp {font-family:$mono_stack;}
     }
     img {
       margin-top:12px;
-      
+
     }
   }
   #latest_writing a {
@@ -270,7 +270,7 @@ pre, code, kbd, samp {font-family:$mono_stack;}
     float:right !important;
   }
 }
-.books .main {
+.books.index .main {
   @extend .twelve;
   ol {
     margin-left:-10px;
@@ -291,7 +291,7 @@ pre, code, kbd, samp {font-family:$mono_stack;}
     }
   }
 }
-.book .sidebar {
+.books.show .sidebar {
   span, a {
     display:block;
     text-align:center;
@@ -308,7 +308,7 @@ pre, code, kbd, samp {font-family:$mono_stack;}
     font-size:14px;
   }
 }
-.work, .works {
+.works {
   .info {
     @extend .column;
     @extend .four;
@@ -322,11 +322,7 @@ pre, code, kbd, samp {font-family:$mono_stack;}
     }
   }
 }
-.works h1 {
-  @extend .column;
-  @extend .twelve;
-}
-.writings article {
+.writings.index article {
   h1 {
     @extend .column;
     @extend .twelve;
@@ -381,13 +377,13 @@ a[rel=footnote] {
   }
 }
 #footnotediv {
-	padding:10px;
-	background-color:#fff;
-	background-color:#EFECE0;
-	-moz-box-shadow:0 4px 8px #666;
-	-webkit-box-shadow:0 4px 8px #666;
-	box-shadow:0 4px 8px #666;
-	behavior: url(/js/PIE.htc);
+  padding:10px;
+  background-color:#fff;
+  background-color:#EFECE0;
+  -moz-box-shadow:0 4px 8px #666;
+  -webkit-box-shadow:0 4px 8px #666;
+  box-shadow:0 4px 8px #666;
+  behavior: url(/js/PIE.htc);
 }
 
 @import "media_queries";

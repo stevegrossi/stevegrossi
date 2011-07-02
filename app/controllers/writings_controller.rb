@@ -6,7 +6,6 @@ class WritingsController < ApplicationController
   # GET /writings.xml
   def index
     @title = "Some thoughts I've liked enough to write down"
-    @body_class = 'writings'
     @writings = Writing.order('created_at DESC')
 
     respond_to do |format|
@@ -20,7 +19,6 @@ class WritingsController < ApplicationController
   def show
     @writing = Writing.find(params[:id])
     @title = "#{@writing.title}"
-    @body_class = 'writing'
 
     respond_to do |format|
       format.html # show.html.erb
@@ -51,7 +49,7 @@ class WritingsController < ApplicationController
 
     respond_to do |format|
       if @writing.save
-        format.html { redirect_to(@writing, :notice => 'Writing was successfully created.') }
+        format.html { redirect_to(@writing, :flash[:success] => 'Yay, you wrote another thing!' ) }
         format.xml  { render :xml => @writing, :status => :created, :location => @writing }
       else
         format.html { render :action => "new" }
@@ -67,7 +65,7 @@ class WritingsController < ApplicationController
 
     respond_to do |format|
       if @writing.update_attributes(params[:writing])
-        format.html { redirect_to(@writing, :notice => 'Writing was successfully updated.') }
+        format.html { redirect_to(@writing, :flash[:success] => 'Yay, you wrote another thing!' ) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
