@@ -219,7 +219,7 @@ pre, code, kbd, samp {font-family:$mono_stack;}
 /*
   Page-Specific Styles
 */
-.pages.home {
+.home {
   .main {
     @extend .twelve;
     article {
@@ -309,6 +309,10 @@ pre, code, kbd, samp {font-family:$mono_stack;}
   }
 }
 .works {
+  h1 {
+    @extend .column;
+    @extend .twelve;
+  }
   .info {
     @extend .column;
     @extend .four;
