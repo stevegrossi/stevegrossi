@@ -39,7 +39,8 @@ a {
     text-decoration:underline;
   }
 }
-h1, h2, h3, h4, h5, p, ul, ol, dl, dd, figure {margin-bottom:24px;font-weight:normal;}
+h1, h2, h3, h4, h5, p, ul, ol, dl, dd, figure, hgroup {margin-bottom:24px;font-weight:normal;}
+hgroup h1, hgroup h2, hgroup h3, hgroup h4, hgroup h5 {margin-bottom:0;}
 h1 {font-size:42px;line-height:48px;}
 h2 {font-size:24px;line-height:36px;}
 h3 {font-size:21px;line-height:24px;}

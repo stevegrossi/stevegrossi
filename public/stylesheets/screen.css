@@ -38,9 +38,12 @@ a:hover, a:active {
   color: #55b6cb;
   text-decoration: underline; }
 
-h1, h2, h3, h4, h5, p, ul, ol, dl, dd, figure {
+h1, h2, h3, h4, h5, p, ul, ol, dl, dd, figure, hgroup {
   margin-bottom: 24px;
   font-weight: normal; }
+
+hgroup h1, hgroup h2, hgroup h3, hgroup h4, hgroup h5 {
+  margin-bottom: 0; }
 
 h1 {
   font-size: 42px;

@@ -11,6 +11,7 @@
 #  thoughts   :text
 #  created_at :datetime
 #  updated_at :datetime
+#  subtitle   :string(255)
 #
 
 class Book < ActiveRecord::Base
