@@ -11,35 +11,27 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :subtitle %><br />
-    <%= f.text_field :subtitle %>
-  </div>
-  <div class="field">
-    <%= f.label :author %><br />
-    <%= f.text_field :author %>
-  </div>
-  <div class="field">
-    <%= f.label :publisher %><br />
-    <%= f.text_field :publisher %>
-  </div>
-  <div class="field">
-    <%= f.label :pub_year %><br />
-    <%= f.text_field :pub_year %>
-  </div>
-  <div class="field">
-    <%= f.label :asin %><br />
-    <%= f.text_field :asin %>
-  </div>
-  <div class="field">
-    <%= f.label :thoughts %><br />
-    <%= f.text_area :thoughts %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :subtitle %>
+  <%= f.text_field :subtitle %>
+
+  <%= f.label :author %>
+  <%= f.text_field :author %>
+
+  <%= f.label :publisher %>
+  <%= f.text_field :publisher %>
+
+  <%= f.label :pub_year %>
+  <%= f.text_field :pub_year %>
+
+  <%= f.label :asin %>
+  <%= f.text_field :asin %>
+
+  <%= f.label :thoughts %>
+  <%= f.text_area :thoughts %>
+
+  <%= f.submit %>
+
 <% end %>

@@ -11,27 +11,21 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br />
+    <%= f.label :title %>
     <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :about %><br />
+
+    <%= f.label :about %>
     <%= f.text_area :about %>
-  </div>
-  <div class="field">
-    <%= f.label :url %><br />
+
+    <%= f.label :url %>
     <%= f.text_field :url %>
-  </div>
-  <div class="field">
-    <%= f.label :client %><br />
+
+    <%= f.label :client %>
     <%= f.text_field :client %>
-  </div>
-  <div class="field">
-    <%= f.label :image_filename %><br />
+
+    <%= f.label :image_filename %>
     <%= f.text_field :image_filename %>
-  </div>
-  <div class="actions">
+
     <%= f.submit %>
-  </div>
+
 <% end %>

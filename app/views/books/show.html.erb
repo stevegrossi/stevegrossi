@@ -3,7 +3,10 @@
     <h1><%= @book.title %></h1>
     <%= content_tag(:h2, @book.subtitle) if @book.subtitle %>
   </hgroup>
-  <p class="meta"><%= @book.created_at.strftime('%B %e, %Y') %></p>
+  <p class="meta">
+    <%= @book.created_at.strftime('%B %e, %Y') %>
+    <%= link_to 'Edit', edit_book_path(@book), :class => 'edit' if current_user %>
+  </p>
   <%= markdown(@book.thoughts) %>
 </div>
 
@@ -12,5 +15,5 @@
   <span class="book_title"><%= @book.title %></span>
   <span class="book_author"><%= @book.author %></span>
   <span class="book_publisher"><%= @book.publisher %>, <%= @book.pub_year %></span>
-  <%= link_to 'Purchase', 'http://www.amazon.com/gp/product/' + @book.asin + '?ie=UTF8&tag=stevgros-20' %>
+  <%= link_to 'Amazon', 'http://www.amazon.com/gp/product/' + @book.asin + '?ie=UTF8&tag=stevgros-20' %>
 </footer>

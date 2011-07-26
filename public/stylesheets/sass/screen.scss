@@ -356,6 +356,28 @@ pre, code, kbd, samp {font-family:$mono_stack;}
     @extend .eight;
   }
 }
+.new, .edit {
+  h1 {
+    @extend .column;
+    @extend .twelve;
+  }
+  label {
+    @extend .column;
+    @extend .two;
+    clear:left;
+  }
+  input, textarea {
+    @extend .column;
+    @extend .nine;
+    padding:4px;
+    margin-bottom:20px;
+  }
+  input[type='submit'] {
+    width:auto;
+    clear:both;
+    margin:20px auto;
+  }
+}
 
 /*
   Footnotes
