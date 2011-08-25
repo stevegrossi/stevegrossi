@@ -170,6 +170,7 @@ pre, code, kbd, samp {font-family:$mono_stack;}
 body.evening {
   background:#333;
   color:#ddd;
+  text-shadow:0 1px 1px rgba(0,0,0,.5);
   h1 {
     color:#fff;
   }
@@ -179,6 +180,7 @@ body.evening {
   #footnotediv {
     color:#333;
   }
+  .siteheader ul, .sitefooter, &.home h2 {border-color:#666;}
 }
 
 

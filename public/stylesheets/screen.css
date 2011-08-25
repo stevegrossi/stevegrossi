@@ -161,13 +161,16 @@ pre, code, kbd, samp {
 */
 body.evening {
   background: #333;
-  color: #ddd; }
+  color: #ddd;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5); }
   body.evening h1 {
     color: #fff; }
   body.evening blockquote {
     color: #bbb; }
   body.evening #footnotediv {
     color: #333; }
+  body.evening .siteheader ul, body.evening .sitefooter, body.evening.home h2 {
+    border-color: #666; }
 
 /*
   Helper Classes
