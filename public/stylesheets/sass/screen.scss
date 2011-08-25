@@ -23,6 +23,7 @@ article, aside, details, figcaption, figure,  footer, header, hgroup, menu, nav,
 */
 html { overflow-y: scroll; }
 body {
+  background:#fff;
   color:$darker_gray;
   font:16px/24px $serif_stack;
 }
@@ -162,6 +163,24 @@ pre, code, kbd, samp {font-family:$mono_stack;}
     float:right;
   }
 }
+
+/*
+  Evening Styles
+*/
+body.evening {
+  background:#333;
+  color:#ddd;
+  h1 {
+    color:#fff;
+  }
+  blockquote {
+    color:#bbb;
+  }
+  #footnotediv {
+    color:#333;
+  }
+}
+
 
 /*
   Helper Classes

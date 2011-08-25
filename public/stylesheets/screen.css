@@ -26,6 +26,7 @@ html {
   overflow-y: scroll; }
 
 body {
+  background: #fff;
   color: #333333;
   font: 16px/24px Georgia, serif; }
 
@@ -154,6 +155,19 @@ pre, code, kbd, samp {
       color: #666666; }
   .sitefooter #contact {
     float: right; }
+
+/*
+  Evening Styles
+*/
+body.evening {
+  background: #333;
+  color: #ddd; }
+  body.evening h1 {
+    color: #fff; }
+  body.evening blockquote {
+    color: #bbb; }
+  body.evening #footnotediv {
+    color: #333; }
 
 /*
   Helper Classes
