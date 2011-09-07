@@ -5,7 +5,9 @@
   </hgroup>
   <p class="meta">
     <%= @book.created_at.strftime('%B %e, %Y') %>
-    <%= link_to 'Edit', edit_book_path(@book), :class => 'edit' if current_user %>
+    <% if current_user %>
+      | <%= link_to 'Edit', edit_book_path(@book), :class => 'edit'  %>
+    <% end %>
   </p>
   <%= markdown(@book.thoughts) %>
 </div>

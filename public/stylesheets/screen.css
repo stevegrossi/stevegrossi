@@ -32,7 +32,12 @@ body {
 
 a:link {
   color: #2ba4bf;
-  text-decoration: none; }
+  text-decoration: none;
+  -webkit-transition: color .1s ease-in-out;
+  -moz-transition: color .1s ease-in-out;
+  -o-transition: color .1s ease-in-out;
+  -ms-transition: color .1s ease-in-out;
+  transition: color .1s ease-in-out; }
 a:visited {
   color: #228398; }
 a:hover, a:active {
@@ -243,8 +248,6 @@ body.evening {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   height: 200px;
   overflow: hidden; }
-.home #latest_work img {
-  margin-top: 12px; }
 .home #latest_writing a {
   text-align: center; }
 .home h1 {
@@ -311,12 +314,12 @@ body.evening {
   overflow: hidden;
   margin-bottom: 24px; }
 
-.new label, .edit label {
+.new label, .edit label, .update label, .create label {
   clear: left; }
-.new input, .new textarea, .edit input, .edit textarea {
+.new input, .new textarea, .edit input, .edit textarea, .update input, .update textarea, .create input, .create textarea {
   padding: 4px;
   margin-bottom: 20px; }
-.new input[type='submit'], .edit input[type='submit'] {
+.new input[type='submit'], .edit input[type='submit'], .update input[type='submit'], .create input[type='submit'] {
   width: auto;
   clear: both;
   margin: 20px auto; }
@@ -360,7 +363,7 @@ a[rel=footnote] {
   margin: 0 auto;
   padding: 0; }
 
-.column, .siteheader li, .main, .sidebar, .home .main article, .home .cover, .works h1, .works .info, .works figure, .writings.index article h1, .writings.index article .written, .writings.index article article, .new h1, .edit h1, .new label, .edit label, .new input, .new textarea, .edit input, .edit textarea {
+.column, .siteheader li, .main, .sidebar, .home .main article, .home .cover, .works h1, .works .info, .works figure, .writings.index article h1, .writings.index article .written, .writings.index article article, .new h1, .edit h1, .update h1, .create h1, .new label, .edit label, .update label, .create label, .new input, .new textarea, .edit input, .edit textarea, .update input, .update textarea, .create input, .create textarea {
   float: left;
   display: inline;
   margin-left: 10px;
@@ -375,7 +378,7 @@ a[rel=footnote] {
 .one {
   width: 60px; }
 
-.two, .siteheader li, .home .cover, .new label, .edit label {
+.two, .siteheader li, .home .cover, .new label, .edit label, .update label, .create label {
   width: 140px; }
 
 .three {
@@ -396,7 +399,7 @@ a[rel=footnote] {
 .eight, .main, .works figure, .writings.index article article {
   width: 620px; }
 
-.nine, .new input, .new textarea, .edit input, .edit textarea {
+.nine, .new input, .new textarea, .edit input, .edit textarea, .update input, .update textarea, .create input, .create textarea {
   width: 700px; }
 
 .ten {
@@ -405,7 +408,7 @@ a[rel=footnote] {
 .eleven {
   width: 860px; }
 
-.twelve, .home .main, .books.index .main, .works h1, .writings.index article h1, .new h1, .edit h1 {
+.twelve, .home .main, .books.index .main, .works h1, .writings.index article h1, .new h1, .edit h1, .update h1, .create h1 {
   width: 940px; }
 
 .pull {
@@ -420,7 +423,7 @@ a[rel=footnote] {
   .container, #wrapper {
     width: 768px; }
 
-  .column, .siteheader li, .main, .sidebar, .home .main article, .home .cover, .works h1, .works .info, .works figure, .writings.index article h1, .writings.index article .written, .writings.index article article, .new h1, .edit h1, .new label, .edit label, .new input, .new textarea, .edit input, .edit textarea {
+  .column, .siteheader li, .main, .sidebar, .home .main article, .home .cover, .works h1, .works .info, .works figure, .writings.index article h1, .writings.index article .written, .writings.index article article, .new h1, .edit h1, .update h1, .create h1, .new label, .edit label, .update label, .create label, .new input, .new textarea, .edit input, .edit textarea, .update input, .update textarea, .create input, .create textarea {
     margin-left: 6px;
     margin-right: 6px; }
 
@@ -435,7 +438,7 @@ a[rel=footnote] {
   .one {
     width: 52px; }
 
-  .two, .siteheader li, .home .cover, .new label, .edit label {
+  .two, .siteheader li, .home .cover, .new label, .edit label, .update label, .create label {
     width: 116px; }
 
   .three {
@@ -456,7 +459,7 @@ a[rel=footnote] {
   .eight, .main, .works figure, .writings.index article article {
     width: 500px; }
 
-  .nine, .new input, .new textarea, .edit input, .edit textarea {
+  .nine, .new input, .new textarea, .edit input, .edit textarea, .update input, .update textarea, .create input, .create textarea {
     width: 564px; }
 
   .ten {
@@ -465,7 +468,7 @@ a[rel=footnote] {
   .eleven {
     width: 692px; }
 
-  .twelve, .home .main, .books.index .main, .works h1, .writings.index article h1, .new h1, .edit h1 {
+  .twelve, .home .main, .books.index .main, .works h1, .writings.index article h1, .new h1, .edit h1, .update h1, .create h1 {
     width: 756px; }
 
   .pull {
@@ -481,12 +484,12 @@ a[rel=footnote] {
   .container, #wrapper {
     width: 420px; }
 
-  .column, .siteheader li, .main, .sidebar, .home .main article, .home .cover, .works h1, .works .info, .works figure, .writings.index article h1, .writings.index article .written, .writings.index article article, .new h1, .edit h1, .new label, .edit label, .new input, .new textarea, .edit input, .edit textarea {
+  .column, .siteheader li, .main, .sidebar, .home .main article, .home .cover, .works h1, .works .info, .works figure, .writings.index article h1, .writings.index article .written, .writings.index article article, .new h1, .edit h1, .update h1, .create h1, .new label, .edit label, .update label, .create label, .new input, .new textarea, .edit input, .edit textarea, .update input, .update textarea, .create input, .create textarea {
     margin-left: 0;
     margin-right: 0; }
 
-  .one, .two, .siteheader li, .home .cover, .new label, .edit label, .three, .four, .siteheader li:first-child, .sidebar, .main .pull, .home .main article, .works .info, .writings.index article .written, .five, .six,
-  .seven, .eight, .main, .works figure, .writings.index article article, .nine, .new input, .new textarea, .edit input, .edit textarea, .ten, .eleven, .twelve, .home .main, .books.index .main, .works h1, .writings.index article h1, .new h1, .edit h1 {
+  .one, .two, .siteheader li, .home .cover, .new label, .edit label, .update label, .create label, .three, .four, .siteheader li:first-child, .sidebar, .main .pull, .home .main article, .works .info, .writings.index article .written, .five, .six,
+  .seven, .eight, .main, .works figure, .writings.index article article, .nine, .new input, .new textarea, .edit input, .edit textarea, .update input, .update textarea, .create input, .create textarea, .ten, .eleven, .twelve, .home .main, .books.index .main, .works h1, .writings.index article h1, .new h1, .edit h1, .update h1, .create h1 {
     width: 420px; }
 
   .pull {
@@ -517,12 +520,12 @@ a[rel=footnote] {
   .container, #wrapper {
     width: 300px; }
 
-  .column, .siteheader li, .main, .sidebar, .home .main article, .home .cover, .works h1, .works .info, .works figure, .writings.index article h1, .writings.index article .written, .writings.index article article, .new h1, .edit h1, .new label, .edit label, .new input, .new textarea, .edit input, .edit textarea {
+  .column, .siteheader li, .main, .sidebar, .home .main article, .home .cover, .works h1, .works .info, .works figure, .writings.index article h1, .writings.index article .written, .writings.index article article, .new h1, .edit h1, .update h1, .create h1, .new label, .edit label, .update label, .create label, .new input, .new textarea, .edit input, .edit textarea, .update input, .update textarea, .create input, .create textarea {
     margin-left: 0;
     margin-right: 0; }
 
-  .one, .two, .siteheader li, .home .cover, .new label, .edit label, .three, .four, .siteheader li:first-child, .sidebar, .main .pull, .home .main article, .works .info, .writings.index article .written, .five, .six,
-  .seven, .eight, .main, .works figure, .writings.index article article, .nine, .new input, .new textarea, .edit input, .edit textarea, .ten, .eleven, .twelve, .home .main, .books.index .main, .works h1, .writings.index article h1, .new h1, .edit h1 {
+  .one, .two, .siteheader li, .home .cover, .new label, .edit label, .update label, .create label, .three, .four, .siteheader li:first-child, .sidebar, .main .pull, .home .main article, .works .info, .writings.index article .written, .five, .six,
+  .seven, .eight, .main, .works figure, .writings.index article article, .nine, .new input, .new textarea, .edit input, .edit textarea, .update input, .update textarea, .create input, .create textarea, .ten, .eleven, .twelve, .home .main, .books.index .main, .works h1, .writings.index article h1, .new h1, .edit h1, .update h1, .create h1 {
     width: 300px; }
 
   .pull {

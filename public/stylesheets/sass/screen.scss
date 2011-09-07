@@ -31,6 +31,11 @@ a {
   &:link {
     color:$primary;
     text-decoration:none;
+    -webkit-transition: color .1s ease-in-out;
+    -moz-transition: color .1s ease-in-out;
+    -o-transition: color .1s ease-in-out;
+    -ms-transition: color .1s ease-in-out;
+    transition: color .1s ease-in-out;
   }
   &:visited {
     color:mix(#000, $primary, 20%);
@@ -261,10 +266,6 @@ body.evening {
       height:200px;
       overflow:hidden;
     }
-    img {
-      margin-top:12px;
-
-    }
   }
   #latest_writing a {
     text-align:center;
@@ -377,7 +378,7 @@ body.evening {
     @extend .eight;
   }
 }
-.new, .edit {
+.new, .edit, .update, .create {
   h1 {
     @extend .column;
     @extend .twelve;
