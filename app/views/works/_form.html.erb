@@ -1,6 +1,6 @@
 <%= form_for(@work) do |f| %>
   <% if @work.errors.any? %>
-    <div id="error_explanation">
+    <div class="flash error">
       <h2><%= pluralize(@work.errors.count, "error") %> prohibited this work from being saved:</h2>
 
       <ul>

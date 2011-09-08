@@ -214,20 +214,25 @@ body.evening {
 .clearfix {zoom: 1;} /* IE < 8 */
 
 .flash {
+  @extend .column;
+  @extend .twelve;
   margin-bottom:24px;
   background:#fafafa;
   border:1px solid #eee;
   padding:10px;
+  ul {
+    padding-left:20px;
+  }
 }
 .success {
   @extend .flash;
-  background:#90ee90;
-  border-color:#008000;
+  background:rgba(0,128,0,.2);
+  border-color:rgb(0,128,0);
 }
 .error {
   @extend .flash;
-  background:#ffc0cb;
-  border-color:#ff0000;
+  background:rgba(255,0,0,.2);
+  border-color:rgb(255,0,0);
 }
 .cover {
   display:block;

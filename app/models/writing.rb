@@ -12,4 +12,8 @@
 
 class Writing < ActiveRecord::Base
   has_friendly_id :title, :use_slug => true
+
+  validates :title, :presence => true
+  validates :content, :presence => true
+  validates :summary, :presence => true
 end

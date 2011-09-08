@@ -2,7 +2,9 @@
   <h1><%= @writing.title %></h1>
   <p class="meta">
     <%= @writing.created_at.strftime('%B %e, %Y') %>
-    <%= link_to 'Edit', edit_writing_path(@writing), :class => 'edit' if current_user %>
+    <% if current_user %>
+      | <%= link_to 'Edit', edit_writing_path(@writing), :class => 'edit'  %>
+    <% end %>
   </p>
 
   <%= markdown(@writing.content) %>

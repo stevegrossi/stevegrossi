@@ -1,6 +1,6 @@
 <%= form_for(@writing) do |f| %>
   <% if @writing.errors.any? %>
-    <div id="error_explanation">
+    <div class="flash error">
       <h2><%= pluralize(@writing.errors.count, "error") %> prohibited this writing from being saved:</h2>
 
       <ul>

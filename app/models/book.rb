@@ -18,4 +18,8 @@ class Book < ActiveRecord::Base
   has_friendly_id :title, :use_slug => true
 
   validates :title, :presence => true
+  validates :author, :presence => true
+  validates :publisher, :presence => true
+  validates :pub_year, :presence => true
+  validates :thoughts, :presence => true
 end
