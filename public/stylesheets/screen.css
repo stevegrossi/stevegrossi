@@ -28,7 +28,9 @@ html {
 body {
   background: #fff;
   color: #333333;
-  font: 16px/24px Georgia, serif; }
+  font-family: Georgia, serif;
+  font-size: 16px;
+  line-height: 24px; }
 
 a:link {
   color: #2ba4bf;
@@ -152,7 +154,7 @@ pre, code, kbd, samp {
 .sitefooter {
   color: #999999;
   border-top: 1px dotted #cccccc;
-  padding: 10px;
+  padding: 12px 10px;
   clear: both; }
   .sitefooter a {
     color: #999999; }
@@ -210,7 +212,7 @@ body.evening {
   border: 1px solid #eee;
   padding: 10px; }
   .flash ul, .success ul, .error ul {
-    padding-left: 20px; }
+    padding-left: 24px; }
 
 .success {
   background: rgba(0, 128, 0, 0.2);
@@ -248,7 +250,7 @@ body.evening {
   -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   -o-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  height: 200px;
+  height: 192px;
   overflow: hidden; }
 .home #latest_writing a {
   text-align: center; }
@@ -324,7 +326,7 @@ body.evening {
 .new input[type='submit'], .edit input[type='submit'], .update input[type='submit'], .create input[type='submit'] {
   width: auto;
   clear: both;
-  margin: 20px auto; }
+  margin: 20px 0 20px 168px; }
 
 /*
   Footnotes
