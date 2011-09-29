@@ -12,6 +12,8 @@ Stevegrossi::Application.routes.draw do
   match 'is' => 'pages#about', :as => 'about'
   match 'colophon' => 'pages#colophon'
 
+  match "/wishlist" => redirect("http://amzn.com/w/156EDXYQR8J2F"), :as => :wishlist
+
   root :to => "pages#home"
 
   # 404 if route not recognized
