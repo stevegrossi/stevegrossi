@@ -441,6 +441,9 @@ body.evening {
         font-size:14px;
         line-height:21px;
       }
+      img {
+        max-width:300px;
+      }
     }
     h3 {
       clear:both;
@@ -448,6 +451,9 @@ body.evening {
       text-transform:uppercase;
       letter-spacing:4px;
       font-weight:bold;
+    }
+    h4 {
+      margin-bottom:10px;
     }
   }
 }

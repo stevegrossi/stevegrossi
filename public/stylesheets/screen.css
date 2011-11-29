@@ -343,12 +343,16 @@ body.evening {
 .wishlist_items.index #stuff li p {
   font-size: 14px;
   line-height: 21px; }
+.wishlist_items.index #stuff li img {
+  max-width: 300px; }
 .wishlist_items.index #stuff h3 {
   clear: both;
   margin: 0 10px;
   text-transform: uppercase;
   letter-spacing: 4px;
   font-weight: bold; }
+.wishlist_items.index #stuff h4 {
+  margin-bottom: 10px; }
 
 /*
   Footnotes

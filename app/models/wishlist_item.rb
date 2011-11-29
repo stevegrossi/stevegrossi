@@ -11,6 +11,7 @@
 #  created_at  :datetime
 #  updated_at  :datetime
 #  category    :string(255)
+#  image_url   :string(255)
 #
 
 class WishlistItem < ActiveRecord::Base

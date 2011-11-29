@@ -32,11 +32,14 @@
     <h2>There are, of course, some things I'd enjoy which I've listed below.</h2>
     <% @wishlist_items_by_category.each do |category, items| %>
       <h3><%= category %></h3>
+      <% i = 0 %>
       <ul>
       <% items.each do |item| %>
-        <li>
+        <li<%= ' style=clear:left;' if i == 0 %>>
+          <%= image_tag item.image_url, :alt => '' unless item.image_url.blank? %>
           <h4><%= link_to item.name, item.purchase_at %></h4>
           <%= markdown(item.description) %>
+          <% i == 2 ? i = 0 : i += 1 %>
         </li>
       <% end %>
       </ul>
