@@ -328,6 +328,28 @@ body.evening {
   clear: both;
   margin: 20px 0 20px 168px; }
 
+.wishlist_items.index .main {
+  float: none;
+  width: auto;
+  margin: 0; }
+.wishlist_items.index h1, .wishlist_items.index h2, .wishlist_items.index h2 + p {
+  clear: both;
+  margin: 20px 10px; }
+.wishlist_items.index h3 {
+  color: #E6A525; }
+.wishlist_items.index #stuff ul {
+  overflow: hidden;
+  margin: 20px 0; }
+.wishlist_items.index #stuff li p {
+  font-size: 14px;
+  line-height: 21px; }
+.wishlist_items.index #stuff h3 {
+  clear: both;
+  margin: 0 10px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-weight: bold; }
+
 /*
   Footnotes
 */
@@ -367,7 +389,7 @@ a[rel=footnote] {
   margin: 0 auto;
   padding: 0; }
 
-.column, .siteheader li, .main, .sidebar, .flash, .success, .error, .home .main article, .home .cover, .works h1, .works .info, .works figure, .writings.index article h1, .writings.index article .written, .writings.index article article, .new h1, .edit h1, .update h1, .create h1, .new label, .edit label, .update label, .create label, .new input, .new textarea, .edit input, .edit textarea, .update input, .update textarea, .create input, .create textarea {
+.column, .siteheader li, .main, .sidebar, .flash, .success, .error, .home .main article, .home .cover, .works h1, .works .info, .works figure, .writings.index article h1, .writings.index article .written, .writings.index article article, .new h1, .edit h1, .update h1, .create h1, .new label, .edit label, .update label, .create label, .new input, .new textarea, .edit input, .edit textarea, .update input, .update textarea, .create input, .create textarea, .wishlist_items.index #charity li, .wishlist_items.index #stuff li {
   float: left;
   display: inline;
   margin-left: 10px;
@@ -388,7 +410,7 @@ a[rel=footnote] {
 .three {
   width: 220px; }
 
-.four, .siteheader li:first-child, .sidebar, .main .pull, .home .main article, .works .info, .writings.index article .written {
+.four, .siteheader li:first-child, .sidebar, .main .pull, .home .main article, .works .info, .writings.index article .written, .wishlist_items.index #charity li, .wishlist_items.index #stuff li {
   width: 300px; }
 
 .five {
@@ -427,7 +449,7 @@ a[rel=footnote] {
   .container, #wrapper {
     width: 768px; }
 
-  .column, .siteheader li, .main, .sidebar, .flash, .success, .error, .home .main article, .home .cover, .works h1, .works .info, .works figure, .writings.index article h1, .writings.index article .written, .writings.index article article, .new h1, .edit h1, .update h1, .create h1, .new label, .edit label, .update label, .create label, .new input, .new textarea, .edit input, .edit textarea, .update input, .update textarea, .create input, .create textarea {
+  .column, .siteheader li, .main, .sidebar, .flash, .success, .error, .home .main article, .home .cover, .works h1, .works .info, .works figure, .writings.index article h1, .writings.index article .written, .writings.index article article, .new h1, .edit h1, .update h1, .create h1, .new label, .edit label, .update label, .create label, .new input, .new textarea, .edit input, .edit textarea, .update input, .update textarea, .create input, .create textarea, .wishlist_items.index #charity li, .wishlist_items.index #stuff li {
     margin-left: 6px;
     margin-right: 6px; }
 
@@ -448,7 +470,7 @@ a[rel=footnote] {
   .three {
     width: 180px; }
 
-  .four, .siteheader li:first-child, .sidebar, .main .pull, .home .main article, .works .info, .writings.index article .written {
+  .four, .siteheader li:first-child, .sidebar, .main .pull, .home .main article, .works .info, .writings.index article .written, .wishlist_items.index #charity li, .wishlist_items.index #stuff li {
     width: 244px; }
 
   .five {
@@ -488,11 +510,11 @@ a[rel=footnote] {
   .container, #wrapper {
     width: 420px; }
 
-  .column, .siteheader li, .main, .sidebar, .flash, .success, .error, .home .main article, .home .cover, .works h1, .works .info, .works figure, .writings.index article h1, .writings.index article .written, .writings.index article article, .new h1, .edit h1, .update h1, .create h1, .new label, .edit label, .update label, .create label, .new input, .new textarea, .edit input, .edit textarea, .update input, .update textarea, .create input, .create textarea {
+  .column, .siteheader li, .main, .sidebar, .flash, .success, .error, .home .main article, .home .cover, .works h1, .works .info, .works figure, .writings.index article h1, .writings.index article .written, .writings.index article article, .new h1, .edit h1, .update h1, .create h1, .new label, .edit label, .update label, .create label, .new input, .new textarea, .edit input, .edit textarea, .update input, .update textarea, .create input, .create textarea, .wishlist_items.index #charity li, .wishlist_items.index #stuff li {
     margin-left: 0;
     margin-right: 0; }
 
-  .one, .two, .siteheader li, .home .cover, .new label, .edit label, .update label, .create label, .three, .four, .siteheader li:first-child, .sidebar, .main .pull, .home .main article, .works .info, .writings.index article .written, .five, .six,
+  .one, .two, .siteheader li, .home .cover, .new label, .edit label, .update label, .create label, .three, .four, .siteheader li:first-child, .sidebar, .main .pull, .home .main article, .works .info, .writings.index article .written, .wishlist_items.index #charity li, .wishlist_items.index #stuff li, .five, .six,
   .seven, .eight, .main, .works figure, .writings.index article article, .nine, .new input, .new textarea, .edit input, .edit textarea, .update input, .update textarea, .create input, .create textarea, .ten, .eleven, .twelve, .flash, .success, .error, .home .main, .books.index .main, .works h1, .writings.index article h1, .new h1, .edit h1, .update h1, .create h1 {
     width: 420px; }
 
@@ -524,11 +546,11 @@ a[rel=footnote] {
   .container, #wrapper {
     width: 300px; }
 
-  .column, .siteheader li, .main, .sidebar, .flash, .success, .error, .home .main article, .home .cover, .works h1, .works .info, .works figure, .writings.index article h1, .writings.index article .written, .writings.index article article, .new h1, .edit h1, .update h1, .create h1, .new label, .edit label, .update label, .create label, .new input, .new textarea, .edit input, .edit textarea, .update input, .update textarea, .create input, .create textarea {
+  .column, .siteheader li, .main, .sidebar, .flash, .success, .error, .home .main article, .home .cover, .works h1, .works .info, .works figure, .writings.index article h1, .writings.index article .written, .writings.index article article, .new h1, .edit h1, .update h1, .create h1, .new label, .edit label, .update label, .create label, .new input, .new textarea, .edit input, .edit textarea, .update input, .update textarea, .create input, .create textarea, .wishlist_items.index #charity li, .wishlist_items.index #stuff li {
     margin-left: 0;
     margin-right: 0; }
 
-  .one, .two, .siteheader li, .home .cover, .new label, .edit label, .update label, .create label, .three, .four, .siteheader li:first-child, .sidebar, .main .pull, .home .main article, .works .info, .writings.index article .written, .five, .six,
+  .one, .two, .siteheader li, .home .cover, .new label, .edit label, .update label, .create label, .three, .four, .siteheader li:first-child, .sidebar, .main .pull, .home .main article, .works .info, .writings.index article .written, .wishlist_items.index #charity li, .wishlist_items.index #stuff li, .five, .six,
   .seven, .eight, .main, .works figure, .writings.index article article, .nine, .new input, .new textarea, .edit input, .edit textarea, .update input, .update textarea, .create input, .create textarea, .ten, .eleven, .twelve, .flash, .success, .error, .home .main, .books.index .main, .works h1, .writings.index article h1, .new h1, .edit h1, .update h1, .create h1 {
     width: 300px; }
 

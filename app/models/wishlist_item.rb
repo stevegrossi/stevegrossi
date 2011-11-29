@@ -1,6 +1,3 @@
-class WishlistItem < ActiveRecord::Base
-end
-
 # == Schema Information
 #
 # Table name: wishlist_items
@@ -13,5 +10,20 @@ end
 #  purchased   :boolean(1)      default(FALSE)
 #  created_at  :datetime
 #  updated_at  :datetime
+#  category    :string(255)
 #
 
+class WishlistItem < ActiveRecord::Base
+  
+  cattr_accessor(:categories) { [ 'Goods', 'Books', 'Clothes' ] }
+  delegate :categories, :to => "self.class"
+  
+  scope :goods,   where(:category => 'Goods')
+  scope :books,   where(:category => 'Books')
+  scope :clothes, where(:category => 'Clothes')
+  
+  validates :name,      :presence => true
+  validates :category,  :inclusion => { :in => categories },
+                        :presence => true
+  
+end

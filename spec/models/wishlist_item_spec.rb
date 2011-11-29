@@ -4,6 +4,7 @@ describe WishlistItem do
   pending "add some examples to (or delete) #{__FILE__}"
 end
 
+
 # == Schema Information
 #
 # Table name: wishlist_items
@@ -16,5 +17,6 @@ end
 #  purchased   :boolean(1)      default(FALSE)
 #  created_at  :datetime
 #  updated_at  :datetime
+#  category    :string(255)
 #
 

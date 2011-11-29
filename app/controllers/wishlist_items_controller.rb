@@ -1,8 +1,11 @@
 class WishlistItemsController < ApplicationController
+  
+  before_filter :logged_in?, :except => [:index]
+  
   # GET /wishlist_items
   # GET /wishlist_items.xml
   def index
-    @wishlist_items = WishlistItem.all
+    @wishlist_items_by_category = WishlistItem.order('category ASC, name ASC').group_by{ |item| item.category}
 
     respond_to do |format|
       format.html # index.html.erb

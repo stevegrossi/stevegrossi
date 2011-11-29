@@ -1,4 +1,7 @@
 class WorksController < ApplicationController
+  
+  before_filter :logged_in?, :except => [:index, :show]
+  
   # GET /works
   # GET /works.xml
   def index

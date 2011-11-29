@@ -410,6 +410,48 @@ body.evening {
   }
 }
 
+.wishlist_items.index {
+  .main {
+    float:none;
+    width:auto;
+    margin:0;
+  }
+  h1, h2, h2+p {
+    clear:both;
+    margin:20px 10px;
+  }
+  h3 {
+    color:#E6A525;
+  }
+  #charity {
+    li {
+      @extend .column;
+      @extend .four;
+    }
+  }
+  #stuff {
+    ul {
+      overflow:hidden;
+      margin:20px 0;
+    }
+    li {
+      @extend .column;
+      @extend .four;
+      p {
+        font-size:14px;
+        line-height:21px;
+      }
+    }
+    h3 {
+      clear:both;
+      margin:0 10px;
+      text-transform:uppercase;
+      letter-spacing:4px;
+      font-weight:bold;
+    }
+  }
+}
+
 /*
   Footnotes
 */
