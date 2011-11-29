@@ -5,7 +5,7 @@ class BooksController < ApplicationController
   # GET /books
   # GET /books.xml
   def index
-    @title = "Things I don't want to forget about the books I've read"
+    @title = "Writing about books helps me figure out what I think about them."
     @books = Book.order('created_at DESC')
 
     respond_to do |format|

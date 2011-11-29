@@ -4,6 +4,7 @@ Stevegrossi::Application.routes.draw do
   resources :books, :path => 'read'
   resources :writings, :path => 'wrote'
   resources :works, :path => 'made'
+  resources :wishlist_items, :path => 'wishlist'
 
   resources :sessions, :only => [:new, :create, :destroy]
   get 'log_in' => 'sessions#new'
@@ -11,8 +12,6 @@ Stevegrossi::Application.routes.draw do
   get 'log_out' => 'sessions#destroy'
   match 'is' => 'pages#about', :as => 'about'
   match 'colophon' => 'pages#colophon'
-
-  match "/wishlist" => redirect("http://amzn.com/w/156EDXYQR8J2F"), :as => :wishlist
 
   root :to => "pages#home"
 

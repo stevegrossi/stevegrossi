@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @wishlist_item.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @wishlist_item.description %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @wishlist_item.price %>
+</p>
+
+<p>
+  <b>Purchase at:</b>
+  <%= @wishlist_item.purchase_at %>
+</p>
+
+<p>
+  <b>Purchased:</b>
+  <%= @wishlist_item.purchased %>
+</p>
+
+
+<%= link_to 'Edit', edit_wishlist_item_path(@wishlist_item) %> |
+<%= link_to 'Back', wishlist_items_path %>
