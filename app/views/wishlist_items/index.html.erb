@@ -36,7 +36,7 @@
       <ul>
       <% items.each do |item| %>
         <li<%= ' style=clear:left;' if i == 0 %>>
-          <%= image_tag item.image_url, :alt => '' unless item.image_url.blank? %>
+          <a href="<%= item.purchase_at %>"><%= image_tag item.image_url, :alt => '' unless item.image_url.blank? %></a>
           <h4><%= link_to item.name, item.purchase_at %></h4>
           <%= markdown(item.description) %>
           <% i == 2 ? i = 0 : i += 1 %>
