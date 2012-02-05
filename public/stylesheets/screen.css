@@ -1,3 +1,4 @@
+@import url("http://fonts.googleapis.com/css?family=Vollkorn:400,400italic,700,700italic");
 /*
 	RESET
 */
@@ -28,7 +29,7 @@ html {
 body {
   background: #fff;
   color: #333333;
-  font-family: Georgia, serif;
+  font-family: Vollkorn, Georgia, serif;
   font-size: 16px;
   line-height: 24px; }
 

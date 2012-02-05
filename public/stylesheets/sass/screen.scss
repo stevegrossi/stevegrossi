@@ -1,3 +1,4 @@
+@import url("http://fonts.googleapis.com/css?family=Vollkorn:400,400italic,700,700italic");
 @import "reset";
 
 $primary: #2BA4BF;
@@ -6,7 +7,7 @@ $dark_gray: #666;
 $gray: #999;
 $light_gray: #ccc;
 $lighter_gray: #eee;
-$serif_stack: Georgia, serif;
+$serif_stack: Vollkorn, Georgia, serif;
 $mono_stack: Monaco, monospace;
 
 $line_height: 24px;
