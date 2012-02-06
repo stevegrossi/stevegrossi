@@ -1,3 +1,8 @@
+//= require jquery
+//= require jquery_ujs
+//= require_self
+//= require_tree .
+
 $(function() {
 
   $('html').removeClass('no-js').addClass('js');

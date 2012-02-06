@@ -1,14 +1,21 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.6'
-gem 'mysql2', '~> 0.2.0'
+gem 'rails', '3.1.0'
+gem 'mysql2', '~> 0.3.0'
 gem "jquery-rails"
 gem 'rdiscount', '~> 1.6.8'
 gem 'friendly_id', '~> 3.2.1'
 gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'taps', '~> 0.3.0'
 gem 'heroku', '~> 2.2.1'
-gem 'sass', '~> 3.1.2'
+
+group :assets do
+  gem 'sass-rails', '~> 3.1.0'
+  gem 'coffee-rails', '~> 3.1.0'
+  gem 'uglifier' 
+end
+
+gem 'jquery-rails'
 
 group :development, :test do
   gem 'annotate', '~> 2.4.0'
