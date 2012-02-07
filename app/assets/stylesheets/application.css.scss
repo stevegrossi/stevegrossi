@@ -79,7 +79,7 @@ sub {
   bottom : -.25em;
 }
 blockquote {
-  padding:0 $line_height*.5;
+  padding:0 $line_height;
   color:$dark_gray;
 }
 dt {
