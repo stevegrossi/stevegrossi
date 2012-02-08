@@ -8,6 +8,7 @@ gem 'friendly_id', '~> 3.2.1'
 gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'taps', '~> 0.3.0'
 gem 'heroku', '~> 2.2.1'
+gem 'pg'
 
 group :assets do
   gem 'sass-rails', '~> 3.1.0'
