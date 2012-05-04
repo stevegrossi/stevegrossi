@@ -1,12 +1,14 @@
-<h1>I write things.</h1>
-<ol>
-<% @writings.each do |writing| %>
-  <li>
-    <span class="written"><%= writing.created_at.strftime('%B %e, %Y') %></span>
-    <article>
-      <%= link_to writing.title, writing %>
-      <%= writing.summary %>
-    </article>
-  </li>
-<% end %>
-</ol>
+<div class="main" role="main">
+  <h1>I write things.</h1>
+  <ol>
+  <% @writings.each do |writing| %>
+    <li>
+      <%= content_tag :span, writing.created_at.strftime('%B %e, %Y'), :class => 'pub_date' %>
+      <article>
+        <%= link_to writing.title, writing %>
+        <%= writing.summary %>
+      </article>
+    </li>
+  <% end %>
+  </ol>
+</div>

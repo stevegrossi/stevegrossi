@@ -3,7 +3,7 @@
 */
 
 @import "type";
-@import "reset";
+@import "normalize";
 
 $primary: #2BA4BF;
 $darker_gray: #333;
@@ -25,7 +25,7 @@ $line_height: 24px;
 
 article, aside, details, figcaption, figure,  footer, header, hgroup, menu, nav, section, summary {display:block;}
 
-/*
+/* //////////////////////////
   Base Styles
 */
 html { overflow-y: scroll; }
@@ -35,6 +35,7 @@ body {
   font-family:$serif_stack;
   font-size:16px;
   line-height:$line_height;
+  padding:20px;
 }
 a {
   &:link {
@@ -54,9 +55,17 @@ a {
     text-decoration:underline;
   }
 }
-h1, h2, h3, h4, h5, p, ul, ol, dl, dd, figure, hgroup {margin-bottom:24px;font-weight:normal;}
+.siteheader, .sitefooter {
+  a {
+    color:$gray;
+    &:active, &:hover {
+      color:$dark_gray
+    }
+  }
+}
+h1, h2, h3, h4, h5, p, ul, ol, dl, dd, hgroup {margin:$line-height 0;font-weight:normal;}
 hgroup h1, hgroup h2, hgroup h3, hgroup h4, hgroup h5 {margin-bottom:0;}
-h1 {font-size:42px;line-height:$line_height*2;}
+h1 {font-size:42px;line-height:$line_height*2;margin-top:$line_height/2;}
 h2 {font-size:24px;line-height:$line_height*1.5;}
 h3 {font-size:21px;line-height:$line_height;}
 h4 {font-size:18px;line-height:$line_height;}
@@ -85,10 +94,13 @@ blockquote {
 dt {
   font-weight:bold;
 }
-figure img {
-  max-width:100%;
-  display:block;
-  margin:0 auto 12px;
+figure {
+  margin-bottom:$line-height;
+  img {
+    max-width:100%;
+    display:block;
+    margin:0 auto 12px;
+  }
 }
 figcaption {
   color:#dark_gray;
@@ -104,81 +116,45 @@ hr {
 }
 pre, code, kbd, samp {font-family:$mono_stack;}
 
-#wrapper {
-  @extend .container;
-}
+#wrapper {margin:0 auto;}
 
-#admin_bar {
-  background: -moz-linear-gradient(top, #CCCCCC 80%, #BBBBBB 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(80%,#CCCCCC), color-stop(100%,#BBBBBB));
-  color:#fff;
-  border-bottom:1px solid #bbb;
-  ul {
-    list-style:none;
-    margin:0 auto;
-    max-width:940px;
-  }
-  li {
-    display:inline;
-    margin-right:$line_height;
-    &:last-child {
-     float:right;
-     margin:0;
-    }
-  }
-
-}
 .siteheader {
-  ul {
-    border-bottom:1px dotted $light_gray;
-    font-size:24px;
-    overflow:hidden;
+  @extend .row;
+  border-bottom:1px dotted $light_gray;
+  font-size:24px;
+  line-height:32px;
+  color:$light_gray;
+  nav {
+    @extend .twelve;
   }
-  li {
-    @extend .column;
-    @extend .two;
-    text-align:right;
-    &:first-child {
-      @extend .four;
-      text-align:left;
-    }
-  }
-  a {
-    display:block;
-    text-decoration:none;
-    color:#999;
-    padding:$line_height 0;
-    &:hover {
-      color:#666;
-    }
+  p {
+    margin:0 0 16px;
   }
 }
 .main {
   @extend .eight;
-  @extend .column;
 }
 .sidebar {
   @extend .four;
-  @extend .column;
+  
   margin-bottom:$line_height;
 }
 .sitefooter {
+  @extend .row;
   color:$gray;
   border-top:1px dotted $light_gray;
-  padding:$line_height*.5 10px;
   clear:both;
-  a {
-    color:$gray;
-    &:active, &:hover {
-      color:$dark_gray
-    }
+  p {
+    @extend .twelve;
+    margin-top:$line-height/2;
+    margin-bottom:$line-height/2;
   }
   #contact {
     float:right;
   }
 }
 
-/*
+/* //////////////////////////
   Evening Styles
 */
 body.evening {
@@ -196,9 +172,12 @@ body.evening {
   }
   .siteheader ul, .sitefooter, &.home h2 {border-color:#666;}
 }
+.siteheader + article {
+  @extend .row;
+}
 
 
-/*
+/* //////////////////////////
   Helper Classes
 */
 .left {
@@ -208,10 +187,6 @@ body.evening {
 .right {
   float:right;
   margin:0 0 10px 10px;
-}
-.main .pull {
-  @extend .four;
-  float:right;
 }
 .clearfix:before, .clearfix:after {
   content: ".";
@@ -223,8 +198,6 @@ body.evening {
 .clearfix {zoom: 1;} /* IE < 8 */
 
 .flash {
-  @extend .column;
-  @extend .twelve;
   margin-bottom:$line_height;
   background:#fafafa;
   border:1px solid #eee;
@@ -257,14 +230,13 @@ body.evening {
   @include shadow;
 }
 
-/*
+/* //////////////////////////
   Page-Specific Styles
 */
 .home {
   .main {
     @extend .twelve;
     article {
-      @extend .column;
       @extend .four;
       a {
         font-size:21px;
@@ -274,7 +246,6 @@ body.evening {
     }
   }
   #latest_work {
-    @extend .alpha;
     a {
       @include shadow;
       height:$line_height*8;
@@ -284,11 +255,9 @@ body.evening {
   #latest_writing a {
     text-align:center;
   }
-  #latest_book {
-    @extend .omega;
-  }
   h1 {
-    font-size:36px;
+    font-size:24px;
+    line-height:32px;
   }
   h2 {
     color:$gray;
@@ -298,22 +267,20 @@ body.evening {
     padding:6px 0;
     border-top:1px dotted $light_gray;
     border-bottom:1px dotted $light_gray;
-    margin-bottom:10px;
+    margin-top:0;
   }
   .cover {
-    @extend .column;
-    @extend .two;
-    margin-bottom:$line_height;
+    margin-bottom: $line-height;
     float:right !important;
   }
 }
-.books.index .main {
-  @extend .twelve;
+.books.index {
+  .main {
+    @extend .twelve;
+  }
   ol {
-    margin-left:-10px;
-    margin-right:-10px;
     list-style:none;
-    overflow:hidden;
+    text-align:center;
     li {
       display:inline-block;
       vertical-align:middle;
@@ -324,86 +291,85 @@ body.evening {
       text-decoration:none;
     }
     img {
-      width:136px;
+      width:132px;
     }
   }
 }
-.books.show .sidebar {
-  span, a {
-    display:block;
-    text-align:center;
-  }
-  .book_title {
-    margin-top:$line_height;
-  }
-  .book_author {
-    font-size:14px;
-    font-variant:small-caps;
-    letter-spacing:1px;
-  }
-  .book_publisher, a {
-    font-size:14px;
+.books.show {
+  .sidebar {
+    margin-top:$line-height;
+    margin-bottom:$line-height;
+    span, a {
+      display:block;
+      text-align:center;
+    }
+    .book_title {
+      margin-top:$line_height;
+    }
+    .book_author {
+      font-size:14px;
+      font-variant:small-caps;
+      letter-spacing:1px;
+    }
+    .book_publisher, a {
+      font-size:14px;
+    }
   }
 }
 .works {
-  h1 {
-    @extend .column;
-    @extend .twelve;
-  }
-  .info {
-    @extend .column;
-    @extend .four;
-    margin-top:$line_height*2;
-  }
   figure {
-    @extend .column;
-    @extend .eight;
     img {
       @include shadow;
     }
   }
-}
-.writings.index article {
-  h1 {
-    @extend .column;
-    @extend .twelve;
-  }
-  .written {
-    @extend .column;
-    @extend .four;
-    text-align:right;
-    color:$light_gray;
-  }
-  ol {
-    list-style:none;
-    clear:both;
-    overflow:hidden;
-    a {
-      display:block;
-      font-size:24px;
+  &.index {
+    .main {
+      @extend .twelve;
+    }
+    article {
+      clear:both;
+    }
+    figure {
+      @extend .eight;
+      margin-left:0 !important;
+      margin-right:2.04% !important;
     }
   }
-  li {
-    overflow:hidden;
-    margin-bottom:$line_height;
-  }
-  article {
-    @extend .column;
-    @extend .eight;
+}
+.writings.index {
+  .main {
+    @extend .twelve;
+    .pub_date {
+      @extend .four;
+      text-align:right;
+      color:$light_gray;
+    }
+    ol {
+      list-style:none;
+      overflow:hidden;
+      a {
+        display:block;
+        font-size:24px;
+      }
+    }
+    li {
+      overflow:hidden;
+      article {
+        @extend .eight;
+      }
+    }
   }
 }
+
 .new, .edit, .update, .create {
   h1 {
-    @extend .column;
     @extend .twelve;
   }
   label {
-    @extend .column;
     @extend .two;
     clear:left;
   }
   input, textarea {
-    @extend .column;
     @extend .nine;
     padding:4px;
     margin-bottom:20px;
@@ -417,30 +383,24 @@ body.evening {
 
 .wishlist_items.index {
   .main {
-    float:none;
-    width:auto;
-    margin:0;
+    @extend .twelve;
   }
-  h1, h2, h2+p {
-    clear:both;
-    margin:20px 10px;
-  }
-  h3 {
-    color:#E6A525;
+  h1, h2, h3 {clear:both;}
+  h3 {color:#E6A525;}
+  h4 {margin-top:0;}
+  ul {
+    @extend .clearfix;
+    list-style:none;
+    margin-left:-1.04%;
+    margin-right:-1.04%;
   }
   #charity {
     li {
-      @extend .column;
       @extend .four;
     }
   }
   #stuff {
-    ul {
-      overflow:hidden;
-      margin:20px 0;
-    }
     li {
-      @extend .column;
       @extend .four;
       p {
         font-size:14px;
@@ -452,18 +412,14 @@ body.evening {
     }
     h3 {
       clear:both;
-      margin:0 10px;
       text-transform:uppercase;
       letter-spacing:4px;
       font-weight:bold;
     }
-    h4 {
-      margin-bottom:10px;
-    }
   }
 }
 
-/*
+/* //////////////////////////
   Footnotes
 */
 #footnotes {
@@ -498,3 +454,4 @@ a[rel=footnote] {
 }
 
 @import "media_queries";
+@import "print";

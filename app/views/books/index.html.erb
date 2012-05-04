@@ -1,6 +1,6 @@
 <div role="main" class="main">
   <h1>I read books.</h1>
-  <ol class="books_list">
+  <ol>
     <% @books.each do |book| %>
     <li>
       <%= link_to( get_cover(book), book ) %>

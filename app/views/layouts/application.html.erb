@@ -14,28 +14,14 @@
   <%= csrf_meta_tag %>
 </head>
 <body class="<%= "#{controller_name} #{action_name}" %>">
-  <% if current_user %>
-    <div id="admin_bar">
-      <ul>
-        <li><%= link_to "New Book", new_book_path %></li>
-        <li><%= link_to "New Writing", new_writing_path %></li>
-        <li><%= link_to "New Website", new_work_path %></li>
-        <li><%= link_to "New Wishlist Item", new_wishlist_item_path %></li>
-        <li><%= link_to "Log Out", log_out_path %></li>
-      </ul>
-    </div>
-  <% end %>
-  </div>
   <div id="wrapper">
     <header class="siteheader">
       <nav>
-        <ul>
-          <li><%= link_to 'Steve Grossi', root_path, :title => 'Home', :accesskey => '1' %></li>
-          <li><a href="/made" title="My Portfolio">makes</a></li>
-          <li><%= link_to 'writes', writings_path, :title => 'Writings' %></li>
-          <li><%= link_to 'reads', books_path, :title => 'Thoughts on books' %></li>
-          <li><%= link_to 'is', about_path, :title => 'About Steve' %></li>
-        </ul>
+        <p><%= link_to 'Steve Grossi', root_path, :title => 'Home', :accesskey => '1' %>
+          is <%= link_to 'a person', about_path, :title => 'About Steve' %>
+          who <%= link_to 'makes websites', works_path, :title => 'Portfolio' %>,
+          <%= link_to 'writes', writings_path, :title => 'Writings' %>,
+          and <%= link_to 'reads books', books_path, :title => 'Thoughts on books' %>.</p>
       </nav>
     </header>
 
@@ -48,10 +34,11 @@
     </article>
 
     <footer class="sitefooter">
-      &copy; <%= Time.now.year %> | <%= link_to 'Colophon', colophon_path %>
-      <span id="contact">
-        <noscript>say hello: me at stevegrossi dot com</noscript>
-      </span>
+      <p>&copy; <%= Time.now.year %> | <%= link_to 'Colophon', colophon_path %>
+        <span id="contact">
+          <noscript>say hello: me at stevegrossi dot com</noscript>
+        </span>
+      </p>
     </footer>
   </div>
   <%= render 'layouts/analytics' if Rails.env.production? %>

@@ -1,17 +1,3 @@
-<div class="main" role="main">
-  <hgroup>
-    <h1><%= @book.title %></h1>
-    <%= content_tag(:h2, @book.subtitle) if @book.subtitle %>
-  </hgroup>
-  <p class="meta">
-    <%= @book.created_at.strftime('%B %e, %Y') %>
-    <% if current_user %>
-      | <%= link_to 'Edit', edit_book_path(@book), :class => 'edit'  %>
-    <% end %>
-  </p>
-  <%= markdown(@book.thoughts) %>
-</div>
-
 <footer class="sidebar">
   <%= get_cover(@book) %>
   <span class="book_title"><%= @book.title %></span>
@@ -19,3 +5,13 @@
   <span class="book_publisher"><%= @book.publisher %>, <%= @book.pub_year %></span>
   <%= link_to 'Amazon', 'http://www.amazon.com/gp/product/' + @book.asin + '?ie=UTF8&tag=stevgros-20' %>
 </footer>
+<div class="main" role="main">
+  <hgroup>
+    <h1><%= @book.title %></h1>
+    <%= content_tag(:h2, @book.subtitle) unless @book.subtitle.blank? %>
+  </hgroup>
+  <p class="meta">
+    <%= @book.created_at.strftime('%B %e, %Y') %>
+  </p>
+  <%= markdown(@book.thoughts) %>
+</div>
