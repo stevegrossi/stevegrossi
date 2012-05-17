@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   def home
     @latest_work = Work.find(:first, :order => "created_at DESC");
-    @latest_writing = Writing.find(:first, :order => "created_at DESC");
+    @latest_writing = Writing.published.last
     @latest_book = Book.find(:first, :order => "created_at DESC")
   end
 

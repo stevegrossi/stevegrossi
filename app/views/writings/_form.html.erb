@@ -8,6 +8,9 @@
 
   <%= f.label :summary %>
   <%= f.text_field :summary %>
+  
+  <%= f.label :publish_status %>
+  <%= f.select(:publish_status, ['published', 'draft']) %>
 
   <%= f.submit %>
 

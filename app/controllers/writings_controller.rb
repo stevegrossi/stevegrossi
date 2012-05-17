@@ -6,7 +6,7 @@ class WritingsController < ApplicationController
   # GET /writings.xml
   def index
     @title = "Some thoughts I've liked enough to write down"
-    @writings = Writing.order('created_at DESC')
+    @writings = Writing.published.order('created_at DESC')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -19,6 +19,15 @@ class WritingsController < ApplicationController
   def show
     @writing = Writing.find(params[:id])
     @title = "#{@writing.title}"
+    
+    if @writing.draft?
+      if current_user || params[:draft] == 'yep'
+        flash[:error] = 'This is a draft.'
+      else
+        flash[:error] = 'You must be logged in to view this draft.'
+        redirect_to writings_path and return
+      end
+    end
 
     respond_to do |format|
       format.html # show.html.erb
