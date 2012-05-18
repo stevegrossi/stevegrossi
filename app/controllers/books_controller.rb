@@ -13,12 +13,26 @@ class BooksController < ApplicationController
       format.xml  { render :xml => @books }
     end
   end
+  
+  def everything
+    @title = 'Everything I\'ve read.'
+    @books = Book.order('created_at DESC')
+  end
 
   # GET /books/1
   # GET /books/1.xml
   def show
     @book = Book.find(params[:id])
     @title = "#{@book.title}"
+    
+    if @book.draft?
+      if current_user || params[:draft] == 'yep'
+        flash[:alert] = 'This is a draft.'
+      else
+        flash[:error] = 'You must be logged in to view this draft.'
+        redirect_to books_path and return
+      end
+    end
 
     respond_to do |format|
       format.html # show.html.erb

@@ -1,9 +1,21 @@
 Stevegrossi::Application.routes.draw do
 
   resources :users
-  resources :books, :path => 'read'
-  resources :writings, :path => 'wrote'
-  resources :works, :path => 'made'
+  resources :books, :path => 'read' do
+    collection do
+      match 'everything' => 'books#everything'
+    end
+  end
+  resources :writings, :path => 'wrote' do
+    collection do
+      match 'everything' => 'writings#everything'
+    end
+  end
+  resources :works, :path => 'made' do
+    collection do
+      match 'everything' => 'works#everything'
+    end
+  end
   resources :wishlist_items, :path => 'wishlist'
 
   resources :sessions, :only => [:new, :create, :destroy]

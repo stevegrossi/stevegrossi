@@ -17,4 +17,10 @@ module ApplicationHelper
     end
   end
   
+  def link_to_edit(resource)
+    if current_user
+      link_to 'Edit', polymorphic_path(resource, :action => :edit), :class => 'edit_link'
+    end
+  end
+  
 end

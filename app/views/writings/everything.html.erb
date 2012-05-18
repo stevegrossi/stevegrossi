@@ -1,0 +1,26 @@
+<div class="main" role="main">
+  <h1>Everything I've written.</h1>
+  <table cellspacing="0">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Summary</th>
+        <th>Created</th>
+        <th>Updated</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @writings.each do |writing| %>
+      <tr>
+        <td><%= link_to_edit(writing) %>
+          <%= link_to writing.title, writing %></td>
+        <td><%= writing.summary %></td>
+        <td><%= writing.created_at.to_s(:long) %></td>
+        <td><%= writing.updated_at.to_s(:long) %></td>
+        <td><%= writing.publish_status %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

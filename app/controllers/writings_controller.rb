@@ -13,6 +13,11 @@ class WritingsController < ApplicationController
       format.xml  { render :xml => @writings }
     end
   end
+  
+  def everything
+    @title = 'All Writings'
+    @writings = Writing.order('created_at DESC')
+  end
 
   # GET /writings/1
   # GET /writings/1.xml
@@ -22,7 +27,7 @@ class WritingsController < ApplicationController
     
     if @writing.draft?
       if current_user || params[:draft] == 'yep'
-        flash[:error] = 'This is a draft.'
+        flash[:alert] = 'This is a draft.'
       else
         flash[:error] = 'You must be logged in to view this draft.'
         redirect_to writings_path and return

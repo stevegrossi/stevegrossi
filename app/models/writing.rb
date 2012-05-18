@@ -23,6 +23,6 @@ class Writing < ActiveRecord::Base
   scope :published, where('publish_status' => 'published')
   
   def draft?
-    publish_status = 'draft'
+    publish_status == 'draft'
   end
 end

@@ -62,7 +62,7 @@ a {
     }
   }
 }
-h1, h2, h3, h4, h5, p, ul, ol, dl, dd, hgroup {margin:$line-height 0;font-weight:normal;}
+h1, h2, h3, h4, h5, p, ul, ol, dl, dd, hgroup, table {margin:$line-height 0;font-weight:normal;}
 hgroup h1, hgroup h2, hgroup h3, hgroup h4, hgroup h5 {margin-bottom:0;}
 h1 {font-size:42px;line-height:$line_height*2;margin-top:$line_height/2;}
 h2 {font-size:24px;line-height:$line_height*1.5;}
@@ -197,7 +197,7 @@ body.evening {
 .clearfix {zoom: 1;} /* IE < 8 */
 
 .flash {
-  margin-bottom:$line_height;
+  margin:$line_height 0;
   background:#fafafa;
   border:1px solid #eee;
   padding:10px;
@@ -207,11 +207,19 @@ body.evening {
 }
 .success {
   @extend .flash;
+  @extend .twelve;
   background:rgba(0,128,0,.2);
   border-color:rgb(0,128,0);
 }
+.alert {
+  @extend .flash;
+  @extend .twelve;
+  background:rgba(255,187,0,.2);
+  border-color:rgb(255,187,0);
+}
 .error {
   @extend .flash;
+  @extend .twelve;
   background:rgba(255,0,0,.2);
   border-color:rgb(255,0,0);
 }
@@ -227,6 +235,34 @@ body.evening {
   text-align:center;
   font-weight:italic;
   @include shadow;
+}
+
+// Admin styles
+.everything {
+  .main {
+    @extend .twelve;
+  }
+  table {
+    width:100%;
+    border-collapse:collapse;
+  }
+  td, th {
+    border:1px solid #ddd;
+    padding:4px;
+  }
+  th {
+    background:rgba(0,0,0,.25);
+  }
+}
+.edit_link {
+  background: rgba(0,0,0,.05);
+  border-radius: 8px 0 0 8px;
+  box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.2);
+  float: left;
+  margin-left: -56px;
+  padding: 8px;
+  font-variant:small-caps;
+  letter-spacing:1px;
 }
 
 /* //////////////////////////

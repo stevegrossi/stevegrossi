@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
 
   def logged_in?
     unless session[:user_id]
-      flash[:success] = 'Whoa! You need to log in to do that.'
+      flash[:alert] = 'Whoa! You need to log in to do that.'
       redirect_to log_in_path
       return false
     else
