@@ -1,30 +1,28 @@
-<div class="main" role="main">
-  <h1>Everything I've read.</h1>
-  <table cellspacing="0">
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Author</th>
-        <th>Publisher</th>
-        <th>Year</th>
-        <th>Created</th>
-        <th>Updated</th>
-        <th>Status</th>
-      </tr>
-    </thead>
-    <tbody>
-    <% @books.each do |book| %>
-      <tr>
-        <td><%= link_to_edit(book) %>
-          <%= link_to book.title, book %></td>
-        <td><%= book.author %></td>
-        <td><%= book.publisher %></td>
-        <td><%= book.pub_year %></td>
-        <td><%= book.created_at.to_s(:long) %></td>
-        <td><%= book.updated_at.to_s(:long) %></td>
-        <td><%= book.publish_status %></td>
-      </tr>
-    <% end %>
-    </tbody>
-  </table>
-</div>
+<h1>Everything I've read.</h1>
+<table cellspacing="0">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Publisher</th>
+      <th>Year</th>
+      <th>Created</th>
+      <th>Updated</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @books.each do |book| %>
+    <tr>
+      <td><%= link_to_edit(book) %>
+        <%= link_to book.title, book %></td>
+      <td><%= book.author %></td>
+      <td><%= book.publisher %></td>
+      <td><%= book.pub_year %></td>
+      <td><%= book.created_at.strftime('%-m/%-e/%Y') %></td>
+      <td><%= book.updated_at.strftime('%-m/%-e/%Y') %></td>
+      <td><%= book.publish_status %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

@@ -1,22 +1,10 @@
-<div role="main" class="main">
-  <h1>Hey, I’m Steve and I empower people to do things on the web. This, like me, is a work-in-progress.</h1>
-  
-  <article id="latest_work">
-    <h2>I just made</h2>
-    <figure><%= link_to image_tag('work/'+@latest_work.image_filename, :alt => @latest_work.title), works_path %></figure>
-  </article>
-  
-  <article id="latest_writing">
-    <h2>I just wrote</h2>
-    <%= link_to @latest_writing.title, @latest_writing %>
-    <p><%= @latest_writing.summary %></p>
-  </article>
-  
-  <article id="latest_book">
-    <h2>I just read</h2>
-    <%= link_to get_cover(@latest_book), @latest_book %>
-    <%= link_to @latest_book.title, @latest_book %>
-    <%= @latest_book.author %>
-  </article>
+<h1>Hey, I’m Steve and I design and build tools that help people do awesome things on the internet. This, like me, is a work-in-progress.</h1>
 
-</div>
+<ol class="title_list">
+  <% @latest.each do |thing| %>
+    <%= content_tag :li, :class => thing.class.to_s.underscore do %>
+      <%= content_tag :span, "on #{thing.created_at.to_date.to_s(:long)} I #{{'work' => 'built', 'book' => 'read', 'writing' => 'wrote'}[thing.class.to_s.underscore]}" %>
+      <%= link_to (thing.respond_to?(:url) ? nice_url(thing.url) : thing.title), thing %>
+    <% end %>
+  <% end %>
+</ol>

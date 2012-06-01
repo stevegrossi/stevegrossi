@@ -1,5 +1,5 @@
 @font-face {
-  font-family: 'CharisSIL';
+  font-family:'CharisSIL';
   src: url('type/CharisSILR-webfont.eot');
   src: url('type/CharisSILR-webfont.eot?#iefix') format('embedded-opentype'),
        url('type/CharisSILR-webfont.woff') format('woff'),
@@ -10,7 +10,7 @@
 }
 
 @font-face {
-  font-family: 'CharisSIL';
+  font-family:'CharisSIL';
   src: url('type/CharisSILI-webfont.eot');
   src: url('type/CharisSILI-webfont.eot?#iefix') format('embedded-opentype'),
        url('type/CharisSILI-webfont.woff') format('woff'),
@@ -21,7 +21,7 @@
 }
 
 @font-face {
-  font-family: 'CharisSIL';
+  font-family:'CharisSIL';
   src: url('type/CharisSILB-webfont.eot');
   src: url('type/CharisSILB-webfont.eot?#iefix') format('embedded-opentype'),
        url('type/CharisSILB-webfont.woff') format('woff'),
@@ -32,7 +32,7 @@
 }
 
 @font-face {
-  font-family: 'CharisSIL';
+  font-family:'CharisSIL';
   src: url('type/CharisSILBI-webfont.eot');
   src: url('type/CharisSILBI-webfont.eot?#iefix') format('embedded-opentype'),
        url('type/CharisSILBI-webfont.woff') format('woff'),
@@ -40,4 +40,14 @@
        url('type/CharisSILBI-webfont.svg#CharisSILBoldItalic') format('svg');
   font-weight: bold;
   font-style: italic;
+}
+@font-face {
+  font-family:'ModernPictograms';
+  src: url('type/modernpics-webfont.eot');
+  src: url('type/modernpics-webfont.eot?#iefix') format('embedded-opentype'),
+       url('type/modernpics-webfont.woff') format('woff'),
+       url('type/modernpics-webfont.ttf') format('truetype'),
+       url('type/modernpics-webfont.svg#ModernPictogramsNormal') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }

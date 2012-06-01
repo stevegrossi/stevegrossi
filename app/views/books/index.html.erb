@@ -1,10 +1,4 @@
-<div role="main" class="main">
-  <h1>I read books.</h1>
-  <ol>
-    <% @books.each do |book| %>
-    <li>
-      <%= link_to( get_cover(book), book ) %>
-    </li>
-    <% end %>
-  </ol>
-</div>
+<h1>I read books.</h1>
+<ol class="title_list">
+<%= render @books %>
+</ol>

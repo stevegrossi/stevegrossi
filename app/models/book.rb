@@ -14,19 +14,19 @@
 #  subtitle       :string(255)
 #  cover_image    :string(255)
 #  publish_status :string(255)     default("published")
+#  thesis         :text
 #
 
 class Book < ActiveRecord::Base
+  
+  include Postable
+  
   has_friendly_id :title, :use_slug => true
 
-  validates :title, :presence => true
-  validates :author, :presence => true
-  validates :publisher, :presence => true
-  validates :pub_year, :presence => true
-  validates :thoughts, :presence => true
+  validates :title,           :presence => true
+  validates :author,          :presence => true
+  validates :publisher,       :presence => true
+  validates :pub_year,        :presence => true
+  validates :thoughts,        :presence => true
   
-  def draft?
-    publish_status == 'draft'
-  end
-
 end

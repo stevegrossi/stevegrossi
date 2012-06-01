@@ -14,6 +14,7 @@
 #  subtitle       :string(255)
 #  cover_image    :string(255)
 #  publish_status :string(255)     default("published")
+#  thesis         :text
 #
 
 require 'spec_helper'

@@ -5,7 +5,8 @@ class WritingsController < ApplicationController
   # GET /writings
   # GET /writings.xml
   def index
-    @title = "Some thoughts I've liked enough to write down"
+    @title = 'I write things'
+    @description = 'Some thoughts I\'ve liked enough to write down'
     @writings = Writing.published.order('created_at DESC')
 
     respond_to do |format|
@@ -16,18 +17,19 @@ class WritingsController < ApplicationController
   
   def everything
     @title = 'All Writings'
-    @writings = Writing.order('created_at DESC')
+    @writings = Writing.all
   end
 
   # GET /writings/1
   # GET /writings/1.xml
   def show
     @writing = Writing.find(params[:id])
-    @title = "#{@writing.title}"
+    @title = @writing.title
+    @description = @writing.summary unless @writing.summary.blank?
     
     if @writing.draft?
       if current_user || params[:draft] == 'yep'
-        flash[:alert] = 'This is a draft.'
+        flash.now[:alert] = 'This is a draft.'
       else
         flash[:error] = 'You must be logged in to view this draft.'
         redirect_to writings_path and return

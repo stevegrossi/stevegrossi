@@ -1,11 +1,6 @@
-<div class="main">
-  <h1><%= @writing.title %></h1>
-  <p class="meta">
-    <%= @writing.created_at.strftime('%B %e, %Y') %>
-    <% if current_user %>
-      | <%= link_to 'Edit', edit_writing_path(@writing), :class => 'edit'  %>
-    <% end %>
-  </p>
-
-  <%= markdown(@writing.content) %>
-</div>
+<h1><%= @writing.title %></h1>
+<p class="meta">
+  <%= @writing.date_created %>
+  <%= link_to_edit(@writing) %>
+</p>
+<%= markdown(@writing.content) %>

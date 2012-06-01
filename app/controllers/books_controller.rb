@@ -5,8 +5,9 @@ class BooksController < ApplicationController
   # GET /books
   # GET /books.xml
   def index
-    @title = "Writing about books helps me figure out what I think about them."
-    @books = Book.order('created_at DESC')
+    @title = 'Books'
+    @description = 'Writing about books helps me figure out what I think about them.'
+    @books = Book.published
 
     respond_to do |format|
       format.html # index.html.erb
@@ -16,18 +17,19 @@ class BooksController < ApplicationController
   
   def everything
     @title = 'Everything I\'ve read.'
-    @books = Book.order('created_at DESC')
+    @books = Book.all
   end
 
   # GET /books/1
   # GET /books/1.xml
   def show
     @book = Book.find(params[:id])
-    @title = "#{@book.title}"
+    @title = @book.title
+    @description = @book.thesis unless @book.thesis.blank?
     
     if @book.draft?
       if current_user || params[:draft] == 'yep'
-        flash[:alert] = 'This is a draft.'
+        flash.now[:alert] = 'This is a draft.'
       else
         flash[:error] = 'You must be logged in to view this draft.'
         redirect_to books_path and return

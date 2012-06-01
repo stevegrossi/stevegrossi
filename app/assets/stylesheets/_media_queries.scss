@@ -1,54 +1,125 @@
 @media only screen and (min-width: 480px) {
-  .one    {width:6.25%;}
-  .two    {width:14.583%;}
-  .three  {width:22.917%;}
-  .four   {width:31.25%;}
-  .five   {width:39.591%;}
-  .six    {width:47.917%;}
-  .seven  {width:56.25%;}
-  .eight  {width:64.583%;}
-  .nine   {width:72.917%;}
-  .ten    {width:81.25%;}
-  .eleven {width:89.583%;}
-  .twelve {width:97.917%;}
-  .one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .ten, .eleven, .twelve, .column {margin-left:1.04%;margin-right:1.04%;float:left;}
-  .row {
-    @extend .clearfix;
-    width: 97.875%;
-    margin: 0 1.064%;
-  }
-  .books.show .four, .books.show .eight {
-    float:right;
-  }
-  .pull {
-    @extend .four;
-    float:right !important;
-    margin-right:-52.08% !important;
-    width:50% !important;
-  }
-  .writings.index .main li {
-    margin:$line_height -1.04%;
-  }
-  .home {
-    h1 {
-      font-size:32px;
-      line-height:38px;
+  .main, .sitefooter, .siteheader nav {
+    max-width:80%;
     }
   }
-}
 
 @media only screen and (min-width: 768px) {
-  #wrapper {
-    max-width:960px;
-  }
-  .books.index ol {
-    margin-left:-1.04%;
-    margin-right:-1.04%;
-  }
-  .home {
-    h1 {
-      font-size:36px;
-      line-height:48px;
+  body {
+    font-size:112.5%; // 18px
+    line-height:1.5555555556; // 28px
+    }
+  .siteheader {
+    padding-top:$baseline;
+    #logo {
+      float:left;
+      padding:0;
+      }
+    ul {
+      width:auto;
+      }
+    li {
+      width:auto;
+      margin-left:1em;
+      }
+    }
+  figure {
+    &.left {
+      float:left;
+      margin-right:$baseline;
+      width:50%;
+      &.bleed {
+        margin-left:-12.5%;
+        figcaption {
+          padding-left:2%;
+          }
+        }
+      }
+    &.right {
+      float:right;
+      margin-left:$baseline;
+      width:50%;
+      &.bleed {
+        margin-right:-12.5%;
+        figcaption {
+          padding-right:2%;
+          }
+        }
+      }
+    }
+  .title_list {
+    padding-left:33%;
+    .date {
+      float:left;
+      text-align:right;
+      width:47%;
+      margin:-1.4em 0 0 -54%;
+      }
+    }
+  .halves {
+    margin:-1%;
+    }
+  .half {
+    display:inline-block;
+    vertical-align:top;
+    width:47%;
+    margin:0 1%;
+    }
+  .tiles li {
+    width:48%;
+    }
+  .works.index .tiles a {
+    height:200px;
+    overflow:hidden;
+    }
+  .home .title_list {
+    padding-left:0;
     }
   }
-}
+
+@media only screen and (min-width: 950px) {
+  body {
+    font-size:131.25%; // 21px
+    line-height:1.5238095238; // 32px
+    }
+  .main, .sitefooter, .siteheader nav {
+    max-width:75%;
+    }
+  .thesis {
+    margin-left:-16.5%;
+    padding-left:16.5%;
+    }
+  .tiles li {
+    width:31.3333333%;
+    }
+  figure {
+    &.left.bleed {
+      margin-left:-16.5%;
+      }
+    &.right.bleed {
+      margin-right:-16.5%;
+      }
+    }
+  }
+
+@media only screen and (min-width: 1200px) {
+  body {
+    font-size:150%; // 24px
+    line-height:1.5; // 36px
+    }
+  .main, .sitefooter, .siteheader nav {
+    max-width:70%;
+    }
+  .thesis {
+    margin-left:-21.5%;
+    padding-left:21.5%;
+    }
+  figure {
+    &.left.bleed {
+      margin-left:-21.5%;
+      }
+    &.right.bleed {
+      margin-right:-21.5%;
+      }
+    }
+  }

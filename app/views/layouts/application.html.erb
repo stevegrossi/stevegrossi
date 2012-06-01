@@ -4,43 +4,45 @@
 <!--[if IE 8 ]>    <html class="no-js ie8" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
-  <meta charset="utf-8">
-  <meta name="description" content="The website of Steve Grossi">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title><%= title %></title>
+  <meta name="description" content="<%= description %>">
   <%= stylesheet_link_tag 'application' %>
   <!--[if lte IE 8]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="shortcut icon" href="/favicon.ico">
   <%= csrf_meta_tag %>
 </head>
-<body class="<%= "#{controller_name} #{action_name}" %>">
-  <div id="wrapper">
-    <header class="siteheader">
-      <nav>
-        <p><%= link_to 'Steve Grossi', root_path, :title => 'Home', :accesskey => '1' %>
-          is <%= link_to 'a person', about_path, :title => 'About Steve' %>
-          who <%= link_to 'makes websites', works_path, :title => 'Portfolio' %>,
-          <%= link_to 'writes', writings_path, :title => 'Writings' %>,
-          and <%= link_to 'reads books', books_path, :title => 'Thoughts on books' %>.</p>
-      </nav>
-    </header>
+<body class="<%= "#{controller_name} #{action_name} #{ Date::DAYNAMES[Time.now.wday].downcase }" %>">
 
-    <% flash.each do |key, value| %>
-      <%= content_tag(:div, raw(value), :class => key) %>
+  <header class="siteheader">
+    <nav>
+      <%= link_to raw('Steve Grossi'), root_path, :title => 'Home', :accesskey => '1', :id => 'logo' %>
+      <ul><li><%= nav_link_to 'about', about_path, :title => 'About Steve' %></li><li><%= nav_link_to 'work', works_path, :title => 'Portfolio' %></li><li><%= nav_link_to 'thoughts', writings_path, :title => 'Writings' %></li><li><%= nav_link_to 'reads', books_path, :title => 'Thoughts on books' %></li></ul>
+    </nav>
+  </header>
+  
+  <div role="main" class="main">
+  
+  <% flash.each do |key, value| %>
+    <%= content_tag :p, :class => key do %>
+      <%= raw(value) %>
     <% end %>
+  <% end %>
 
-    <article>
-      <%= yield %>
-    </article>
-
-    <footer class="sitefooter">
-      <p>&copy; <%= Time.now.year %> | <%= link_to 'Colophon', colophon_path %>
-        <span id="contact">
-          <noscript>say hello: me at stevegrossi dot com</noscript>
-        </span>
-      </p>
-    </footer>
+  <article>
+    <%= yield %>
+  </article>
+  
   </div>
+
+  <footer class="sitefooter">
+    <p>&copy; 2011–<%= Time.now.year %> | <%= link_to 'Colophon', colophon_path %>
+      <span id="contact">
+        <noscript>say hello: me at stevegrossi dot com</noscript>
+      </span>
+    </p>
+  </footer>
   <%= render 'layouts/analytics' if Rails.env.production? %>
   <%= javascript_include_tag 'application' %>
 </body>

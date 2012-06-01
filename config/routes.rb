@@ -1,4 +1,8 @@
 Stevegrossi::Application.routes.draw do
+  
+  match '/wishlist' => redirect('http://amzn.com/w/156EDXYQR8J2F')
+  match '/made' => redirect('/built')
+  match '/made/:slug' => redirect("/built/%{slug}")
 
   resources :users
   resources :books, :path => 'read' do
@@ -11,18 +15,18 @@ Stevegrossi::Application.routes.draw do
       match 'everything' => 'writings#everything'
     end
   end
-  resources :works, :path => 'made' do
+  resources :works, :path => 'built' do
     collection do
       match 'everything' => 'works#everything'
     end
   end
-  resources :wishlist_items, :path => 'wishlist'
 
   resources :sessions, :only => [:new, :create, :destroy]
   get 'log_in' => 'sessions#new'
   post 'log_in' => 'sessions#create'
   get 'log_out' => 'sessions#destroy'
   match 'is' => 'pages#about', :as => 'about'
+  match 'styleguide' => 'pages#styleguide'
   match 'colophon' => 'pages#colophon'
 
   root :to => "pages#home"

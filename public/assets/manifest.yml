@@ -1,6 +1,9 @@
 ---
+aquariumdoodle.jpg: aquariumdoodle-cf2da25f7d12dccbf87cefcf1239b3a1.jpg
 books/form_follows_fiasco.jpg: books/form_follows_fiasco-6709a7336f2f3ecca63128389273603e.jpg
 books/lying.jpg: books/lying-1d7b6084def6f750d66e85f71688653d.jpg
+figure.png: figure-484580323a2d5df457b8ac44ee9cd177.png
+me.jpg: me-8972e5dc2ff7acc92a9dd76e3639be9c.jpg
 me.png: me-16167a0b3186b473ee53b2c096b858fb.png
 work/birchwood_crusher.jpg: work/birchwood_crusher-b4aa343aabe3574996fcb7d091afee3f.jpg
 work/cancercare_fy09_annual_report.jpg: work/cancercare_fy09_annual_report-2bc890631239c391151a4a1c8854d3af.jpg
@@ -25,7 +28,11 @@ type/CharisSILR-webfont.eot: type/CharisSILR-webfont-249da1fa933db71c97873f9400a
 type/CharisSILR-webfont.svg: type/CharisSILR-webfont-bf3a0b09431d6b371415055c4cd57d87.svg
 type/CharisSILR-webfont.ttf: type/CharisSILR-webfont-b6c848581ee3bf4c2762a11a1ead807b.ttf
 type/CharisSILR-webfont.woff: type/CharisSILR-webfont-95b38b51202b30766fea3052489febbc.woff
+type/modernpics-webfont.eot: type/modernpics-webfont-d19a5aad7efb56814331275044c4887d.eot
+type/modernpics-webfont.svg: type/modernpics-webfont-19a6aeb3bf49d80ebe29d4d29245ec5d.svg
+type/modernpics-webfont.ttf: type/modernpics-webfont-7d06c6145ae4b61ea930223521ede762.ttf
+type/modernpics-webfont.woff: type/modernpics-webfont-ae08f15f00331a2242f6880651033af6.woff
 jquery-ui.min.js: jquery-ui.min-4258e47b40673a02bedfda178628bfba.js
 jquery.min.js: jquery.min-17322428695737103f15e8b9db8b5909.js
-application.js: application-926ab3b7160db50f9dea27f07f97e750.js
-application.css: application-e6a7ef4c620289c01d6137783bad99c9.css
+application.js: application-d5168f92ad5ce43b89e9ea67c90842fa.js
+application.css: application-32c31724df87a2e8a894a795c2e141e8.css

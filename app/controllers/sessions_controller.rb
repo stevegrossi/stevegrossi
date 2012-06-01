@@ -7,9 +7,9 @@ class SessionsController < ApplicationController
     if user
       session[:user_id] = user.id
       flash[:success] = "Hey there, sexy!"
-      redirect_to root_url
+      redirect_back_or_to root_url
     else
-      flash[:success] = "Incorrect email of password."
+      flash[:error] = "Incorrect email or password."
       render "new"
     end
   end
@@ -17,6 +17,14 @@ class SessionsController < ApplicationController
   def destroy
     session[:user_id] = nil
     flash[:success] = "See you around, cowboy."
-    redirect_to root_url
+    redirect_back_or_to root_url
   end
+  
+  private
+  
+  def redirect_back_or_to(default)
+    redirect_to(session[:return_to] || default)
+    session[:return_to] = nil
+  end
+  
 end

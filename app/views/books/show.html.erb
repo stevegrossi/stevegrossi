@@ -5,13 +5,18 @@
   <span class="book_publisher"><%= @book.publisher %>, <%= @book.pub_year %></span>
   <%= link_to 'Amazon', 'http://www.amazon.com/gp/product/' + @book.asin + '?ie=UTF8&tag=stevgros-20' %>
 </footer>
-<div class="main" role="main">
-  <hgroup>
-    <h1><%= @book.title %></h1>
-    <%= content_tag(:h2, @book.subtitle) unless @book.subtitle.blank? %>
-  </hgroup>
-  <p class="meta">
-    <%= @book.created_at.strftime('%B %e, %Y') %>
-  </p>
-  <%= markdown(@book.thoughts) %>
-</div>
+
+<hgroup>
+  <h1><%= @book.title %></h1>
+  <%= content_tag(:h2, @book.subtitle) unless @book.subtitle.blank? %>
+</hgroup>
+<p class="meta">
+  <%= @book.date_created %>
+  <%= link_to_edit(@book) %>
+</p>
+<%= content_tag :p, @book.thesis, :class => 'thesis' unless @book.thesis.blank? %>
+<%= markdown(@book.thoughts) %>
+<%= content_tag :nav, :class => :article_nav do %>
+  <%= link_to_previous(@book) %>
+  <%= link_to_next(@book) %>
+<% end %>

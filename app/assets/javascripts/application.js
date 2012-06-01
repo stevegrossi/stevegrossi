@@ -7,8 +7,6 @@ $(function() {
 
   $('html').removeClass('no-js').addClass('js');
 
-  $('.success').delay(1000).fadeOut(500);
-
   one = 'me';
   two = 'stevegrossi';
   three = 'com';
@@ -18,7 +16,6 @@ $(function() {
   // Hook for evening styles
   var hr = (new Date()).getHours();
   if (hr > 17 || hr < 6) {
-    $('body').addClass('evening');
     var greeting = $('.home h1');
     greeting.text( greeting.text().replace("Hey", "Good evening") );
   }

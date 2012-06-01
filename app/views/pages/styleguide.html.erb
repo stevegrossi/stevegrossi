@@ -1,0 +1,154 @@
+<h1>Styleguide</h1>
+<p>This document is meant to explain and illustrate the markup (<abbr title="HyperText Markup Language">HTML</abbr>) and style (<abbr title="Cascading Style Sheet">CSS</abbr>) choices made on this site.</p>
+<h2>Sections</h2>
+<p>The word “Styleguide” above is a first-level heading, which is reserved for the title of the document or page as a whole. The heading immediately above this paragraph is a second-level heading, or <code>&lt;h2&gt;</code> element, used to denote a direct subsection of the main document.</p>
+<h3>Third-Level Heading</h3>
+<p>Above is an <code>&lt;h3&gt;</code> element, used denote a direct subsection of a second-level section.</p>
+<h4>Fourth-Level Heading</h4>
+<p>Above is an <code>&lt;h4&gt;</code> element, used denote a direct subsection of a third-level subsection.</p>
+<h5>Fifth-Level Heading</h5>
+<p>Above is an <code>&lt;h5&gt;</code> element, used denote a direct subsection of a fourth-level subsection.</p>
+<h6>Sixth-Level Heading</h6>
+<p>Above is an <code>&lt;h6&gt;</code> element, used denote a direct subsection of a fifth-level subsection</p>
+
+<h2>Grouping Content</h2>
+<h3>Paragraphs and Blockquotes</h3>
+<p>Paragraphs are wrapped in <code>&lt;p&gt;</code> tags to denote paragraph text. If a paragraph is directly quoted from elsewhere, it gets wrapped in a <code>&lt;blockquote&gt;</code> element, like so:</p>
+<blockquote>
+  <p>All this happened, more or less. The war parts, anyway, are pretty much true. One guy I knew really <em>was</em> show in Dresden for taking a teapot that wasn't his. Another guy I knew really <em>did</em> threaten to have his personal enemies killed by hired gunmen after the war. And so on. I've changed all the names.</p>
+  <p>—<cite>Slaughterhouse Five</cite>, by Kurt Vonnegut</p>
+</blockquote>
+<p>As above, citations should be attributed whenever possible using <code>&lt;cite&gt;</code> tags around the title of the quoted work.</p>
+<h3>Lists</h3>
+<p>Lists that are in no particular order should be marked up with <code>&lt;ul&gt;</code> tags. Unordered lists can of course be nested within each other, like so:</p>
+<ul>
+  <li>Animals</li>
+  <li>Vegetables
+    <ul>
+      <li>Lettuce</li>
+      <li>Carrots</li>
+      <li>Zucchini</li>
+    </ul>
+  </li>
+  <li>Minerals</li>
+</ul>
+<p>Lists that are ordered—perhaps chronologically or hierarchically—should be marked up with <code>&lt;ol&gt;</code> tags, which may also be nested.</p>
+<ol>
+  <li>Tomorrow</li>
+  <li>Today
+    <ol>
+      <li>An hour from now</li>
+      <li>Right now</li>
+      <li>An hour ago</li>
+    </ol>
+  </li>
+  <li>Yesterday</li>
+</ol>
+<p>Another kind of list is a description list, which is a list of items with one or more descriptions of them, such as in a glossary. The entire list should be wrapped in <code>&lt;dl&gt;</code> tags, with terms in <code>&lt;dt&gt;</code> tags and descriptions in <code>&lt;dd&gt;</code> tags, like so:</p>
+<dl>
+  <dt>The Internet</dt>
+  <dd>An vast and complicated network of computers developed over decades to facilitate the dissemination of cat pictures.</dd>
+  <dd>A series of tubes. (As here, one term can have multiple definitions.)</dd>
+  <dt>Another term</dt>
+  <dd>I'm not defining this (As you can see, simply marking up something as a description doesn't guarantee that it will cooperate.)</dd>
+</dl>
+<h2>Figures</h2>
+<p>Figures are graphics referenced within a body of text. A figure is marked up predictably with the <code>&lt;figure&gt;</code> element, which may contain a <code>&lt;figcaption&gt;</code> element to name or explain the illustration.</p>
+<figure>
+  <%= image_tag "figure.png", :title => "an example of a figure image" %>
+  <figcaption>Figures are often images. This figure uses the default styling, which is to span the full width of the text column.</figcaption>
+</figure>
+<p>One might also wish to float a figure off to the side of the body text. The next example accomplishes this by adding a class of "left" to the figure.</p>
+<figure class="left">
+  <%= image_tag "figure.png", :title => "an example of a figure image" %>
+  <figcaption>This figure has a class of "left".</figcaption>
+</figure>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<figure class="right bleed">
+  <%= image_tag "figure.png", :title => "an example of a figure image" %>
+  <figcaption>This figure has a class of "right", but also a class of "bleed" which pushes it to the edge of the screen.</figcaption>
+</figure>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<h2>Code</h2>
+<p>Code samples should be wrapped in the <code>&lt;code&gt;</code> element (as the text "&lt;code&gt;" just was). Code samples spanning multiple lines should have their whitespace preserved for readability, which can be accomplished by wrapping it in <code>&lt;pre&gt;</code> tags, like this:</p>
+<pre><code>function awesomize($input) {
+    return $input . ' and Steve';
+  }</code></pre>
+
+<h2>Tables</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Column One</th>
+      <th>Column Two</th>
+      <th>Column Three</th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <td colspan="3">This is the table footer.</td>
+    </tr>
+  </tfoot>
+  <tbody>
+    <tr>
+      <td>Text</td>
+      <td>Text</td>
+      <td>Text</td>
+    </tr>
+    <tr>
+      <td>Text</td>
+      <td>Text</td>
+      <td>Text</td>
+    </tr>
+    <tr>
+      <td>Text</td>
+      <td>Text</td>
+      <td>Text</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Forms</h2>
+<form>
+  <fieldset>
+    <legend>Legend</legend>
+    <label for="input1">Text field</label>
+    <input id="input1" placeholder="text here" />
+    <label for="input2">Text area</label>
+    <textarea id="input2">Some default text will go here.</textarea>
+    <label for="input3">Search field</label>
+    <input type="search" id="input3" />
+    <label for="input4"><input type="checkbox" id="input4" /> Checkbox field?</label>
+    <label for="input5">Select field</label>
+    <select id="input5">
+      <option>Option One</option>
+      <option>Option Two</option>
+      <option>Option Three</option>
+    </select>
+  </fieldset>
+  <fieldset>
+    <legend>Do you like radio buttons?</legend>
+    <ul>
+      <li>
+        <label for="radio1"><input id="radio1" name="radio[]" type="radio" checked="checked"> Yes</label>
+      </li>
+      <li>
+        <label for="radio2"><input id="radio2" name="radio[]" type="radio"> No</label>
+      </li>
+      <li>
+        <label for="radio3"><input id="radio3" name="radio[]" type="radio"> What is a radio?</label>
+      </li>
+    </ul>
+  </fieldset>
+  <input type="submit" value="Submit" />
+</form>
+
+<h2>Alert Messages</h2>
+<p class="error">Something has gone hideously wrong. (This message has a class of <code>.error</code>)</p>
+<p class="alert">Warning: democracy functioning at sub-optimal levels. (This message has a class of <code>.alert</code>)</p>
+<p class="success">Victory! (This message has a class of <code>.success</code>)</p>

@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '3.1.0'
 gem 'mysql2', '~> 0.3.0'
 gem "jquery-rails"
-gem 'rdiscount', '~> 1.6.8'
+gem 'maruku'
 gem 'friendly_id', '~> 3.2.1'
 gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'taps', '~> 0.3.0'

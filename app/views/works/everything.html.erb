@@ -1,0 +1,28 @@
+<h1>Everything I've built.</h1>
+<table cellspacing="0">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>About</th>
+      <th>Url</th>
+      <th>Client</th>
+      <th>Created</th>
+      <th>Updated</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @works.each do |work| %>
+    <tr>
+      <td><%= link_to_edit(work) %>
+        <%= link_to work.title, work %></td>
+      <td><%= word_count(work.about) %></td>
+      <td><%= link_from_url(work.url) %></td>
+      <td><%= raw work.client %></td>
+      <td><%= work.created_at.strftime('%-m/%-e/%Y') %></td>
+      <td><%= work.updated_at.strftime('%-m/%-e/%Y') %></td>
+      <td><%= work.publish_status %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

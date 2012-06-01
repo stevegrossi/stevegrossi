@@ -1,14 +1,4 @@
-<div class="main" role="main">
-  <h1>I make websites.</h1>
-  <% @works.each do |work| %>
-  <article>
-    <a href="<%= work_path(work) %>">
-      <figure>
-        <%= image_tag "work/#{ work.image_filename }" %>
-      </figure>
-      <h2><%= work.title %></h2>
-    </a>
-    <%= markdown( work.about ) %>
-  </article>
-  <% end %>
-</div>
+<h1>I make websites.</h1>
+<ol class="tiles">
+  <%= render @works %>
+</ol>

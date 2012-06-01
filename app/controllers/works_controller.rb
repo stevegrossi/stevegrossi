@@ -2,10 +2,13 @@ class WorksController < ApplicationController
   
   before_filter :logged_in?, :except => [:index, :show]
   
+  include ApplicationHelper
+  
   # GET /works
   # GET /works.xml
   def index
     @works = Work.order('created_at DESC')
+    @title = 'The finest websites, built with love'
 
     respond_to do |format|
       format.html # index.html.erb
@@ -17,11 +20,18 @@ class WorksController < ApplicationController
   # GET /works/1.xml
   def show
     @work = Work.find(params[:id])
+    @title = @work.title
+    @description = "I built #{nice_url(@work.url)} for #{@work.client}."
 
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @work }
     end
+  end
+  
+  def everything
+    @title = 'Everything I\'ve read.'
+    @works = Work.all
   end
 
   # GET /works/new

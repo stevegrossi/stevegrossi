@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120517213321) do
+ActiveRecord::Schema.define(:version => 20120531134651) do
 
   create_table "books", :force => true do |t|
     t.string   "title"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20120517213321) do
     t.string   "subtitle"
     t.string   "cover_image"
     t.string   "publish_status", :default => "published"
+    t.text     "thesis"
   end
 
   create_table "slugs", :force => true do |t|
@@ -46,18 +47,6 @@ ActiveRecord::Schema.define(:version => 20120517213321) do
     t.datetime "updated_at"
   end
 
-  create_table "wishlist_items", :force => true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.decimal  "price",       :precision => 8, :scale => 2
-    t.string   "purchase_at"
-    t.boolean  "purchased",                                 :default => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "category"
-    t.string   "image_url"
-  end
-
   create_table "works", :force => true do |t|
     t.string   "title"
     t.text     "about"
@@ -66,6 +55,7 @@ ActiveRecord::Schema.define(:version => 20120517213321) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "image_filename"
+    t.string   "publish_status", :default => "published"
   end
 
   create_table "writings", :force => true do |t|

@@ -5,6 +5,7 @@ describe Work do
 end
 
 
+
 # == Schema Information
 #
 # Table name: works
@@ -17,5 +18,6 @@ end
 #  created_at     :datetime
 #  updated_at     :datetime
 #  image_filename :string(255)
+#  publish_status :string(255)     default("published")
 #
 
