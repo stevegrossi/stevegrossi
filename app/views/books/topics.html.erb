@@ -1,0 +1,6 @@
+<h1>I’ve read books about:</h1>
+<ul>
+<% @topics.each do |topic| %>
+  <li><%= link_to topic.name, tagged_books_path(topic) %></li>
+<% end %>
+</ul>

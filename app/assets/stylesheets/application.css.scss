@@ -56,7 +56,7 @@ a {
     color: mix(#fff, $blue, 20%);
     }
   }
-h1, h2, h3, h4, h5, p, ul, ol, dl, hgroup, table, figure, input[type="submit"] {
+h1, h2, h3, h4, h5, p, ul, ol, dl, hgroup, table, figure, fieldset, input[type="submit"] {
   margin-top:$baseline;
   margin-bottom:$baseline;
   }
@@ -179,7 +179,7 @@ input {
   max-width:100%;
 }
 input[type="submit"] {
-  display:block;
+  float:left;
   padding:$baseline*.5 $baseline;
   background:$darker_gray;
   color:#fff;

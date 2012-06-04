@@ -107,4 +107,16 @@ class BooksController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def topics
+    @title = 'Topics covered in books I\'ve read'
+    @topics = Book.topic_counts
+  end
+  
+  def topic
+    @topic = ActsAsTaggableOn::Tag.find(params[:topic])
+    @books = Book.published.tagged_with(@topic)
+    @title = "Books I've read about #{@topic.name}"
+  end
+  
 end

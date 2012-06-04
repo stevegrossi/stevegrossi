@@ -49,5 +49,10 @@ module Stevegrossi
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
+    
+    # acts_as_taggable_on config
+    ActsAsTaggableOn.force_lowercase = true
+    ActsAsTaggableOn.remove_unused_tags = true
+    
   end
 end

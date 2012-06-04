@@ -34,9 +34,22 @@
   <%= f.label :cover_image %>
   <%= f.text_field :cover_image %>
   
+  <%= field_set_tag 'Topics', :class => :topics do %>
+    <%= f.label :topic_list %>
+    <%= f.text_field :topic_list %>
+    <%= content_tag :h2, 'Current Topics' %>
+    <%= content_tag :p do %>
+      <% Book.topic_counts.sort_by{ |topic| topic.name }.each do |topic| %>
+        <span class="tag"><%= topic.name %></span>
+      <% end %>
+    <% end %>
+  <% end %>
+  
   <%= f.label :publish_status %>
   <%= f.select(:publish_status, ['published', 'draft']) %>
 
-  <%= f.submit %>
+  <p><%= f.submit %>
+    <%= link_to 'or go back', @book, :class => :cancel %>
+  </p>
 
 <% end %>

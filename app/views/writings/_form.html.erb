@@ -14,6 +14,8 @@
   <%= f.label :publish_status %>
   <%= f.select(:publish_status, ['published', 'draft']) %>
 
-  <%= f.submit %>
+  <p><%= f.submit %>
+    <%= link_to 'or go back', @writing, :class => :cancel %>
+  </p>
 
 <% end %>

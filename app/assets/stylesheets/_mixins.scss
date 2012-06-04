@@ -13,10 +13,10 @@
   -webkit-border-radius: $rad ;
   border-radius: $rad ;
   }
-@mixin shadow {
-  -moz-box-shadow:0 4px 8px rgba(0, 0, 0, 0.2);
-  -webkit-box-shadow:0 4px 8px rgba(0, 0, 0, 0.2);
-  box-shadow:0 4px 8px rgba(0, 0, 0, 0.2);
+@mixin shadow($params: 0 4px 8px rgba(0, 0, 0, 0.2)) {
+  -moz-box-shadow:$params;
+  -webkit-box-shadow:$params;
+  box-shadow:$params;
   }
 @mixin transition($opts) {
   -webkit-transition: $opts;

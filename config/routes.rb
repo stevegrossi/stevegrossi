@@ -7,17 +7,19 @@ Stevegrossi::Application.routes.draw do
   resources :users
   resources :books, :path => 'read' do
     collection do
-      match 'everything' => 'books#everything'
+      get 'everything' => 'books#everything'
+      get 'about' => 'books#topics'
+      get 'about/:topic' => 'books#topic', :as => :tagged
     end
   end
   resources :writings, :path => 'wrote' do
     collection do
-      match 'everything' => 'writings#everything'
+      get 'everything' => 'writings#everything'
     end
   end
   resources :works, :path => 'built' do
     collection do
-      match 'everything' => 'works#everything'
+      get 'everything' => 'works#everything'
     end
   end
 
