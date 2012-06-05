@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
 
-  before_filter :logged_in?, :except => [:index, :show]
+  before_filter :logged_in?, :except => [:index, :show, :topic, :topics]
 
   # GET /books
   # GET /books.xml

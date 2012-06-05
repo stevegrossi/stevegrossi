@@ -36,3 +36,4 @@ jquery-ui.min.js: jquery-ui.min-4258e47b40673a02bedfda178628bfba.js
 jquery.min.js: jquery.min-17322428695737103f15e8b9db8b5909.js
 application.js: application-634c58b4772ee2dfa1f0edb0f1375487.js
 application.css: application-902a0b872b743e80f087778c81eb4004.css
+admin.js: admin-055ee58029da78ed8eb429b03657780a.js
