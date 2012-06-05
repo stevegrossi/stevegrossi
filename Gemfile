@@ -6,7 +6,6 @@ gem 'maruku'
 gem "acts-as-taggable-on", "~> 2.3.1"
 gem 'friendly_id', '~> 3.2.1'
 gem 'bcrypt-ruby', :require => 'bcrypt'
-gem 'taps', '~> 0.3.0'
 gem 'heroku', '~> 2.2.1'
 gem 'thin'
 gem 'foreman'
@@ -27,4 +26,5 @@ group :development, :test do
   gem 'mysql2', '~> 0.3.0'
   gem 'annotate', '~> 2.4.0'
   gem "rspec-rails", ">= 2.0.1"
+  gem 'taps', '~> 0.3.0'
 end
