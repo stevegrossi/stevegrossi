@@ -16,7 +16,7 @@ module ApplicationHelper
     if book.cover_image.blank?
       image_tag("http://images.amazon.com/images/P/#{ book.asin }.01.LZZZZZZZ.jpg", :alt => book.title, :class => 'cover')
     else
-      image_tag( asset_path("books/#{book.cover_image}"), :alt => book.title, :class => 'cover')
+      image_tag( "http://cloud.stevegrossi.com/books/#{book.cover_image}", :alt => book.title, :class => 'cover')
     end
   end
   

@@ -2,6 +2,9 @@
   .main, .sitefooter, .siteheader nav {
     max-width:80%;
     }
+  .topics ol {
+    @include columns(3);
+    }
   }
 
 @media only screen and (min-width: 768px) {
@@ -74,6 +77,9 @@
     }
   .home .title_list {
     padding-left:0;
+    }
+  .topics ol {
+    @include columns(4);
     }
   }
 

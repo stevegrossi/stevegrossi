@@ -369,6 +369,12 @@ input[type="submit"] {
     font-size:16px;
     }
   }
+.topics ol {
+  list-style:none;
+  margin-left:0;
+  margin-right:0;
+  @include columns(2);
+  }
 
 @import 'media_queries';
 @import 'print';
