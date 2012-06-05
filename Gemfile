@@ -1,7 +1,6 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.1.0'
-gem 'mysql2', '~> 0.3.0'
 gem "jquery-rails"
 gem 'maruku'
 gem "acts-as-taggable-on", "~> 2.3.1"
@@ -10,7 +9,7 @@ gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'taps', '~> 0.3.0'
 gem 'heroku', '~> 2.2.1'
 gem 'thin'
-gem 'pg'
+gem 'foreman'
 
 group :assets do
   gem 'sass-rails', '~> 3.1.0'
@@ -18,9 +17,14 @@ group :assets do
   gem 'uglifier' 
 end
 
+group :production do
+  gem 'pg'
+end
+
 gem 'jquery-rails'
 
 group :development, :test do
+  gem 'mysql2', '~> 0.3.0'
   gem 'annotate', '~> 2.4.0'
   gem "rspec-rails", ">= 2.0.1"
 end
