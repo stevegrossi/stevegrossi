@@ -46,6 +46,7 @@ class BooksController < ApplicationController
   # GET /books/new.xml
   def new
     @book = Book.new
+    @authors = Author.all
 
     respond_to do |format|
       format.html # new.html.erb
@@ -56,6 +57,7 @@ class BooksController < ApplicationController
   # GET /books/1/edit
   def edit
     @book = Book.find(params[:id])
+    @authors = Author.all
   end
 
   # POST /books

@@ -174,7 +174,7 @@ textarea {
   min-height:$baseline*4;
   border:1px solid $light_gray;
   }
-input {
+input, select[multiple='multiple'] {
   border:1px solid $light_gray;
   max-width:100%;
 }
@@ -184,6 +184,11 @@ input[type="submit"] {
   background:$darker_gray;
   color:#fff;
   @include round;
+  }
+select[multiple='multiple'] {
+  height:4.5em;
+  max-width:none;
+  width:102%;
   }
 
 @import 'helpers';

@@ -4,9 +4,10 @@ Stevegrossi::Application.routes.draw do
   match '/made' => redirect('/built')
   match '/made/:slug' => redirect("/built/%{slug}")
 
-  resources :users, :authors
+  resources :users
   resources :books, :path => 'read' do
     collection do
+      resources :authors, :path => 'by'
       get 'everything' => 'books#everything'
       get 'about' => 'books#topics'
       get 'about/:topic' => 'books#topic', :as => :tagged
