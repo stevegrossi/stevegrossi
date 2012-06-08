@@ -11,7 +11,10 @@
       <%= f.text_field :subtitle %>
       
       <%= f.label :author_ids, 'Author(s)' %>
-      <%= f.select :author_ids, Author.all.collect {|x| [x.full_name, x.id]}, {}, :multiple => true %>
+      <%= f.select :author_ids, Author.all.collect {|x| [x.full_name, x.id]}, {}, :multiple => true, :allow_blank => true %>
+      
+      <%= f.label :new_author %>
+      <%= f.text_field :new_author %>
 
     </div>
     <div class="half">

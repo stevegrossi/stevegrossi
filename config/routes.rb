@@ -7,7 +7,7 @@ Stevegrossi::Application.routes.draw do
   resources :users
   resources :books, :path => 'read' do
     collection do
-      resources :authors, :path => 'by'
+      resources :authors
       get 'everything' => 'books#everything'
       get 'about' => 'books#topics'
       get 'about/:topic' => 'books#topic', :as => :tagged

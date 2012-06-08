@@ -27,9 +27,10 @@ class Book < ActiveRecord::Base
   
   has_many :authorships, :dependent => :destroy
   has_many :authors, :through => :authorships
+  
+  attr_accessor :new_author
 
   validates :title,           :presence => true
-  validates :author,          :presence => true
   validates :publisher,       :presence => true
   validates :pub_year,        :presence => true
   validates :thoughts,        :presence => true
