@@ -169,6 +169,19 @@
   margin-left:-1.5em;
   @include round(.5em);
   }
+.main .delete_link {
+  float:right;
+  margin-top:2em;
+  &::before {
+    content:'X';
+    font-family:ModernPictograms;
+    font-size:2em;
+    float:left;
+    line-height:1;
+    position:relative;
+    right:.1em;
+    }
+  }
 fieldset.topics {
   label {
     margin-top:0;
