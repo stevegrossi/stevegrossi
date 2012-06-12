@@ -9,9 +9,9 @@
 
       <%= f.label :subtitle %>
       <%= f.text_field :subtitle %>
-
-      <%= f.label :author %>
-      <%= f.text_field :author %>
+      
+      <%= f.label :author_ids, 'Author(s)' %> <%= link_to 'New Author', new_author_path, :class => :ajax_new_link, :remote => true %>
+      <%= f.select :author_ids, Author.all.collect {|x| [x.full_name, x.id]}, {}, :multiple => true %>
     </div>
     <div class="half">
       <%= f.label :publisher %>
@@ -46,7 +46,7 @@
   <% end %>
   
   <%= f.label :publish_status %>
-  <%= f.select(:publish_status, ['published', 'draft']) %>
+  <%= f.select(:publish_status, Postable::PUBLISH_STATES) %>
 
   <p><%= f.submit %>
     <%= link_to 'or go back', @book, :class => :cancel %>

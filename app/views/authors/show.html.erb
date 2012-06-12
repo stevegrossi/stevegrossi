@@ -1,0 +1,9 @@
+<h1>Books I’ve read by <%= @author.full_name %>:</h1>
+<% if @books.blank? %>
+  <p>Hm, it looks like I actually haven’t read any of <%= @author.fname %>’s books. To the library!</p>
+<% else %>
+  <ol class="title_list">
+    <%= render @books %>
+  </ol>
+<% end %>
+<p><%= link_to '« back to authors', authors_path %></p>

@@ -1,5 +1,5 @@
 Stevegrossi::Application.routes.draw do
-  
+
   match '/wishlist' => redirect('http://amzn.com/w/156EDXYQR8J2F')
   match '/made' => redirect('/built')
   match '/made/:slug' => redirect("/built/%{slug}")
@@ -7,6 +7,7 @@ Stevegrossi::Application.routes.draw do
   resources :users
   resources :books, :path => 'read' do
     collection do
+      resources :authors
       get 'everything' => 'books#everything'
       get 'about' => 'books#topics'
       get 'about/:topic' => 'books#topic', :as => :tagged

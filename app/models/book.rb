@@ -24,9 +24,11 @@ class Book < ActiveRecord::Base
   include Postable
   
   has_friendly_id :title, :use_slug => true
+  
+  has_many :authorships, :dependent => :destroy
+  has_many :authors, :through => :authorships
 
   validates :title,           :presence => true
-  validates :author,          :presence => true
   validates :publisher,       :presence => true
   validates :pub_year,        :presence => true
   validates :thoughts,        :presence => true
