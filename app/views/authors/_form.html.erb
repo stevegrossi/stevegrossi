@@ -2,13 +2,13 @@
 
 <%= form_for(@author) do |f| %>
 
-    <%= f.label :fname %>
-    <%= f.text_field :fname %>
+    <%= f.label :fname, 'First' %>
+    <%= f.text_field :fname, :tabindex => 1 %>
 
-    <%= f.label :mname %>
+    <%= f.label :mname, 'Middle' %>
     <%= f.text_field :mname %>
 
-    <%= f.label :lname %>
+    <%= f.label :lname, 'Last' %>
     <%= f.text_field :lname %>
     
     <p><%= f.submit %>
