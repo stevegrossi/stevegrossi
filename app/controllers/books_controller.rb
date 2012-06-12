@@ -64,10 +64,6 @@ class BooksController < ApplicationController
   # POST /books.xml
   def create
     @book = Book.new(params[:book])
-    unless @book.new_author.blank?
-      author = Author.new( extract_author_atts(@book.new_author) )
-      @book.authors << author
-    end
 
     respond_to do |format|
       if @book.save
@@ -123,30 +119,6 @@ class BooksController < ApplicationController
     @topic = ActsAsTaggableOn::Tag.find(params[:topic])
     @books = Book.published.tagged_with(@topic)
     @title = "Books I've read about #{@topic.name}"
-  end
-  
-  private
-  
-  def extract_author_atts(str)
-    atts = {}
-    parts = str.split(' ')
-    # if a part is 'de' or ', Jr.', etc. combine it with next/previous part
-    case parts.count
-    when 1
-      atts[:fname] = parts.first
-    when 2
-      atts[:fname] = parts.first
-      atts[:lname] = parts.last
-    when 3
-      atts[:fname] = parts[0]
-      atts[:mname] = parts[1]
-      atts[:lname] = parts[2]
-    when 4
-      atts[:fname] = parts[0]
-      atts[:mname] = parts[1..2].join(' ')
-      atts[:lname] = parts[3]
-    end
-    return atts
   end
   
 end

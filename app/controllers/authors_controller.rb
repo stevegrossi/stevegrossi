@@ -29,7 +29,7 @@ class AuthorsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @author }
+      format.js
     end
   end
 
@@ -38,21 +38,21 @@ class AuthorsController < ApplicationController
     @author = Author.find(params[:id])
   end
 
-  # POST /authors
-  # POST /authors.json
   def create
     @author = Author.new(params[:author])
 
-    respond_to do |format|
-      if @author.save
+    if @author.save
+      respond_to do |format|
+        format.js
         format.html do
           flash[:success] = 'A new author!'
-          redirect_to @author
+          return redirect_to @author
         end
-        format.xml  { render :xml => @author, :status => :created, :location => @author }
-      else
+      end
+    else
+      respond_to do |format|
+        format.js
         format.html { render :action => "new" }
-        format.xml  { render :xml => @author.errors, :status => :unprocessable_entity }
       end
     end
   end

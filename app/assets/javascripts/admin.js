@@ -1,4 +1,5 @@
 //= require jquery.tagsinput
+//= require jquery.facebox
 //= require_self
 
 // TODO: make :contains match exactly
@@ -20,13 +21,4 @@ $(function() {
     $('#book_topic_list').addTag(tag);
   });
   
-  $("label[for='book_new_author']").hide();
-  $('#book_new_author').hide();
-  $("label[for='book_author_ids']").before('<a id="new_author_link" href="#">Add New</a>');
-  $('#new_author_link').on('click', function() {
-    $(this).hide();
-    $("label[for='book_new_author']").show();
-    $('#book_new_author').show();
-    return false;
-  });
 });

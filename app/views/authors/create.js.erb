@@ -1,0 +1,7 @@
+<% if @author.save %>
+  $(document).trigger('close.facebox');
+  $('#book_author_ids').prepend('<option value="<%= @author.id %>"><%= escape_javascript @author.full_name %></option>');
+<% else %>
+  $('#facebox .content').html('<%= escape_javascript(render :template => "authors/new.html") %>');
+  $('#facebox form').data('remote','true');
+<% end %>

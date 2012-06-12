@@ -380,10 +380,6 @@ select[multiple='multiple'] {
   margin-right:0;
   @include columns(2);
   }
-#new_author_link {
-  float:right;
-  margin-top:24px;
-  }
 
 @import 'media_queries';
 @import 'print';

@@ -1,6 +1,5 @@
 //= require jquery
 //= require jquery_ujs
-//= require rails
 //= require footnotes
 //= require respond
 //= require_self

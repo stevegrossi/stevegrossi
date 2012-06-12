@@ -2,17 +2,17 @@
 
 <%= form_for(@author) do |f| %>
 
-    <%= f.label :fname %><br />
+    <%= f.label :fname %>
     <%= f.text_field :fname %>
 
-    <%= f.label :mname %><br />
+    <%= f.label :mname %>
     <%= f.text_field :mname %>
 
-    <%= f.label :lname %><br />
+    <%= f.label :lname %>
     <%= f.text_field :lname %>
     
     <p><%= f.submit %>
-      <%= link_to 'or go back', @author, :class => :cancel %>
+      <%= link_to 'or go back', @author, :class => :cancel if params[:controller] == :authors %>
     </p>
 
 <% end %>
