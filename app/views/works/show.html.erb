@@ -1,6 +1,7 @@
 <h1><%= @work.title %></h1>
-<figure class="right">
-  <%= link_to image_tag("work/#{@work.image_filename}", :alt => '', :class => 'screenshot'), @work.url %>
+<figure>
+  <%= image_tag @work.image_filename, :alt => '' %>
   <figcaption>Visit <%= link_from_url(@work.url) %></figcaption>
 </figure>
 <%= markdown( @work.about ) %>
+</figure>

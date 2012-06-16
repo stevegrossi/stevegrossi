@@ -22,6 +22,7 @@ class Author < ActiveRecord::Base
   
   validates :fname, :presence => true
   validates :lname, :presence => true
+  validates :fname, :uniqueness => { :scope => [:lname, :mname] }
   
   def full_name
     name = fname

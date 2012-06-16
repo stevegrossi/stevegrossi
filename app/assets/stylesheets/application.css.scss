@@ -315,19 +315,8 @@ select[multiple='multiple'] {
     }
   }
 .works.index {
-  .tiles {
-    a {
-      position:relative;
-      color:#fff;
-      text-decoration:none;
-      }
-    span {
-      position:absolute;
-      background:rgba(0,0,0,.5);
-      left:0;
-      bottom:5%;
-      padding:2% 4%;
-      }
+  .tiles a {
+    text-align:center;
     }
   }
 .home {
