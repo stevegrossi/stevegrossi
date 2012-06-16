@@ -7,7 +7,7 @@ class WorksController < ApplicationController
   # GET /works
   # GET /works.xml
   def index
-    @works = Work.order('created_at DESC')
+    @works = Work.published.order('created_at DESC')
     @title = 'The finest websites, built with love'
 
     respond_to do |format|
@@ -22,7 +22,16 @@ class WorksController < ApplicationController
     @work = Work.find(params[:id])
     @title = @work.title
     @description = "I built #{nice_url(@work.url)} for #{@work.client}."
-
+    
+    if @work.draft?
+      if current_user || params[:draft] == 'yep'
+        flash.now[:alert] = 'This is a draft.'
+      else
+        flash[:error] = 'You must be logged in to view this draft.'
+        redirect_to works_path and return
+      end
+    end
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @work }
