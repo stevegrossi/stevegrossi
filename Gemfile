@@ -9,6 +9,7 @@ gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'heroku'
 gem 'thin'
 gem 'foreman'
+gem 'pg'
 
 group :assets do
   gem 'sass-rails', '~> 3.1.0'
@@ -16,14 +17,9 @@ group :assets do
   gem 'uglifier' 
 end
 
-group :production do
-  gem 'pg'
-end
-
 gem 'jquery-rails'
 
 group :development, :test do
-  gem 'mysql2', '~> 0.3.0'
   gem 'annotate', '~> 2.4.0'
   gem "rspec-rails", ">= 2.0.1"
   gem 'taps', '~> 0.3.0'
