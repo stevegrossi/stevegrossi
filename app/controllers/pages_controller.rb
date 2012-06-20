@@ -19,6 +19,13 @@ class PagesController < ApplicationController
   def styleguide
     @title = 'Styleguide'
   end
+  
+  def search
+    @query = params[:for]
+    @title = @query.blank? ? 'Search' : "Searching for '#{@query}'"
+    
+    @results = PgSearch.multisearch(@query).limit(10)
+  end
 
   def error_404
     @title = '404: Page Not Found'

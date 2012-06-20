@@ -18,6 +18,9 @@
 #
 
 class Book < ActiveRecord::Base
+  
+  include PgSearch
+  multisearchable :against => [:title, :subtitle, :thesis, :thoughts]
 
   acts_as_taggable_on :topics
   

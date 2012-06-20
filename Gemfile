@@ -10,6 +10,7 @@ gem 'heroku'
 gem 'thin'
 gem 'foreman'
 gem 'pg'
+gem 'pg_search'
 
 group :assets do
   gem 'sass-rails', '~> 3.1.0'

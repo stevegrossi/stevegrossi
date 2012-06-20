@@ -95,6 +95,10 @@ sup {
 sub {
   bottom:-.25em;
   }
+mark {
+  background:rgba(255,255,0,.5);
+  color:inherit;
+  }
 blockquote {
   margin:$baseline $baseline $baseline 0;
   color:$gray;
@@ -368,6 +372,13 @@ select[multiple='multiple'] {
   margin-left:0;
   margin-right:0;
   @include columns(2);
+  }
+.search {
+  ol {
+    a {
+      display:block;
+      }
+    }
   }
 
 @import 'media_queries';

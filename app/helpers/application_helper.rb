@@ -86,5 +86,19 @@ module ApplicationHelper
   def word_count(str)
     pluralize( str.gsub(/[^-a-zA-Z]/, ' ').split.size, 'word' )
   end
-    
+  
+  def mark_string(string='', term='')
+    if term.blank?
+      return string
+    else
+      raw(string.gsub(/#{term}/i, '<mark>\0</mark>' ))
+    end
+  end
+  
+  def comment_on(string)
+    case string.downcase
+    when 'fuck'
+      'You kiss your mother with that mouth?'
+    end
+  end
 end

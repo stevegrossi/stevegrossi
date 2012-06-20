@@ -31,6 +31,7 @@ Stevegrossi::Application.routes.draw do
   match 'is' => 'pages#about', :as => 'about'
   match 'styleguide' => 'pages#styleguide'
   match 'colophon' => 'pages#colophon'
+  match 'search' => 'pages#search'
 
   root :to => "pages#home"
 
