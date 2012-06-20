@@ -12,6 +12,10 @@ module ApplicationHelper
     raw text.blank? ? '' : Maruku.new(text).to_html
   end
   
+  def strip_markdown(text)
+    strip_tags(markdown(text))
+  end
+  
   def get_cover(book)
     if book.cover_image.blank?
       image_tag("http://images.amazon.com/images/P/#{ book.asin }.01.LZZZZZZZ.jpg", :alt => book.title, :class => 'cover')
@@ -87,18 +91,26 @@ module ApplicationHelper
     pluralize( str.gsub(/[^-a-zA-Z]/, ' ').split.size, 'word' )
   end
   
-  def mark_string(string='', term='')
+  def mark_string(string, term='')
     if term.blank?
-      return string
+      string
     else
-      raw(string.gsub(/#{term}/i, '<mark>\0</mark>' ))
+      raw string.gsub(/#{Regexp.escape(term).gsub(/\\\s/, '|')}/i, '<mark>\0</mark>')
     end
   end
+
+  def serp_excerpt(text, query)
+    query = Regexp.escape(query).gsub(/[^\w\s]/, '')
+    first_occurrence = query.split(' ').first
+    mark_string(excerpt(strip_markdown(text), first_occurrence), query)
+  end
   
-  def comment_on(string)
-    case string.downcase
-    when 'fuck'
-      'You kiss your mother with that mouth?'
+  def comment_on_search_term(query)
+    unless query.blank?
+      case query.downcase
+      when 'shit', 'fuck', 'cunt', 'cocksucker', 'motherfucker'
+        'You kiss your mother with that mouth?'
+      end
     end
   end
 end

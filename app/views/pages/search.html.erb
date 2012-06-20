@@ -1,5 +1,7 @@
 <h1><%= @query.blank? ? 'Search' : "Searching for “#{@query}”" %></h1>
-<p><em><%= comment_on(@query) %></em></p>
+<% unless @query.blank? %>
+  <p><em><%= comment_on_search_term(@query) %></em></p>
+<% end %>
 <%= render 'layouts/search_form' %>
 <% unless @query.blank? %>
   <% if @results.blank? %>
@@ -9,7 +11,7 @@
     <% @results.each do |result| %>
       <li>
         <%= link_to mark_string(result.searchable.title, @query), result.searchable %>
-        <%= mark_string(excerpt(strip_tags(markdown(result.content)), @query), @query) %>
+        <%= serp_excerpt(result.content, @query) %>
       </li>
     <% end %>
     </ol>

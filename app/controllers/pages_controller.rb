@@ -22,8 +22,8 @@ class PagesController < ApplicationController
   
   def search
     @query = params[:for]
+    return redirect_to search_path if @query == ''
     @title = @query.blank? ? 'Search' : "Searching for '#{@query}'"
-    
     @results = PgSearch.multisearch(@query).limit(10)
   end
 
