@@ -5,6 +5,14 @@
   .topics ol {
     @include columns(3);
     }
+  .books.show {
+    article footer {
+      float:right;
+      width:33%;
+      margin-left:$baseline;
+      margin-top:0;
+      }
+    }
   }
 
 @media only screen and (min-width: 768px) {

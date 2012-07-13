@@ -299,9 +299,7 @@ select[multiple='multiple'] {
 //
 .books.show {
   article footer {
-    float:right;
-    width:33%;
-    margin-left:$baseline;
+    margin-top:$baseline;
     text-align:center;
     }
   .book_title {

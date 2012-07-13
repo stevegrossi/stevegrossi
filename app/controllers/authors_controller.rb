@@ -2,7 +2,7 @@ class AuthorsController < ApplicationController
   # GET /authors
   # GET /authors.json
   def index
-    @authors = Author.all
+    @authors = Author.includes(:books).all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,7 +14,6 @@ class AuthorsController < ApplicationController
   # GET /authors/1.json
   def show
     @author = Author.find(params[:id])
-    @books = @author.books.published
 
     respond_to do |format|
       format.html # show.html.erb
