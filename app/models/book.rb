@@ -35,5 +35,6 @@ class Book < ActiveRecord::Base
   validates :publisher,       :presence => true
   validates :pub_year,        :presence => true
   validates :thoughts,        :presence => true
+  validates :authors,         :presence => true
   
 end

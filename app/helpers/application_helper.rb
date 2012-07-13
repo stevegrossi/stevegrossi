@@ -113,4 +113,12 @@ module ApplicationHelper
       end
     end
   end
+  
+  def bubble_up(array, items)
+    if items.blank?
+      return array 
+    else
+      (array - items).unshift(items).flatten
+    end
+  end
 end

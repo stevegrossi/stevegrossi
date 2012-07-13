@@ -25,9 +25,7 @@
   <div role="main" class="main">
   
   <% flash.each do |key, value| %>
-    <%= content_tag :p, :class => key do %>
-      <%= raw(value) %>
-    <% end %>
+    <%= content_tag :p, value, :class => key %>
   <% end %>
 
   <article>

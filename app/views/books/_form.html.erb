@@ -11,7 +11,7 @@
       <%= f.text_field :subtitle %>
       
       <%= f.label :author_ids, 'Author(s)' %> <%= link_to 'New Author', new_author_path, :class => :ajax_new_link, :remote => true %>
-      <%= f.select :author_ids, Author.all.collect {|x| [x.full_name, x.id]}, {}, :multiple => true %>
+      <%= f.select :author_ids, bubble_up(@authors, @book.authors).collect {|x| [x.full_name, x.id]}, {}, :multiple => true %>
     </div>
     <div class="half">
       <%= f.label :publisher %>

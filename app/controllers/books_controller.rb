@@ -64,6 +64,7 @@ class BooksController < ApplicationController
   # POST /books.xml
   def create
     @book = Book.new(params[:book])
+    @authors = Author.all
 
     respond_to do |format|
       if @book.save
@@ -83,6 +84,7 @@ class BooksController < ApplicationController
   # PUT /books/1.xml
   def update
     @book = Book.find(params[:id])
+    @authors = Author.all
 
     respond_to do |format|
       if @book.update_attributes(params[:book])
