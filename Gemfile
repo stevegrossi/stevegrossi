@@ -19,13 +19,19 @@ group :assets do
 end
 
 group :development, :test do
-  gem 'annotate', '~> 2.4.0'
   gem 'rspec-rails', '~> 2.5'
+  gem 'factory_girl_rails'
+end
+
+group :development do
+  gem 'annotate', '~> 2.4.0'
   gem 'taps', '~> 0.3.0'
 end
 
 group :test do
   gem 'cucumber-rails'
   gem 'capybara'
-  gem 'database_cleaner'
+  gem 'faker'
+  gem 'guard-rspec'
+  gem 'launchy'
 end

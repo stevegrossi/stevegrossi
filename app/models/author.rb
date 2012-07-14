@@ -2,7 +2,7 @@
 #
 # Table name: authors
 #
-#  id         :integer(4)      not null, primary key
+#  id         :integer         not null, primary key
 #  fname      :string(255)
 #  mname      :string(255)
 #  lname      :string(255)
@@ -17,12 +17,11 @@ class Author < ActiveRecord::Base
   has_many :authorships, :dependent => :destroy
   has_many :books, :through => :authorships
   
-  # should use first name next
   default_scope :order => 'lname, fname, mname'
   
-  validates :fname, :presence => true
+  validates :fname, :presence => true,
+                    :uniqueness => { :scope => [:lname, :mname] }
   validates :lname, :presence => true
-  validates :fname, :uniqueness => { :scope => [:lname, :mname] }
   
   def full_name
     name = fname

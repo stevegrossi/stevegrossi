@@ -2,7 +2,7 @@
 #
 # Table name: users
 #
-#  id            :integer(4)      not null, primary key
+#  id            :integer         not null, primary key
 #  username      :string(255)
 #  password_hash :string(255)
 #  created_at    :datetime
