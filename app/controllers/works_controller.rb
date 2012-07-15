@@ -3,17 +3,10 @@ class WorksController < ApplicationController
   before_filter :logged_in?, :except => [:index, :show]
   
   include ApplicationHelper
-  
-  # GET /works
-  # GET /works.xml
+
   def index
     @works = Work.published
     @title = 'The finest websites, built with love'
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @works }
-    end
   end
 
   # GET /works/1
@@ -31,11 +24,6 @@ class WorksController < ApplicationController
         redirect_to works_path and return
       end
     end
-    
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @work }
-    end
   end
   
   def everything
@@ -43,69 +31,46 @@ class WorksController < ApplicationController
     @works = Work.all
   end
 
-  # GET /works/new
-  # GET /works/new.xml
   def new
     @work = Work.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @work }
-    end
   end
 
-  # GET /works/1/edit
   def edit
     @work = Work.find(params[:id])
   end
 
-  # POST /works
-  # POST /works.xml
   def create
     @work = Work.new(params[:work])
-
-    respond_to do |format|
-      if @work.save
-        format.html do
-          flash[:success] = 'Yay, you made another website!'
-          redirect_to @work
-        end
-        format.xml  { render :xml => @work, :status => :created, :location => @work }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @work.errors, :status => :unprocessable_entity }
-      end
+    if params[:commit] == 'Publish'
+      @work.published_at = Time.now
+    end
+    if @work.save
+      flash[:success] = 'Yay, you built another thing!'
+      redirect_to @work
+    else
+      render :action => "new"
     end
   end
 
-  # PUT /works/1
-  # PUT /works/1.xml
   def update
     @work = Work.find(params[:id])
-
-    respond_to do |format|
-      if @work.update_attributes(params[:work])
-        format.html do
-          flash[:success] = 'Work sucessfully updated.'
-          redirect_to works_path
-        end
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @work.errors, :status => :unprocessable_entity }
-      end
+    if params[:commit] == 'Publish'
+      @work.published_at = Time.now
+    elsif params[:commit] == 'Unpublish'
+      @work.published_at = nil
+    end
+    if @work.update_attributes(params[:work])
+      flash[:success] = 'Work updated.'
+      redirect_to @work
+    else
+      render :action => "edit"
     end
   end
 
-  # DELETE /works/1
-  # DELETE /works/1.xml
   def destroy
     @work = Work.find(params[:id])
+    flash[:success] = "You deleted <b>#{@work.title}</b>."
     @work.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(works_url) }
-      format.xml  { head :ok }
-    end
+    return redirect_to everything_works_path
   end
 end

@@ -17,7 +17,9 @@
     <%= f.label :image_filename %>
     <%= f.text_field :image_filename %>
 
-    <p><%= f.submit %>
+    <p>
+      <%= f.submit 'Publish' %>
+      <%= f.submit @work.published? ? 'Unpublish' : 'Save Draft', :class => :secondary %>
       <%= link_to 'or go back', @work, :class => :cancel %>
     </p>
 

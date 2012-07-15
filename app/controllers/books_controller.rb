@@ -2,17 +2,10 @@ class BooksController < ApplicationController
 
   before_filter :logged_in?, :except => [:index, :show, :topic, :topics]
 
-  # GET /books
-  # GET /books.xml
   def index
     @title = 'Books'
     @description = 'Writing about books helps me figure out what I think about them.'
     @books = Book.published
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @books }
-    end
   end
   
   def everything
@@ -20,8 +13,6 @@ class BooksController < ApplicationController
     @books = Book.all
   end
 
-  # GET /books/1
-  # GET /books/1.xml
   def show
     @book = Book.find(params[:id])
     @title = @book.title
@@ -35,81 +26,53 @@ class BooksController < ApplicationController
         redirect_to books_path and return
       end
     end
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @book }
-    end
   end
 
-  # GET /books/new
-  # GET /books/new.xml
   def new
     @book = Book.new
     @authors = Author.all
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @book }
-    end
   end
 
-  # GET /books/1/edit
   def edit
     @book = Book.find(params[:id])
     @authors = Author.all
   end
 
-  # POST /books
-  # POST /books.xml
   def create
     @book = Book.new(params[:book])
     @authors = Author.all
-
-    respond_to do |format|
-      if @book.save
-        format.html do
-          flash[:success] = 'Yay, you read another book!'
-          redirect_to @book
-        end
-        format.xml  { render :xml => @book, :status => :created, :location => @book }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @book.errors, :status => :unprocessable_entity }
-      end
+    if params[:commit] == 'Publish'
+      @book.published_at = Time.now
+    end
+    if @book.save
+      flash[:success] = 'Yay, you read another thing!'
+      redirect_to @book
+    else
+      render :action => "new"
     end
   end
 
-  # PUT /books/1
-  # PUT /books/1.xml
   def update
     @book = Book.find(params[:id])
     @authors = Author.all
-
-    respond_to do |format|
-      if @book.update_attributes(params[:book])
-        format.html do
-          flash[:success] = 'Update successful.'
-          redirect_to @book
-        end
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @book.errors, :status => :unprocessable_entity }
-      end
+    if params[:commit] == 'Publish'
+      @book.published_at = Time.now
+    elsif params[:commit] == 'Unpublish'
+      @book.published_at = nil
+    end
+    if @book.update_attributes(params[:book])
+      flash[:success] = 'Book updated.'
+      redirect_to @book
+    else
+      render :action => "edit"
     end
   end
 
-  # DELETE /books/1
-  # DELETE /books/1.xml
   def destroy
     @book = Book.find(params[:id])
+    flash[:success] = "You deleted <b>#{@book.title}</b>."
     @book.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(books_url) }
-      format.xml  { head :ok }
-    end
+    return redirect_to everything_books_path
   end
   
   def topics

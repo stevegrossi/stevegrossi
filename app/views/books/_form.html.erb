@@ -45,7 +45,9 @@
     <% end %>
   <% end %>
 
-  <p><%= f.submit %>
+  <p>
+    <%= f.submit 'Publish' %>
+    <%= f.submit @book.published? ? 'Unpublish' : 'Save Draft', :class => :secondary %>
     <%= link_to 'or go back', @book, :class => :cancel %>
   </p>
 
