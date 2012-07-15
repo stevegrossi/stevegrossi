@@ -1,7 +1,7 @@
 <li>
   <article>
     <%= link_to writing.title, writing %>
-    <%= content_tag :span, writing.date_created, :class => 'date' %>
+    <%= content_tag :span, writing.pretty_published_at, :class => 'date' %>
     <%= writing.summary %>
   </article>
 </li>

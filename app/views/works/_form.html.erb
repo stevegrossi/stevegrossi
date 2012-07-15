@@ -16,9 +16,6 @@
 
     <%= f.label :image_filename %>
     <%= f.text_field :image_filename %>
-    
-    <%= f.label :publish_status %>
-    <%= f.select(:publish_status, Postable::PUBLISH_STATES) %>
 
     <p><%= f.submit %>
       <%= link_to 'or go back', @work, :class => :cancel %>

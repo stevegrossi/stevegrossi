@@ -1,6 +1,6 @@
 <h1><%= @writing.title %></h1>
 <p class="meta">
-  <%= @writing.date_created %>
+  <%= @writing.pretty_published_at %>
   <%= link_to_edit(@writing) %>
 </p>
 <%= markdown(@writing.content) %>

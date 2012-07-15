@@ -1,14 +1,10 @@
 module Postable
   
-  PUBLISH_STATES = ['published', 'draft']
-  
   def self.included(base)
     base.class_eval do
-      default_scope :order => 'created_at DESC'
-      scope :published, where(:publish_status => 'published')
-      scope :drafts, where(:publish_status => 'draft')
-      validates :publish_status,  :inclusion => { :in => PUBLISH_STATES },
-                                  :presence => true
+      default_scope :order => 'published_at DESC'
+      scope :published, where('published_at IS NOT NULL')
+      scope :drafts, where('published_at IS NULL')
     end
   end
   
@@ -21,14 +17,16 @@ module Postable
   end
   
   def draft?
-    publish_status == 'draft'
+    published_at.nil?
   end
   
   def published?
-    publish_status == 'published'
+    !published_at.nil?
   end
   
-  def date_created
-    created_at.to_date.strftime('%-m/%-e/%Y')
+  def pretty_published_at
+    published_at.nil? ? 'Unpublished' : published_at.strftime('%-m/%-e/%Y')
   end
+  
+  
 end

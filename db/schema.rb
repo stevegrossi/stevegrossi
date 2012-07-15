@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120619031557) do
+ActiveRecord::Schema.define(:version => 20120713113308) do
 
   create_table "authors", :force => true do |t|
     t.string   "fname"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(:version => 20120619031557) do
     t.string   "cover_image"
     t.string   "publish_status", :default => "published"
     t.text     "thesis"
+    t.datetime "published_at"
   end
 
   create_table "pg_search_documents", :force => true do |t|
@@ -96,6 +97,7 @@ ActiveRecord::Schema.define(:version => 20120619031557) do
     t.datetime "updated_at"
     t.string   "image_filename"
     t.string   "publish_status", :default => "published"
+    t.datetime "published_at"
   end
 
   create_table "writings", :force => true do |t|
@@ -105,6 +107,7 @@ ActiveRecord::Schema.define(:version => 20120619031557) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "publish_status", :default => "published"
+    t.datetime "published_at"
   end
 
 end

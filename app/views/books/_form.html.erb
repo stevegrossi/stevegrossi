@@ -44,9 +44,6 @@
       <% end %>
     <% end %>
   <% end %>
-  
-  <%= f.label :publish_status %>
-  <%= f.select(:publish_status, Postable::PUBLISH_STATES) %>
 
   <p><%= f.submit %>
     <%= link_to 'or go back', @book, :class => :cancel %>

@@ -6,9 +6,7 @@
       <th>About</th>
       <th>Url</th>
       <th>Client</th>
-      <th>Created</th>
-      <th>Updated</th>
-      <th>Status</th>
+      <th>Published</th>
     </tr>
   </thead>
   <tbody>
@@ -19,9 +17,7 @@
       <td><%= word_count(work.about) %></td>
       <td><%= link_from_url(work.url) %></td>
       <td><%= raw work.client %></td>
-      <td><%= work.created_at.strftime('%-m/%-e/%Y') %></td>
-      <td><%= work.updated_at.strftime('%-m/%-e/%Y') %></td>
-      <td><%= work.publish_status %></td>
+      <td><%= work.pretty_published_at %></td>
     </tr>
   <% end %>
   </tbody>

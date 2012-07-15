@@ -11,7 +11,7 @@
   <%= content_tag(:h2, @book.subtitle) unless @book.subtitle.blank? %>
 </hgroup>
 <p class="meta">
-  <%= @book.date_created %>
+  <%= @book.pretty_published_at %>
   <%= link_to_edit(@book) %>
 </p>
 <%= content_tag :p, @book.thesis, :class => 'thesis' unless @book.thesis.blank? %>

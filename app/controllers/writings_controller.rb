@@ -7,7 +7,7 @@ class WritingsController < ApplicationController
   def index
     @title = 'I write things'
     @description = 'Some thoughts I\'ve liked enough to write down'
-    @writings = Writing.published.order('created_at DESC')
+    @writings = Writing.published
 
     respond_to do |format|
       format.html # index.html.erb

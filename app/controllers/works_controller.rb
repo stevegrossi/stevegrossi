@@ -7,7 +7,7 @@ class WorksController < ApplicationController
   # GET /works
   # GET /works.xml
   def index
-    @works = Work.published.order('created_at DESC')
+    @works = Work.published
     @title = 'The finest websites, built with love'
 
     respond_to do |format|

@@ -3,7 +3,7 @@
 <ol class="title_list">
   <% @latest.each do |thing| %>
     <%= content_tag :li, :class => thing.class.to_s.underscore do %>
-      <%= content_tag :span, "on #{thing.created_at.to_date.to_s(:long)} I #{{'work' => 'built', 'book' => 'read', 'writing' => 'wrote'}[thing.class.to_s.underscore]}" %>
+      <%= content_tag :span, "on #{thing.published_at.to_date.to_s(:long)} I #{{'work' => 'built', 'book' => 'read', 'writing' => 'wrote'}[thing.class.to_s.underscore]}" %>
       <%= link_to (thing.respond_to?(:url) ? nice_url(thing.url) : thing.title), thing %>
     <% end %>
   <% end %>

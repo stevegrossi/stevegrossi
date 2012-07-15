@@ -1,7 +1,7 @@
 <li>
   <article>
     <%= link_to( book.title, book ) %>
-    <%= content_tag :span, book.date_created, :class => 'date' %>
+    <%= content_tag :span, book.pretty_published_at, :class => 'date' %>
     <%= book.thesis unless book.thesis.blank? %>
   </article>
 </li>
