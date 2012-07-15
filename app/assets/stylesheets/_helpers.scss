@@ -249,6 +249,14 @@ fieldset.topics {
   float:right;
   margin-top:-1.5em;
   }
+.link_to_new {
+  float:right;
+  margin-top:32px;
+  &:before {
+    content:'+ ';
+    font-family:ModernPictograms;
+    }
+  }
 
 #facebox {
   position: absolute;

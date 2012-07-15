@@ -24,6 +24,12 @@ module ApplicationHelper
     end
   end
   
+  def link_to_new(class_name)
+    if current_user
+      link_to "New #{class_name}", new_polymorphic_path(class_name), :class => 'link_to_new'
+    end
+  end
+  
   def link_to_edit(thing)
     if current_user
       link_to 'e', polymorphic_path(thing, :action => :edit), :class => 'edit_link'

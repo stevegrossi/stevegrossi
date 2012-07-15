@@ -364,6 +364,9 @@ select[multiple='multiple'] {
     }
   }
 .everything {
+  h1 {
+    float:left;
+    }
   .main, .sitefooter, .siteheader nav {
     max-width:90%;
     }
