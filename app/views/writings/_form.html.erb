@@ -10,11 +10,10 @@
 
   <%= f.label :summary %>
   <%= f.text_field :summary %>
-  
-  <%= f.label :publish_status %>
-  <%= f.select(:publish_status, Postable::PUBLISH_STATES) %>
 
-  <p><%= f.submit %>
+  <p>
+    <%= f.submit 'Publish' %>
+    <%= f.submit @writing.published? ? 'Unpublish' : 'Save Draft', :class => :secondary %>
     <%= link_to 'or go back', @writing, :class => :cancel %>
   </p>
 

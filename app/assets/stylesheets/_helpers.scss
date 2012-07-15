@@ -242,7 +242,7 @@ fieldset.topics {
 .cancel {
   float:left;
   color:$dark_gray !important;
-  padding:$baseline*.5 $baseline;
+  padding:$baseline*.5 $baseline*.5;
   margin:$baseline 0;
   }
 .ajax_new_link {
