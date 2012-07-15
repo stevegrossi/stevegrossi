@@ -2,7 +2,7 @@
 #
 # Table name: books
 #
-#  id             :integer(4)      not null, primary key
+#  id             :integer         not null, primary key
 #  title          :string(255)
 #  author         :string(255)
 #  publisher      :string(255)
@@ -15,6 +15,7 @@
 #  cover_image    :string(255)
 #  publish_status :string(255)     default("published")
 #  thesis         :text
+#  published_at   :datetime
 #
 
 class Book < ActiveRecord::Base

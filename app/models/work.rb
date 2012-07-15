@@ -2,7 +2,7 @@
 #
 # Table name: works
 #
-#  id             :integer(4)      not null, primary key
+#  id             :integer         not null, primary key
 #  title          :string(255)
 #  about          :text
 #  url            :string(255)
@@ -11,6 +11,7 @@
 #  updated_at     :datetime
 #  image_filename :string(255)
 #  publish_status :string(255)     default("published")
+#  published_at   :datetime
 #
 
 class Work < ActiveRecord::Base
