@@ -10,7 +10,6 @@
 #  created_at     :datetime
 #  updated_at     :datetime
 #  image_filename :string(255)
-#  publish_status :string(255)     default("published")
 #  published_at   :datetime
 #
 

@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: writings
+#
+#  id           :integer         not null, primary key
+#  title        :string(255)
+#  content      :text
+#  summary      :string(255)
+#  created_at   :datetime
+#  updated_at   :datetime
+#  published_at :datetime
+#
+
 require 'spec_helper'
 
 describe Writing do

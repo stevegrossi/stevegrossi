@@ -1,3 +1,22 @@
+# == Schema Information
+#
+# Table name: books
+#
+#  id           :integer         not null, primary key
+#  title        :string(255)
+#  author       :string(255)
+#  publisher    :string(255)
+#  pub_year     :string(255)
+#  asin         :string(255)
+#  thoughts     :text
+#  created_at   :datetime
+#  updated_at   :datetime
+#  subtitle     :string(255)
+#  cover_image  :string(255)
+#  thesis       :text
+#  published_at :datetime
+#
+
 require 'spec_helper'
 
 describe Book do
