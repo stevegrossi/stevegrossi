@@ -11,6 +11,7 @@ gem 'thin'
 gem 'foreman'
 gem 'pg'
 gem 'pg_search'
+gem 'newrelic_rpm'
 
 group :assets do
   gem 'sass-rails', '~> 3.1.0'
