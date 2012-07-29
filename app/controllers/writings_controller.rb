@@ -6,11 +6,6 @@ class WritingsController < ApplicationController
     @title = 'I write things'
     @description = 'Some thoughts I\'ve liked enough to write down'
     @writings = Writing.published
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @writings }
-    end
   end
   
   def everything

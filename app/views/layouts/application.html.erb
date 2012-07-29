@@ -12,6 +12,9 @@
   <!--[if lte IE 8]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   <link rel="shortcut icon" href="/favicon.ico">
   <%= csrf_meta_tag %>
+  <%= auto_discovery_link_tag 'Steve Grossi: Everything', feed_url(:format => :rss), :type => :rss %>
+  <%= auto_discovery_link_tag 'Steve Grossi: Readings', books_url(:format => :rss), :type => :rss %>
+  <%= auto_discovery_link_tag 'Steve Grossi: Writings', writings_url(:format => :rss), :type => :rss %>
 </head>
 <body class="<%= "#{controller_name} #{action_name} #{ Date::DAYNAMES[Time.now.wday].downcase }" %>">
 

@@ -319,3 +319,9 @@ form.search {
     margin-right:.5em;
     }
   }
+.polaroid {
+  border:.5em solid white;
+  border-bottom-width:1.5em;
+  @include shadow();
+  @include rotate(2deg);
+}

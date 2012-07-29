@@ -50,6 +50,9 @@
       float:right;
       margin-left:$baseline;
       width:50%;
+      &.polaroid {
+        width:33% !important;
+        }
       &.bleed {
         margin-right:-12.5%;
         figcaption {

@@ -33,3 +33,14 @@
 	column-count: $cols;
 	column-gap: $gap;
   }
+@mixin transform($opts) {
+  -moz-transform: $opts;
+  -webkit-transform: $opts;
+  -webkit-backface-visibility:hidden;
+  -o-transform: $opts;
+  -ms-transform: $opts;
+  transform: $opts;
+}
+@mixin rotate($deg) {
+  @include transform(rotate($deg));
+}

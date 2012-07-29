@@ -3,6 +3,7 @@ Stevegrossi::Application.routes.draw do
   match '/wishlist' => redirect('http://amzn.com/w/156EDXYQR8J2F')
   match '/made' => redirect('/built')
   match '/made/:slug' => redirect("/built/%{slug}")
+  match '/resume' => redirect("/is/forhire")
 
   resources :users
   resources :books, :path => 'read' do
@@ -29,9 +30,11 @@ Stevegrossi::Application.routes.draw do
   post 'log_in' => 'sessions#create'
   get 'log_out' => 'sessions#destroy'
   match 'is' => 'pages#about', :as => 'about'
+  match 'is/forhire' => 'pages#resume', :as => 'resume'
   match 'styleguide' => 'pages#styleguide'
   match 'colophon' => 'pages#colophon'
   match 'search' => 'pages#search'
+  match 'feed' => 'pages#feed', :format => :rss
 
   root :to => "pages#home"
 

@@ -7,6 +7,14 @@ class PagesController < ApplicationController
     latest_books = Book.published.limit(10)
     @latest = (latest_works + latest_writings + latest_books).sort_by{ |thing| -thing.published_at.to_i }
   end
+  
+  def feed
+    latest_works = Work.published.limit(10)
+    latest_writings = Writing.published.limit(10)
+    latest_books = Book.published.limit(10)
+    @latest = (latest_works + latest_writings + latest_books).sort_by{ |thing| -thing.published_at.to_i }
+    respond_to :rss
+  end
 
   def about
     @title = 'A Bit About Me'
@@ -25,6 +33,10 @@ class PagesController < ApplicationController
     return redirect_to search_path if @query == ''
     @title = @query.blank? ? 'Search' : "Searching for '#{@query}'"
     @results = PgSearch.multisearch(@query).limit(10)
+  end
+  
+  def resume
+    @title = 'My Resume'
   end
 
   def error_404
