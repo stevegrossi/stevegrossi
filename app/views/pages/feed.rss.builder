@@ -17,7 +17,6 @@ xml.rss version: "2.0" do
         else
           xml.description 'What is this thing?'
         end
-        xml.description 
         xml.pubDate thing.published_at.to_s(:rfc822)
         xml.link polymorphic_url(thing)
         xml.guid polymorphic_url(thing)
