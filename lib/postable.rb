@@ -28,5 +28,4 @@ module Postable
     published_at.nil? ? 'Unpublished' : published_at.strftime('%-m/%-e/%Y')
   end
   
-  
 end

@@ -42,7 +42,7 @@ class WorksController < ApplicationController
   def create
     @work = Work.new(params[:work])
     if params[:commit] == 'Publish'
-      @work.published_at = Time.now
+      @work.published_at ||= Time.now
     end
     if @work.save
       flash[:success] = 'Yay, you built another thing!'
@@ -54,10 +54,12 @@ class WorksController < ApplicationController
 
   def update
     @work = Work.find(params[:id])
+    # Set '' to nil so ||= works 2 below
+    params[:work][:published_at] = nil if params[:work][:published_at].blank?
     if params[:commit] == 'Publish'
-      @work.published_at = Time.now
+      params[:work][:published_at] ||= Time.now
     elsif params[:commit] == 'Unpublish'
-      @work.published_at = nil
+      params[:work][:published_at] = nil
     end
     if @work.update_attributes(params[:work])
       flash[:success] = 'Work updated.'
