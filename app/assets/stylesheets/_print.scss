@@ -1,7 +1,7 @@
 @media print {
   *{background: transparent !important; color: black !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important;}
   a, a:visited{text-decoration: underline;}
-  a[href]:after{content: " (" attr(href) ")";}
+  .main a[href]:after{content: " (" attr(href) ")";}
   abbr[title]:after{content: " (" attr(title) ")";}
   .ir a:after, a[href^="#"]:after{content: "";}
   pre, blockquote{border: 1px solid #999; page-break-inside: avoid;}
@@ -11,4 +11,9 @@
   @page{margin: 0.5cm;}
   p, h2, h3{orphans: 3; widows: 3;}
   h2, h3{page-break-after: avoid;}
+  .siteheader ul {display:none;}
+  figure.right {float:right;width:33%;}
+  .resume {font-size:87.5%;}
+  .resume .siteheader {max-width:none;}
+  .resume .main {max-width:none;}
 }
