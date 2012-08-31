@@ -18,11 +18,13 @@ class AuthorsController < ApplicationController
 
   def create
     @author = Author.new(params[:author])
-    if @author.save
-      flash[:success] = 'A new author!'
-      return redirect_to @author
-    else
-      render :action => "new"
+    respond_to do |format|
+      if @author.save
+        format.html { redirect_to @author, success: 'A new author!' }
+        format.js
+      else
+        render :action => "new"
+      end
     end
   end
 
@@ -39,5 +41,6 @@ class AuthorsController < ApplicationController
   def destroy
     @author = Author.find(params[:id])
     @author.destroy
+    redirect_to authors_path
   end
 end
