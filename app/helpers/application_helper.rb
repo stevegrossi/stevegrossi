@@ -16,14 +16,6 @@ module ApplicationHelper
     strip_tags(markdown(text))
   end
   
-  def get_cover(book)
-    if book.cover_image.blank?
-      image_tag("http://images.amazon.com/images/P/#{ book.asin }.01.LZZZZZZZ.jpg", :alt => book.title, :class => 'cover')
-    else
-      image_tag( "http://cloud.stevegrossi.com/books/#{book.cover_image}", :alt => book.title, :class => 'cover')
-    end
-  end
-  
   def link_to_new(class_name)
     if current_user
       link_to "New #{class_name}", new_polymorphic_path(class_name), :class => 'link_to_new'
