@@ -42,7 +42,7 @@ class BooksController < ApplicationController
     @book = Book.new(params[:book])
     @authors = Author.all
     if params[:commit] == 'Publish'
-      @book.published_at = Time.now
+      @book.published_at ||= Time.now
     end
     if @book.save
       flash[:success] = 'Yay, you read another thing!'
@@ -55,10 +55,12 @@ class BooksController < ApplicationController
   def update
     @book = Book.find(params[:id])
     @authors = Author.all
+    # Set '' to nil so ||= works 2 below
+    params[:book][:published_at] = nil if params[:book][:published_at].blank?
     if params[:commit] == 'Publish'
-      @book.published_at = Time.now
+      params[:book][:published_at] ||= Time.now
     elsif params[:commit] == 'Unpublish'
-      @book.published_at = nil
+      params[:book][:published_at] = nil
     end
     if @book.update_attributes(params[:book])
       flash[:success] = 'Book updated.'

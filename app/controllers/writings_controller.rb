@@ -39,7 +39,7 @@ class WritingsController < ApplicationController
   def create
     @writing = Writing.new(params[:writing])
     if params[:commit] == 'Publish'
-      @writing.published_at = Time.now
+      @writing.published_at ||= Time.now
     end
     if @writing.save
       flash[:success] = 'Yay, you wrote another thing!'
@@ -51,10 +51,12 @@ class WritingsController < ApplicationController
 
   def update
     @writing = Writing.find(params[:id])
+    # Set '' to nil so ||= works 2 below
+    params[:writing][:published_at] = nil if params[:writing][:published_at].blank?
     if params[:commit] == 'Publish'
-      @writing.published_at = Time.now
+      params[:writing][:published_at] ||= Time.now
     elsif params[:commit] == 'Unpublish'
-      @writing.published_at = nil
+      params[:writing][:published_at] = nil
     end
     if @writing.update_attributes(params[:writing])
       flash[:success] = 'Writing updated.'
