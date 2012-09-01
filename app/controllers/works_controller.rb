@@ -25,11 +25,6 @@ class WorksController < ApplicationController
       end
     end
   end
-  
-  def everything
-    @title = 'Everything I\'ve read.'
-    @works = Work.all
-  end
 
   def new
     @work = Work.new

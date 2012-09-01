@@ -7,11 +7,6 @@ class WritingsController < ApplicationController
     @description = 'Some thoughts I\'ve liked enough to write down'
     @writings = Writing.published
   end
-  
-  def everything
-    @title = 'All Writings'
-    @writings = Writing.all
-  end
 
   def show
     @writing = Writing.find(params[:id])

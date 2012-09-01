@@ -1,5 +1,10 @@
 Stevegrossi::Application.routes.draw do
 
+  namespace :meta do
+    resources :books, :authors, :works, :writings
+    root to: 'dashboard#index', :as => :dashboard
+  end
+
   match '/wishlist' => redirect('http://amzn.com/w/156EDXYQR8J2F')
   match '/made' => redirect('/built')
   match '/made/:slug' => redirect("/built/%{slug}")
@@ -9,21 +14,12 @@ Stevegrossi::Application.routes.draw do
   resources :books, :path => 'read' do
     collection do
       resources :authors
-      get 'everything' => 'books#everything'
       get 'about' => 'books#topics'
       get 'about/:topic' => 'books#topic', :as => :tagged
     end
   end
-  resources :writings, :path => 'wrote' do
-    collection do
-      get 'everything' => 'writings#everything'
-    end
-  end
-  resources :works, :path => 'built' do
-    collection do
-      get 'everything' => 'works#everything'
-    end
-  end
+  resources :writings, :path => 'wrote'
+  resources :works, :path => 'built'
 
   resources :sessions, :only => [:new, :create, :destroy]
   get 'log_in' => 'sessions#new'

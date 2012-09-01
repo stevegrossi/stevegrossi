@@ -1,0 +1,22 @@
+<h1>Everyone I’ve read.</h1>
+<%= link_to_new :author %>
+<table cellspacing="0">
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Middle Name</th>
+      <th>Last Name</th>
+      <th>Book(s)</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @authors.each do |author| %>
+    <tr>
+      <td><%= author.fname %></td>
+      <td><%= author.mname %></td>
+      <td><%= author.lname %></td>
+      <td><%= books_by(author) %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

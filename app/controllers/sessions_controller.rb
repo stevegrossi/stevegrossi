@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     if user
       session[:user_id] = user.id
       flash[:success] = "Hey there, sexy!"
-      redirect_back_or_to root_url
+      redirect_back_or_to meta_dashboard_path
     else
       flash[:error] = "Incorrect email or password."
       render "new"

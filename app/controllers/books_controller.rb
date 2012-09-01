@@ -7,11 +7,6 @@ class BooksController < ApplicationController
     @description = 'Writing about books helps me figure out what I think about them.'
     @books = Book.published
   end
-  
-  def everything
-    @title = 'Everything I\'ve read.'
-    @books = Book.all
-  end
 
   def show
     @book = Book.find(params[:id])
