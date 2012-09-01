@@ -16,6 +16,14 @@ module ApplicationHelper
     strip_tags(markdown(text))
   end
   
+  def body_classes
+    classes = [
+      controller_path.sub('/', ' '), # so 'meta/books' becomes 'meta books'
+      action_name,
+      Date::DAYNAMES[Time.now.wday].downcase
+    ].join ' '
+  end
+  
   def link_to_new(class_name)
     if current_user
       link_to "New #{class_name}", new_polymorphic_path(class_name), :class => 'link_to_new'
@@ -54,6 +62,9 @@ module ApplicationHelper
   def nav_link_to(*args)
     options = args.extract_options!
     path = Rails.application.routes.recognize_path args[1]
+    # make these links relative to root (not the current namespace)
+    # so that they work on /meta pages
+    path[:controller].insert 0, '/'
     if path[:controller] == 'pages'
       if current_page? path
         options[:class] = :current

@@ -16,12 +16,12 @@
   <%= auto_discovery_link_tag 'Steve Grossi: Readings', 'http://feeds.feedburner.com/stevegrossi-readings', :type => :rss %>
   <%= auto_discovery_link_tag 'Steve Grossi: Writings', 'http://feeds.feedburner.com/stevegrossi-writings', :type => :rss %>
 </head>
-<body class="<%= "#{controller_name} #{action_name} #{ Date::DAYNAMES[Time.now.wday].downcase }" %>">
+<body class="<%= body_classes %>">
 
   <header class="siteheader">
     <nav>
       <%= link_to raw('Steve Grossi'), root_path, :title => 'Home', :accesskey => '1', :id => 'logo' %>
-      <ul><li><%= nav_link_to 'about', about_path, :title => 'About Steve' %></li><li><%= nav_link_to 'work', works_path, :title => 'Portfolio' %></li><li><%= nav_link_to 'thoughts', writings_path, :title => 'Writings' %></li><li><%= nav_link_to 'reads', books_path, :title => 'Thoughts on books' %></li></ul>
+      <ul><li><%= nav_link_to 'about', about_path, :title => 'About Steve' %></li><li><%= nav_link_to 'work', works_path, :title => 'Portfolio' %></li><li><%= nav_link_to 'thoughts', writings_path, :title => 'Writings' %></li><li><%= nav_link_to 'reads', books_path, :title => 'Thoughts on Books' %></li></ul>
     </nav>
   </header>
   
