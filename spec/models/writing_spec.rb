@@ -18,12 +18,18 @@ describe Writing do
     FactoryGirl.create(:writing).should be_valid
   end
   it 'is invalid without a title' do
-    FactoryGirl.build(:writing, title: nil).should_not be_valid
+    writing = FactoryGirl.build(:writing, title: nil)
+    writing.should_not be_valid
+    writing.should have(1).error_on(:title)
   end
   it 'is invalid without content' do
-    FactoryGirl.build(:writing, content: nil).should_not be_valid
+    writing = FactoryGirl.build(:writing, content: nil)
+    writing.should_not be_valid
+    writing.should have(1).error_on(:content)
   end
   it 'is invalid without a summary' do
-    FactoryGirl.build(:writing, summary: nil).should_not be_valid
+    writing = FactoryGirl.build(:writing, summary: nil)
+    writing.should_not be_valid
+    writing.should have(1).error_on(:summary)
   end
 end
