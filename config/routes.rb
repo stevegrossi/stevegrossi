@@ -2,7 +2,7 @@ Stevegrossi::Application.routes.draw do
 
   namespace :meta do
     resources :books, :authors, :works, :writings
-    root to: 'dashboard#index', :as => :dashboard
+    root to: 'dashboard#home', :as => :dashboard
   end
 
   match '/wishlist' => redirect('http://amzn.com/w/156EDXYQR8J2F')

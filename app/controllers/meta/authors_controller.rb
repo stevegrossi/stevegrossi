@@ -1,5 +1,5 @@
-class Meta::AuthorsController < ApplicationController
-  
+class Meta::AuthorsController < Meta::DashboardController
+
   def index
     @title = 'All Authors I\'ve Read'
     @authors = Author.includes(:books).all

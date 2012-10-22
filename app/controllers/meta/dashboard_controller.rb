@@ -1,5 +1,8 @@
 class Meta::DashboardController < ApplicationController
-  def index
+
+  before_filter :logged_in?
+
+  def home
     @books_count = Book.count
     @authors_count = Author.count
     @works_count = Work.count
