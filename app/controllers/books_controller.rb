@@ -12,7 +12,7 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @title = @book.title
     @description = @book.thesis unless @book.thesis.blank?
-    
+
     if @book.draft?
       if current_user || params[:draft] == 'yep'
         flash.now[:alert] = 'This is a draft.'
@@ -69,18 +69,18 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     flash[:success] = "You deleted <b>#{@book.title}</b>."
     @book.destroy
-    return redirect_to everything_books_path
+    return redirect_to meta_books_path
   end
-  
+
   def topics
     @title = 'Topics covered in books I\'ve read'
     @topics = Book.topic_counts
   end
-  
+
   def topic
     @topic = ActsAsTaggableOn::Tag.find(params[:topic])
     @books = Book.published.tagged_with(@topic)
     @title = "Books I've read about #{@topic.name}"
   end
-  
+
 end

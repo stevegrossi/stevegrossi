@@ -1,7 +1,7 @@
 class WorksController < ApplicationController
-  
+
   before_filter :logged_in?, :except => [:index, :show]
-  
+
   include ApplicationHelper
 
   def index
@@ -15,7 +15,7 @@ class WorksController < ApplicationController
     @work = Work.find(params[:id])
     @title = @work.title
     @description = "I built #{nice_url(@work.url)} for #{@work.client}."
-    
+
     if @work.draft?
       if current_user || params[:draft] == 'yep'
         flash.now[:alert] = 'This is a draft.'
@@ -68,6 +68,6 @@ class WorksController < ApplicationController
     @work = Work.find(params[:id])
     flash[:success] = "You deleted <b>#{@work.title}</b>."
     @work.destroy
-    return redirect_to everything_works_path
+    return redirect_to meta_works_path
   end
 end

@@ -12,7 +12,7 @@ class WritingsController < ApplicationController
     @writing = Writing.find(params[:id])
     @title = @writing.title
     @description = @writing.summary unless @writing.summary.blank?
-    
+
     if @writing.draft?
       if current_user || params[:draft] == 'yep'
         flash.now[:alert] = 'This is a draft.'
@@ -65,6 +65,6 @@ class WritingsController < ApplicationController
     @writing = Writing.find(params[:id])
     flash[:success] = "You deleted <b>#{@writing.title}</b>."
     @writing.destroy
-    return redirect_to everything_writings_path
+    return redirect_to meta_writings_path
   end
 end
