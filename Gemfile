@@ -16,7 +16,7 @@ gem 'newrelic_rpm'
 group :assets do
   gem 'sass-rails', '~> 3.1.0'
   gem 'coffee-rails', '~> 3.1.0'
-  gem 'uglifier' 
+  gem 'uglifier'
 end
 
 group :development, :test do
@@ -35,4 +35,5 @@ group :test do
   gem 'faker'
   gem 'guard-rspec'
   gem 'launchy'
+  gem 'database_cleaner'
 end
