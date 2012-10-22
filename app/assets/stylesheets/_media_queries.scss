@@ -2,10 +2,10 @@
   .main, .sitefooter, .siteheader nav {
     max-width:80%;
     }
-  .topics ol {
+  .books-topics ol {
     @include columns(3);
     }
-  .books.show {
+  .books-show {
     article footer {
       float:right;
       width:33%;
@@ -82,10 +82,10 @@
   .tiles li {
     width:48%;
     }
-  .home .title_list {
+  .pages-home .title_list {
     padding-left:0;
     }
-  .topics ol {
+  .pages-topics ol {
     @include columns(4);
     }
   }

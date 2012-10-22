@@ -313,8 +313,6 @@ form.search {
   @include clearfix;
   input {
     float:left;
-    padding-top:$baseline*.5;
-    padding-bottom:$baseline*.5;
     margin-top:$baseline;
     margin-right:.5em;
     }
