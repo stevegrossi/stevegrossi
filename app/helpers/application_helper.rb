@@ -17,8 +17,7 @@ module ApplicationHelper
   end
   
   def body_classes
-    classes = [
-      controller_path.sub('/', ' '), # so 'meta/books' becomes 'meta books'
+    [ controller_path.sub('/', ' '), # so 'meta/books' becomes 'meta books'
       action_name,
       Date::DAYNAMES[Time.now.wday].downcase
     ].join ' '
