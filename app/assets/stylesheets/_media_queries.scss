@@ -1,138 +1,138 @@
 @media only screen and (min-width: 480px) {
   .main, .sitefooter, .siteheader nav {
-    max-width:80%;
-    }
+    max-width: 80%;
+  }
   .books-topics ol {
     @include columns(3);
-    }
+  }
   .books-show {
     article footer {
-      float:right;
-      width:33%;
-      margin-left:$baseline;
-      margin-top:0;
-      }
+      float: right;
+      width: 33%;
+      margin-left: $baseline;
+      margin-top: 0;
     }
   }
+}
 
 @media only screen and (min-width: 768px) {
   body {
-    font-size:112.5%; // 18px
-    line-height:1.5555555556; // 28px
-    }
+    font-size: 112.5%; // 18px
+    line-height: 1.5555555556; // 28px
+  }
   .siteheader {
-    padding-top:$baseline;
+    padding-top: $baseline;
     #logo {
-      float:left;
-      padding:0;
-      }
+      float: left;
+      padding: 0;
+    }
     ul {
-      width:auto;
-      }
+      width: auto;
+    }
     li {
-      width:auto;
-      margin-left:1em;
-      }
-    }
-  figure {
-    &.left {
-      float:left;
-      margin-right:$baseline;
-      width:50%;
-      &.bleed {
-        margin-left:-12.5%;
-        figcaption {
-          padding-left:2%;
-          }
-        }
-      }
-    &.right {
-      float:right;
-      margin-left:$baseline;
-      width:50%;
-      &.polaroid {
-        width:33% !important;
-        }
-      &.bleed {
-        margin-right:-12.5%;
-        figcaption {
-          padding-right:2%;
-          }
-        }
-      }
-    }
-  .title_list {
-    padding-left:33%;
-    .date {
-      float:left;
-      text-align:right;
-      width:47%;
-      margin:-1.4em 0 0 -54%;
-      }
-    }
-  .halves {
-    margin:-1%;
-    }
-  .half {
-    display:inline-block;
-    vertical-align:top;
-    width:47%;
-    margin:0 1%;
-    }
-  .tiles li {
-    width:48%;
-    }
-  .pages-home .title_list {
-    padding-left:0;
-    }
-  .pages-topics ol {
-    @include columns(4);
+      width: auto;
+      margin-left: 1em;
     }
   }
+  figure {
+    &.left {
+      float: left;
+      margin-right: $baseline;
+      width: 50%;
+      &.bleed {
+        margin-left: -12.5%;
+        figcaption {
+          padding-left: 2%;
+        }
+      }
+    }
+    &.right {
+      float: right;
+      margin-left: $baseline;
+      width: 50%;
+      &.polaroid {
+        width: 33% !important;
+        }
+      &.bleed {
+        margin-right: -12.5%;
+        figcaption {
+          padding-right: 2%;
+        }
+      }
+    }
+  }
+  .title_list {
+    padding-left: 33%;
+    .date {
+      float: left;
+      text-align: right;
+      width: 47%;
+      margin: -1.4em 0 0 -54%;
+    }
+  }
+  .halves {
+    margin: -1%;
+  }
+  .half {
+    display: inline-block;
+    vertical-align: top;
+    width: 47%;
+    margin: 0 1%;
+  }
+  .tiles li {
+    width: 48%;
+  }
+  .pages-home .title_list {
+    padding-left: 0;
+  }
+  .pages-topics ol {
+    @include columns(4);
+  }
+}
 
 @media only screen and (min-width: 950px) {
   body {
-    font-size:131.25%; // 21px
-    line-height:1.5238095238; // 32px
-    }
+    font-size: 131.25%; // 21px
+    line-height: 1.5238095238; // 32px
+  }
   .main, .sitefooter, .siteheader nav {
-    max-width:75%;
-    }
+    max-width: 75%;
+  }
   .thesis {
-    margin-left:-16.5%;
-    padding-left:16.5%;
-    }
+    margin-left: -16.5%;
+    padding-left: 16.5%;
+  }
   .tiles li {
-    width:31.3333333%;
-    }
+    width: 31.3333333%;
+  }
   figure {
     &.left.bleed {
-      margin-left:-16.5%;
-      }
+      margin-left: -16.5%;
+    }
     &.right.bleed {
-      margin-right:-16.5%;
-      }
+      margin-right: -16.5%;
     }
   }
+}
 
 @media only screen and (min-width: 1200px) {
   body {
-    font-size:150%; // 24px
-    line-height:1.5; // 36px
-    }
+    font-size: 150%; // 24px
+    line-height: 1.5; // 36px
+  }
   .main, .sitefooter, .siteheader nav {
-    max-width:70%;
-    }
+    max-width: 70%;
+  }
   .thesis {
-    margin-left:-21.5%;
-    padding-left:21.5%;
-    }
+    margin-left: -21.5%;
+    padding-left: 21.5%;
+  }
   figure {
     &.left.bleed {
-      margin-left:-21.5%;
-      }
+      margin-left: -21.5%;
+    }
     &.right.bleed {
-      margin-right:-21.5%;
-      }
+      margin-right: -21.5%;
     }
   }
+}
