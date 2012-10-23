@@ -1,4 +1,4 @@
-xml.instruct! :xml, version: "1.0" 
+xml.instruct! :xml, version: "1.0"
 xml.rss version: "2.0" do
   xml.channel do
     xml.title "Everything from Steve Grossi"
@@ -13,7 +13,7 @@ xml.rss version: "2.0" do
         elsif thing.is_a?(Writing)
           xml.description markdown(thing.content)
         elsif thing.is_a?(Work)
-          xml.description image_tag(thing.image_filename, :alt => '') + markdown(thing.about) + raw("<p>Visit the site at #{link_from_url thing.url}</p>")
+          xml.description image_tag(thing.image_filename, alt: '') + markdown(thing.about) + raw("<p>Visit the site at #{link_from_url thing.url}</p>")
         else
           xml.description 'What is this thing?'
         end

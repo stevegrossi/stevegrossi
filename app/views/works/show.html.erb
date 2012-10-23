@@ -1,7 +1,7 @@
 <%= link_to_edit(@work) %>
 <h1><%= @work.title %></h1>
 <figure>
-  <%= image_tag @work.image_filename, :alt => '' %>
+  <%= image_tag @work.image_filename, alt: '' %>
   <figcaption>Visit <%= link_from_url(@work.url) %></figcaption>
 </figure>
 <%= markdown( @work.about ) %>

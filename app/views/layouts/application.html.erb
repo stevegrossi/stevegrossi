@@ -8,25 +8,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title><%= title %></title>
   <meta name="description" content="<%= description %>">
-  <%= stylesheet_link_tag 'application', :media => :all %>
+  <%= stylesheet_link_tag 'application', media: :all %>
   <!--[if lte IE 8]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   <link rel="shortcut icon" href="/favicon.ico">
   <%= csrf_meta_tag %>
-  <%= auto_discovery_link_tag 'Steve Grossi: Everything', 'http://feeds.feedburner.com/stevegrossi-everything', :type => :rss %>
-  <%= auto_discovery_link_tag 'Steve Grossi: Readings', 'http://feeds.feedburner.com/stevegrossi-readings', :type => :rss %>
-  <%= auto_discovery_link_tag 'Steve Grossi: Writings', 'http://feeds.feedburner.com/stevegrossi-writings', :type => :rss %>
+  <%= auto_discovery_link_tag 'Steve Grossi: Everything', 'http://feeds.feedburner.com/stevegrossi-everything', type: :rss %>
+  <%= auto_discovery_link_tag 'Steve Grossi: Readings', 'http://feeds.feedburner.com/stevegrossi-readings', type: :rss %>
+  <%= auto_discovery_link_tag 'Steve Grossi: Writings', 'http://feeds.feedburner.com/stevegrossi-writings', type: :rss %>
 </head>
 <body class="<%= body_classes %>">
 
   <header class="siteheader">
     <nav>
-      <%= link_to raw('Steve Grossi'), root_path, :title => 'Home', :accesskey => '1', :id => 'logo' %>
-      <ul><li><%= nav_link_to 'about', about_path, :title => 'About Steve' %></li><li><%= nav_link_to 'work', works_path, :title => 'Portfolio' %></li><li><%= nav_link_to 'thoughts', writings_path, :title => 'Writings' %></li><li><%= nav_link_to 'reads', books_path, :title => 'Thoughts on Books' %></li></ul>
+      <%= link_to raw('Steve Grossi'), root_path, title: 'Home', accesskey: '1', id: 'logo' %>
+      <ul><li><%= nav_link_to 'about', about_path, title: 'About Steve' %></li><li><%= nav_link_to 'work', works_path, title: 'Portfolio' %></li><li><%= nav_link_to 'thoughts', writings_path, title: 'Writings' %></li><li><%= nav_link_to 'reads', books_path, title: 'Thoughts on Books' %></li></ul>
     </nav>
   </header>
-  
+
   <div role="main" class="main">
-  
+
   <% flash.each do |key, value| %>
     <%= content_tag :p, raw(value), :class => key %>
   <% end %>
@@ -34,7 +34,7 @@
   <article>
     <%= yield %>
   </article>
-  
+
   </div>
 
   <footer class="sitefooter">

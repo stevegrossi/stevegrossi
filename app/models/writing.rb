@@ -12,16 +12,16 @@
 #
 
 class Writing < ActiveRecord::Base
-  
+
   include PgSearch
   multisearchable :against => [:title, :content, :summary]
-  
+
   include Postable
-  
+
   has_friendly_id :title, :use_slug => true
 
-  validates :title,           :presence => true
-  validates :content,         :presence => true
-  validates :summary,         :presence => true
-  
+  validates :title,           presence: true
+  validates :content,         presence: true
+  validates :summary,         presence: true
+
 end

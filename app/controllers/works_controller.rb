@@ -1,6 +1,6 @@
 class WorksController < ApplicationController
 
-  before_filter :logged_in?, :except => [:index, :show]
+  before_filter :logged_in?, except: [:index, :show]
 
   include ApplicationHelper
 
@@ -43,7 +43,7 @@ class WorksController < ApplicationController
       flash[:success] = 'Yay, you built another thing!'
       redirect_to @work
     else
-      render :action => "new"
+      render action: "new"
     end
   end
 
@@ -60,7 +60,7 @@ class WorksController < ApplicationController
       flash[:success] = 'Work updated.'
       redirect_to @work
     else
-      render :action => "edit"
+      render action: "edit"
     end
   end
 

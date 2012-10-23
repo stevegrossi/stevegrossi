@@ -14,9 +14,9 @@
   <%= @book.pretty_published_at %>
   <%= link_to_edit(@book) %>
 </p>
-<%= content_tag :p, @book.thesis, :class => 'thesis' unless @book.thesis.blank? %>
+<%= content_tag :p, @book.thesis, class: 'thesis' unless @book.thesis.blank? %>
 <%= markdown(@book.thoughts) %>
-<%= content_tag :nav, :class => :article_nav do %>
+<%= content_tag :nav, class: :article_nav do %>
   <%= link_to_previous(@book) %>
   <%= link_to_next(@book) %>
 <% end %>

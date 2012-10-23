@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
 
-  before_filter :logged_in?, :except => [:index, :show, :topic, :topics]
+  before_filter :logged_in?, except: [:index, :show, :topic, :topics]
 
   def index
     @title = 'Books'
@@ -43,7 +43,7 @@ class BooksController < ApplicationController
       flash[:success] = 'Yay, you read another thing!'
       redirect_to @book
     else
-      render :action => "new"
+      render action: "new"
     end
   end
 
@@ -61,7 +61,7 @@ class BooksController < ApplicationController
       flash[:success] = 'Book updated.'
       redirect_to @book
     else
-      render :action => "edit"
+      render action: "edit"
     end
   end
 

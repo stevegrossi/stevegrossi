@@ -18,23 +18,23 @@
 #
 
 class Book < ActiveRecord::Base
-  
+
   include PgSearch
-  multisearchable :against => [:title, :subtitle, :thesis, :thoughts]
+  multisearchable against: [:title, :subtitle, :thesis, :thoughts]
 
   acts_as_taggable_on :topics
-  
-  include Postable
-  
-  has_friendly_id :title, :use_slug => true
-  
-  has_many :authorships, :dependent => :destroy
-  has_many :authors, :through => :authorships
 
-  validates :title,           :presence => true
-  validates :publisher,       :presence => true
-  validates :pub_year,        :presence => true
-  validates :thoughts,        :presence => true
-  validates :authors,         :presence => true
-  
+  include Postable
+
+  has_friendly_id :title, use_slug: true
+
+  has_many :authorships, dependent: :destroy
+  has_many :authors, through: :authorships
+
+  validates :title,           presence: true
+  validates :publisher,       presence: true
+  validates :pub_year,        presence: true
+  validates :thoughts,        presence: true
+  validates :authors,         presence: true
+
 end

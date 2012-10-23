@@ -11,18 +11,18 @@
 #
 
 class Author < ActiveRecord::Base
-  
-  has_friendly_id :full_name, :use_slug => true
-  
-  has_many :authorships, :dependent => :destroy
-  has_many :books, :through => :authorships
-  
-  default_scope :order => 'lname, fname, mname'
-  
-  validates :fname, :presence => true,
-                    :uniqueness => { :scope => [:lname, :mname] }
-  validates :lname, :presence => true
-  
+
+  has_friendly_id :full_name, use_slug: true
+
+  has_many :authorships, dependent: :destroy
+  has_many :books, through: :authorships
+
+  default_scope order: 'lname, fname, mname'
+
+  validates :fname, presence: true,
+                    uniqueness: { scope: [:lname, :mname] }
+  validates :lname, presence: true
+
   def full_name
     name = fname
     name += ' ' + mname unless mname.blank?

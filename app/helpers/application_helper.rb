@@ -26,20 +26,20 @@ module ApplicationHelper
 
   def link_to_new(class_name)
     if current_user
-      link_to "New #{class_name}", new_polymorphic_path(class_name), :class => 'link_to_new'
+      link_to "New #{class_name}", new_polymorphic_path(class_name), class: 'link_to_new'
     end
   end
 
   def link_to_edit(thing)
     if current_user
-      link_to 'e', polymorphic_path(thing, :action => :edit), :class => 'edit_link'
+      link_to 'e', polymorphic_path(thing, action: :edit), class: 'edit_link'
     end
   end
 
   def link_to_delete(thing)
     if current_user
       name = thing.class.name.titleize
-      link_to "Delete this #{name}", polymorphic_path(thing), :confirm => "Are you sure you want to delete this #{name}? This cannot be undone.", :method => :delete, :class => 'delete_link'
+      link_to "Delete this #{name}", polymorphic_path(thing), confirm: "Are you sure you want to delete this #{name}? This cannot be undone.", method: :delete, class: 'delete_link'
     end
   end
 
@@ -47,7 +47,7 @@ module ApplicationHelper
     if thing.previous
       str = content_tag :span, 'Previous: '
       str += link_to thing.previous.title, thing.previous
-      return content_tag :p, str, :class => :previous
+      return content_tag :p, str, class: :previous
     end
   end
 
@@ -55,7 +55,7 @@ module ApplicationHelper
     if thing.next
       str = content_tag :span, 'Next: '
       str += link_to thing.next.title, thing.next
-      return content_tag :p, str, :class => :next
+      return content_tag :p, str, class: :next
     end
   end
 
@@ -85,7 +85,7 @@ module ApplicationHelper
 
   def flash_errors(obj)
     if obj.errors.any?
-      content_tag :div, :class => 'flash error' do
+      content_tag :div, class: 'flash error' do
         html = content_tag :h2, "#{pluralize(obj.errors.count, 'errors')}, n00b!"
         html += content_tag :ul do
           obj.errors.full_messages.each do |msg|

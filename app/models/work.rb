@@ -14,13 +14,13 @@
 #
 
 class Work < ActiveRecord::Base
-  
-  include Postable
-  
-  has_friendly_id :title, :use_slug => true
 
-  validates :title,           :presence => true
-  validates :about,           :presence => true
-  validates :image_filename,  :presence => true
+  include Postable
+
+  has_friendly_id :title, use_slug: true
+
+  validates :title,           presence: true
+  validates :about,           presence: true
+  validates :image_filename,  presence: true
 
 end

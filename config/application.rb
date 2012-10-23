@@ -3,33 +3,33 @@ require File.expand_path('../boot', __FILE__)
 require 'rails/all'
 
 if defined?(Bundler)
-  Bundler.require *Rails.groups(:assets => %w(development test))
+  Bundler.require *Rails.groups(assets: %w(development test))
 end
 
 module Stevegrossi
   class Application < Rails::Application
-    
+
     # Configure generators for testing
     config.generators do |g|
       g.test_framework :rspec,
-        :fixtures => true,
-        :view_specs => false,
-        :helper_specs => false,
-        :routing_specs => false,
-        :controller_specs => true,
-        :request_specs => true
-      g.fixture_replacement :factory_girl, :dir => "spec/factories"
+        fixtures: true,
+        view_specs: false,
+        helper_specs: false,
+        routing_specs: false,
+        controller_specs: true,
+        request_specs: true
+      g.fixture_replacement :factory_girl, dir: "spec/factories"
     end
-    
+
     # Enable the asset pipeline
     config.assets.enabled = true
-    
+
     # Version of your assets
     config.assets.version = "1.0"
-    
+
     # Prevent asset precompilation failure on Heroku
     config.assets.initialize_on_precompile = false
-    
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -64,10 +64,10 @@ module Stevegrossi
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
-    
+
     # acts_as_taggable_on config
     ActsAsTaggableOn.force_lowercase = true
     ActsAsTaggableOn.remove_unused_tags = true
-    
+
   end
 end

@@ -1,6 +1,6 @@
 class WritingsController < ApplicationController
 
-  before_filter :logged_in?, :except => [:index, :show]
+  before_filter :logged_in?, except: [:index, :show]
 
   def index
     @title = 'I write things'
@@ -40,7 +40,7 @@ class WritingsController < ApplicationController
       flash[:success] = 'Yay, you wrote another thing!'
       redirect_to @writing
     else
-      render :action => "new"
+      render action: "new"
     end
   end
 
@@ -57,7 +57,7 @@ class WritingsController < ApplicationController
       flash[:success] = 'Writing updated.'
       redirect_to @writing
     else
-      render :action => "edit"
+      render action: "edit"
     end
   end
 

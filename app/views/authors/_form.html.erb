@@ -3,16 +3,16 @@
 <%= form_for(@author) do |f| %>
 
     <%= f.label :fname, 'First' %>
-    <%= f.text_field :fname, :tabindex => 1 %>
+    <%= f.text_field :fname, tabindex: 1 %>
 
     <%= f.label :mname, 'Middle' %>
-    <%= f.text_field :mname, :tabindex => 2 %>
+    <%= f.text_field :mname, tabindex: 2 %>
 
     <%= f.label :lname, 'Last' %>
-    <%= f.text_field :lname, :tabindex => 3 %>
-    
+    <%= f.text_field :lname, tabindex: 3 %>
+
     <p><%= f.submit %>
-      <%= link_to 'or go back', @author, :class => :cancel if params[:controller] == :authors %>
+      <%= link_to 'or go back', @author, class: :cancel if params[:controller] == :authors %>
     </p>
 
 <% end %>
