@@ -1,6 +1,6 @@
 <%= flash_errors(@author) %>
 
-<%= form_for(@author) do |f| %>
+<%= form_for([:meta, @author]) do |f| %>
 
     <%= f.label :fname, 'First' %>
     <%= f.text_field :fname, tabindex: 1 %>

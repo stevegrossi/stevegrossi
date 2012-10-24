@@ -11,15 +11,15 @@ Stevegrossi::Application.routes.draw do
   match '/resume' => redirect("/is/forhire")
 
   resources :users
-  resources :books, path: 'read' do
+  resources :books, path: 'read', only: [:index, :show] do
     collection do
       resources :authors
       get 'about' => 'books#topics'
       get 'about/:topic' => 'books#topic', as: :tagged
     end
   end
-  resources :writings, path: 'wrote'
-  resources :works, path: 'built'
+  resources :writings, path: 'wrote', only: [:index, :show]
+  resources :works, path: 'built', only: [:index, :show]
 
   resources :sessions, only: [:new, :create, :destroy]
   get 'log_in' => 'sessions#new'

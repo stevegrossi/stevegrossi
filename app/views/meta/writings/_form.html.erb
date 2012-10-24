@@ -1,6 +1,6 @@
 <%= flash_errors(@writing) %>
 
-<%= form_for(@writing) do |f| %>
+<%= form_for([:meta, @writing]) do |f| %>
 
   <%= f.label :title %>
   <%= f.text_field :title %>

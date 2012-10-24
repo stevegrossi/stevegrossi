@@ -46,7 +46,7 @@
   </footer>
   <%= render 'layouts/analytics' if Rails.env.production? %>
   <%= javascript_include_tag 'application' %>
-  <%= javascript_include_tag 'admin' if ['new', 'create', 'edit', 'update', 'everything'].include? params[:action] %>
+  <%= javascript_include_tag 'admin' if /meta/ =~ controller_path %>
   <%= yield :page_js %>
 </body>
 </html>

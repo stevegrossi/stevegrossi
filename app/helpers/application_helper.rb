@@ -26,20 +26,20 @@ module ApplicationHelper
 
   def link_to_new(class_name)
     if current_user
-      link_to "New #{class_name}", new_polymorphic_path(class_name), class: 'link_to_new'
+      link_to "New #{class_name}", new_polymorphic_path([:meta, class_name]), class: 'link_to_new'
     end
   end
 
   def link_to_edit(thing)
     if current_user
-      link_to 'e', polymorphic_path(thing, action: :edit), class: 'edit_link'
+      link_to 'e', polymorphic_path([:meta, thing], action: :edit), class: 'edit_link'
     end
   end
 
   def link_to_delete(thing)
     if current_user
       name = thing.class.name.titleize
-      link_to "Delete this #{name}", polymorphic_path(thing), confirm: "Are you sure you want to delete this #{name}? This cannot be undone.", method: :delete, class: 'delete_link'
+      link_to "Delete this #{name}", polymorphic_path([:meta, thing]), confirm: "Are you sure you want to delete this #{name}? This cannot be undone.", method: :delete, class: 'delete_link'
     end
   end
 

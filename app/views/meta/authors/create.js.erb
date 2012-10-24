@@ -2,6 +2,6 @@
   $(document).trigger('close.facebox');
   $('#book_author_ids').prepend('<option value="<%= @author.id %>" selected="selected"><%= escape_javascript @author.full_name %></option>');
 <% else %>
-  $('#facebox .content').html('<%= escape_javascript(render template: "authors/new.html") %>');
+  $('#facebox .content').html('<%= escape_javascript(render template: "meta/authors/new.html") %>');
   $('#facebox form').data('remote','true');
 <% end %>

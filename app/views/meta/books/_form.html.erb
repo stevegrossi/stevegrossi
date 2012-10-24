@@ -1,6 +1,6 @@
 <%= flash_errors(@book) %>
 
-<%= form_for(@book) do |f| %>
+<%= form_for([:meta, @book]) do |f| %>
 
   <div class="halves">
     <div class="half">
@@ -10,7 +10,7 @@
       <%= f.label :subtitle %>
       <%= f.text_field :subtitle %>
 
-      <%= f.label :author_ids, 'Author(s)' %> <%= link_to 'New Author', new_author_path, class: :ajax_new_link, remote: true %>
+      <%= f.label :author_ids, 'Author(s)' %> <%= link_to 'New Author', new_meta_author_path, class: :ajax_new_link, remote: true %>
       <%= f.select :author_ids, bubble_up(@authors, @book.authors).collect {|x| [x.full_name, x.id]}, {}, multiple: true %>
     </div>
     <div class="half">

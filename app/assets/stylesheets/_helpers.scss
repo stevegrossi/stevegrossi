@@ -5,9 +5,9 @@
   padding: $baseline*.5;
   position: relative;
   &::before {
-    font-size: 6em;
+    font-size: 2em;
     position: absolute;
-    right: 1%;
+    right: 2%;
     bottom: 50%;
     opacity: .4;
     line-height: 0;
