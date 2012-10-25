@@ -3,6 +3,7 @@ ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
+require 'capybara/rails'
 require 'capybara/rspec'
 require 'database_cleaner'
 
@@ -26,10 +27,31 @@ RSpec.configure do |config|
   # examples within a transaction, remove the following line or assign false
   # instead of true.
   # config.use_transactional_fixtures = true
-  DatabaseCleaner.strategy = :truncation
+
+  # Configure 'database_cleaner' gem
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
 
   # If true, the base class of anonymous controllers will be inferred
   # automatically. This will be the default behavior in future versions of
   # rspec-rails.
   config.infer_base_class_for_anonymous_controllers = false
+end
+
+def log_in_user
+  user = FactoryGirl.create(:user)
+  visit log_in_path
+  fill_in 'username', with: user.username
+  fill_in 'password', with: 'secret'
+  click_button 'Log In'
 end
