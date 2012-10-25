@@ -15,7 +15,7 @@ require 'spec_helper'
 
 describe Writing do
   it 'has a valid factory' do
-    FactoryGirl.create(:writing).should be_valid
+    FactoryGirl.build(:writing).should be_valid
   end
   it 'is invalid without a title' do
     writing = FactoryGirl.build(:writing, title: nil)
