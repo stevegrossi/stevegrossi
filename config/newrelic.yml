@@ -1,0 +1,73 @@
+#
+# This file configures the New Relic Agent.  New Relic monitors
+# Ruby, Java, .NET, PHP, and Python applications with deep visibility and low overhead.
+# For more information, visit www.newrelic.com.
+#
+# Generated July 16, 2012
+#
+# This configuration file is custom generated for Steve Grossi
+
+# Here are the settings that are common to all environments:
+common: &default_settings
+  # ============================== LICENSE KEY ===============================
+
+  # You must specify the license key associated with your New Relic
+  # account.  This key binds your Agent's data to your account in the
+  # New Relic service.
+  license_key: '<%= ENV["NEW_RELIC_LICENSE_KEY"] %>'
+
+  # Agent Enabled (Ruby/Rails Only)
+  # Use this setting to force the agent to run or not run.
+  # Default is 'auto' which means the agent will install and run only
+  # if a valid dispatcher such as Mongrel is running.  This prevents
+  # it from running with Rake or the console.  Set to false to
+  # completely turn the agent off regardless of the other settings.
+  # Valid values are true, false and auto.
+  # agent_enabled: auto
+
+  app_name: <%= ENV["NEW_RELIC_APP_NAME"] %>
+  monitor_mode: true
+  developer_mode: false
+  log_level: info
+  ssl: false
+  apdex_t: 0.5
+
+development:
+  <<: *default_settings
+  # Turn off communication to New Relic service in development mode (also
+  # 'enabled').
+  # NOTE: for initial evaluation purposes, you may want to temporarily
+  # turn agent communication on in development mode.
+  monitor_mode: false
+
+  # Rails Only - when running in Developer Mode, the New Relic Agent will
+  # present performance information on the last 100 transactions you have
+  # executed since starting the app server.
+  # NOTE: There is substantial overhead when running in developer mode.
+  # Do not use for production or load testing.
+  developer_mode: true
+
+  # Enable textmate links
+  # textmate: true
+
+test:
+  <<: *default_settings
+  # It almost never makes sense to turn on the agent when running
+  # unit, functional or integration tests or the like.
+  monitor_mode: false
+
+# Turn on the agent in production for 24x7 monitoring.  New Relic
+# testing shows an average performance impact of < 5 ms per
+# transaction, so you can leave this on all the time without
+# incurring any user-visible performance degradation.
+production:
+  <<: *default_settings
+  monitor_mode: true
+
+# Many applications have a staging environment which behaves
+# identically to production.  Support for that environment is provided
+# here.  By default, the staging environment has the agent turned on.
+staging:
+  <<: *default_settings
+  monitor_mode: true
+  app_name: <%= ENV["NEW_RELIC_APP_NAME"] %>
