@@ -5,3 +5,4 @@ tmp/
 .sass-cache/
 config/setup_load_paths.rb
 .rvmrc
+config/database.yml
