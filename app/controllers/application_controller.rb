@@ -30,8 +30,7 @@ class ApplicationController < ActionController::Base
   def logged_in?
     unless session[:user_id]
       session[:return_to] = request.fullpath
-      flash[:alert] = 'Whoa! You need to log in to do that.'
-      redirect_to log_in_path
+      redirect_to log_in_path, alert: 'Whoa! You need to log in to do that.'
       return false
     else
       return true

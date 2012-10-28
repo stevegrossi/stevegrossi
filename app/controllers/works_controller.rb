@@ -7,8 +7,6 @@ class WorksController < ApplicationController
     @title = 'The finest websites, built with love'
   end
 
-  # GET /works/1
-  # GET /works/1.xml
   def show
     @work = Work.find(params[:id])
     @title = @work.title
@@ -18,8 +16,7 @@ class WorksController < ApplicationController
       if current_user || params[:draft] == 'yep'
         flash.now[:alert] = 'This is a draft.'
       else
-        flash[:error] = 'You must be logged in to view this draft.'
-        redirect_to works_path and return
+        redirect_to works_path, flash: { error: 'You must be logged in to view that draft.' }
       end
     end
   end

@@ -15,8 +15,7 @@ class BooksController < ApplicationController
       if current_user || params[:draft] == 'yep'
         flash.now[:alert] = 'This is a draft.'
       else
-        flash[:error] = 'You must be logged in to view this draft.'
-        redirect_to books_path and return
+        redirect_to books_path, flash: { error: 'You must be logged in to view that draft.' }
       end
     end
   end
