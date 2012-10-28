@@ -19,6 +19,8 @@
 
 class Book < ActiveRecord::Base
 
+  attr_accessible :title, :publisher, :pub_year, :thoughts, :authors
+
   include PgSearch
   multisearchable against: [:title, :subtitle, :thesis, :thoughts]
 

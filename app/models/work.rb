@@ -15,6 +15,8 @@
 
 class Work < ActiveRecord::Base
 
+  attr_accessible :title, :about, :image_filename
+
   include Postable
 
   has_friendly_id :title, use_slug: true

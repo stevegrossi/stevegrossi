@@ -65,6 +65,9 @@ module Stevegrossi
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
 
+    # Mass assignment protection
+    config.active_record.whitelist_attributes = true
+
     # acts_as_taggable_on config
     ActsAsTaggableOn.force_lowercase = true
     ActsAsTaggableOn.remove_unused_tags = true

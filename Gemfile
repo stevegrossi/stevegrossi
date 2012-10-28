@@ -1,12 +1,11 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0'
+gem 'rails', '3.2.8'
 gem 'jquery-rails'
 gem 'maruku'
 gem "acts-as-taggable-on", "~> 2.3.1"
 gem 'friendly_id', '~> 3.2.1'
 gem 'bcrypt-ruby', require: 'bcrypt'
-gem 'heroku'
 gem 'thin'
 gem 'foreman'
 gem 'pg'
@@ -14,9 +13,9 @@ gem 'pg_search'
 gem 'newrelic_rpm'
 
 group :assets do
-  gem 'sass-rails', '~> 3.1.0'
-  gem 'coffee-rails', '~> 3.1.0'
-  gem 'uglifier'
+  gem 'sass-rails', '~> 3.2.3'
+  gem 'coffee-rails', '~> 3.2.1'
+  gem 'uglifier', '>= 1.0.3'
 end
 
 group :development, :test do
@@ -30,7 +29,6 @@ group :development do
 end
 
 group :test do
-  gem 'cucumber-rails'
   gem 'capybara'
   gem 'faker'
   gem 'guard-rspec'

@@ -12,6 +12,8 @@
 
 class Author < ActiveRecord::Base
 
+  attr_accessible :fname, :mname, :lname
+
   has_friendly_id :full_name, use_slug: true
 
   has_many :authorships, dependent: :destroy
