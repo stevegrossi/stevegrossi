@@ -9,9 +9,13 @@
 #  created_at   :datetime
 #  updated_at   :datetime
 #  published_at :datetime
+#  slug         :string(255)
 #
 
 class Writing < ActiveRecord::Base
+
+  extend FriendlyId
+  friendly_id :title
 
   attr_accessible :title, :content, :summary, :published_at
 
@@ -19,8 +23,6 @@ class Writing < ActiveRecord::Base
   multisearchable :against => [:title, :content, :summary]
 
   include Postable
-
-  has_friendly_id :title, :use_slug => true
 
   validates :title,           presence: true
   validates :content,         presence: true

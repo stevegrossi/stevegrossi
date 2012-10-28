@@ -11,15 +11,17 @@
 #  updated_at     :datetime
 #  image_filename :string(255)
 #  published_at   :datetime
+#  slug           :string(255)
 #
 
 class Work < ActiveRecord::Base
 
+  extend FriendlyId
+  friendly_id :title
+
   attr_accessible :title, :about, :image_filename
 
   include Postable
-
-  has_friendly_id :title, use_slug: true
 
   validates :title,           presence: true
   validates :about,           presence: true

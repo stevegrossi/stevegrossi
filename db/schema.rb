@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121026120254) do
+ActiveRecord::Schema.define(:version => 20121028192733) do
 
   create_table "authors", :force => true do |t|
     t.string   "fname"
@@ -19,7 +19,10 @@ ActiveRecord::Schema.define(:version => 20121026120254) do
     t.string   "lname"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug"
   end
+
+  add_index "authors", ["slug"], :name => "index_authors_on_slug", :unique => true
 
   create_table "authorships", :force => true do |t|
     t.integer  "book_id"
@@ -41,7 +44,10 @@ ActiveRecord::Schema.define(:version => 20121026120254) do
     t.string   "cover_image"
     t.text     "thesis"
     t.datetime "published_at"
+    t.string   "slug"
   end
+
+  add_index "books", ["slug"], :name => "index_books_on_slug", :unique => true
 
   create_table "pg_search_documents", :force => true do |t|
     t.text     "content"
@@ -50,18 +56,6 @@ ActiveRecord::Schema.define(:version => 20121026120254) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "slugs", :force => true do |t|
-    t.string   "name"
-    t.integer  "sluggable_id"
-    t.integer  "sequence",                     :default => 1, :null => false
-    t.string   "sluggable_type", :limit => 40
-    t.string   "scope"
-    t.datetime "created_at"
-  end
-
-  add_index "slugs", ["name", "sluggable_type", "sequence", "scope"], :name => "index_slugs_on_n_s_s_and_s", :unique => true
-  add_index "slugs", ["sluggable_id"], :name => "index_slugs_on_sluggable_id"
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"
@@ -78,7 +72,10 @@ ActiveRecord::Schema.define(:version => 20121026120254) do
 
   create_table "tags", :force => true do |t|
     t.string "name"
+    t.string "slug"
   end
+
+  add_index "tags", ["slug"], :name => "index_tags_on_slug", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "username"
@@ -96,7 +93,10 @@ ActiveRecord::Schema.define(:version => 20121026120254) do
     t.datetime "updated_at"
     t.string   "image_filename"
     t.datetime "published_at"
+    t.string   "slug"
   end
+
+  add_index "works", ["slug"], :name => "index_works_on_slug", :unique => true
 
   create_table "writings", :force => true do |t|
     t.string   "title"
@@ -105,6 +105,9 @@ ActiveRecord::Schema.define(:version => 20121026120254) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "published_at"
+    t.string   "slug"
   end
+
+  add_index "writings", ["slug"], :name => "index_writings_on_slug", :unique => true
 
 end

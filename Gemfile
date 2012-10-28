@@ -4,7 +4,7 @@ gem 'rails', '3.2.8'
 gem 'jquery-rails'
 gem 'maruku'
 gem "acts-as-taggable-on", "~> 2.3.1"
-gem 'friendly_id', '~> 3.2.1'
+gem 'friendly_id', '~> 4.0.8'
 gem 'bcrypt-ruby', require: 'bcrypt'
 gem 'thin'
 gem 'foreman'

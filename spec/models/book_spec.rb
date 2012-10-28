@@ -15,6 +15,7 @@
 #  cover_image  :string(255)
 #  thesis       :text
 #  published_at :datetime
+#  slug         :string(255)
 #
 
 require 'spec_helper'

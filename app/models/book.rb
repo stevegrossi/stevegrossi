@@ -15,11 +15,15 @@
 #  cover_image  :string(255)
 #  thesis       :text
 #  published_at :datetime
+#  slug         :string(255)
 #
 
 class Book < ActiveRecord::Base
 
-  attr_accessible :title, :publisher, :pub_year, :thoughts, :authors
+  extend FriendlyId
+  friendly_id :title
+
+  attr_accessible :title, :subtitle, :asin, :publisher, :pub_year, :thesis, :thoughts, :author_ids, :cover_image, :topic_list, :published_at
 
   include PgSearch
   multisearchable against: [:title, :subtitle, :thesis, :thoughts]
@@ -27,8 +31,6 @@ class Book < ActiveRecord::Base
   acts_as_taggable_on :topics
 
   include Postable
-
-  has_friendly_id :title, use_slug: true
 
   has_many :authorships, dependent: :destroy
   has_many :authors, through: :authorships

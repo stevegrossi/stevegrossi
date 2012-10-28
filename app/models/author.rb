@@ -8,13 +8,15 @@
 #  lname      :string(255)
 #  created_at :datetime
 #  updated_at :datetime
+#  slug       :string(255)
 #
 
 class Author < ActiveRecord::Base
 
-  attr_accessible :fname, :mname, :lname
+  extend FriendlyId
+  friendly_id :full_name
 
-  has_friendly_id :full_name, use_slug: true
+  attr_accessible :fname, :mname, :lname
 
   has_many :authorships, dependent: :destroy
   has_many :books, through: :authorships
