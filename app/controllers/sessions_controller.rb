@@ -1,10 +1,13 @@
 class SessionsController < ApplicationController
   def new
+    if current_user
+      flash.now[:error] = "Already logged in as <b>#{current_user.username}</b>."
+    end
   end
 
   def create
-    user = User.authenticate(params[:username], params[:password])
-    if user
+    user = User.find_by_username(params[:username])
+    if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       flash[:success] = "Hey there, sexy!"
       redirect_back_or_to meta_dashboard_path

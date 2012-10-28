@@ -22,9 +22,9 @@ Stevegrossi::Application.routes.draw do
   resources :works, path: 'built', only: [:index, :show]
 
   resources :sessions, only: [:new, :create, :destroy]
-  get 'log_in' => 'sessions#new'
-  post 'log_in' => 'sessions#create'
-  get 'log_out' => 'sessions#destroy'
+  get 'log_in' => 'sessions#new', as: 'log_in'
+  post 'log_in' => 'sessions#create', as: 'log_in'
+  get 'log_out' => 'sessions#destroy', as: 'log_out'
   match 'is' => 'pages#about', as: 'about'
   match 'is/forhire' => 'pages#resume', as: 'resume'
   match 'styleguide' => 'pages#styleguide'

@@ -1,14 +1,17 @@
 <h1>Log In</h1>
 
-<%= form_tag log_in_path do %>
-  
+<% if current_user %>
+  <p>You’re already logged in as <b><%= current_user.username %></b>. <%= link_to('Log out?', log_out_path) %></p>
+<% else %>
+  <%= form_tag(log_in_path) do %>
     <%= label_tag :username %>
     <%= text_field_tag :username, params[:username] %>
-    
+
     <%= label_tag :password %>
     <%= password_field_tag :password %>
-    
+
     <p>
       <%= submit_tag 'Log In' %>
     </p>
+  <% end %>
 <% end %>
