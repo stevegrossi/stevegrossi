@@ -127,7 +127,7 @@ describe 'Administrates writings' do
         expect {
           click_link 'Delete this Writing'
         }.to change(Writing, :count).by(-1)
-        within '.success' do
+        within '.notice' do
           page.should have_content("You deleted #{@writing.title}")
         end
       end

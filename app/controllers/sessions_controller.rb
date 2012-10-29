@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     user = User.find_by_username(params[:username])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to meta_dashboard_path, flash: { success: 'Hey there, good lookin!' }
+      redirect_to meta_dashboard_path, notice: 'Hey there, good lookin!'
     else
       flash.now[:error] = "Incorrect email or password."
       render "new"
@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to root_url, flash: { success: 'See you around, cowboy.' }
+    redirect_to root_url, notice: 'See you around, cowboy.'
   end
 
 end

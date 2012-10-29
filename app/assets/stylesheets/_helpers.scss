@@ -1,4 +1,4 @@
-.error, .alert, .success {
+.error, .alert, .notice {
   @include round;
   border-width: 1px;
   border-style: solid;
@@ -33,7 +33,7 @@
     content: '!';
   }
 }
-.success {
+.notice {
   color: $green;
   background-color: mix($green, #fff, 10%);
   border-color: mix($green, #fff, 40%);

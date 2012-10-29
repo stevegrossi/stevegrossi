@@ -19,7 +19,7 @@ class Meta::WorksController < Meta::DashboardController
       @work.published_at ||= Time.now
     end
     if @work.save
-      redirect_to @work, flash: { success: 'Yay, you built another thing!' }
+      redirect_to @work, notice: 'Yay, you built another thing!'
     else
       render action: "new"
     end
@@ -35,7 +35,7 @@ class Meta::WorksController < Meta::DashboardController
       params[:work][:published_at] = nil
     end
     if @work.update_attributes(params[:work])
-      redirect_to @work, flash: { success: 'Work updated.' }
+      redirect_to @work, notice: 'Work updated.'
     else
       render action: "edit"
     end
@@ -43,9 +43,9 @@ class Meta::WorksController < Meta::DashboardController
 
   def destroy
     @work = Work.find(params[:id])
-    flash[:success] = "You deleted <b>#{@work.title}</b>."
+    title = @work.title
     @work.destroy
-    redirect_to meta_works_path
+    redirect_to meta_works_path, notice: "You deleted <b>#{title}</b>."
   end
 
 end
