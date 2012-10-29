@@ -12,7 +12,10 @@
   <tbody>
   <% @authors.each do |author| %>
     <tr>
-      <td><%= author.fname %></td>
+      <td>
+        <%= link_to_edit(author) %>
+        <%= author.fname %>
+      </td>
       <td><%= author.mname %></td>
       <td><%= author.lname %></td>
       <td><%= books_by(author) %></td>

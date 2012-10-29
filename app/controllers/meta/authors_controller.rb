@@ -20,7 +20,7 @@ class Meta::AuthorsController < Meta::DashboardController
         format.html { redirect_to @author, notice: 'A new author!' }
         format.js
       else
-        render action: "new"
+        format.html { render action: "new" }
       end
     end
   end
@@ -36,8 +36,9 @@ class Meta::AuthorsController < Meta::DashboardController
 
   def destroy
     @author = Author.find(params[:id])
+    name = @author.full_name
     @author.destroy
-    redirect_to meta_authors_path
+    redirect_to meta_authors_path, notice: "You deleted <b>#{name}</b>"
   end
 
 end
