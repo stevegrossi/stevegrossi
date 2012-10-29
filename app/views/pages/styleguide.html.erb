@@ -145,7 +145,11 @@
       </li>
     </ul>
   </fieldset>
-  <input type="submit" value="Submit" />
+  <div class="actions">
+    <input type="submit" value="Publish" />
+    <input type="submit" value="Save Draft" class="secondary" />
+    <%= link_to 'or go back', '#', class: :cancel %>
+  </div>
 </form>
 
 <h2>Alert Messages</h2>

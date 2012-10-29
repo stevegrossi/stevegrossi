@@ -239,6 +239,12 @@ fieldset.topics {
     vertical-align: middle;
   }
 }
+.actions {
+  overflow: hidden;
+  input[type="submit"] {
+    float: left;
+  }
+}
 .cancel {
   float: left;
   color: $dark_gray !important;

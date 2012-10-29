@@ -14,10 +14,11 @@
   <%= f.label :published_at %>
   <%= f.text_field :published_at %>
 
-  <p>
+  <div class="actions">
     <%= f.submit 'Publish' %>
     <%= f.submit @writing.published? ? 'Unpublish' : 'Save Draft', class: :secondary %>
     <%= link_to 'or go back', @writing, class: :cancel %>
-  </p>
+  </div>
+
 
 <% end %>

@@ -11,8 +11,8 @@
     <%= f.label :lname, 'Last' %>
     <%= f.text_field :lname, tabindex: 3 %>
 
-    <p><%= f.submit %>
+    <div class="actions"><%= f.submit %>
       <%= link_to 'or go back', @author, class: :cancel if params[:controller] == :authors %>
-    </p>
+    </div>
 
 <% end %>
