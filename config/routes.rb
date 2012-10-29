@@ -5,15 +5,15 @@ Stevegrossi::Application.routes.draw do
     root to: 'dashboard#home', as: :dashboard
   end
 
-  match '/wishlist' => redirect('http://amzn.com/w/156EDXYQR8J2F')
-  match '/made' => redirect('/built')
-  match '/made/:slug' => redirect("/built/%{slug}")
-  match '/resume' => redirect("/is/forhire")
+  get '/wishlist' => redirect('http://amzn.com/w/156EDXYQR8J2F')
+  get '/made' => redirect('/built')
+  get '/made/:slug' => redirect("/built/%{slug}")
+  get '/resume' => redirect("/is/forhire")
 
   resources :users
   resources :books, path: 'read', only: [:index, :show] do
     collection do
-      resources :authors
+      resources :authors, only: [:index, :show]
       get 'about' => 'books#topics'
       get 'about/:topic' => 'books#topic', as: :tagged
     end
@@ -25,12 +25,12 @@ Stevegrossi::Application.routes.draw do
   get 'log_in' => 'sessions#new', as: 'log_in'
   post 'log_in' => 'sessions#create', as: 'log_in'
   get 'log_out' => 'sessions#destroy', as: 'log_out'
-  match 'is' => 'pages#about', as: 'about'
-  match 'is/forhire' => 'pages#resume', as: 'resume'
-  match 'styleguide' => 'pages#styleguide'
-  match 'colophon' => 'pages#colophon'
-  match 'search' => 'pages#search'
-  match 'feed' => 'pages#feed', format: :rss
+  get 'is' => 'pages#about', as: 'about'
+  get 'is/forhire' => 'pages#resume', as: 'resume'
+  get 'styleguide' => 'pages#styleguide'
+  get 'colophon' => 'pages#colophon'
+  get 'search' => 'pages#search'
+  get 'feed' => 'pages#feed', format: :rss
 
   root to: "pages#home"
 
