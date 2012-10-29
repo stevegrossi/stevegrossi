@@ -76,7 +76,7 @@ module ApplicationHelper
   end
 
   def nice_url(url)
-    url.gsub(/(^https?:\/\/(www.)?)|(\/$)/, '')
+    url.gsub(/(^https?:\/\/(www.)?)|(\/$)/, '') if url
   end
 
   def link_from_url(url)
