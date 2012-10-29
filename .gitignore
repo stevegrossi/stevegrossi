@@ -6,3 +6,4 @@ tmp/
 config/setup_load_paths.rb
 .rvmrc
 config/database.yml
+config/application.yml
