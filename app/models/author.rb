@@ -28,8 +28,6 @@ class Author < ActiveRecord::Base
   validates :lname, presence: true
 
   def full_name
-    name = fname
-    name += ' ' + mname unless mname.blank?
-    name += ' ' + lname
+    [fname, mname, lname].join(' ')
   end
 end
