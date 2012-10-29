@@ -14,7 +14,7 @@ Stevegrossi::Application.routes.draw do
   resources :books, path: 'read', only: [:index, :show] do
     collection do
       resources :authors, only: [:index, :show]
-      get 'about' => 'books#topics'
+      get 'about' => 'books#topics', as: :topics
       get 'about/:topic' => 'books#topic', as: :tagged
     end
   end

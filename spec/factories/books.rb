@@ -25,4 +25,8 @@ FactoryGirl.define do
     end
   end
 
+  factory :draft_book, parent: Book do
+    published_at nil
+  end
+
 end
