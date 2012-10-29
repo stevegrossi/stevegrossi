@@ -28,8 +28,7 @@ class Meta::AuthorsController < Meta::DashboardController
   def update
     @author = Author.find(params[:id])
     if @author.update_attributes(params[:author])
-      flash[:success] = 'Update successful.'
-      redirect_to @author
+      redirect_to @author, flash: { success: 'Update successful.' }
     else
       render action: "edit"
     end

@@ -19,8 +19,7 @@ class Meta::WritingsController < Meta::DashboardController
       @writing.published_at ||= Time.now
     end
     if @writing.save
-      flash[:success] = 'Yay, you wrote another thing!'
-      redirect_to @writing
+      redirect_to @writing, flash: { success: 'Yay, you wrote another thing!' }
     else
       render action: "new"
     end
@@ -36,8 +35,7 @@ class Meta::WritingsController < Meta::DashboardController
       params[:writing][:published_at] = nil
     end
     if @writing.update_attributes(params[:writing])
-      flash[:success] = 'Writing updated.'
-      redirect_to @writing
+      redirect_to @writing, flash: { success: 'Writing updated.' }
     else
       render action: "edit"
     end
@@ -45,9 +43,9 @@ class Meta::WritingsController < Meta::DashboardController
 
   def destroy
     @writing = Writing.find(params[:id])
-    flash[:success] = "You deleted <b>#{@writing.title}</b>."
+    title = @writing.title
     @writing.destroy
-    redirect_to meta_writings_path
+    redirect_to meta_writings_path, flash: { success: "You deleted <b>#{title}</b>." }
   end
 
 end

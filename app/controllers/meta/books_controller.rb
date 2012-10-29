@@ -22,8 +22,7 @@ class Meta::BooksController < Meta::DashboardController
       @book.published_at ||= Time.now
     end
     if @book.save
-      flash[:success] = 'Yay, you read another thing!'
-      redirect_to @book
+      redirect_to @book, flash: { success: 'Yay, you read another thing!' }
     else
       render action: "new"
     end
@@ -40,8 +39,7 @@ class Meta::BooksController < Meta::DashboardController
       params[:book][:published_at] = nil
     end
     if @book.update_attributes(params[:book])
-      flash[:success] = 'Book updated.'
-      redirect_to @book
+      redirect_to @book, flash: { success: 'Book updated.' }
     else
       render action: "edit"
     end

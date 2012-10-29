@@ -7,7 +7,7 @@ describe "Authentication" do
   end
 
   it 'logs in a user' do
-    page.should have_content('Hey there, sexy')
+    page.should have_content('Hey there')
     current_path.should == meta_dashboard_path
   end
 

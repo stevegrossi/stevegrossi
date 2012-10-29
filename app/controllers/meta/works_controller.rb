@@ -19,8 +19,7 @@ class Meta::WorksController < Meta::DashboardController
       @work.published_at ||= Time.now
     end
     if @work.save
-      flash[:success] = 'Yay, you built another thing!'
-      redirect_to @work
+      redirect_to @work, flash: { success: 'Yay, you built another thing!' }
     else
       render action: "new"
     end
@@ -36,8 +35,7 @@ class Meta::WorksController < Meta::DashboardController
       params[:work][:published_at] = nil
     end
     if @work.update_attributes(params[:work])
-      flash[:success] = 'Work updated.'
-      redirect_to @work
+      redirect_to @work, flash: { success: 'Work updated.' }
     else
       render action: "edit"
     end
