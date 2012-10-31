@@ -110,7 +110,7 @@ module ApplicationHelper
     unless query.blank?
       case query.downcase
       when 'shit', 'fuck', 'cunt', 'cocksucker', 'motherfucker'
-        'You kiss your mother with that mouth?'
+        content_tag(:p, content_tag(:em, 'You kiss your mother with that mouth?'))
       end
     end
   end

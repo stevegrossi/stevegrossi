@@ -3,7 +3,7 @@
 
 <h1><%= title %></h1>
 <% if @query.present? %>
-  <p><em><%= comment_on_search_term(@query) %></em></p>
+  <%= comment_on_search_term(@query) %>
 <% end %>
 <%= render 'layouts/search_form' %>
 <% if @query.present? %>
