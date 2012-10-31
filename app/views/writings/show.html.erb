@@ -1,3 +1,6 @@
+<% provide :title, @writing.title %>
+<% provide :description, @writing.summary unless @writing.summary.blank? %>
+
 <h1><%= @writing.title %></h1>
 <p class="meta">
   <%= @writing.pretty_published_at %>

@@ -1,3 +1,5 @@
+<% provide :title, "Books I've read about #{@topic.name}" %>
+
 <h1>Books I’ve read about “<%= @topic %>”</h1>
 <ol class="title_list">
   <%= render @books %>

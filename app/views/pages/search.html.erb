@@ -1,16 +1,19 @@
-<h1><%= @query.blank? ? 'Search' : "Searching for “#{@query}”" %></h1>
-<% unless @query.blank? %>
+<% title = @query.blank? ? 'Search' : "Searching for '#{@query}'" %>
+<% provide :title, title %>
+
+<h1><%= title %></h1>
+<% if @query.present? %>
   <p><em><%= comment_on_search_term(@query) %></em></p>
 <% end %>
 <%= render 'layouts/search_form' %>
-<% unless @query.blank? %>
+<% if @query.present? %>
   <% if @results.blank? %>
     <p>Sorry, no results.</p>
   <% else %>
     <ol>
     <% @results.each do |result| %>
       <li>
-        <%= link_to mark_string(result.searchable.title, @query), result.searchable %>
+        <%= link_to(mark_string(result.searchable.title, @query), result.searchable) %>
         <%= serp_excerpt(result.content, @query) %>
       </li>
     <% end %>

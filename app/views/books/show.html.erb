@@ -1,3 +1,6 @@
+<% provide :title, @book.title %>
+<% provide :description, @book.thesis unless @book.thesis.blank? %>
+
 <footer class="sidebar">
   <%= get_cover(@book) %>
   <span class="book_title"><%= @book.title %></span>

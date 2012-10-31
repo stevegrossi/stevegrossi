@@ -7,7 +7,6 @@ class ApplicationController < ActionController::Base
   end
 
   def render_404
-    @title = '404: Page Not Found'
     if /(jpe?g|png|gif)/i === request.path
       render text: "404 Not Found", status: 404
     else

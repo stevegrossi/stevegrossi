@@ -1,13 +1,5 @@
 module ApplicationHelper
 
-  def title
-    @title ? @title + ' | Steve Grossi' : 'Steve Grossi'
-  end
-
-  def description
-    @description ? @description : 'From the website of Steve Grossi'
-  end
-
   def markdown(text)
     raw text.blank? ? '' : Maruku.new(text).to_html
   end
