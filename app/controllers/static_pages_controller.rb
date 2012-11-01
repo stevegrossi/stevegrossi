@@ -14,22 +14,10 @@ class StaticPagesController < ApplicationController
     respond_to :rss
   end
 
-  def about
-  end
-
-  def colophon
-  end
-
-  def styleguide
-  end
-
   def search
     @query = params[:for]
     return redirect_to search_path if @query == ''
     @results = PgSearch.multisearch(@query).limit(10)
-  end
-
-  def resume
   end
 
   def error_404

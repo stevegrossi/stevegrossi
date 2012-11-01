@@ -28,10 +28,6 @@ Stevegrossi::Application.routes.draw do
   get 'log_in' => 'sessions#new', as: 'log_in'
   post 'log_in' => 'sessions#create', as: 'log_in'
   get 'log_out' => 'sessions#destroy', as: 'log_out'
-  get 'is' => 'static_pages#about', as: 'about'
-  get 'is/forhire' => 'static_pages#resume', as: 'resume'
-  get 'styleguide' => 'static_pages#styleguide'
-  get 'colophon' => 'static_pages#colophon'
   get 'search' => 'static_pages#search'
   get 'feed' => 'static_pages#feed', format: :rss
 
