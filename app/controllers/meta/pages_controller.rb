@@ -9,7 +9,7 @@ class Meta::PagesController < Meta::DashboardController
   end
 
   def edit
-    @page = Page.find(params[:id])
+    @page = Page.find_by_permalink!(params[:id])
   end
 
   def create
@@ -22,7 +22,7 @@ class Meta::PagesController < Meta::DashboardController
   end
 
   def update
-    @page = Page.find(params[:id])
+    @page = Page.find_by_permalink!(params[:id])
     if @page.update_attributes(params[:page])
       redirect_to @page, notice: 'Page updated.'
     else
@@ -31,7 +31,7 @@ class Meta::PagesController < Meta::DashboardController
   end
 
   def destroy
-    @page = Page.find(params[:id])
+    @page = Page.find_by_permalink!(params[:id])
     title = @page.title
     @page.destroy
     redirect_to meta_pages_path, notice: "You deleted the page <b>#{title}</b>."

@@ -20,4 +20,7 @@ class Page < ActiveRecord::Base
                         uniqueness: true
   validates :content,   presence: true
 
+  def to_param
+    permalink
+  end
 end

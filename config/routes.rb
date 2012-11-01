@@ -13,7 +13,6 @@ Stevegrossi::Application.routes.draw do
   get '/resume' => redirect("/is/forhire")
 
   resources :users
-  resources :pages, only: :show
   resources :books, path: 'read', only: [:index, :show] do
     collection do
       resources :authors, only: [:index, :show]
@@ -31,7 +30,6 @@ Stevegrossi::Application.routes.draw do
   get 'search' => 'static_pages#search'
   get 'feed' => 'static_pages#feed', format: :rss
 
-  # 404 if route not recognized
-  match '*a', to: 'static_pages#error_404'
+  get ':id', to: 'pages#show', as: :page, constraints: { id: /.*/ }
 
 end

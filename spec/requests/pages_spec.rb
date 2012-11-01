@@ -1,18 +1,21 @@
 require 'spec_helper'
 
 describe 'Publicly' do
-  describe "pages" do
-    it 'displays a page' do
-      about = FactoryGirl.create(:page, title: 'About')
-      visit page_path(about)
-      page.should have_content(about.title)
-    end
-    it 'sets the permalink as the url' # do
-    #   about = FactoryGirl.create(:page, title: 'About', permalink: 'about')
-    #   visit page_path(about)
-    #   current_path.should eq('/about')
-    # end
-    it 'allows slashes in permalinks'
+  it 'displays a page' do
+    the_page = FactoryGirl.create(:page)
+    visit page_path(the_page)
+    page.should have_content(the_page.title)
+    page.should have_content(the_page.content)
+  end
+  it 'sets the permalink as the url' do
+    the_page = FactoryGirl.create(:page)
+    visit page_path(the_page)
+    current_path.should eq("/#{the_page.permalink}")
+  end
+  it 'allows slashes in permalinks' do
+    the_page = FactoryGirl.create(:page, permalink: 'is/awesome')
+    visit page_path(the_page)
+    current_path.should eq('/is/awesome')
   end
 end
 
