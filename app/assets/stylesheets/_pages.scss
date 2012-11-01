@@ -22,7 +22,7 @@
     text-align: center;
   }
 }
-.pages-home {
+.static_pages-home {
   h1 {
     font-weight: normal;
     font-size: 1.5em; // 24px
@@ -73,7 +73,7 @@
   margin-right: 0;
   @include columns(2);
 }
-.pages-search {
+.static_pages-search {
   ol {
     a {
       display: block;

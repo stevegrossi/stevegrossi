@@ -25,16 +25,16 @@ Stevegrossi::Application.routes.draw do
   get 'log_in' => 'sessions#new', as: 'log_in'
   post 'log_in' => 'sessions#create', as: 'log_in'
   get 'log_out' => 'sessions#destroy', as: 'log_out'
-  get 'is' => 'pages#about', as: 'about'
-  get 'is/forhire' => 'pages#resume', as: 'resume'
-  get 'styleguide' => 'pages#styleguide'
-  get 'colophon' => 'pages#colophon'
-  get 'search' => 'pages#search'
-  get 'feed' => 'pages#feed', format: :rss
+  get 'is' => 'static_pages#about', as: 'about'
+  get 'is/forhire' => 'static_pages#resume', as: 'resume'
+  get 'styleguide' => 'static_pages#styleguide'
+  get 'colophon' => 'static_pages#colophon'
+  get 'search' => 'static_pages#search'
+  get 'feed' => 'static_pages#feed', format: :rss
 
-  root to: "pages#home"
+  root to: "static_pages#home"
 
   # 404 if route not recognized
-  match '*a', to: 'pages#error_404'
+  match '*a', to: 'static_pages#error_404'
 
 end

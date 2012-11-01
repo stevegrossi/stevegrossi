@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
     if /(jpe?g|png|gif)/i === request.path
       render text: "404 Not Found", status: 404
     else
-      render template: "pages/error_404", layout: 'application', status: 404
+      render template: "static_pages/error_404", layout: 'application', status: 404
     end
   end
 

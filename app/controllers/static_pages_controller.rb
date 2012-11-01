@@ -1,4 +1,4 @@
-class PagesController < ApplicationController
+class StaticPagesController < ApplicationController
   def home
     latest_works = Work.published.limit(10)
     latest_writings = Writing.published.limit(10)
@@ -33,7 +33,7 @@ class PagesController < ApplicationController
   end
 
   def error_404
-    render file: "/pages/error_404.html.erb", status: 404, layout: true
+    render file: "/static_pages/error_404.html.erb", status: 404, layout: true
   end
 
 end

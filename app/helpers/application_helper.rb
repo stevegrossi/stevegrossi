@@ -57,7 +57,7 @@ module ApplicationHelper
     # make these links relative to root (not the current namespace)
     # so that they work on /meta pages
     path[:controller].insert 0, '/'
-    if path[:controller] == 'pages'
+    if path[:controller] == 'static_pages'
       if current_page? path
         options[:class] = :current
       end

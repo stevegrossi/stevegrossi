@@ -82,10 +82,10 @@
   .tiles li {
     width: 48%;
   }
-  .pages-home .title_list {
+  .static_pages-home .title_list {
     padding-left: 0;
   }
-  .pages-topics ol {
+  .static_pages-topics ol {
     @include columns(4);
   }
 }
