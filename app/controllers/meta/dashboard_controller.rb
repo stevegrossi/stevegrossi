@@ -7,5 +7,6 @@ class Meta::DashboardController < ApplicationController
     @authors_count = Author.count
     @works_count = Work.count
     @writings_count = Writing.count
+    @pages_count = Page.count
   end
 end

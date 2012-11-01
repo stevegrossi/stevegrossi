@@ -1,7 +1,9 @@
 Stevegrossi::Application.routes.draw do
 
+  root to: "static_pages#home"
+
   namespace :meta do
-    resources :books, :authors, :works, :writings
+    resources :books, :authors, :works, :writings, :pages
     root to: 'dashboard#home', as: :dashboard
   end
 
@@ -11,6 +13,7 @@ Stevegrossi::Application.routes.draw do
   get '/resume' => redirect("/is/forhire")
 
   resources :users
+  resources :pages, only: :show
   resources :books, path: 'read', only: [:index, :show] do
     collection do
       resources :authors, only: [:index, :show]
@@ -31,8 +34,6 @@ Stevegrossi::Application.routes.draw do
   get 'colophon' => 'static_pages#colophon'
   get 'search' => 'static_pages#search'
   get 'feed' => 'static_pages#feed', format: :rss
-
-  root to: "static_pages#home"
 
   # 404 if route not recognized
   match '*a', to: 'static_pages#error_404'

@@ -1,0 +1,23 @@
+<%= flash_errors(@page) %>
+
+<%= form_for([:meta, @page]) do |f| %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :permalink %>
+  <%= f.text_field :permalink %>
+
+  <%= f.label :content %>
+  <%= f.text_area :content %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+
+  <div class="actions">
+    <%= f.submit 'Publish' %>
+    <%= link_to 'or go back', meta_pages_path, class: :cancel %>
+  </div>
+
+
+<% end %>
