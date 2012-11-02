@@ -18,7 +18,7 @@ class Meta::WorksController < Meta::DashboardController
       @work.published_at ||= Time.now
     end
     if @work.save
-      redirect_to @work, notice: 'Yay, you built another thing!'
+      redirect_to @work, notice: view_context.notify(:new, :work)
     else
       render action: "new"
     end
@@ -34,7 +34,7 @@ class Meta::WorksController < Meta::DashboardController
       params[:work][:published_at] = nil
     end
     if @work.update_attributes(params[:work])
-      redirect_to @work, notice: 'Work updated.'
+      redirect_to @work, notice: view_context.notify(:updated, :work)
     else
       render action: "edit"
     end

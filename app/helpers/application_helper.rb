@@ -117,4 +117,17 @@ module ApplicationHelper
       (array - items).unshift(items).flatten
     end
   end
+
+  def notify(action, class_name)
+    view_all_link = link_to('View all', polymorphic_path("meta_#{class_name}s"))
+    case action
+    when :new
+      message = "New #{class_name} created."
+    when :updated
+      message = "Updated #{class_name}."
+    else
+      raise ArgumentError, 'Actions supported: :new and :updated'
+    end
+    "#{message} #{view_all_link}."
+  end
 end

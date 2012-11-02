@@ -15,7 +15,7 @@ class Meta::PagesController < Meta::DashboardController
   def create
     @page = Page.new(params[:page])
     if @page.save
-      redirect_to @page, notice: 'Yay, another page!'
+      redirect_to @page, notice: view_context.notify(:new, :page)
     else
       render action: "new"
     end
@@ -24,7 +24,7 @@ class Meta::PagesController < Meta::DashboardController
   def update
     @page = Page.find_by_permalink!(params[:id])
     if @page.update_attributes(params[:page])
-      redirect_to @page, notice: 'Page updated.'
+      redirect_to @page, notice: view_context.notify(:updated, :page)
     else
       render action: "edit"
     end

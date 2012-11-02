@@ -63,6 +63,7 @@ describe 'Administrates authors' do
         within 'h1' do
           page.should have_content 'Steve M. Grossi'
         end
+        page.should have_selector('.notice')
       end
     end
     context 'with invalid attributes' do
@@ -88,6 +89,7 @@ describe 'Administrates authors' do
         within 'h1' do
           page.should have_content('Newname')
         end
+        page.should have_selector('.notice')
       end
     end
     context 'with invalid attributes' do

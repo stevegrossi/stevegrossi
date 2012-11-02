@@ -18,7 +18,7 @@ class Meta::WritingsController < Meta::DashboardController
       @writing.published_at ||= Time.now
     end
     if @writing.save
-      redirect_to @writing, notice: 'Yay, you wrote another thing!'
+      redirect_to @writing, notice: view_context.notify(:new, :writing)
     else
       render action: "new"
     end
@@ -34,7 +34,7 @@ class Meta::WritingsController < Meta::DashboardController
       params[:writing][:published_at] = nil
     end
     if @writing.update_attributes(params[:writing])
-      redirect_to @writing, notice: 'Writing updated.'
+      redirect_to @writing, notice: view_context.notify(:updated, :writing)
     else
       render action: "edit"
     end

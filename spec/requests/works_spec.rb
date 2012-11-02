@@ -70,8 +70,9 @@ describe 'Administrates works' do
           click_button 'Publish'
         }.to change(Work, :count).by(1)
         within 'h1' do
-          page.should have_content 'Test Title'
+          page.should have_content('Test Title')
         end
+        page.should have_selector('.notice')
       end
       it 'creates a new draft work when you click "Save Draft"' do
         expect {
@@ -80,6 +81,7 @@ describe 'Administrates works' do
         within 'h1' do
           page.should have_content 'Test Title'
         end
+        page.should have_selector('.notice')
         within '.alert' do
           page.should have_content('This is a draft')
         end
@@ -107,6 +109,7 @@ describe 'Administrates works' do
       it 'redirects to the updated work' do
         fill_in 'Title', with: 'Updated Title'
         click_button 'Publish'
+        page.should have_selector('.notice')
         within 'h1' do
           page.should have_content('Updated Title')
         end

@@ -93,6 +93,7 @@ describe 'Administrates books' do
         within 'h1' do
           page.should have_content 'Test Title'
         end
+        page.should have_selector('.notice')
       end
       it 'creates a new draft book when you click "Save Draft"' do
         expect {
@@ -104,6 +105,7 @@ describe 'Administrates books' do
         within '.alert' do
           page.should have_content('This is a draft')
         end
+        page.should have_selector('.notice')
       end
     end
     context 'with invalid attributes' do
@@ -129,6 +131,7 @@ describe 'Administrates books' do
         within 'h1' do
           page.should have_content('Updated Title')
         end
+        page.should have_selector('.notice')
       end
     end
     context 'with invalid attributes' do

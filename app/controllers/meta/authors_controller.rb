@@ -16,7 +16,7 @@ class Meta::AuthorsController < Meta::DashboardController
     @author = Author.new(params[:author])
     respond_to do |format|
       if @author.save
-        format.html { redirect_to @author, notice: 'A new author!' }
+        format.html { redirect_to @author, notice: view_context.notify(:new, :author) }
         format.js
       else
         format.html { render action: "new" }
@@ -27,7 +27,7 @@ class Meta::AuthorsController < Meta::DashboardController
   def update
     @author = Author.find(params[:id])
     if @author.update_attributes(params[:author])
-      redirect_to @author, notice: 'Update successful.'
+      redirect_to @author, notice: view_context.notify(:updated, :author)
     else
       render action: "edit"
     end

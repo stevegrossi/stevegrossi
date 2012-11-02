@@ -49,4 +49,19 @@ describe ApplicationHelper do
       bubble_up(array, 'four').should eq(goal)
     end
   end
+  describe '#notify' do
+    it 'notifies new and links to meta all' do
+      expected = 'New author created. <a href="/meta/authors">View all</a>.'
+      notify(:new, :author).should eq(expected)
+    end
+    it 'notifies updated and links to meta all' do
+      expected = 'Updated book. <a href="/meta/books">View all</a>.'
+      notify(:updated, :book).should eq(expected)
+    end
+    it 'raises an exception for invalid actions' do
+      expect {
+        notify(:deleted, :writing)
+      }.to raise_error
+    end
+  end
 end

@@ -13,6 +13,9 @@
     line-height: 0;
     font-family: ModernPictograms;
   }
+  a {
+    color: inherit !important;
+  }
 }
 .error {
   color: $red;

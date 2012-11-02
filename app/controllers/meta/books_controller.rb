@@ -21,7 +21,7 @@ class Meta::BooksController < Meta::DashboardController
       @book.published_at ||= Time.now
     end
     if @book.save
-      redirect_to @book, notice: 'Yay, you read another thing!'
+      redirect_to @book, notice: view_context.notify(:new, :book)
     else
       render action: "new"
     end
@@ -38,7 +38,7 @@ class Meta::BooksController < Meta::DashboardController
       params[:book][:published_at] = nil
     end
     if @book.update_attributes(params[:book])
-      redirect_to @book, notice: 'Book updated.'
+      redirect_to @book, notice: view_context.notify(:updated, :book)
     else
       render action: "edit"
     end
