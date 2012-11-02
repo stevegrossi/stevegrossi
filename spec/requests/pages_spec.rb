@@ -65,7 +65,7 @@ describe 'Administrates pages' do
   end
   describe 'editing pages' do
     before :each do
-      @page = FactoryGirl.create(:page)
+      @page = FactoryGirl.create(:page, permalink: 'is/awesome')
       visit edit_meta_page_path(@page)
     end
     context 'with valid attributes' do

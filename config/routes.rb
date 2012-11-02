@@ -1,16 +1,17 @@
 Stevegrossi::Application.routes.draw do
 
-  root to: "static_pages#home"
-
-  namespace :meta do
-    resources :books, :authors, :works, :writings, :pages
-    root to: 'dashboard#home', as: :dashboard
-  end
-
   get '/wishlist' => redirect('http://amzn.com/w/156EDXYQR8J2F')
   get '/made' => redirect('/built')
   get '/made/:slug' => redirect("/built/%{slug}")
   get '/resume' => redirect("/is/forhire")
+
+  root to: "static_pages#home"
+
+  namespace :meta do
+    resources :books, :authors, :works, :writings
+    resources :pages, constraints: { id: /.*/ }, except: :show
+    root to: 'dashboard#home', as: :dashboard
+  end
 
   resources :users
   resources :books, path: 'read', only: [:index, :show] do
