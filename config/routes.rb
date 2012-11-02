@@ -1,14 +1,17 @@
 Stevegrossi::Application.routes.draw do
 
-  namespace :meta do
-    resources :books, :authors, :works, :writings
-    root to: 'dashboard#home', as: :dashboard
-  end
-
   get '/wishlist' => redirect('http://amzn.com/w/156EDXYQR8J2F')
   get '/made' => redirect('/built')
   get '/made/:slug' => redirect("/built/%{slug}")
   get '/resume' => redirect("/is/forhire")
+
+  root to: "static_pages#home"
+
+  namespace :meta do
+    resources :books, :authors, :works, :writings
+    resources :pages, constraints: { id: /.*/ }, except: :show
+    root to: 'dashboard#home', as: :dashboard
+  end
 
   resources :users
   resources :books, path: 'read', only: [:index, :show] do
@@ -25,16 +28,9 @@ Stevegrossi::Application.routes.draw do
   get 'log_in' => 'sessions#new', as: 'log_in'
   post 'log_in' => 'sessions#create', as: 'log_in'
   get 'log_out' => 'sessions#destroy', as: 'log_out'
-  get 'is' => 'pages#about', as: 'about'
-  get 'is/forhire' => 'pages#resume', as: 'resume'
-  get 'styleguide' => 'pages#styleguide'
-  get 'colophon' => 'pages#colophon'
-  get 'search' => 'pages#search'
-  get 'feed' => 'pages#feed', format: :rss
+  get 'search' => 'static_pages#search'
+  get 'feed' => 'static_pages#feed', format: :rss
 
-  root to: "pages#home"
-
-  # 404 if route not recognized
-  match '*a', to: 'pages#error_404'
+  get ':id', to: 'pages#show', as: :page, constraints: { id: /.*/ }
 
 end

@@ -23,7 +23,7 @@
   <header class="siteheader">
     <nav>
       <%= link_to raw('Steve Grossi'), root_path, title: 'Home', accesskey: '1', id: 'logo' %>
-      <ul><li><%= nav_link_to 'about', about_path, title: 'About Steve' %></li><li><%= nav_link_to 'work', works_path, title: 'Portfolio' %></li><li><%= nav_link_to 'thoughts', writings_path, title: 'Writings' %></li><li><%= nav_link_to 'reads', books_path, title: 'Thoughts on Books' %></li></ul>
+      <ul><li><%= nav_link_to 'about', '/is', title: 'About Steve' %></li><li><%= nav_link_to 'work', works_path, title: 'Portfolio' %></li><li><%= nav_link_to 'thoughts', writings_path, title: 'Writings' %></li><li><%= nav_link_to 'reads', books_path, title: 'Thoughts on Books' %></li></ul>
     </nav>
   </header>
 
@@ -40,7 +40,7 @@
   </div>
 
   <footer class="sitefooter">
-    <p>&copy; 2011–<%= Time.now.year %> | <%= link_to 'Colophon', colophon_path %>
+    <p>&copy; 2011–<%= Time.now.year %> | <%= link_to 'Colophon', '/colophon' %>
       <span id="contact">
         <noscript>say hello: me at stevegrossi dot com</noscript>
       </span>
