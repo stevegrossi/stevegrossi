@@ -1,3 +1,4 @@
+# coding: utf-8
 module ApplicationHelper
 
   def markdown(text)
@@ -53,18 +54,11 @@ module ApplicationHelper
 
   def nav_link_to(*args)
     options = args.extract_options!
-    path = Rails.application.routes.recognize_path args[1]
-    # make these links relative to root (not the current namespace)
-    # so that they work on /meta pages
-    path[:controller].insert 0, '/'
-    if path[:controller] == 'pages'
-      if current_page? path
-        options[:class] = :current
-      end
-    elsif path[:controller] == params[:controller]
-      options[:class] = :current
+    path = Rails.application.routes.recognize_path(args[1])
+    if current_page?(path) || (controller_name != 'pages' && path[:controller] == controller_name)
+      options[:class] = 'current'
     end
-    link_to args[0], path, options
+    link_to(args[0], path, options)
   end
 
   def nice_url(url)
@@ -72,7 +66,7 @@ module ApplicationHelper
   end
 
   def link_from_url(url)
-    link_to nice_url(url), url
+    link_to(nice_url(url), url)
   end
 
   def flash_errors(obj)
@@ -89,7 +83,7 @@ module ApplicationHelper
   end
 
   def word_count(str)
-    pluralize( str.gsub(/[^-a-zA-Z]/, ' ').split.size, 'word' )
+    pluralize(str.scan(/\w+/).size, 'word')
   end
 
   def mark_string(string, term='')
@@ -119,6 +113,7 @@ module ApplicationHelper
     if items.blank?
       return array
     else
+      items = [items] unless items.is_a? Array
       (array - items).unshift(items).flatten
     end
   end
