@@ -57,9 +57,7 @@ describe 'Administrates pages' do
           fill_in 'Content', with: 'A test page'
           click_button 'Publish'
         }.not_to change(Page, :count)
-        within '.error' do
-          page.should have_content('Title can\'t be blank')
-        end
+        page.should have_selector('.error')
       end
     end
   end

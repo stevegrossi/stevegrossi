@@ -113,9 +113,7 @@ describe 'Administrates books' do
         expect {
           click_button 'Publish'
         }.not_to change(Book, :count)
-        within '.error' do
-          page.should have_content('Title can\'t be blank')
-        end
+        page.should have_selector('.error')
       end
     end
   end
@@ -130,6 +128,13 @@ describe 'Administrates books' do
         click_button 'Publish'
         within 'h1' do
           page.should have_content('Updated Title')
+        end
+        page.should have_selector('.notice')
+      end
+      it 'unpublishes a book when you click "Unpublish"' do
+        click_button 'Unpublish'
+        within '.alert' do
+          page.should have_content('draft')
         end
         page.should have_selector('.notice')
       end

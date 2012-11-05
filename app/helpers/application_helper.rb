@@ -72,12 +72,7 @@ module ApplicationHelper
   def flash_errors(obj)
     if obj.errors.any?
       content_tag :div, class: 'flash error' do
-        html = content_tag :h2, "#{pluralize(obj.errors.count, 'errors')}, n00b!"
-        html += content_tag :ul do
-          obj.errors.full_messages.each do |msg|
-            concat content_tag :li, msg
-          end
-        end
+        "Could not save the #{obj.class.to_s.humanize.downcase} because of the errors below:"
       end
     end
   end

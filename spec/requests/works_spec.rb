@@ -94,9 +94,7 @@ describe 'Administrates works' do
           fill_in 'About', with: 'Test content.'
           click_button 'Publish'
         }.not_to change(Work, :count)
-        within '.error' do
-          page.should have_content('Title can\'t be blank')
-        end
+        page.should have_selector('.error')
       end
     end
   end
@@ -113,6 +111,13 @@ describe 'Administrates works' do
         within 'h1' do
           page.should have_content('Updated Title')
         end
+      end
+      it 'unpublishes a work when you click "Unpublish"' do
+        click_button 'Unpublish'
+        within '.alert' do
+          page.should have_content('draft')
+        end
+        page.should have_selector('.notice')
       end
     end
     context 'with invalid attributes' do

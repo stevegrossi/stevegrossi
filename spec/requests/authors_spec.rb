@@ -71,9 +71,7 @@ describe 'Administrates authors' do
         expect {
           click_button 'Create Author'
         }.not_to change(Author, :count)
-        within '.error' do
-          page.should have_content('Fname can\'t be blank')
-        end
+        page.should have_selector('.error')
       end
     end
   end

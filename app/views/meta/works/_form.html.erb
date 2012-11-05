@@ -1,24 +1,13 @@
 <%= flash_errors(@work) %>
 
-<%= form_for([:meta, @work]) do |f| %>
+<%= simple_form_for([:meta, @work]) do |f| %>
 
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-
-    <%= f.label :about %>
-    <%= f.text_area :about %>
-
-    <%= f.label :url %>
-    <%= f.text_field :url %>
-
-    <%= f.label :client %>
-    <%= f.text_field :client %>
-
-    <%= f.label :image_filename %>
-    <%= f.text_field :image_filename %>
-
-    <%= f.label :published_at %>
-    <%= f.text_field :published_at %>
+    <%= f.input :title %>
+    <%= f.input :about %>
+    <%= f.input :url %>
+    <%= f.input :client %>
+    <%= f.input :image_filename %>
+    <%= f.input :published_at, as: :string %>
 
     <div class="actions">
       <%= f.submit 'Publish' %>

@@ -95,9 +95,7 @@ describe 'Administrates writings' do
           fill_in 'Summary', with: 'A test writing'
           click_button 'Publish'
         }.not_to change(Writing, :count)
-        within '.error' do
-          page.should have_content('Title can\'t be blank')
-        end
+        page.should have_selector('.error')
       end
     end
   end
@@ -112,6 +110,13 @@ describe 'Administrates writings' do
         click_button 'Publish'
         within 'h1' do
           page.should have_content('Updated Title')
+        end
+        page.should have_selector('.notice')
+      end
+      it 'unpublishes a writing when you click "Unpublish"' do
+        click_button 'Unpublish'
+        within '.alert' do
+          page.should have_content('draft')
         end
         page.should have_selector('.notice')
       end

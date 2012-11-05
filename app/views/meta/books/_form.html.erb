@@ -1,52 +1,36 @@
 <%= flash_errors(@book) %>
 
-<%= form_for([:meta, @book]) do |f| %>
+<%= simple_form_for([:meta, @book]) do |f| %>
 
   <div class="halves">
     <div class="half">
-      <%= f.label :title %>
-      <%= f.text_field :title %>
-
-      <%= f.label :subtitle %>
-      <%= f.text_field :subtitle %>
-
-      <%= f.label :author_ids, 'Author(s)' %> <%= link_to 'New Author', new_meta_author_path, class: :ajax_new_link, remote: true %>
-      <%= f.select :author_ids, bubble_up(@authors, @book.authors).collect {|x| [x.full_name, x.id]}, {}, multiple: true %>
+      <%= f.input :title %>
+      <%= f.input :subtitle %>
+      <%= link_to 'New Author', new_meta_author_path, class: :ajax_new_link, remote: true %>
+      <%= f.association :authors, label: 'Author(s)', label_method: :full_name %>
     </div>
     <div class="half">
-      <%= f.label :publisher %>
-      <%= f.text_field :publisher %>
-
-      <%= f.label :pub_year %>
-      <%= f.text_field :pub_year %>
-
-      <%= f.label :asin %>
-      <%= f.text_field :asin %>
+      <%= f.input :publisher %>
+      <%= f.input :pub_year %>
+      <%= f.input :asin %>
     </div>
   </div>
 
-  <%= f.label :thesis %>
-  <%= f.text_area :thesis, rows: 4 %>
-
-  <%= f.label :thoughts %>
-  <%= f.text_area :thoughts %>
-
-  <%= f.label :cover_image %>
-  <%= f.text_field :cover_image %>
+  <%= f.input :thesis, input_html: { rows: 4 } %>
+  <%= f.input :thoughts %>
+  <%= f.input :cover_image %>
 
   <%= field_set_tag 'Topics', class: :topics do %>
-    <%= f.label :topic_list %>
-    <%= f.text_field :topic_list %>
+    <%= f.input :topic_list %>
     <%= content_tag :h2, 'Current Topics' %>
     <%= content_tag :p do %>
-      <% Book.topic_counts.sort_by{ |topic| topic.name }.each do |topic| %>
+      <% Book.topic_counts.sort_by(&:name).each do |topic| %>
         <span class="tag"><%= topic.name %></span>
       <% end %>
     <% end %>
   <% end %>
 
-  <%= f.label :published_at %>
-  <%= f.text_field :published_at %>
+  <%= f.input :published_at, as: :string %>
 
   <div class="actions">
     <%= f.submit 'Publish' %>

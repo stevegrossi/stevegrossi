@@ -30,7 +30,7 @@
   <div role="main" class="main">
 
   <% flash.each do |key, value| %>
-    <%= content_tag :p, raw(value), :class => key %>
+    <%= content_tag :p, raw(value), :class => ['flash', key] %>
   <% end %>
 
   <article>
