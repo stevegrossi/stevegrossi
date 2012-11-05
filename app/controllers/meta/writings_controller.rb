@@ -20,7 +20,7 @@ class Meta::WritingsController < Meta::DashboardController
     if @writing.save
       redirect_to @writing, notice: view_context.notify(:new, :writing)
     else
-      render action: "new"
+      render :new
     end
   end
 
@@ -36,7 +36,7 @@ class Meta::WritingsController < Meta::DashboardController
     if @writing.update_attributes(params[:writing])
       redirect_to @writing, notice: view_context.notify(:updated, :writing)
     else
-      render action: "edit"
+      render :edit
     end
   end
 

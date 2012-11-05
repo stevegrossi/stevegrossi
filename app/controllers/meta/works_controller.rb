@@ -20,7 +20,7 @@ class Meta::WorksController < Meta::DashboardController
     if @work.save
       redirect_to @work, notice: view_context.notify(:new, :work)
     else
-      render action: "new"
+      render :new
     end
   end
 
@@ -36,7 +36,7 @@ class Meta::WorksController < Meta::DashboardController
     if @work.update_attributes(params[:work])
       redirect_to @work, notice: view_context.notify(:updated, :work)
     else
-      render action: "edit"
+      render :edit
     end
   end
 

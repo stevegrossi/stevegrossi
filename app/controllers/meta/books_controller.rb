@@ -23,7 +23,7 @@ class Meta::BooksController < Meta::DashboardController
     if @book.save
       redirect_to @book, notice: view_context.notify(:new, :book)
     else
-      render action: "new"
+      render :new
     end
   end
 
@@ -40,7 +40,7 @@ class Meta::BooksController < Meta::DashboardController
     if @book.update_attributes(params[:book])
       redirect_to @book, notice: view_context.notify(:updated, :book)
     else
-      render action: "edit"
+      render :edit
     end
   end
 

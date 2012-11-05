@@ -19,7 +19,7 @@ class Meta::AuthorsController < Meta::DashboardController
         format.html { redirect_to @author, notice: view_context.notify(:new, :author) }
         format.js
       else
-        format.html { render action: "new" }
+        format.html { render :new }
       end
     end
   end
@@ -29,7 +29,7 @@ class Meta::AuthorsController < Meta::DashboardController
     if @author.update_attributes(params[:author])
       redirect_to @author, notice: view_context.notify(:updated, :author)
     else
-      render action: "edit"
+      render :edit
     end
   end
 

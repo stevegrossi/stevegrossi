@@ -17,7 +17,7 @@ class Meta::PagesController < Meta::DashboardController
     if @page.save
       redirect_to @page, notice: view_context.notify(:new, :page)
     else
-      render action: "new"
+      render :new
     end
   end
 
@@ -26,7 +26,7 @@ class Meta::PagesController < Meta::DashboardController
     if @page.update_attributes(params[:page])
       redirect_to @page, notice: view_context.notify(:updated, :page)
     else
-      render action: "edit"
+      render :edit
     end
   end
 
