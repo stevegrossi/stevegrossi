@@ -26,6 +26,7 @@ end
 group :development do
   gem 'annotate', '~> 2.4.0'
   gem 'taps', '~> 0.3.0'
+  gem 'bullet'
 end
 
 group :test do
