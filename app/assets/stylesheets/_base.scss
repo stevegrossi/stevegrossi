@@ -1,13 +1,13 @@
 html {
   overflow-y: scroll;
-  }
+}
 body {
   background:#fff;
   color:$darker_gray;
   font-family:$serif_stack;
   font-size:100%;
   line-height:$baseline;
-  }
+}
 a {
   &:link {
     color:$blue;
@@ -15,136 +15,136 @@ a {
   }
   &:visited {
     color:mix(#000, $blue, 20%);
-    }
+  }
   &:hover, &:active {
     color: mix(#fff, $blue, 20%);
-    }
+  }
   }
 h1, h2, h3, h4, h5, p, ul, ol, dl, hgroup, table, figure, fieldset, input[type="submit"] {
   margin-top:$baseline;
   margin-bottom:$baseline;
-  }
+}
 hgroup h1, hgroup h2, hgroup h3, hgroup h4, hgroup h5 {
   margin-bottom:0;
-  }
+}
 h1 {
   font-size:2em; // 32px
   line-height:1.125; // 36px
-  }
+}
 h2 {
   font-size:1.5em; // 24px
-  }
+}
 h3 {
   font-size:1.125em; // 18px
   text-transform:uppercase;
   letter-spacing:.1em;
-  }
+}
 h4 {
   font-size:1.125em; // 18px
-  }
+}
 h5 {
   font-size:1em; // 16px
-  }
+}
 h6 {
   font-size:1em; // 16px
-  }
+}
 sup, sub {
   position : relative;
   font-size : 75%;
   line-height : 0;
-  }
+}
 sup {
   top:-.5em;
-  }
+}
 sub {
   bottom:-.25em;
-  }
+}
 mark {
   background:rgba(255,255,0,.5);
   color:inherit;
-  }
+}
 blockquote {
   margin:$baseline $baseline $baseline 0;
   color:$gray;
   border-left:4px solid $light_gray;
   padding-left:20px;
-  }
+}
 ul, ol {
   margin:$baseline;
   padding:0;
   ul, ol {
       margin:0 $baseline;
-    }
   }
+}
 dt {
   font-weight:bold;
-  }
+}
 dd {
   margin:0 0 $baseline;
   ul {
     margin-top:0;
-    }
   }
+}
 figure {
   margin-top:0;
   img {
     max-width:100%;
     display:block;
     margin:0 auto $baseline*.5;
-    }
   }
+}
 figcaption {
   color:$gray;
   line-height:16px;
   font-size:13px;
-  }
+}
 hr {
   background-color: $light_gray;
   border: 0;
   height:1px;
   margin:23px 0 $baseline;
   clear:both;
-  }
+}
 pre, code, kbd, samp {
   font-family:$mono_stack;
-  }
+}
 table {
   width:100%;
-  }
+}
 th, td {
   border:1px solid $light_gray;
   padding:4px;
-  }
+}
 th {
   background-color:$lighter_gray;
-  }
+}
 tfoot td {
   font-size:.8em;
-  }
+}
 button, input, select, textarea {
   padding: $baseline*.5;
-  }
+}
 form ul {
   list-style-type:none;
   margin:0;
-  }
+}
 legend {
   padding:0 .5em;
   font-weight:bold;
-  }
+}
 label {
   display:block;
   margin-top:$baseline;
-  }
+}
 ul label {
   margin-top:0;
-  }
+}
 textarea {
   width:98%;
   max-width:40em;
   min-height:$baseline*4;
   border:1px solid $light_gray;
-  }
+}
 input, select[multiple='multiple'] {
   border:1px solid $light_gray;
   max-width:100%;
@@ -158,11 +158,11 @@ input[type="submit"] {
   @include round;
 }
 input.secondary {
-  background:#fff;
-  color:inherit;
+  background: #fff;
+  color: inherit;
 }
 select[multiple='multiple'] {
-  height:4.5em;
-  max-width:none;
-  width:102%;
+  height: 4.5em;
+  max-width: none;
+  width: 102%;
 }

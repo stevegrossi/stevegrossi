@@ -10,98 +10,98 @@
 @import 'helpers';
 
 .monday {
-  a { color:$blue; }
-  .siteheader { background-color:$blue; }
-  .current:after {border-top-color:$blue;}
-  }
+  a { color: $blue; }
+  .siteheader { background-color: $blue; }
+  .current:after { border-top-color: $blue; }
+}
 .tuesday {
-  a { color:$magenta; }
-  .siteheader { background-color:$magenta; }
-  .current:after {border-top-color:$magenta;}
-  }
+  a { color: $magenta; }
+  .siteheader { background-color: $magenta; }
+  .current:after {border-top-color: $magenta; }
+}
 .wednesday {
-  a { color:$green; }
-  .siteheader { background-color:$green; }
-  .current:after {border-top-color:$green;}
-  }
+  a { color: $green; }
+  .siteheader { background-color: $green; }
+  .current:after { border-top-color: $green; }
+}
 .thursday {
-  a { color:$orange; }
-  .siteheader { background-color:$orange; }
-  .current:after {border-top-color:$orange;}
+  a { color: $orange; }
+  .siteheader { background-color: $orange; }
+  .current:after { border-top-color: $orange;}
   }
 .friday {
-  a { color:$red; }
-  .siteheader { background-color:$red; }
-  .current:after {border-top-color:$red;}
-  }
+  a { color: $red; }
+  .siteheader { background-color: $red; }
+  .current:after { border-top-color: $red; }
+}
 .saturday {
-  a { color:$cyan; }
-  .siteheader { background-color:$cyan; }
-  .current:after {border-top-color:$cyan;}
-  }
+  a { color: $cyan; }
+  .siteheader { background-color: $cyan; }
+  .current:after { border-top-color: $cyan;}
+}
 .sunday {
-  a { color:$yellow; }
-  .siteheader { background-color:$yellow; }
-  .current:after {border-top-color:$yellow;}
-  }
+  a { color: $yellow; }
+  .siteheader { background-color: $yellow; }
+  .current:after { border-top-color: $yellow; }
+}
 .main {
   @include clearfix;
-  }
+}
 .main, .sitefooter, .siteheader nav {
-  max-width:90%;
-  margin:0 auto;
-  }
+  max-width: 90%;
+  margin: 0 auto;
+}
 #logo {
-  color:#fff;
-  font-size:3em;
-  font-weight:bold;
-  line-height:.75;
-  letter-spacing:-1px;
-  }
+  color: #fff;
+  font-size: 3em;
+  font-weight: bold;
+  line-height: .75;
+  letter-spacing: -1px;
+}
 .siteheader {
   @include clearfix;
   ul {
-    width:100%;
-    float:right;
+    width: 100%;
+    float: right;
     a {
-      padding:.25em;
-      }
+      padding: .25em;
     }
+  }
   li {
-    float:left;
-    width:25%;
-    }
+    float: left;
+    width: 25%;
+  }
   a {
-    display:block;
-    text-align:center;
-    text-decoration:none;
-    color:#fff;
-    position:relative;
-    }
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    position: relative;
+  }
   .current:after {
-    content:"";
-    width:0;
-    height:0;
-    border-left:1em solid transparent;
-    border-right:1em solid transparent;
-    border-top-width:1em;
-    border-top-style:solid;
-    position:absolute;
-    bottom:-1em;
-    left:50%;
-    margin-left:-1em;
-    }
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 1em solid transparent;
+    border-right: 1em solid transparent;
+    border-top-width: 1em;
+    border-top-style: solid;
+    position: absolute;
+    bottom: -1em;
+    left: 50%;
+    margin-left: -1em;
   }
+}
 .sitefooter {
-  border-top:1px dotted $light_gray;
-  color:$gray;
+  border-top: 1px dotted $light_gray;
+  color: $gray;
   a {
-    color:$gray;
-    }
+    color: $gray;
   }
+}
 #contact {
-  float:right;
-  }
+  float: right;
+}
 
 @import 'pages';
 @import 'media_queries';
