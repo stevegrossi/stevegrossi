@@ -4,7 +4,7 @@
   border-style: solid;
   padding: $baseline*.5;
   position: relative;
-  &::before {
+  &:before {
     font-size: 2em;
     position: absolute;
     right: 2%;
@@ -20,7 +20,7 @@
     color: $red;
     background-color: mix($red, #fff, 10%);
     border-color: mix($red, #fff, 40%);
-    &::before {
+    &:before {
       content: 'x';
     }
     ul, h2 {
@@ -31,7 +31,7 @@
     color: $yellow;
     background-color: mix($yellow, #fff, 10%);
     border-color: mix($yellow, #fff, 40%);
-    &::before {
+    &:before {
       content: '!';
     }
   }
@@ -39,28 +39,16 @@
     color: $green;
     background-color: mix($green, #fff, 10%);
     border-color: mix($green, #fff, 40%);
-    &::before {
+    &:before {
       content: 'l';
     }
   }
 }
-// Simple Form styles
-.error {
-  display: block;
-  color: $red;
-}
-.field_with_errors {
-  input, textarea {
-    border-color: $red;
-  }
-}
-
 .cover {
   @include shadow;
   width: 100%;
   max-width: 200px;
 }
-
 .title_list {
   list-style: none;
   margin-left: 0;
@@ -80,7 +68,6 @@
     font-size: 1.5em;
   }
 }
-
 .footnotes {
   font-size:.875em;
   p, a[rev="footnote"] {
@@ -96,7 +83,7 @@
   p {
     margin: 0;
   }
-  a[rev="footnote"] {
+  a[rel="footnote"] {
     display: none;
   }
 }
@@ -104,7 +91,7 @@
   @include clearfix;
   .next, .previous {
     position: relative;
-    &::before {
+    &:before {
       font-size: 3em;
       line-height: 0;
       color: $light_gray;
@@ -117,7 +104,7 @@
     width: 45%;
     margin-left: 5%;
     text-align: right;
-    &::before {
+    &:before {
       content: '\203A';
       right: -10%;
     }
@@ -126,7 +113,7 @@
     float: left;
     width: 45%;
     margin-right: 5%;
-    &::before {
+    &:before {
       content: '\2039';
       left: -10%;
     }
@@ -143,7 +130,7 @@
   width: 60%;
   position: relative;
   @include round(0 1em 1em 0);
-  &::before {
+  &:before {
     content: '\03A3';
     position: absolute;
     font-size: 2em;
@@ -183,7 +170,7 @@
 .main .delete_link {
   float: right;
   margin-top: 2em;
-  &::before {
+  &:before {
     content: 'X';
     font-family: ModernPictograms;
     font-size: 2em;

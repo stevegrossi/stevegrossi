@@ -34,7 +34,7 @@
   }
   .writing, .book, .work {
     margin-left: 4em;
-    &::before {
+    &:before {
       font-family: ModernPictograms;
       font-size: 2.5em;
       background: $darker_gray;
@@ -48,13 +48,13 @@
       @include round(.625em);
     }
   }
-  .writing::before {
+  .writing:before {
     content: 'r';
   }
-  .book::before {
+  .book:before {
     content: 'B';
   }
-  .work::before {
+  .work:before {
     content: '(';
   }
 }

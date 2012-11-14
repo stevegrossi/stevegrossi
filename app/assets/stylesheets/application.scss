@@ -12,37 +12,37 @@
 .monday {
   a { color:$blue; }
   .siteheader { background-color:$blue; }
-  .current::after {border-top-color:$blue;}
+  .current:after {border-top-color:$blue;}
   }
 .tuesday {
   a { color:$magenta; }
   .siteheader { background-color:$magenta; }
-  .current::after {border-top-color:$magenta;}
+  .current:after {border-top-color:$magenta;}
   }
 .wednesday {
   a { color:$green; }
   .siteheader { background-color:$green; }
-  .current::after {border-top-color:$green;}
+  .current:after {border-top-color:$green;}
   }
 .thursday {
   a { color:$orange; }
   .siteheader { background-color:$orange; }
-  .current::after {border-top-color:$orange;}
+  .current:after {border-top-color:$orange;}
   }
 .friday {
   a { color:$red; }
   .siteheader { background-color:$red; }
-  .current::after {border-top-color:$red;}
+  .current:after {border-top-color:$red;}
   }
 .saturday {
   a { color:$cyan; }
   .siteheader { background-color:$cyan; }
-  .current::after {border-top-color:$cyan;}
+  .current:after {border-top-color:$cyan;}
   }
 .sunday {
   a { color:$yellow; }
   .siteheader { background-color:$yellow; }
-  .current::after {border-top-color:$yellow;}
+  .current:after {border-top-color:$yellow;}
   }
 .main {
   @include clearfix;
@@ -78,7 +78,7 @@
     color:#fff;
     position:relative;
     }
-  .current::after {
+  .current:after {
     content:"";
     width:0;
     height:0;
