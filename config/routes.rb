@@ -1,5 +1,9 @@
 Stevegrossi::Application.routes.draw do
 
+  Redirect.all.each do |redirect|
+    get redirect.from => redirect(redirect.to)
+  end
+
   get '/wishlist' => redirect('http://amzn.com/w/156EDXYQR8J2F')
   get '/made' => redirect('/built')
   get '/made/:slug' => redirect("/built/%{slug}")
@@ -8,7 +12,7 @@ Stevegrossi::Application.routes.draw do
   root to: "static_pages#home"
 
   namespace :meta do
-    resources :books, :authors, :works, :writings
+    resources :books, :authors, :works, :writings, :redirects
     resources :pages, constraints: { id: /.*/ }, except: :show
     root to: 'dashboard#home', as: :dashboard
   end
