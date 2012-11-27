@@ -8,5 +8,6 @@ class Meta::DashboardController < ApplicationController
     @works_count = Work.count
     @writings_count = Writing.count
     @pages_count = Page.count
+    @redirects_count = Redirect.count
   end
 end

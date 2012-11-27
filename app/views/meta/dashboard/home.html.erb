@@ -1,9 +1,10 @@
 <h1>Dashboard</h1>
 <p>You’ve got:</p>
 <ul>
-  <li><%= link_to "#{ @books_count } books", meta_books_path %></li>
-  <li><%= link_to "#{ @authors_count } authors", meta_authors_path %></li>
-  <li><%= link_to "#{ @works_count } works", meta_works_path %></li>
-  <li><%= link_to "#{ @writings_count } writings", meta_writings_path %></li>
-  <li><%= link_to "#{ @pages_count } pages", meta_pages_path %></li>
+  <li><%= link_to(pluralize(@books_count, 'book'), meta_books_path) %></li>
+  <li><%= link_to(pluralize(@authors_count, 'author'), meta_authors_path) %></li>
+  <li><%= link_to(pluralize(@works_count, 'work'), meta_works_path) %></li>
+  <li><%= link_to(pluralize(@writings_count, 'writing'), meta_writings_path) %></li>
+  <li><%= link_to(pluralize(@pages_count, 'page'), meta_pages_path) %></li>
+  <li><%= link_to(pluralize(@redirects_count, 'redirect'), meta_redirects_path) %></li>
 </ul>
