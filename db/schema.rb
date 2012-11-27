@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121101140943) do
+ActiveRecord::Schema.define(:version => 20121127220156) do
 
   create_table "authors", :force => true do |t|
     t.string   "fname"
@@ -66,6 +66,13 @@ ActiveRecord::Schema.define(:version => 20121101140943) do
     t.string   "searchable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "redirects", :force => true do |t|
+    t.string   "from"
+    t.string   "to"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "taggings", :force => true do |t|

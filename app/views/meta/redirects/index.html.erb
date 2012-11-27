@@ -1,0 +1,21 @@
+<% provide :title, 'All the redirects' %>
+
+<h1>All the redirects.</h1>
+<%= link_to_new :redirect %>
+<table cellspacing="0">
+  <thead>
+    <tr>
+      <th>From</th>
+      <th>To</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @redirects.each do |redirect| %>
+    <tr>
+      <td><%= link_to_edit(redirect) %>
+        <%= redirect.from %></td>
+      <td><%= redirect.to %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

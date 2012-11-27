@@ -1,0 +1,14 @@
+<%= flash_errors(@redirect) %>
+
+<%= simple_form_for([:meta, @redirect]) do |f| %>
+
+  <%= f.input :from %>
+  <%= f.input :to %>
+
+  <div class="actions">
+    <%= f.submit 'Publish' %>
+    <%= link_to 'or go back', meta_redirects_path, class: :cancel %>
+  </div>
+
+
+<% end %>
