@@ -1,15 +1,9 @@
 Stevegrossi::Application.routes.draw do
 
-  Redirect.all.each do |redirect|
-    get redirect.from => redirect(redirect.to)
-  end
-
-  get '/wishlist' => redirect('http://amzn.com/w/156EDXYQR8J2F')
   get '/made' => redirect('/built')
   get '/made/:slug' => redirect("/built/%{slug}")
-  get '/resume' => redirect("/is/forhire")
 
-  root to: "static_pages#home"
+  root to: 'static_pages#home'
 
   namespace :meta do
     resources :books, :authors, :works, :writings, :redirects
@@ -28,7 +22,6 @@ Stevegrossi::Application.routes.draw do
   resources :writings, path: 'wrote', only: [:index, :show]
   resources :works, path: 'built', only: [:index, :show]
 
-  resources :sessions, only: [:new, :create, :destroy]
   get 'log_in' => 'sessions#new', as: 'log_in'
   post 'log_in' => 'sessions#create', as: 'log_in'
   get 'log_out' => 'sessions#destroy', as: 'log_out'

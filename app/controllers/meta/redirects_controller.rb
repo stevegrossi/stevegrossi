@@ -16,7 +16,6 @@ class Meta::RedirectsController < Meta::DashboardController
     @redirect = Redirect.new(params[:redirect])
     if @redirect.save
       redirect_to meta_redirects_path, notice: view_context.notify(:new, :redirect)
-      Stevegrossi::Application.reload_routes!
     else
       render :new
     end
@@ -25,7 +24,6 @@ class Meta::RedirectsController < Meta::DashboardController
   def update
     @redirect = Redirect.find(params[:id])
     if @redirect.update_attributes(params[:redirect])
-      Stevegrossi::Application.reload_routes!
       redirect_to meta_redirects_path, notice: view_context.notify(:updated, :redirect)
     else
       render :edit
@@ -35,7 +33,6 @@ class Meta::RedirectsController < Meta::DashboardController
   def destroy
     @redirect = Redirect.find(params[:id])
     @redirect.destroy
-    Stevegrossi::Application.reload_routes!
     redirect_to meta_redirects_path, notice: "You deleted the redirect."
   end
 
