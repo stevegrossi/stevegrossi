@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121128224133) do
+ActiveRecord::Schema.define(:version => 20121129122858) do
 
   create_table "authors", :force => true do |t|
     t.string   "fname"
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(:version => 20121128224133) do
     t.datetime "updated_at",  :null => false
   end
 
-  add_index "pages", ["permalink"], :name => "index_pages_on_permalink"
+  add_index "pages", ["permalink"], :name => "index_pages_on_permalink", :unique => true
 
   create_table "pg_search_documents", :force => true do |t|
     t.text     "content"
