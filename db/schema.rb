@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121127220156) do
+ActiveRecord::Schema.define(:version => 20121128224133) do
 
   create_table "authors", :force => true do |t|
     t.string   "fname"
@@ -74,6 +74,8 @@ ActiveRecord::Schema.define(:version => 20121127220156) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  add_index "redirects", ["from"], :name => "index_redirects_on_from", :unique => true
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"

@@ -12,6 +12,8 @@
 class Redirect < ActiveRecord::Base
   attr_accessible :from, :to
 
-  validates :from,  presence: true
-  validates :to,    presence: true # should also validate url
+  validates :from,  presence: true,
+                    uniqueness: true
+  validates :to,    presence: true,
+                    format: { with: URI::regexp(%w(http https)) }
 end
