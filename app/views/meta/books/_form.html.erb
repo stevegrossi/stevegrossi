@@ -12,7 +12,7 @@
     <div class="half">
       <%= f.input :publisher %>
       <%= f.input :pub_year %>
-      <%= f.input :asin %>
+      <%= f.input :asin, label: 'ASIN' %>
     </div>
   </div>
 
@@ -30,6 +30,7 @@
     <% end %>
   <% end %>
 
+  <%= f.input :read_on %>
   <%= f.input :published_at, as: :string %>
 
   <div class="actions">

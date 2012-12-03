@@ -16,6 +16,7 @@
 #  thesis       :text
 #  published_at :datetime
 #  slug         :string(255)
+#  read_on      :date
 #
 
 class Book < ActiveRecord::Base
@@ -23,7 +24,7 @@ class Book < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title
 
-  attr_accessible :title, :subtitle, :asin, :publisher, :pub_year, :thesis, :thoughts, :author_ids, :cover_image, :topic_list, :published_at
+  attr_accessible :title, :subtitle, :asin, :publisher, :pub_year, :thesis, :thoughts, :author_ids, :cover_image, :topic_list, :published_at, :read_on
 
   include PgSearch
   multisearchable against: [:title, :subtitle, :thesis, :thoughts]
@@ -40,5 +41,6 @@ class Book < ActiveRecord::Base
   validates :pub_year,        presence: true
   validates :thoughts,        presence: true
   validates :authors,         presence: true
+  validates :read_on,         presence: true
 
 end

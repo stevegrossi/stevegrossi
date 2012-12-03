@@ -9,6 +9,7 @@
       <th>Author</th>
       <th>Publisher</th>
       <th>Year</th>
+      <th>Read On</th>
       <th>Published</th>
     </tr>
   </thead>
@@ -20,6 +21,7 @@
       <td><%= authors_of(book) %></td>
       <td><%= book.publisher %></td>
       <td><%= book.pub_year %></td>
+      <td><%= book.read_on.strftime('%-m/%-e/%Y') %></td>
       <td><%= book.pretty_published_at %></td>
     </tr>
   <% end %>

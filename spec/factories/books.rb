@@ -8,6 +8,7 @@ FactoryGirl.define do
     pub_year     { Time.now.year - 1 }
     thoughts     { Faker::Lorem.paragraphs.join('\n\n') }
     published_at { Time.now - 1.day }
+    read_on      { Time.now - 1.week }
     after :build do |book|
       book.authors << FactoryGirl.build(:author)
     end

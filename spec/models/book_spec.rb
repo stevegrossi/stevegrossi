@@ -16,6 +16,7 @@
 #  thesis       :text
 #  published_at :datetime
 #  slug         :string(255)
+#  read_on      :date
 #
 
 require 'spec_helper'
