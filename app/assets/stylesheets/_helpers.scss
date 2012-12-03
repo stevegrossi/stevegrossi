@@ -330,3 +330,10 @@ form.search {
   @include shadow;
   @include rotate(2deg);
 }
+// Simple Form styles
+.field_with_errors {
+  .error {
+    color: $red;
+    display: block;
+  }
+}
