@@ -30,14 +30,14 @@ class Meta::BooksController < Meta::DashboardController
   def update
     @book = Book.find(params[:id])
     @authors = Author.all
-    # Set '' to nil so ||= works 2 below
+    @book.attributes = params[:book]
     params[:book][:published_at] = nil if params[:book][:published_at].blank?
     if params[:commit] == 'Publish'
-      params[:book][:published_at] ||= Time.now
+      @book.published_at ||= Time.now
     elsif params[:commit] == 'Unpublish'
-      params[:book][:published_at] = nil
+      @book.published_at = nil
     end
-    if @book.update_attributes(params[:book])
+    if @book.save
       redirect_to @book, notice: view_context.notify(:updated, :book)
     else
       render :edit

@@ -7,7 +7,7 @@
     <%= f.input :url %>
     <%= f.input :client %>
     <%= f.input :image_filename %>
-    <%= f.input :published_at, as: :string %>
+    <%= f.input :published_at, include_blank: true %>
 
     <div class="actions">
       <%= f.submit 'Publish' %>

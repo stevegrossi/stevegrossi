@@ -5,7 +5,7 @@
   <%= f.input :title %>
   <%= f.input :content %>
   <%= f.input :summary, as: :text, input_html: { rows: 4 } %>
-  <%= f.input :published_at, as: :string %>
+  <%= f.input :published_at, include_blank: true %>
 
   <div class="actions">
     <%= f.submit 'Publish' %>

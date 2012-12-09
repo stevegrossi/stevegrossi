@@ -26,14 +26,13 @@ class Meta::WritingsController < Meta::DashboardController
 
   def update
     @writing = Writing.find(params[:id])
-    # Set '' to nil so ||= works 2 below
-    params[:writing][:published_at] = nil if params[:writing][:published_at].blank?
+    @writing.attributes = params[:writing]
     if params[:commit] == 'Publish'
-      params[:writing][:published_at] ||= Time.now
+      @writing.published_at ||= Time.now
     elsif params[:commit] == 'Unpublish'
-      params[:writing][:published_at] = nil
+      @writing.published_at = nil
     end
-    if @writing.update_attributes(params[:writing])
+    if @writing.save
       redirect_to @writing, notice: view_context.notify(:updated, :writing)
     else
       render :edit

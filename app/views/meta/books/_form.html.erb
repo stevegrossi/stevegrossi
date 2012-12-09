@@ -31,7 +31,7 @@
   <% end %>
 
   <%= f.input :read_on %>
-  <%= f.input :published_at, as: :string %>
+  <%= f.input :published_at, include_blank: true %>
 
   <div class="actions">
     <%= f.submit 'Publish' %>

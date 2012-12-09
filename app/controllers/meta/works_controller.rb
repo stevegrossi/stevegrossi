@@ -26,14 +26,13 @@ class Meta::WorksController < Meta::DashboardController
 
   def update
     @work = Work.find(params[:id])
-    # Set '' to nil so ||= works 2 below
-    params[:work][:published_at] = nil if params[:work][:published_at].blank?
+    @work.attributes = params[:work]
     if params[:commit] == 'Publish'
-      params[:work][:published_at] ||= Time.now
+      @work.published_at ||= Time.now
     elsif params[:commit] == 'Unpublish'
-      params[:work][:published_at] = nil
+      @work.published_at = nil
     end
-    if @work.update_attributes(params[:work])
+    if @work.save
       redirect_to @work, notice: view_context.notify(:updated, :work)
     else
       render :edit
