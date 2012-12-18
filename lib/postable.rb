@@ -1,11 +1,10 @@
 module Postable
 
-  def self.included(base)
-    base.class_eval do
-      default_scope order: 'published_at DESC'
-      scope :published, where('published_at IS NOT NULL')
-      scope :drafts, where('published_at IS NULL')
-    end
+  extend ActiveSupport::Concern
+
+  included do
+    scope :published, where('published_at IS NOT NULL').order('published_at DESC')
+    scope :drafts, where('published_at IS NULL').order('created_at DESC')
   end
 
   def previous
@@ -21,11 +20,10 @@ module Postable
   end
 
   def published?
-    !published_at.nil?
+    !draft?
   end
 
   def pretty_published_at
     published_at.nil? ? 'Unpublished' : published_at.strftime('%-m/%-e/%Y')
   end
-
 end

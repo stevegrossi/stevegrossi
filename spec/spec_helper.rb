@@ -38,4 +38,7 @@ end
 
 Spork.each_run do
   FactoryGirl.reload
+
+  # Require shared examples on each run
+  Dir[Rails.root.join("spec/support/shared_examples/*.rb")].each {|f| require f}
 end

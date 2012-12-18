@@ -43,4 +43,8 @@ describe Book do
   it 'is valid with multiple authors' do
     FactoryGirl.build(:book_with_two_authors).should be_valid
   end
+  it_behaves_like 'a Postable' do
+    let(:published_postable) { FactoryGirl.build(:book) }
+    let(:draft_postable) { FactoryGirl.build(:book, published_at: nil) }
+  end
 end

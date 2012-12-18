@@ -41,6 +41,14 @@ describe 'Shows books' do
       current_path.should == books_path
       page.should have_content('You must be logged in')
     end
+    it 'shows the next and previous books' do
+      first = FactoryGirl.create(:book)
+      second = FactoryGirl.create(:book)
+      third = FactoryGirl.create(:book)
+      visit book_path(second)
+      page.should have_content(first.title)
+      page.should have_content(third.title)
+    end
   end
   describe 'book topics page' do
     before :each do
