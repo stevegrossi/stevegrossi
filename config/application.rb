@@ -59,6 +59,7 @@ module Stevegrossi
     # config.i18n.default_locale = :de
 
     config.autoload_paths += %W(#{config.root}/lib)
+    config.autoload_paths += %W(#{config.root}/app/models/concerns)
 
     config.middleware.use "NoWww"
 

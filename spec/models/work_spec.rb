@@ -35,8 +35,5 @@ describe Book do
     work_without_client.description.should eq('I built stevegrossi.com in May 2011.')
     draft_work.description.should eq('I built stevegrossi.com for Steve Grossi.')
   end
-  it_behaves_like 'a Postable' do
-    let(:published_postable) { FactoryGirl.build(:work) }
-    let(:draft_postable) { FactoryGirl.build(:work, published_at: nil) }
-  end
+  it_behaves_like 'a Postable', :work
 end

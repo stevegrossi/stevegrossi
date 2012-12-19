@@ -33,8 +33,5 @@ describe Writing do
     writing.should_not be_valid
     writing.should have(1).error_on(:summary)
   end
-  it_behaves_like 'a Postable' do
-    let(:published_postable) { FactoryGirl.build(:writing) }
-    let(:draft_postable) { FactoryGirl.build(:writing, published_at: nil) }
-  end
+  it_behaves_like 'a Postable', :writing
 end
