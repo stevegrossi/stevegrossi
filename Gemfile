@@ -1,10 +1,10 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.8'
+gem 'rails', '3.2.9'
 gem 'jquery-rails'
 gem 'maruku'
 gem "acts-as-taggable-on", "~> 2.3.1"
-gem 'friendly_id', '~> 4.0.8'
+gem 'friendly_id', '~> 4.0.9'
 gem 'bcrypt-ruby', require: 'bcrypt'
 gem 'thin'
 gem 'foreman'
@@ -14,9 +14,9 @@ gem 'newrelic_rpm'
 gem 'simple_form'
 
 group :assets do
-  gem 'sass-rails', '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'uglifier', '>= 1.0.3'
+  gem 'sass-rails'
+  gem 'coffee-rails'
+  gem 'uglifier'
 end
 
 group :development, :test do
