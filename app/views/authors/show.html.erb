@@ -1,10 +1,10 @@
 <h1>Books I’ve read by <%= @author.full_name %>:</h1>
 <%= link_to_edit(@author) %>
-<% if @author.books.published.blank? %>
-  <p>Hm, it looks like I actually haven’t read any of <%= @author.fname %>’s books. To the library!</p>
-<% else %>
+<% if @author.has_published_books? %>
   <ol class="title_list">
-    <%= render @author.books.published %>
+    <%= render @author.published_books %>
   </ol>
+<% else %>
+  <p>Hm, it looks like I actually haven’t read any of <%= @author.fname %>’s books. To the library!</p>
 <% end %>
 <p><%= link_to '« All authors', authors_path %></p>

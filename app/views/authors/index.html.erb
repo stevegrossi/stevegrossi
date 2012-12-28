@@ -1,8 +1,10 @@
 <% provide :title, 'All Authors I’ve Read' %>
 
 <h1>I’ve read books by</h1>
-<ul>
-<% @authors.each do |author| %>
-  <li><%= link_to author.full_name, author %> (<%= author.books.published.count %>)</li>
+<% if @authors.present? %>
+  <ul>
+    <%= render @authors %>
+  </ul>
+<% else %>
+  <p>Hm, actually it looks like I haven’t read any authors’ books yet. To the library!</p>
 <% end %>
-</ul>
