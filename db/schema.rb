@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121203230313) do
+ActiveRecord::Schema.define(:version => 20121227145026) do
 
   create_table "authors", :force => true do |t|
     t.string   "fname"
@@ -33,7 +33,6 @@ ActiveRecord::Schema.define(:version => 20121203230313) do
 
   create_table "books", :force => true do |t|
     t.string   "title"
-    t.string   "author"
     t.string   "publisher"
     t.string   "pub_year"
     t.string   "asin"

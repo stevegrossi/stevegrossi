@@ -1,4 +1,20 @@
 # coding: utf-8
+# == Schema Information
+#
+# Table name: works
+#
+#  id             :integer         not null, primary key
+#  title          :string(255)
+#  about          :text
+#  url            :string(255)
+#  client         :string(255)
+#  created_at     :datetime
+#  updated_at     :datetime
+#  image_filename :string(255)
+#  published_at   :datetime
+#  slug           :string(255)
+#
+
 require 'spec_helper'
 
 describe Book do
