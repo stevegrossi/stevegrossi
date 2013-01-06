@@ -23,3 +23,5 @@
   <%= link_to_previous(@book) %>
   <%= link_to_next(@book) %>
 <% end %>
+
+<%= render 'shared/disqus', commentable: @book %>
