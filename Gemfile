@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.9'
+gem 'rails', '3.2.11'
 gem 'jquery-rails'
 gem 'maruku'
 gem "acts-as-taggable-on", "~> 2.3.1"
@@ -26,7 +26,6 @@ end
 
 group :development do
   gem 'annotate', '~> 2.4.0'
-  gem 'taps', '~> 0.3.0'
   gem 'bullet'
 end
 
