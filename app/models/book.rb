@@ -26,7 +26,8 @@ class Book < ActiveRecord::Base
   attr_accessible :title, :subtitle, :asin, :publisher, :pub_year, :thesis, :thoughts, :author_ids, :cover_image, :topic_list, :published_at, :read_on
 
   include PgSearch
-  multisearchable against: [:title, :subtitle, :thesis, :thoughts]
+  multisearchable against: [:title, :subtitle, :thesis, :thoughts],
+                  :if => :published?
 
   acts_as_taggable_on :topics
 
