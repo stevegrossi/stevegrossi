@@ -27,6 +27,7 @@ end
 group :development do
   gem 'annotate', '~> 2.4.0'
   gem 'bullet'
+  gem 'meta_request', '0.2.1' # For RailsPanel Chrone extension
 end
 
 group :test do
