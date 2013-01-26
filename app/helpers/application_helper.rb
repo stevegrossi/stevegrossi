@@ -89,10 +89,8 @@ module ApplicationHelper
     end
   end
 
-  def serp_excerpt(text, query)
-    query = Regexp.escape(query).gsub(/[^\w\s]/, '')
-    first_occurrence = query.split(' ').first
-    mark_string(excerpt(strip_markdown(text), first_occurrence), query)
+  def serp_excerpt(text)
+    strip_markdown(text).gsub(/\{\{|\}\}/, '{{' => '<mark>', '}}' => '</mark>').html_safe
   end
 
   def comment_on_search_term(query)

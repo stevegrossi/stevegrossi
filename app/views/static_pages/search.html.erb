@@ -14,7 +14,7 @@
     <% @results.each do |result| %>
       <li>
         <%= link_to(mark_string(result.searchable.title, @query), result.searchable) %>
-        <%= serp_excerpt(result.content, @query) %>
+        <%= serp_excerpt(result.excerpt) %>
       </li>
     <% end %>
     </ol>
