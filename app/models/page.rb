@@ -20,6 +20,9 @@ class Page < ActiveRecord::Base
                         uniqueness: true
   validates :content,   presence: true
 
+  include PgSearch
+  multisearchable against: [:title, :content, :description]
+
   def to_param
     permalink
   end
