@@ -25,6 +25,11 @@ describe Post do
     post.should_not be_valid
     post.should have(1).error_on(:title)
   end
+  it 'sets book post title to book title by default' do
+    post = FactoryGirl.build(:book_post)
+    post.should be_valid
+    post.title.should eq(post.book.title)
+  end
   it 'is invalid without content' do
     post = FactoryGirl.build(:post, content: nil)
     post.should_not be_valid

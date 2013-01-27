@@ -15,6 +15,7 @@
 #
 
 class Post < ActiveRecord::Base
+
   include Postable
 
   extend FriendlyId
@@ -32,6 +33,14 @@ class Post < ActiveRecord::Base
   validates :idea,    presence: true
   validates :content, presence: true
 
+  before_validation :set_title_to_book_title
+
+  def set_title_to_book_title
+    if title.blank? && book_post?
+      self.title = book.title
+    end
+  end
+
   def book_post?
     book.present?
   end
@@ -39,4 +48,5 @@ class Post < ActiveRecord::Base
   def link_post?
     link_url.present?
   end
+
 end

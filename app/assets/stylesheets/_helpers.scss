@@ -44,6 +44,10 @@
     }
   }
 }
+.hint {
+  display: block;
+  color: $gray;
+}
 .cover {
   @include shadow;
   width: 100%;

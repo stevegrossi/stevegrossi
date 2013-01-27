@@ -2,11 +2,11 @@
 
 <%= simple_form_for([:meta, @post]) do |f| %>
 
-  <%= f.input :title %>
+  <%= f.input :title, hint: 'For book posts, defaults to book’s title' %>
+  <%= f.association :book %>
   <%= f.input :link_url %>
   <%= f.input :idea, input_html: { rows: 4 } %>
   <%= f.input :content %>
-  <%= f.association :book %>
   <%= f.input :published_at, include_blank: true %>
 
   <div class="actions">

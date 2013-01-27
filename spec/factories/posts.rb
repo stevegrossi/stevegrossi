@@ -10,6 +10,10 @@ FactoryGirl.define do
   factory :link_post, parent: :post do
     link_url { Faker::Internet.url }
   end
+  factory :book_post, parent: :post do
+    title nil
+    book { FactoryGirl.create(:book) }
+  end
   factory :invalid_post, parent: :post do
     title nil
   end
