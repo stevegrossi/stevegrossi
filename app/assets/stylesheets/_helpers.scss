@@ -122,23 +122,8 @@
     display: block;
   }
 }
-.thesis {
+.idea {
   color: $gray;
-  background: $lighter_gray;
-  padding: 2% 4% 2% 12.5%;
-  margin-left: -12.5%;
-  width: 60%;
-  position: relative;
-  @include round(0 1em 1em 0);
-  &:before {
-    content: '\03A3';
-    position: absolute;
-    font-size: 2em;
-    top: 50%;
-    left: 6%;
-    line-height: 0;
-    color: $light_gray;
-  }
 }
 .tiles {
   list-style: none;

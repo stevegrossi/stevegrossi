@@ -31,4 +31,12 @@ class Post < ActiveRecord::Base
   validates :title,   presence: true
   validates :idea,    presence: true
   validates :content, presence: true
+
+  def book_post?
+    book.present?
+  end
+
+  def link_post?
+    link_url.present?
+  end
 end

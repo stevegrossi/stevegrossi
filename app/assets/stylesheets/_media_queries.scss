@@ -5,7 +5,7 @@
   .books-topics ol {
     @include columns(3);
   }
-  .books-show {
+  .books-show, .posts-show {
     article footer {
       float: right;
       width: 33%;
@@ -98,10 +98,6 @@
   .main, .sitefooter, .siteheader nav {
     max-width: 75%;
   }
-  .thesis {
-    margin-left: -16.5%;
-    padding-left: 16.5%;
-  }
   .tiles li {
     width: 31.3333333%;
   }
@@ -122,10 +118,6 @@
   }
   .main, .sitefooter, .siteheader nav {
     max-width: 70%;
-  }
-  .thesis {
-    margin-left: -21.5%;
-    padding-left: 21.5%;
   }
   figure {
     &.left.bleed {
