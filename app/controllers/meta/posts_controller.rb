@@ -1,7 +1,7 @@
 class Meta::PostsController < Meta::DashboardController
 
   def index
-    @posts = Post.all
+    @posts = Post.includes(:book).order('created_at DESC')
   end
 
   def new
