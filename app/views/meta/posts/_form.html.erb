@@ -1,0 +1,18 @@
+<%= flash_errors(@post) %>
+
+<%= simple_form_for([:meta, @post]) do |f| %>
+
+  <%= f.input :title %>
+  <%= f.input :link_url %>
+  <%= f.input :idea, input_html: { rows: 4 } %>
+  <%= f.input :content %>
+  <%= f.association :book %>
+  <%= f.input :published_at, include_blank: true %>
+
+  <div class="actions">
+    <%= f.submit 'Publish' %>
+    <%= f.submit @post.published? ? 'Unpublish' : 'Save Draft', class: :secondary %>
+    <%= link_to 'or go back', meta_posts_path, class: :cancel %>
+  </div>
+
+<% end %>

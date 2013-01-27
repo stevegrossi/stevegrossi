@@ -6,12 +6,13 @@ Stevegrossi::Application.routes.draw do
   root to: 'static_pages#home'
 
   namespace :meta do
-    resources :books, :authors, :works, :writings, :redirects
+    resources :books, :authors, :works, :writings, :redirects, :posts
     resources :pages, constraints: { id: /.*/ }, except: :show
     root to: 'dashboard#home', as: :dashboard
   end
 
   resources :users
+  resources :posts, only: [:index, :show]
   resources :books, path: 'read', only: [:index, :show] do
     collection do
       resources :authors, only: [:index, :show]

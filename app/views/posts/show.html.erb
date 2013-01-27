@@ -1,0 +1,7 @@
+<% provide :title, @post.title %>
+<% provide :description, @post.idea %>
+
+<%= link_to_edit(@post) %>
+<h1><%= @post.title %></h1>
+<p class="idea"><%= @post.idea %></p>
+<%= markdown(@post.content) %>

@@ -1,0 +1,21 @@
+<% provide :title, 'All the posts' %>
+
+<h1>All the posts.</h1>
+<%= link_to_new :post %>
+<table cellspacing="0">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Idea</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @posts.each do |post| %>
+    <tr>
+      <td><%= link_to_edit(post) %>
+        <%= link_to post.title, post %></td>
+      <td><%= post.idea %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
