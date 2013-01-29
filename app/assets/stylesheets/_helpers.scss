@@ -313,6 +313,14 @@ form.search {
     margin-right: .5em;
   }
 }
+.topics {
+  display: block;
+  font-size: .8em;
+  color: $light_gray;
+  a {
+    color: $gray;
+  }
+}
 .polaroid {
   border: .5em solid white;
   border-bottom-width: 1.5em;

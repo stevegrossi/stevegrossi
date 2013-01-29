@@ -3,5 +3,6 @@
     <%= link_to(post.title, post) %>
     <%= content_tag :span, post.pretty_published_at, class: 'date' %>
     <%= post.idea %>
+    <%= content_tag(:span, "On #{post.topic_list.to_sentence}", class: 'topics') unless post.topic_list.empty? %>
   </article>
 </li>

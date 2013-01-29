@@ -25,9 +25,10 @@ class Post < ActiveRecord::Base
   multisearchable against: [:title, :idea, :content],
                   if: :published?
 
-  attr_accessible :content, :idea, :link_url, :published_at, :title, :book_id
+  attr_accessible :content, :idea, :link_url, :published_at, :title, :book_id, :topic_list
 
   belongs_to :book
+  acts_as_taggable_on :topics
 
   validates :title,   presence: true
   validates :idea,    presence: true
@@ -38,6 +39,20 @@ class Post < ActiveRecord::Base
   def set_title_to_book_title
     if title.blank? && book_post?
       self.title = book.title
+    end
+  end
+
+  scope :book_posts, where("book_id IS NOT NULL")
+  scope :link_posts, where("link_url IS NOT NULL AND link_url != ''")
+  scope :writing_posts, where("(link_url IS NULL OR link_url = '') AND book_id IS NULL")
+
+  def post_type
+    if book_post?
+      'Book'
+    elsif link_post?
+      'Link'
+    else
+      'Writing'
     end
   end
 
