@@ -100,7 +100,7 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    maruku (0.6.0)
+    maruku (0.6.1)
       syntax (>= 1.0.0)
     meta_request (0.2.1)
       rack-contrib
