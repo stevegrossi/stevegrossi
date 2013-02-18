@@ -42,6 +42,23 @@ describe 'Shows posts' do
   end
 end
 
+describe 'post topics page' do
+    before :each do
+      @marshmallows = FactoryGirl.create(:post, topic_list: 'marshmallows')
+      @kittens_and_marshmallows = FactoryGirl.create(:post, topic_list: 'kittens, marshmallows')
+    end
+    it 'lists topics covered in posts' do
+      visit topics_posts_path
+      page.should have_content('kittens (1)')
+      page.should have_content('marshmallows (2)')
+    end
+    it 'lists posts about a topic' do
+      visit tagged_posts_path('marshmallows')
+      page.should have_content(@marshmallows.title)
+      page.should have_content(@kittens_and_marshmallows.title)
+    end
+  end
+
 describe 'Administrates posts' do
   before :each do
     log_in_user

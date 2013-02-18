@@ -50,22 +50,6 @@ describe 'Shows books' do
       page.should have_content(third.title)
     end
   end
-  describe 'book topics page' do
-    before :each do
-      @marshmallows = FactoryGirl.create(:book, topic_list: 'marshmallows')
-      @kittens_and_marshmallows = FactoryGirl.create(:book, topic_list: 'kittens, marshmallows')
-    end
-    it 'lists topics covered by books' do
-      visit topics_books_path
-      page.should have_content('kittens (1)')
-      page.should have_content('marshmallows (2)')
-    end
-    it 'lists books about a topic' do
-      visit tagged_books_path('marshmallows')
-      page.should have_content(@marshmallows.title)
-      page.should have_content(@kittens_and_marshmallows.title)
-    end
-  end
 end
 
 describe 'Administrates books' do
