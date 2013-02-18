@@ -4,6 +4,8 @@ Stevegrossi::Application.routes.draw do
   get '/made/:slug' => redirect("/built/%{slug}")
   get '/read' => redirect('/thoughts')
   get '/read/:slug' => redirect("/thoughts/%{slug}")
+  get '/wrote' => redirect('/thoughts')
+  get '/wrote/:slug' => redirect("/thoughts/%{slug}")
 
   root to: redirect('/thoughts')
 
