@@ -11,7 +11,7 @@
     bottom: 50%;
     opacity: .4;
     line-height: 0;
-    font-family: ModernPictograms;
+    font-family: $icon_stack;
   }
   a {
     color: inherit !important;
@@ -40,7 +40,7 @@
     background-color: mix($green, #fff, 10%);
     border-color: mix($green, #fff, 40%);
     &:before {
-      content: 'l';
+      content: '$';
     }
   }
 }
@@ -143,7 +143,7 @@
   }
 }
 .main .edit_link {
-  font-family: ModernPictograms;
+  font-family: $icon_stack;
   float: left;
   text-decoration: none;
   background: $light_gray;
@@ -250,7 +250,7 @@ fieldset.topics {
   margin-top: -3em;
   &:before {
     content: '+ ';
-    font-family: ModernPictograms;
+    font-family: $icon_stack;
   }
 }
 
