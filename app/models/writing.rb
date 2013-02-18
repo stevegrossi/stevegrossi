@@ -19,10 +19,6 @@ class Writing < ActiveRecord::Base
 
   attr_accessible :title, :content, :summary, :published_at
 
-  include PgSearch
-  multisearchable against: [:title, :content, :summary],
-                  if: :published?
-
   include Postable
 
   validates :title,           presence: true

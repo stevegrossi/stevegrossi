@@ -9,41 +9,6 @@
 @import 'base';
 @import 'helpers';
 
-.monday {
-  a { color: $blue; }
-  .siteheader { background-color: $blue; }
-  .current:after { border-top-color: $blue; }
-}
-.tuesday {
-  a { color: $magenta; }
-  .siteheader { background-color: $magenta; }
-  .current:after {border-top-color: $magenta; }
-}
-.wednesday {
-  a { color: $green; }
-  .siteheader { background-color: $green; }
-  .current:after { border-top-color: $green; }
-}
-.thursday {
-  a { color: $orange; }
-  .siteheader { background-color: $orange; }
-  .current:after { border-top-color: $orange;}
-  }
-.friday {
-  a { color: $red; }
-  .siteheader { background-color: $red; }
-  .current:after { border-top-color: $red; }
-}
-.saturday {
-  a { color: $cyan; }
-  .siteheader { background-color: $cyan; }
-  .current:after { border-top-color: $cyan;}
-}
-.sunday {
-  a { color: $yellow; }
-  .siteheader { background-color: $yellow; }
-  .current:after { border-top-color: $yellow; }
-}
 .main {
   @include clearfix;
 }
@@ -59,6 +24,7 @@
   letter-spacing: -1px;
 }
 .siteheader {
+  background-color: $dark;
   @include clearfix;
   ul {
     width: 100%;
@@ -75,21 +41,46 @@
     display: block;
     text-align: center;
     text-decoration: none;
-    color: #fff;
+    color: $slate;
     position: relative;
   }
-  .current:after {
-    content: "";
-    width: 0;
-    height: 0;
-    border-left: 1em solid transparent;
-    border-right: 1em solid transparent;
-    border-top-width: 1em;
-    border-top-style: solid;
-    position: absolute;
-    bottom: -1em;
-    left: 50%;
-    margin-left: -1em;
+  .current {
+    color: #fff;
+    &:after {
+      content: "";
+      width: 0;
+      height: 0;
+      border-left: 1em solid transparent;
+      border-right: 1em solid transparent;
+      border-top-width: 1em;
+      border-top-style: solid;
+      border-top-color: $dark;
+      position: absolute;
+      bottom: -1em;
+      left: 50%;
+      margin-left: -1em;
+    }
+  }
+}
+.pagination {
+  margin: $baseline 0;
+  text-align: center;
+  span {
+    display: inline-block;
+    border: 2px solid $dark;
+    padding: 0 .5em;
+    @include round;
+    &.current {
+      background-color: $dark;
+      color: #fff;
+    }
+  }
+  a {
+    color: $dark;
+    text-decoration: none;
+    &:hover, &:focus {
+      text-decoration: underline;
+    }
   }
 }
 .sitefooter {

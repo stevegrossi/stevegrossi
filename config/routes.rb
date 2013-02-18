@@ -2,8 +2,10 @@ Stevegrossi::Application.routes.draw do
 
   get '/made' => redirect('/built')
   get '/made/:slug' => redirect("/built/%{slug}")
+  get '/read' => redirect('/thoughts')
+  get '/read/:slug' => redirect("/thoughts/%{slug}")
 
-  root to: 'static_pages#home'
+  root to: redirect('/thoughts')
 
   namespace :meta do
     resources :books, :authors, :works, :writings, :redirects, :posts
@@ -11,7 +13,6 @@ Stevegrossi::Application.routes.draw do
     root to: 'dashboard#home', as: :dashboard
   end
 
-  resources :users
   resources :posts, path: 'thoughts', only: [:index, :show] do
     collection do
       get 'page/:page', action: :index
@@ -19,13 +20,13 @@ Stevegrossi::Application.routes.draw do
       get 'about/:topic' => 'posts#topic', as: :tagged
     end
   end
-  resources :books, path: 'read', only: [:index, :show] do
+  resources :books, only: [:index, :show] do
     collection do
-      resources :authors, only: [:index, :show]
+      resources :authors, path: 'by', only: [:index, :show]
     end
   end
-  resources :writings, path: 'wrote', only: [:index, :show]
   resources :works, path: 'built', only: [:index, :show]
+  resources :users
 
   get 'log_in' => 'sessions#new', as: 'log_in'
   post 'log_in' => 'sessions#create', as: 'log_in'

@@ -14,11 +14,4 @@ $(function() {
   four = 'mail';
   $('#contact').html('<a accesskey="9" href="'+four+'to:'+one+'@'+two+'.'+three+'">' + one+'@'+two+'.'+three+'</a>');
 
-  // Hook for evening styles
-  var hr = (new Date()).getHours();
-  if (hr > 17 || hr < 6) {
-    var greeting = $('.home h1');
-    greeting.text( greeting.text().replace("Hey", "Good evening") );
-  }
-
 });

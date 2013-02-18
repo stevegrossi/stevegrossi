@@ -61,15 +61,6 @@
       }
     }
   }
-  .title_list {
-    padding-left: 33%;
-    .date {
-      float: left;
-      text-align: right;
-      width: 47%;
-      margin: -1.4em 0 0 -54%;
-    }
-  }
   .halves {
     margin: -1%;
   }
@@ -81,9 +72,6 @@
   }
   .tiles li {
     width: 48%;
-  }
-  .static_pages-home .title_list {
-    padding-left: 0;
   }
   .static_pages-topics ol {
     @include columns(4);

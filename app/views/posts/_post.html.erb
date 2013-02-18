@@ -1,8 +1,12 @@
-<li>
+<li class="post <%= post.post_type.downcase %>">
   <article>
-    <%= link_to(post.title, post) %>
-    <%= content_tag :span, post.pretty_published_at, class: 'date' %>
+    <%= content_tag :span, post.pretty_published_at, class: 'meta date' %>
+    <%= link_to(post.title, post, class: 'title') %>
     <%= post.idea %>
-    <%= content_tag(:span, "On #{post.topic_list.to_sentence}", class: 'topics') unless post.topic_list.empty? %>
+    <% unless post.topic_list.empty? %>
+    <span class="meta topics">
+      <%= raw "on #{linked_topics_for(post)}" %>
+    </span>
+    <% end %>
   </article>
 </li>

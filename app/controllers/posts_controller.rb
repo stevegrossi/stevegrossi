@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
   def index
-    @posts = Post.published
+    @posts = Post.published.includes(:book).page params[:page]
   end
 
   def show

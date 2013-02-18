@@ -24,6 +24,6 @@ module Postable
   end
 
   def pretty_published_at
-    published_at.nil? ? 'Unpublished' : published_at.strftime('%-m/%-e/%Y')
+    published_at.nil? ? 'Unpublished' : published_at.strftime('%B %-e, %Y')
   end
 end

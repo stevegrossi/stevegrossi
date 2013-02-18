@@ -26,8 +26,8 @@
 
   <header class="siteheader">
     <nav>
-      <%= link_to raw('Steve Grossi'), root_path, title: 'Home', accesskey: '1', id: 'logo' %>
-      <ul><li><%= nav_link_to 'about', '/is', title: 'About Steve' %></li><li><%= nav_link_to 'work', works_path, title: 'Portfolio' %></li><li><%= nav_link_to 'thoughts', writings_path, title: 'Writings' %></li><li><%= nav_link_to 'reads', books_path, title: 'Thoughts on Books' %></li></ul>
+      <%= link_to raw('Steve Grossi'), posts_path, title: 'Home', accesskey: '1', id: 'logo' %>
+      <ul><li><%= nav_link_to('thoughts', posts_path) %></li><li><%= link_to('work', works_path) %></li><li><%= nav_link_to 'about', '/is', title: 'About Steve' %></li></ul>
     </nav>
   </header>
 

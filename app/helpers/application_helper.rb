@@ -12,8 +12,7 @@ module ApplicationHelper
   def body_classes
     controller_slug = controller_path.sub('/', ' ') # so 'meta/books' becomes 'meta books'
     [ controller_slug,
-      "#{controller_slug}-#{action_name}",
-      Date::DAYNAMES[Time.now.wday].downcase
+      "#{controller_slug}-#{action_name}"
     ].join ' '
   end
 
