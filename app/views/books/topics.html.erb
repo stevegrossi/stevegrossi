@@ -1,8 +1,0 @@
-<% provide :title, 'The kinds of things I read books about' %>
-
-<h1>I’ve read books about:</h1>
-<ol>
-<% @topics.sort_by(&:name).each do |topic| %>
-  <li><%= link_to topic.name, tagged_books_path(topic) %> (<%= topic.count %>)</li>
-<% end %>
-</ol>

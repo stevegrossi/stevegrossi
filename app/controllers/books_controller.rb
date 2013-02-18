@@ -16,13 +16,4 @@ class BooksController < ApplicationController
     end
   end
 
-  def topics
-    @topics = Book.topic_counts
-  end
-
-  def topic
-    @topic = ActsAsTaggableOn::Tag.find(params[:topic])
-    @books = Book.published.tagged_with(@topic)
-  end
-
 end

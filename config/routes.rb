@@ -12,12 +12,16 @@ Stevegrossi::Application.routes.draw do
   end
 
   resources :users
-  resources :posts, only: [:index, :show]
+  resources :posts, path: 'thoughts', only: [:index, :show] do
+    collection do
+      get 'page/:page', action: :index
+      get 'about' => 'posts#topics', as: :topics
+      get 'about/:topic' => 'posts#topic', as: :tagged
+    end
+  end
   resources :books, path: 'read', only: [:index, :show] do
     collection do
       resources :authors, only: [:index, :show]
-      get 'about' => 'books#topics', as: :topics
-      get 'about/:topic' => 'books#topic', as: :tagged
     end
   end
   resources :writings, path: 'wrote', only: [:index, :show]

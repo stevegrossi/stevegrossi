@@ -15,4 +15,13 @@ class PostsController < ApplicationController
     end
   end
 
+  def topics
+    @topics = Post.topic_counts
+  end
+
+  def topic
+    @topic = ActsAsTaggableOn::Tag.find(params[:topic])
+    @posts = Post.published.includes(:book).tagged_with(@topic)
+  end
+
 end
