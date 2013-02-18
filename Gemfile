@@ -13,6 +13,7 @@ gem 'pg'
 gem 'pg_search'
 gem 'newrelic_rpm'
 gem 'simple_form'
+gem 'kaminari'
 
 group :assets do
   gem 'sass-rails'
