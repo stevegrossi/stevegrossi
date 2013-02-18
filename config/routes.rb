@@ -10,7 +10,7 @@ Stevegrossi::Application.routes.draw do
   root to: redirect('/thoughts')
 
   namespace :meta do
-    resources :books, :authors, :works, :writings, :redirects, :posts
+    resources :books, :authors, :works, :redirects, :posts
     resources :pages, constraints: { id: /.*/ }, except: :show
     root to: 'dashboard#home', as: :dashboard
   end

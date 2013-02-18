@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130126181544) do
+ActiveRecord::Schema.define(:version => 20130218214426) do
 
   create_table "authors", :force => true do |t|
     t.string   "fname"
@@ -129,17 +129,5 @@ ActiveRecord::Schema.define(:version => 20130126181544) do
   end
 
   add_index "works", ["slug"], :name => "index_works_on_slug", :unique => true
-
-  create_table "writings", :force => true do |t|
-    t.string   "title"
-    t.text     "content"
-    t.string   "summary"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.datetime "published_at"
-    t.string   "slug"
-  end
-
-  add_index "writings", ["slug"], :name => "index_writings_on_slug", :unique => true
 
 end
