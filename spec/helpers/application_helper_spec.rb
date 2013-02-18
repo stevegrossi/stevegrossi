@@ -11,9 +11,9 @@ describe ApplicationHelper do
   end
   describe '#link_to_new' do
     it 'links to a new type of record' do
-      link_to_new_writing = link_to('New writing', new_meta_writing_path, class: 'link_to_new')
+      link_to_new_post = link_to('New post', new_meta_post_path, class: 'link_to_new')
       stub!(:current_user).and_return(true)
-      link_to_new(:writing).should eq(link_to_new_writing)
+      link_to_new(:post).should eq(link_to_new_post)
     end
   end
   describe '#nav_link_to' do
@@ -60,7 +60,7 @@ describe ApplicationHelper do
     end
     it 'raises an exception for invalid actions' do
       expect {
-        notify(:deleted, :writing)
+        notify(:deleted, :post)
       }.to raise_error
     end
   end

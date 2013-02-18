@@ -29,7 +29,7 @@ shared_examples_for 'a Postable' do |postable_symbol|
       draft_postable.pretty_published_at.should eq('Unpublished')
     end
     it 'returns its date as a pretty string if it is published' do
-      expected = first_published_postable.published_at.strftime('%-m/%-e/%Y')
+      expected = first_published_postable.published_at.strftime('%B %-e, %Y')
       first_published_postable.pretty_published_at.should eq(expected)
     end
   end

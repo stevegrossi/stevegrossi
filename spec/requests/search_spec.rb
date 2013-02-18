@@ -5,7 +5,7 @@ describe 'Search' do
     visit search_path
   end
   it 'returns search results with titles and excerpts' do
-    FactoryGirl.create(:writing,
+    FactoryGirl.create(:post,
       title: 'Old MacDonald Had a Farm',
       content: 'Ee Ii Ee Ii Oo. And on this farm he had a pig.')
     fill_in 'for', with: 'pig'

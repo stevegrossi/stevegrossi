@@ -7,7 +7,6 @@ class Meta::DashboardController < ApplicationController
     @books_count = Book.count
     @authors_count = Author.count
     @works_count = Work.count
-    @writings_count = Writing.count
     @pages_count = Page.count
     @redirects_count = Redirect.count
   end
