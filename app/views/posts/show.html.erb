@@ -24,3 +24,5 @@
 </p>
 <p class="idea"><%= @post.idea %></p>
 <%= markdown(@post.content) %>
+
+<%= render 'shared/disqus', commentable: @post %>
