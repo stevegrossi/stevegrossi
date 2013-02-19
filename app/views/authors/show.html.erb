@@ -1,8 +1,8 @@
 <h1>Books I’ve read by <%= @author.full_name %>:</h1>
 <%= link_to_edit(@author) %>
-<% if @author.has_published_books? %>
+<% if @author.books.any? %>
   <ol class="title_list">
-    <%= render @author.published_books %>
+    <%= render @author.books %>
   </ol>
 <% else %>
   <p>Hm, it looks like I actually haven’t read any of <%= @author.fname %>’s books. To the library!</p>

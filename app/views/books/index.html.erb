@@ -2,6 +2,10 @@
 <% provide :description, 'Writing about books helps me figure out what I think about them.' %>
 
 <h1>I read books.</h1>
+<% if @books.any? %>
 <ol class="title_list">
   <%= render @books %>
 </ol>
+<% else %>
+  <p>No books have been logged yet.</p>
+<% end %>

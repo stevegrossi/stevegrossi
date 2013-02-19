@@ -1,7 +1,7 @@
 <% provide :title, 'All Authors I’ve Read' %>
 
 <h1>I’ve read books by</h1>
-<% if @authors.present? %>
+<% if @authors.any? %>
   <ul>
     <%= render @authors %>
   </ul>

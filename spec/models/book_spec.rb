@@ -1,22 +1,22 @@
-# coding: utf-8
 # == Schema Information
 #
 # Table name: books
 #
-#  id           :integer         not null, primary key
-#  title        :string(255)
-#  publisher    :string(255)
-#  pub_year     :string(255)
-#  asin         :string(255)
-#  created_at   :datetime
-#  updated_at   :datetime
-#  subtitle     :string(255)
-#  cover_image  :string(255)
-#  published_at :datetime
-#  slug         :string(255)
-#  read_on      :date
+#  id          :integer         not null, primary key
+#  title       :string(255)
+#  publisher   :string(255)
+#  pub_year    :string(255)
+#  asin        :string(255)
+#  created_at  :datetime
+#  updated_at  :datetime
+#  subtitle    :string(255)
+#  cover_image :string(255)
+#  slug        :string(255)
+#  end_date    :date
+#  start_date  :date
 #
 
+# coding: utf-8
 require 'spec_helper'
 
 describe Book do
@@ -32,14 +32,10 @@ describe Book do
   it 'is invalid without a pub_year' do
     FactoryGirl.build(:book, pub_year: nil).should_not be_valid
   end
-  it 'is invalid without thoughts' do
-    FactoryGirl.build(:book, thoughts: nil).should_not be_valid
-  end
   it 'is invalid without an author or authors' do
     FactoryGirl.build(:book_without_author).should_not be_valid
   end
   it 'is valid with multiple authors' do
     FactoryGirl.build(:book_with_two_authors).should be_valid
   end
-  it_behaves_like 'a Postable', :book
 end

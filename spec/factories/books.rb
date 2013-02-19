@@ -6,9 +6,8 @@ FactoryGirl.define do
     title        { Faker::Lorem.sentence(6) }
     publisher    { Faker::Company.name }
     pub_year     { Time.now.year - 1 }
-    thoughts     { Faker::Lorem.paragraphs.join('\n\n') }
-    published_at { Time.now - 1.day }
-    read_on      { Time.now - 1.week }
+    start_date   { Time.now - 1.month }
+    end_date     { Time.now - 1.week }
     after :build do |book|
       book.authors << FactoryGirl.build(:author)
     end
@@ -24,10 +23,6 @@ FactoryGirl.define do
     after :build do |book|
       book.authors << FactoryGirl.build(:author)
     end
-  end
-
-  factory :draft_book, parent: Book do
-    published_at nil
   end
 
 end

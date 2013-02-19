@@ -15,27 +15,12 @@
       <%= f.input :asin, label: 'ASIN' %>
     </div>
   </div>
-
-  <%= f.input :thesis, input_html: { rows: 4 } %>
-  <%= f.input :thoughts %>
   <%= f.input :cover_image %>
-
-  <%= field_set_tag 'Topics', class: :topics do %>
-    <%= f.input :topic_list %>
-    <%= content_tag :h2, 'Current Topics' %>
-    <%= content_tag :p do %>
-      <% Book.topic_counts.sort_by(&:name).each do |topic| %>
-        <span class="tag"><%= topic.name %></span>
-      <% end %>
-    <% end %>
-  <% end %>
-
-  <%= f.input :read_on %>
-  <%= f.input :published_at, include_blank: true %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
 
   <div class="actions">
     <%= f.submit 'Publish' %>
-    <%= f.submit @book.published? ? 'Unpublish' : 'Save Draft', class: :secondary %>
     <%= link_to 'or go back', @book, class: :cancel %>
   </div>
 

@@ -1,7 +1,7 @@
 class Meta::BooksController < Meta::DashboardController
 
   def index
-    @books = Book.includes(:authors).all
+    @books = Book.includes(:authors).order('start_date DESC')
   end
 
   def new
@@ -17,9 +17,6 @@ class Meta::BooksController < Meta::DashboardController
   def create
     @book = Book.new(params[:book])
     @authors = Author.all
-    if params[:commit] == 'Publish'
-      @book.published_at ||= Time.now
-    end
     if @book.save
       redirect_to @book, notice: view_context.notify(:new, :book)
     else
@@ -32,11 +29,6 @@ class Meta::BooksController < Meta::DashboardController
     @authors = Author.all
     @book.attributes = params[:book]
     params[:book][:published_at] = nil if params[:book][:published_at].blank?
-    if params[:commit] == 'Publish'
-      @book.published_at ||= Time.now
-    elsif params[:commit] == 'Unpublish'
-      @book.published_at = nil
-    end
     if @book.save
       redirect_to @book, notice: view_context.notify(:updated, :book)
     else

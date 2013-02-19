@@ -30,12 +30,4 @@ class Author < ActiveRecord::Base
   def full_name
     [fname, mname, lname].compact.join(' ')
   end
-
-  def published_books
-    books.published
-  end
-
-  def has_published_books?
-    published_books.any?
-  end
 end
