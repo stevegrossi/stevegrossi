@@ -1,6 +1,6 @@
 <h1>Books I’ve read by <%= @author.full_name %>:</h1>
 <%= link_to_edit(@author) %>
-<% if @author.books.any? %>
+<% if @author.books.present? %>
   <ol class="title_list">
     <%= render @author.books %>
   </ol>

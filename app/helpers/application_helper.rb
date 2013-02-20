@@ -69,7 +69,7 @@ module ApplicationHelper
   end
 
   def flash_errors(obj)
-    if obj.errors.any?
+    if obj.errors.present?
       content_tag :div, class: 'flash error' do
         "Could not save the #{obj.class.to_s.humanize.downcase} because of the errors below:"
       end
