@@ -86,6 +86,10 @@ module Stevegrossi
     # Use dalli/memcached
     config.cache_store = :dalli_store
 
+    # Remove trailing slashes from URLs
+    config.middleware.insert_before(Rack::Lock, Rack::Rewrite) do
+      r301 %r{^/(.*)/$}, '/$1'
+    end
 
   end
 end
