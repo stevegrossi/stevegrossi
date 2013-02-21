@@ -54,7 +54,7 @@ module ApplicationHelper
   def nav_link_to(*args)
     options = args.extract_options!
     path = Rails.application.routes.recognize_path(args[1])
-    if current_page?(path) || (controller_name != 'pages' && path[:controller] == controller_name)
+    if current_page?(path) || (controller_path != 'pages' && path[:controller] == controller_path)
       options[:class] = 'current'
     end
     link_to(args[0], path, options)
