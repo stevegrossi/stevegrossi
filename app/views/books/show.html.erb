@@ -4,7 +4,7 @@
 <footer class="sidebar">
   <%= get_cover(@book) %>
   <span class="book_title"><%= @book.title %></span>
-  <span class="book_author"><%= authors_of(@book) %></span>
+  <span class="book_author"><%= linked_author_list(@book) %></span>
   <span class="book_publisher"><%= @book.publisher %>, <%= @book.pub_year %></span>
   <%= link_to 'Amazon', 'http://www.amazon.com/gp/product/' + @book.asin + '?ie=UTF8&tag=stevgros-20' if @book.asin? %>
 </footer>

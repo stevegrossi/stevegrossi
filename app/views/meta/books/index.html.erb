@@ -18,7 +18,7 @@
     <tr>
       <td><%= link_to_edit(book) %>
         <%= link_to book.title, book %></td>
-      <td><%= authors_of(book) %></td>
+      <td><%= linked_author_list(book) %></td>
       <td><%= book.publisher %></td>
       <td><%= book.pub_year %></td>
       <td><%= book.start_date %></td>

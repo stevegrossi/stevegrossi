@@ -1,11 +1,15 @@
 module BooksHelper
 
-  def authors_of(book)
+  def linked_author_list(book)
     author_links = []
     book.authors.each do |author|
       author_links << link_to(author.full_name, author)
     end
     raw author_links.to_sentence
+  end
+
+  def author_list(book)
+    book.authors.map(&:full_name).to_sentence
   end
 
   def books_by(author)
