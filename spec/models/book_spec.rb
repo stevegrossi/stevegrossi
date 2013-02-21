@@ -38,4 +38,16 @@ describe Book do
   it 'is valid with multiple authors' do
     FactoryGirl.build(:book_with_two_authors).should be_valid
   end
+  describe 'scopes' do
+    before :each do
+      @read = FactoryGirl.create(:book)
+      @unread = FactoryGirl.create(:unread_book)
+    end
+    it 'selects unread books' do
+      Book.unread.should eq([@unread])
+    end
+    it 'selects read books' do
+      Book.read.should eq([@read])
+    end
+  end
 end

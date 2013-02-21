@@ -1,7 +1,7 @@
 <li class="post <%= post.post_type.downcase %>">
   <article>
     <%= content_tag :span, post.pretty_published_at, class: 'meta date' %>
-    <%= link_to(post.title, post, class: 'title') %>
+    <span class="title"><%= link_to(post.title, post) %></span>
     <%= post.idea %>
     <% unless post.topic_list.empty? %>
     <span class="meta topics">

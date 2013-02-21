@@ -2,12 +2,12 @@ require 'spec_helper'
 
 describe 'Shows books' do
   describe 'books archive' do
-    it 'displays all books' do
-      book1 = FactoryGirl.create(:book)
-      book2 = FactoryGirl.create(:book)
+    it 'displays read and unread books' do
+      read = FactoryGirl.create(:book)
+      unread = FactoryGirl.create(:unread_book)
       visit books_path
-      page.should have_content(book1.title)
-      page.should have_content(book2.title)
+      page.should have_content(read.title)
+      page.should have_content(unread.title)
     end
   end
   describe 'book page' do
@@ -46,6 +46,9 @@ describe 'Administrates books' do
         fill_in 'Title', with: 'Test Title'
         fill_in 'Publisher', with: 'Test content.'
         fill_in 'Pub year', with: 'A test book'
+        select Time.now.year.to_s, from: "book_start_date_1i"
+        select Date::MONTHNAMES[Time.now.month], from: "book_start_date_2i"
+        select Time.now.day.to_s, from: "book_start_date_3i"
         select @author.full_name, from: 'Author(s)'
       end
       it 'creates a new book when you click "Publish"' do

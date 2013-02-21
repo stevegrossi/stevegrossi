@@ -25,4 +25,8 @@ FactoryGirl.define do
     end
   end
 
+  factory :unread_book, parent: Book do
+    end_date nil
+  end
+
 end

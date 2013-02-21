@@ -65,6 +65,8 @@
     text-transform: uppercase;
     letter-spacing: .2em;
   }
+}
+.post, .book {
   .meta {
     display: block;
     font-size: .8em;
@@ -77,13 +79,13 @@
     }
   }
 }
-.writing:before {
+.post.writing:before {
   content: 'w';
 }
-.book:before {
+.post.book:before {
   content: 'b';
 }
-.link:before {
+.post.link:before {
   content: 'l';
 }
 
@@ -107,9 +109,15 @@
     margin-bottom: $baseline;
   }
   .title {
-    text-decoration: none;
+    color: $dark_gray;
     display: block;
     font-size: 1.5em;
+    a {
+      text-decoration: none;
+      &:hover, &:focus {
+        text-decoration: underline;
+      }
+    }
   }
 }
 .footnotes {

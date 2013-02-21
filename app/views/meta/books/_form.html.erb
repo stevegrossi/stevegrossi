@@ -16,8 +16,8 @@
     </div>
   </div>
   <%= f.input :cover_image %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
+  <%= f.input :start_date, include_blank: true %>
+  <%= f.input :end_date, include_blank: true %>
 
   <div class="actions">
     <%= f.submit 'Publish' %>
