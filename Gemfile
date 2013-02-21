@@ -14,6 +14,7 @@ gem 'pg_search'
 gem 'newrelic_rpm'
 gem 'simple_form'
 gem 'kaminari'
+gem 'dalli'
 
 group :assets do
   gem 'sass-rails'

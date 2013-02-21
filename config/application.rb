@@ -83,6 +83,9 @@ module Stevegrossi
       config.use :slugged
     end
 
+    # Use dalli/memcached
+    config.cache_store = :dalli_store
+
 
   end
 end
