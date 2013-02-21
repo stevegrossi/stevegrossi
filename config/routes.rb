@@ -1,30 +1,30 @@
 Stevegrossi::Application.routes.draw do
 
-  get '/made' => redirect('/built')
+  # Dynamic redirects
   get '/made/:slug' => redirect("/built/%{slug}")
-  get '/read' => redirect('/thoughts')
-  get '/read/:slug' => redirect("/thoughts/%{slug}")
-  get '/wrote' => redirect('/thoughts')
-  get '/wrote/:slug' => redirect("/thoughts/%{slug}")
+  get '/wrote/:slug' => redirect("/on/%{slug}")
+  get '/thoughts/:slug' => redirect("/on/%{slug}")
+  get '/read/:slug' => redirect("/on/%{slug}")
+  get '/read/authors/:slug' => redirect("/on/books/by/%{slug}")
 
-  root to: redirect('/thoughts')
+  root to: redirect('/on')
 
   namespace :meta do
     resources :books, :authors, :works, :redirects, :posts
-    resources :pages, constraints: { id: /.*/ }, except: :show
+    resources :pages, constraints: { id: /.*/ }
     root to: 'dashboard#home', as: :dashboard
   end
 
-  resources :posts, path: 'thoughts', only: [:index, :show] do
+  resources :posts, path: 'on', only: [:index, :show] do
     collection do
       get 'page/:page', action: :index
-      get 'about' => 'posts#topics', as: :topics
-      get 'about/:topic' => 'posts#topic', as: :tagged
-    end
-  end
-  resources :books, only: [:index, :show] do
-    collection do
-      resources :authors, path: 'by', only: [:index, :show]
+      get 'topics' => 'posts#topics', as: :topics
+      get 'topics/:topic' => 'posts#topic', as: :tagged
+      resources :books, only: [:index, :show] do
+        collection do
+          resources :authors, only: [:index, :show], path: 'by'
+        end
+      end
     end
   end
   resources :works, path: 'built', only: [:index, :show]
