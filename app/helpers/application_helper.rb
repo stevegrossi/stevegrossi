@@ -52,12 +52,14 @@ module ApplicationHelper
   end
 
   def nav_link_to(*args)
+    text = args[0]
+    target = args[1]
     options = args.extract_options!
-    path = Rails.application.routes.recognize_path(args[1])
-    if current_page?(path) || (controller_path != 'pages' && path[:controller] == controller_path)
+    path = Rails.application.routes.recognize_path(target)
+    if current_page?(target) || (controller_path != 'pages' && path[:controller] == controller_path)
       options[:class] = 'current'
     end
-    link_to(args[0], path, options)
+    link_to(text, target, options)
   end
 
   def nice_url(url)

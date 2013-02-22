@@ -363,10 +363,10 @@ fieldset.topics {
 }
 form.search {
   @include clearfix;
+  text-align: center;
   input {
-    float: left;
+    display: inline-block;
     margin-top: $baseline;
-    margin-right: .5em;
   }
 }
 

@@ -29,13 +29,14 @@
   ul {
     width: 100%;
     float: right;
+    text-align: center;
     a {
       padding: .25em;
     }
   }
   li {
-    float: left;
-    width: 25%;
+    display: inline-block;
+    margin: 0 .5em;
   }
   a {
     display: block;
@@ -60,6 +61,15 @@
       left: 50%;
       margin-left: -1em;
     }
+  }
+}
+a[data-icon] {
+  visibility: hidden;
+  width: 1em;
+  &:before {
+    visibility: visible;
+    content: attr(data-icon);
+    font-family: $icon_stack;
   }
 }
 .pagination {
