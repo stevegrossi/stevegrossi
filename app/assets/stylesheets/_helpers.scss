@@ -89,10 +89,6 @@
   content: 'l';
 }
 
-.hint {
-  display: block;
-  color: $gray;
-}
 .cover {
   @include shadow;
   width: 100%;
@@ -193,6 +189,8 @@
     margin: 0 1% $baseline;
     display: inline-block;
     vertical-align: top;
+    @include breakpoint(m) { width: 48%; }
+    @include breakpoint(l) { width: 31.3333333%; }
   }
   a {
     display: block;
@@ -369,17 +367,41 @@ form.search {
     margin-top: $baseline;
   }
 }
-
 .polaroid {
   border: .5em solid white;
   border-bottom-width: 1.5em;
   @include shadow;
   @include rotate(2deg);
 }
+.column_list {
+  list-style: none;
+  margin-left: 0;
+  margin-right: 0;
+  @include breakpoint(s) { @include columns(2); }
+  @include breakpoint(l) { @include columns(3); }
+}
+
 // Simple Form styles
 .field_with_errors {
   .error {
     color: $red;
     display: block;
+  }
+}
+.hint {
+  display: block;
+  color: $gray;
+}
+
+// Styles at larger widths
+@include breakpoint(m) {
+  .halves {
+    margin: -1%;
+  }
+  .half {
+    display: inline-block;
+    vertical-align: top;
+    width: 47%;
+    margin: 0 1%;
   }
 }

@@ -22,3 +22,19 @@ $dark:    #2F353E;
 $slate:   #93A1A1;
 
 $baseline: 24px;
+
+// Media queries for breakpoints
+@mixin breakpoint($name) {
+  @if $name == xl {
+    @media (min-width: 1200px) { @content; }
+  }
+  @else if $name == l {
+    @media (min-width: 950px) { @content; }
+  }
+  @else if $name == m {
+    @media (min-width: 768px) { @content; }
+  }
+  @else if $name == s {
+    @media (min-width: 480px)  { @content; }
+  }
+}

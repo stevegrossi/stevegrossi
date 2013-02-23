@@ -1,7 +1,7 @@
 <% provide :title, 'The kinds of things I think about' %>
 
 <h1>I’ve been thinking about:</h1>
-<ol>
+<ol class="column_list">
 <% @topics.sort_by(&:name).each do |topic| %>
   <li><%= link_to topic.name, tagged_posts_path(topic) %> (<%= topic.count %>)</li>
 <% end %>

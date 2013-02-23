@@ -7,6 +7,18 @@ body {
   font-family:$serif_stack;
   font-size:100%;
   line-height:$baseline;
+  @include breakpoint(m) {
+    font-size: 112.5%; // 18px
+    line-height: 1.5555555556; // 28px
+  }
+  @include breakpoint(l) {
+    font-size: 131.25%; // 21px
+    line-height: 1.5238095238; // 32px
+  }
+  @include breakpoint(xl) {
+    font-size: 150%; // 24px
+    line-height: 1.5; // 36px
+  }
 }
 a {
   &:link {
@@ -91,6 +103,43 @@ figure {
     max-width:100%;
     display:block;
     margin:0 auto $baseline*.5;
+  }
+  &.left {
+    @include breakpoint(m) {
+      float: left;
+      margin-right: $baseline;
+      width: 50%;
+    }
+    &.bleed {
+      @include breakpoint(m) {
+        margin-left: -12.5%;
+        figcaption {
+          padding-left: 2%;
+        }
+      }
+      @include breakpoint(l) { margin-left: -16.5%; }
+      @include breakpoint(l) { margin-left: -21.5%; }
+    }
+  }
+  &.right {
+    @include breakpoint(m) {
+      float: right;
+      margin-left: $baseline;
+      width: 50%;
+    }
+    &.polaroid {
+      @include breakpoint(m) { width: 33% !important; }
+    }
+    &.bleed {
+      @include breakpoint(m) {
+        margin-right: -12.5%;
+        figcaption {
+          padding-right: 2%;
+        }
+      }
+      @include breakpoint(l) { margin-right: -16.5%; }
+      @include breakpoint(xl) { margin-right: -21.5%; }
+    }
   }
 }
 figcaption {
