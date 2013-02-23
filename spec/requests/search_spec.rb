@@ -1,3 +1,4 @@
+# coding: utf-8
 require 'spec_helper'
 
 describe 'Search' do
@@ -12,6 +13,14 @@ describe 'Search' do
     click_button 'Search'
     page.should have_content('MacDonald')
     page.should have_content('had a pig')
+  end
+  it 'doesn’t return draft posts' do
+    FactoryGirl.create(:draft_post,
+      title: 'Old MacDonald Had a Farm',
+      content: 'Ee Ii Ee Ii Oo. And on this farm he had a pig.')
+    fill_in 'for', with: 'pig'
+    click_button 'Search'
+    page.should_not have_content('had a pig')
   end
   it 'tells you if there are no results' do
     fill_in 'for', with: 'pig'
