@@ -21,3 +21,9 @@
   <%= render @posted %>
 </ol>
 <% end %>
+
+<% content_for :page_js do %>
+  <script>
+    $(".book img").lazyload({ effect: 'fadeIn' });
+  </script>
+<% end %>

@@ -3,7 +3,7 @@
 
 <% if @post.book_post? %>
   <footer class="sidebar">
-    <%= get_cover(@post.book) %>
+    <%= image_tag(@post.book.cover_url, alt: '', class: 'cover') %>
     <span class="book_title"><%= @post.book.title %></span>
     <span class="book_author"><%= linked_author_list(@post.book) %></span>
     <span class="book_publisher"><%= @post.book.publisher %>, <%= @post.book.pub_year %></span>

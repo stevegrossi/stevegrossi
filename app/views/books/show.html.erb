@@ -2,7 +2,7 @@
 <% provide :description, 'I read a book.' %>
 
 <footer class="sidebar">
-  <%= get_cover(@book) %>
+  <%= image_tag(@book.cover_url, alt: '', class: 'cover') %>
   <span class="book_title"><%= @book.title %></span>
   <span class="book_author"><%= linked_author_list(@book) %></span>
   <span class="book_publisher"><%= @book.publisher %>, <%= @book.pub_year %></span>

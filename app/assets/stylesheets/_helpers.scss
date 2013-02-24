@@ -94,6 +94,14 @@
 .post.link:before {
   content: 'l';
 }
+.book {
+  @include clearfix;
+  img {
+    width: 4em;
+    float: left;
+    margin-right: 1em;
+  }
+}
 
 .cover {
   @include shadow;

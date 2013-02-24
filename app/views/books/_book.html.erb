@@ -1,5 +1,6 @@
 <li class="book">
   <article>
+    <%= image_tag('placeholder.png', class: 'cover', data: { original: book.cover_url }) %>
     <span class="title">
     <% if book.posted? %>
       <%= link_to(book.title, book.post) %>

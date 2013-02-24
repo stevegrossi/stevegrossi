@@ -42,4 +42,12 @@ class Book < ActiveRecord::Base
     post && post.published?
   end
 
+  def cover_url
+    if cover_image.blank?
+      "http://images.amazon.com/images/P/#{asin}.01.LZZZZZZZ.jpg"
+    else
+      "http://cloud.stevegrossi.com/books/#{cover_image}"
+    end
+  end
+
 end
