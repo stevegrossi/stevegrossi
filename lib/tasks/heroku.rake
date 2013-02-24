@@ -2,7 +2,7 @@
 # which the Heroku toolbelt seems ot have broken:
 # http://stackoverflow.com/q/13001166/
 #
-# It throws some errors aroundrearding `plpgsql`,
+# It throws some errors around reading `plpgsql`,
 # but everything still seems to work.
 
 namespace :herokudb do

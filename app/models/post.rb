@@ -12,6 +12,7 @@
 #  published_at :datetime
 #  created_at   :datetime        not null
 #  updated_at   :datetime        not null
+#  word_count   :integer
 #
 
 class Post < ActiveRecord::Base
@@ -37,6 +38,7 @@ class Post < ActiveRecord::Base
   validates :content, presence: true
 
   before_validation :set_title_to_book_title
+  before_save :set_word_count
 
   def set_title_to_book_title
     if title.blank? && book_post?
@@ -64,6 +66,16 @@ class Post < ActiveRecord::Base
 
   def link_post?
     link_url.present?
+  end
+
+  def count_words
+    content.scan(/\S+/).size
+  end
+
+  private
+
+  def set_word_count
+    self.word_count = count_words
   end
 
 end

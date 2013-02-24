@@ -1,3 +1,4 @@
+# coding: utf-8
 # == Schema Information
 #
 # Table name: posts
@@ -12,6 +13,7 @@
 #  published_at :datetime
 #  created_at   :datetime        not null
 #  updated_at   :datetime        not null
+#  word_count   :integer
 #
 
 require 'spec_helper'
@@ -39,6 +41,10 @@ describe Post do
     post = FactoryGirl.build(:post, idea: nil)
     post.should_not be_valid
     post.should have(1).error_on(:idea)
+  end
+  it 'counts its words' do
+    post = FactoryGirl.create(:post, content: 'I’ve been workin’ on the railroad all the live-long day.')
+    post.word_count.should eq(10)
   end
   it_behaves_like 'a Postable', :post
 end
