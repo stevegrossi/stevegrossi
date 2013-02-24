@@ -78,10 +78,6 @@ module ApplicationHelper
     end
   end
 
-  def word_count(str)
-    pluralize(str.scan(/\w+/).size, 'word')
-  end
-
   def mark_string(string, term='')
     if term.blank?
       string

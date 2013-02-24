@@ -30,13 +30,6 @@ describe ApplicationHelper do
     # TODO: figure out how to stub the current controller actions so
     # it 'works for children of the linked-to page'
   end
-  describe '#word_count' do
-    it 'counts words' do
-      # TODO: this could be much more specific
-      string = 'Hey there, how are you?'
-      word_count(string).should eq('5 words')
-    end
-  end
   describe '#bubble_up' do
     it 'moves items to the beginning of an array' do
       array = %w(one two three four five)

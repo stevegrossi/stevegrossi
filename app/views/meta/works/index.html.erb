@@ -6,7 +6,6 @@
   <thead>
     <tr>
       <th>Title</th>
-      <th>About</th>
       <th>Url</th>
       <th>Client</th>
       <th>Published</th>
@@ -17,7 +16,6 @@
     <tr>
       <td><%= link_to_edit(work) %>
         <%= link_to work.title, work %></td>
-      <td><%= word_count(work.about) %></td>
       <td><%= link_from_url(work.url) %></td>
       <td><%= raw work.client %></td>
       <td><%= work.pretty_published_at %></td>
