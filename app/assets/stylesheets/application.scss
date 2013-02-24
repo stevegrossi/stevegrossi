@@ -20,6 +20,7 @@
   @include breakpoint(xl) { max-width: 70%; }
 }
 #logo {
+  display: block;
   color: #fff;
   font-size: 3em;
   font-weight: bold;
@@ -41,6 +42,8 @@
     @include breakpoint(m) { width: auto; }
     a {
       padding: .25em;
+      display: inline-block;
+      vertical-align: bottom;
     }
   }
   li {
@@ -48,7 +51,6 @@
     margin: 0 .5em;
   }
   a {
-    display: block;
     text-align: center;
     text-decoration: none;
     color: $slate;
@@ -74,8 +76,8 @@
 }
 a[data-icon] {
   visibility: hidden;
-  overflow: hidden;
   width: 1em;
+  overflow: hidden;
   &:before {
     visibility: visible;
     content: attr(data-icon);
