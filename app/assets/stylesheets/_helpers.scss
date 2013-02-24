@@ -1,3 +1,9 @@
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
 .flash {
   @include round;
   border-width: 1px;

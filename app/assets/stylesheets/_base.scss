@@ -106,7 +106,6 @@ figure {
   }
   &.left {
     @include breakpoint(m) {
-      float: left;
       margin-right: $baseline;
       width: 50%;
     }
@@ -121,7 +120,6 @@ figure {
   }
   &.right {
     @include breakpoint(m) {
-      float: right;
       margin-left: $baseline;
       width: 50%;
     }
