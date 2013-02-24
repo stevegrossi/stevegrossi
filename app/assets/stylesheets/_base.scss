@@ -89,20 +89,20 @@ ul, ol {
   }
 }
 dt {
-  font-weight:bold;
+  font-weight: bold;
 }
 dd {
-  margin:0 0 $baseline;
+  margin: 0 0 $baseline;
   ul {
     margin-top:0;
   }
 }
 figure {
-  margin-top:0;
+  margin-top: 0;
   img {
-    max-width:100%;
-    display:block;
-    margin:0 auto $baseline*.5;
+    width: 100%;
+    display: block;
+    margin: 0 auto $baseline*.5;
   }
   &.left {
     @include breakpoint(m) {
@@ -111,14 +111,12 @@ figure {
       width: 50%;
     }
     &.bleed {
-      @include breakpoint(m) {
-        margin-left: -12.5%;
-        figcaption {
-          padding-left: 2%;
-        }
-      }
+      @include breakpoint(m) { margin-left: -12.5%; }
       @include breakpoint(l) { margin-left: -16.5%; }
-      @include breakpoint(l) { margin-left: -21.5%; }
+      @include breakpoint(xl) { margin-left: -21.5%; }
+      figcaption {
+        padding-left: 2%;
+      }
     }
   }
   &.right {
@@ -131,14 +129,31 @@ figure {
       @include breakpoint(m) { width: 33% !important; }
     }
     &.bleed {
-      @include breakpoint(m) {
-        margin-right: -12.5%;
-        figcaption {
-          padding-right: 2%;
-        }
-      }
+      @include breakpoint(m) { margin-right: -12.5%; }
       @include breakpoint(l) { margin-right: -16.5%; }
       @include breakpoint(xl) { margin-right: -21.5%; }
+      figcaption {
+        padding-right: 2%;
+      }
+    }
+  }
+  &.full_bleed {
+    margin-left: -5.5%;
+    margin-right: -5.5%;
+    @include breakpoint(s) {
+      margin-left: -12.5%;
+      margin-right: -12.5%;
+    }
+    @include breakpoint(l) {
+      margin-left: -16.5%;
+      margin-right: -16.5%;
+    }
+    @include breakpoint(xl) {
+      margin-left: -21.5%;
+      margin-right: -21.5%;
+    }
+    figcaption {
+      padding-left: 2%;
     }
   }
 }
