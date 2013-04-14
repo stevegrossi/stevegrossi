@@ -1,4 +1,12 @@
 <h1>Dashboard</h1>
+<p>You’ve written <%= pluralize(number_with_delimiter(@word_count), 'word') %>.
+  <% if current_user.birthdate? %>
+    You’ve been alive <%= number_with_delimiter(current_user.days_alive) %> days.
+    <% if current_user.birthdate.today? %>
+      Happy birthday!
+    <% end %>
+  <% end %>
+</p>
 <p>You’ve got:</p>
 <ul>
   <li><%= link_to(pluralize(@posts_count, 'post'), meta_posts_path) %></li>

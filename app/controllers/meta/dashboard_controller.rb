@@ -4,6 +4,7 @@ class Meta::DashboardController < ApplicationController
 
   def home
     @posts_count = Post.count
+    @word_count = Post.sum(:word_count)
     @books_count = Book.count
     @authors_count = Author.count
     @works_count = Work.count
