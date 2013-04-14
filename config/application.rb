@@ -61,8 +61,6 @@ module Stevegrossi
     config.autoload_paths += %W(#{config.root}/lib)
     config.autoload_paths += %W(#{config.root}/app/models/concerns)
 
-    config.middleware.use "NoWww"
-
     # JavaScript files you want as :defaults (application.js is always included).
     config.action_view.javascript_expansions[:defaults] = %w()
 
