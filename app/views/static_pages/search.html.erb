@@ -1,7 +1,6 @@
-<% title = @query.blank? ? 'Search' : "Searching for '#{@query}'" %>
-<% provide :title, title %>
+<% provide :title, @query.blank? ? 'Search' : "Searching for “#{@query}”" %>
 
-<h1><%= title %></h1>
+<h1><%= content_for(:title) %></h1>
 <% if @query.present? %>
   <%= comment_on_search_term(@query) %>
 <% end %>
