@@ -8,7 +8,16 @@
   <%= f.input :idea, input_html: { rows: 4 } %>
   <%= f.input :content %>
   <%= f.input :published_at, include_blank: true %>
-  <%= f.input :topic_list %>
+
+  <%= field_set_tag 'Topics', class: :topics do %>
+    <%= f.input :topic_list %>
+    <%= content_tag :h2, 'Current Topics' %>
+    <%= content_tag :p do %>
+      <% Post.topic_counts.sort_by(&:name).each do |topic| %>
+        <span class="tag"><%= topic.name %></span>
+      <% end %>
+    <% end %>
+  <% end %>
 
   <div class="actions">
     <%= f.submit 'Publish' %>

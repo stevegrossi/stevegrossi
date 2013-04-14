@@ -291,7 +291,7 @@ fieldset.topics {
   @include round;
   a {
     text-decoration: none;
-    font-family: ModernPictograms, sans-serif;
+    font-family: $icon_stack;
     font-size: 1.5em;
     line-height: .75em;
     vertical-align: middle;
