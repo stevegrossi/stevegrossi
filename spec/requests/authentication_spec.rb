@@ -14,7 +14,7 @@ describe "Authentication" do
   it 'logs out a user' do
     visit log_out_path
     page.should have_content('See you around, cowboy')
-    current_path.should == root_path
+    current_path.should == posts_path # Not root_path for now, since I redirect to /on
   end
 
   it 'notifies a user if they are already logged in' do
