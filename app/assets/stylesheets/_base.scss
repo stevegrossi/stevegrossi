@@ -39,9 +39,11 @@ h1, h2, h3, h4, h5, p, ul, ol, dl, hgroup, table, figure, fieldset, input[type="
 hgroup h1, hgroup h2, hgroup h3, hgroup h4, hgroup h5 {
   margin-bottom:0;
 }
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
 h1 {
   font-size:2em; // 32px
-  line-height:1.125; // 36px
 }
 h2 {
   font-size:1.5em; // 24px
