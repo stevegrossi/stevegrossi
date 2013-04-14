@@ -7,7 +7,7 @@ gem 'maruku'
 gem "acts-as-taggable-on", "~> 2.3.1"
 gem 'friendly_id', '~> 4.0.9'
 gem 'bcrypt-ruby', require: 'bcrypt'
-gem 'thin'
+gem 'unicorn'
 gem 'foreman'
 gem 'pg'
 gem 'pg_search'
