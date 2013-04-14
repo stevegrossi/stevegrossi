@@ -10,12 +10,12 @@ namespace :herokudb do
     system 'heroku pgbackups:capture --expire -a stevegrossi'
   end
   task :save => :capture do
-    system 'curl -o tmp/latest.dump `heroku pgbackups:url -a stevegrossi`'
+    system 'curl -o tmp/latest.dump $(heroku pgbackups:url -a stevegrossi)'
   end
   task :import => :save do
     system 'pg_restore --verbose --clean --no-acl --no-owner -h localhost -U rails -d stevegrossi_development tmp/latest.dump'
   end
   task :update_staging do
-    system 'heroku pgbackups:restore DATABASE -a stevegrossi-staging `heroku pgbackups:url -a stevegrossi`'
+    system 'heroku pgbackups:restore DATABASE -a stevegrossi-staging $(heroku pgbackups:url -a stevegrossi)'
   end
 end
