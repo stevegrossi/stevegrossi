@@ -73,6 +73,9 @@ module Stevegrossi
     # Mass assignment protection
     config.active_record.whitelist_attributes = true
 
+    # Handle routing or errors meself
+    config.exceptions_app = self.routes
+
     # acts_as_taggable_on config
     ActsAsTaggableOn.force_lowercase = true
     ActsAsTaggableOn.remove_unused_tags = true

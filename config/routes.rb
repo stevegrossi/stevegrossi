@@ -9,6 +9,10 @@ Stevegrossi::Application.routes.draw do
 
   root to: redirect('/on')
 
+  match '/404' => 'errors#error_404'
+  match '/422' => 'errors#error_422'
+  match '/500' => 'errors#error_500'
+
   namespace :meta do
     resources :books, :authors, :works, :redirects, :posts
     resources :pages, constraints: { id: /.*/ }

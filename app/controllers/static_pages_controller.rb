@@ -21,8 +21,4 @@ class StaticPagesController < ApplicationController
     # and then replace {{term}} with <mark>term</mark>
   end
 
-  def error_404
-    render file: "/static_pages/error_404.html.erb", status: 404, layout: true
-  end
-
 end
