@@ -66,7 +66,7 @@ describe 'Administrates redirects' do
       it 're-renders the new redirect form with a flash' do
         fill_in 'To', with: ''
         click_button 'Publish'
-        within '.error' do
+        within '.flash' do
           page.should have_content('errors')
         end
       end

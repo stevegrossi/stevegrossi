@@ -94,7 +94,7 @@ describe 'Administrates authors' do
       it 're-renders the new author form with a flash' do
         fill_in 'First', with: ''
         click_button 'Update Author'
-        within '.error' do
+        within '.flash' do
           page.should have_content('errors')
         end
       end
