@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
   def index
-    @posts = Post.published.includes(:book).page params[:page]
+    @posts = Post.published.includes(:book, :topics).page params[:page]
   end
 
   def show
@@ -21,7 +21,7 @@ class PostsController < ApplicationController
 
   def topic
     @topic = ActsAsTaggableOn::Tag.find(params[:topic])
-    @posts = Post.published.includes(:book).tagged_with(@topic)
+    @posts = Post.published.includes(:book, :topics).tagged_with(@topic)
   end
 
 end
