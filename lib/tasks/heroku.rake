@@ -15,7 +15,7 @@ namespace :herokudb do
   task :import => :save do
     system 'pg_restore --verbose --clean --no-acl --no-owner -h localhost -U rails -d stevegrossi_development tmp/latest.dump'
   end
-  task :update_staging do
-    system 'heroku pgbackups:restore DATABASE -a stevegrossi-staging $(heroku pgbackups:url -a stevegrossi)'
+  task :update_staging => :capture do
+    system 'heroku pgbackups:restore DATABASE -a stevegrossi-staging --confirm stevegrossi-staging $(heroku pgbackups:url -a stevegrossi)'
   end
 end
