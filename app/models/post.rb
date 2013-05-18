@@ -2,7 +2,7 @@
 #
 # Table name: posts
 #
-#  id           :integer         not null, primary key
+#  id           :integer          not null, primary key
 #  title        :string(255)
 #  link_url     :string(255)
 #  idea         :text
@@ -10,8 +10,8 @@
 #  book_id      :integer
 #  slug         :string(255)
 #  published_at :datetime
-#  created_at   :datetime        not null
-#  updated_at   :datetime        not null
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
 #  word_count   :integer
 #
 
@@ -28,10 +28,11 @@ class Post < ActiveRecord::Base
   multisearchable against: [:title, :idea, :content],
                   if: :published?
 
-  attr_accessible :content, :idea, :link_url, :published_at, :title, :book_id, :topic_list
+  attr_accessible :content, :idea, :link_url, :published_at, :title, :book_id, :tag_list
 
   belongs_to :book
-  acts_as_taggable_on :topics
+  has_many :taggings, dependent: :destroy
+  has_many :tags, through: :taggings
 
   validates :title,   presence: true
   validates :idea,    presence: true
@@ -70,6 +71,25 @@ class Post < ActiveRecord::Base
 
   def count_words
     content.scan(/\S+/).size
+  end
+
+  def tag_list
+    tags.map(&:name).join(', ')
+  end
+
+  def tag_list=(names)
+    self.tags = names.split(",").map do |n|
+      Tag.where(name: n.strip).first_or_create!
+    end
+  end
+
+  def self.tagged_with(tag)
+    tag.posts
+  end
+
+  def self.tag_counts
+    Tag.select("tags.*, count(taggings.tag_id) as count").
+      joins(:taggings).group("taggings.tag_id, tags.id, tags.name, tags.slug")
   end
 
   private

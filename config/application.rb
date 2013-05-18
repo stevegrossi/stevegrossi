@@ -76,10 +76,6 @@ module Stevegrossi
     # Handle routing or errors meself
     config.exceptions_app = self.routes
 
-    # acts_as_taggable_on config
-    ActsAsTaggableOn.force_lowercase = true
-    ActsAsTaggableOn.remove_unused_tags = true
-
     FriendlyId.defaults do |config|
       config.use :slugged
     end

@@ -2,7 +2,7 @@
 #
 # Table name: books
 #
-#  id          :integer         not null, primary key
+#  id          :integer          not null, primary key
 #  title       :string(255)
 #  publisher   :string(255)
 #  pub_year    :string(255)

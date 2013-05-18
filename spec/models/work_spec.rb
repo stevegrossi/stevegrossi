@@ -3,7 +3,7 @@
 #
 # Table name: works
 #
-#  id             :integer         not null, primary key
+#  id             :integer          not null, primary key
 #  title          :string(255)
 #  about          :text
 #  url            :string(255)

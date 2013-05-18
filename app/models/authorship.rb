@@ -2,7 +2,7 @@
 #
 # Table name: authorships
 #
-#  id         :integer         not null, primary key
+#  id         :integer          not null, primary key
 #  book_id    :integer
 #  author_id  :integer
 #  created_at :datetime

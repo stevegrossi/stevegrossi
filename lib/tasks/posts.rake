@@ -1,6 +1,7 @@
 namespace :posts do
   task :resave => :environment do
-    Post.find_each(&:save)
+    count = Post.find_each(&:save).length
+    puts "Re-saved #{count} post(s)"
   end
   task :set_word_count => :environment do
     Post.find_each do |post|

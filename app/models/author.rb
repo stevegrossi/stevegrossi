@@ -2,7 +2,7 @@
 #
 # Table name: authors
 #
-#  id         :integer         not null, primary key
+#  id         :integer          not null, primary key
 #  fname      :string(255)
 #  mname      :string(255)
 #  lname      :string(255)

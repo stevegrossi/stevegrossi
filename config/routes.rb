@@ -22,8 +22,8 @@ Stevegrossi::Application.routes.draw do
   resources :posts, path: 'on', only: [:index, :show] do
     collection do
       get 'page/:page', action: :index
-      get 'topics' => 'posts#topics', as: :topics
-      get 'topics/:topic' => 'posts#topic', as: :tagged
+      get 'topics' => 'posts#tags', as: :tags
+      get 'topics/:slug' => 'posts#tag', as: :tagged
       resources :books, only: [:index, :show] do
         collection do
           resources :authors, only: [:index, :show], path: 'by'

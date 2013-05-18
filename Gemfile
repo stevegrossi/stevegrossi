@@ -4,7 +4,6 @@ ruby '2.0.0'
 gem 'rails', '3.2.13'
 gem 'jquery-rails'
 gem 'maruku'
-gem "acts-as-taggable-on", "~> 2.3.1"
 gem 'friendly_id', '~> 4.0.9'
 gem 'bcrypt-ruby', require: 'bcrypt'
 gem 'unicorn'
@@ -30,7 +29,7 @@ group :development, :test do
 end
 
 group :development do
-  gem 'annotate', '~> 2.4.0'
+  gem 'annotate'
   gem 'bullet'
   gem 'meta_request'
 end

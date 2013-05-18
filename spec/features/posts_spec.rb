@@ -44,11 +44,11 @@ end
 
 describe 'post topics page' do
     before :each do
-      @marshmallows = FactoryGirl.create(:post, topic_list: 'marshmallows')
-      @kittens_and_marshmallows = FactoryGirl.create(:post, topic_list: 'kittens, marshmallows')
+      @marshmallows = FactoryGirl.create(:post, tag_list: 'marshmallows')
+      @kittens_and_marshmallows = FactoryGirl.create(:post, tag_list: 'kittens, marshmallows')
     end
     it 'lists topics covered in posts' do
-      visit topics_posts_path
+      visit tags_posts_path
       page.should have_content('kittens (1)')
       page.should have_content('marshmallows (2)')
     end
