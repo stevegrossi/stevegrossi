@@ -14,7 +14,7 @@
     <%= content_tag :h2, 'Current Tags' %>
     <%= content_tag :p do %>
       <% Post.tag_counts.sort_by(&:name).each do |tag| %>
-        <span class="tag"><%= tag %></span>
+        <span class="tag"><%= tag.name %></span>
       <% end %>
     <% end %>
   <% end %>

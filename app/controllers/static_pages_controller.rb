@@ -1,5 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
+    # Not shown
     @posts = Post.published.includes(:book).page params[:page]
   end
 

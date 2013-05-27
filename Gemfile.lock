@@ -110,6 +110,7 @@ GEM
       treetop (~> 1.4.8)
     maruku (0.6.1)
       syntax (>= 1.0.0)
+    memcachier (0.0.2)
     meta_request (0.2.5)
       callsite
       rack-contrib
@@ -238,6 +239,7 @@ DEPENDENCIES
   kaminari
   launchy
   maruku
+  memcachier
   meta_request
   newrelic_rpm
   pg

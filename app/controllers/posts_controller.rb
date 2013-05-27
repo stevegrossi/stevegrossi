@@ -1,7 +1,10 @@
 class PostsController < ApplicationController
 
+  caches_action :index, :show, :tag
+
   def index
-    @posts = Post.published.includes(:book, :tags).page params[:page]
+    posts = Post.published.includes(:book, :tags).all
+    @posts = Kaminari.paginate_array(posts).page(params[:page])
   end
 
   def show

@@ -1,5 +1,7 @@
 class Meta::PostsController < Meta::DashboardController
 
+  cache_sweeper :post_sweeper
+
   def index
     @posts = Post.includes(:book).order('created_at DESC')
   end

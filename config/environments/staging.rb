@@ -7,7 +7,12 @@ Stevegrossi::Application.configure do
 
   # Full error reports are disabled
   config.consider_all_requests_local = false
+
   config.action_controller.perform_caching = true
+
+  # Serve static assets with far-future expires headers
+  config.serve_static_assets = true
+  config.static_cache_control = "public, max-age=2592000"
 
   # Specifies the header that your server uses for sending files
   config.action_dispatch.x_sendfile_header = "X-Sendfile"
@@ -18,11 +23,9 @@ Stevegrossi::Application.configure do
   # If you have no front-end server that supports something like X-Sendfile,
   # just comment this out and Rails will serve the files
 
-  # See everything in the log (default is :info)
-  # config.log_level = :debug
-
-  # Use a different logger for distributed setups
-  # config.logger = SyslogLogger.new
+  # Have Unicorn log to STDOUT so full logs are captured
+  config.logger = Logger.new(STDOUT)
+  config.log_level = :debug
 
   # Serve static assets, which Rack::cache will cache
   config.serve_static_assets = true
@@ -48,18 +51,9 @@ Stevegrossi::Application.configure do
 
   # Don't fallback to assets pipeline if a precompiled asset is missed
   config.assets.compile = false
-  config.assets.precompile += ['admin.js', 'admin.css']
+  config.assets.precompile += %w(admin.js admin.css)
 
   # Generate digests for asset URLs
   config.assets.digest = true
-
-  config.action_dispatch.rack_cache = {
-    metastore:    Dalli::Client.new,
-    entitystore:  'file:tmp/cache/rack/body',
-    allow_reload: false
-  }
-
-  # Set far future expires headers
-  config.static_cache_control = "public, max-age=2592000"
 
 end

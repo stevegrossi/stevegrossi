@@ -15,6 +15,7 @@ gem 'simple_form'
 gem 'kaminari'
 gem 'rack-rewrite'
 gem 'rack-canonical-host'
+gem 'memcachier'
 gem 'dalli'
 
 group :assets do
