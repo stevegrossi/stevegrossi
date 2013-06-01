@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-  caches_action :index, :show, :tag
+  caches_action :index, :show, :tag, if: proc{ !current_user }
 
   def index
     posts = Post.published.includes(:book, :tags).all

@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to posts_path, notice: 'See you around, cowboy.'
+    redirect_to posts_path
   end
 
 end
