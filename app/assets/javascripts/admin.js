@@ -12,13 +12,13 @@ function tagRemoved(tag) {
 
 $(function() {
   // TagsInput plugin
-  $('#post_topic_list').tagsInput({
+  $('#post_tag_list').tagsInput({
     'onAddTag': tagAdded,
     'onRemoveTag': tagRemoved
   });
   $('p .tag').on('click', function() {
     var tag = $(this).html();
-    $('#post_topic_list').addTag(tag);
+    $('#post_tag_list').addTag(tag);
   });
 
 });
