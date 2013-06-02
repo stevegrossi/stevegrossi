@@ -29,8 +29,8 @@ class Book < ActiveRecord::Base
 
   scope :read, where('end_date IS NOT NULL').order('end_date DESC')
   scope :unread, where('end_date IS NULL').order('start_date')
-  scope :posted, includes(:post).where('posts.published_at IS NOT NULL').order('posts.published_at DESC')
-  scope :unposted, includes(:post).where('posts.published_at IS NULL').order('end_date DESC')
+  scope :unposted, joins(:post).merge(Post.drafts).order('end_date DESC')
+  scope :posted, joins(:post).merge(Post.published).order('published_at DESC')
 
   validates :title,       presence: true
   validates :publisher,   presence: true

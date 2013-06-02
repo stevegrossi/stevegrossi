@@ -1,9 +1,9 @@
 class BooksController < ApplicationController
 
   def index
-    @unread = Book.includes(:post).unread
-    @unposted = Book.includes(:authors).read.unposted
-    @posted = Book.includes(:authors).posted.limit(5)
+    @unread = Book.includes(:authors, :post).unread
+    @unposted = Book.includes(:authors, :post).read.unposted
+    @posted = Book.includes(:authors, :post).posted.limit(5)
   end
 
   def show

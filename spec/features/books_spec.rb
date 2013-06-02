@@ -2,12 +2,21 @@ require 'spec_helper'
 
 describe 'Shows books' do
   describe 'books archive' do
-    it 'displays read and unread books' do
-      read = FactoryGirl.create(:book)
+    it 'displays currently reading books' do
       unread = FactoryGirl.create(:unread_book)
       visit books_path
-      page.should have_content(read.title)
       page.should have_content(unread.title)
+    end
+    it 'does not display read books I am not writing about' do
+      read = FactoryGirl.create(:book)
+      visit books_path
+      page.should_not have_content(read.title)
+    end
+    it 'displays books I am writing about' do
+      read = FactoryGirl.create(:book)
+      FactoryGirl.create(:draft_post, book: read)
+      visit books_path
+      page.should have_content(read.title)
     end
   end
   describe 'book page' do

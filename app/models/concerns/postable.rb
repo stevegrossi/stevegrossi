@@ -4,7 +4,7 @@ module Postable
 
   included do
     scope :published, where('published_at IS NOT NULL').order('published_at DESC')
-    scope :drafts, where('published_at IS NULL').order('created_at DESC')
+    scope :drafts, where('published_at IS NULL')
   end
 
   def previous
