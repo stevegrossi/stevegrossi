@@ -40,6 +40,9 @@ Stevegrossi::Application.configure do
   # Allow pass debug_assets=true as a query parameter
   config.assets.allow_debugging = true
 
+  # Log less to speed up tests
+  config.log_level = :info
+
   # Raise exception on mass assignment protection for Active Record models
   config.active_record.mass_assignment_sanitizer = :strict
 
