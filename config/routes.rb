@@ -3,6 +3,7 @@ Stevegrossi::Application.routes.draw do
   # Dynamic redirects
   get '/made/:slug' => redirect("/built/%{slug}")
   get '/wrote/:slug' => redirect("/on/%{slug}")
+  get '/thoughts/about/:slug' => redirect("/on/topics/%{slug}")
   get '/thoughts/:slug' => redirect("/on/%{slug}")
   get '/read/:slug' => redirect("/on/%{slug}")
   get '/read/authors/:slug' => redirect("/on/books/by/%{slug}")
