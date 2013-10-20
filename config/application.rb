@@ -9,11 +9,6 @@ end
 module Stevegrossi
   class Application < Rails::Application
 
-    # Load necessary environment vars in dev & test
-    if ['development', 'test'].include?(Rails.env)
-      ENV.update YAML.load(File.read(File.expand_path('../application.yml', __FILE__)))
-    end
-
     # Configure generators for testing
     config.generators do |g|
       g.test_framework :rspec,
