@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/stevegrossi/stevegrossi.png?branch=master)](https://travis-ci.org/stevegrossi/stevegrossi)
+[![Coverage Status](https://coveralls.io/repos/stevegrossi/stevegrossi/badge.png?branch=master)](https://coveralls.io/r/stevegrossi/stevegrossi?branch=master)
 [![Code Climate](https://codeclimate.com/github/stevegrossi/stevegrossi.png)](https://codeclimate.com/github/stevegrossi/stevegrossi)
 
 # What is this?
