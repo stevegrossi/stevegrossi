@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/stevegrossi/stevegrossi.png?branch=master)](https://travis-ci.org/stevegrossi/stevegrossi)
 [![Code Climate](https://codeclimate.com/github/stevegrossi/stevegrossi.png)](https://codeclimate.com/github/stevegrossi/stevegrossi)
 
 # What is this?
