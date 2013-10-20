@@ -17,6 +17,7 @@ gem 'rack-rewrite'
 gem 'rack-canonical-host'
 gem 'memcachier'
 gem 'dalli'
+gem 'coveralls', require: false
 
 group :assets do
   gem 'sass-rails'
