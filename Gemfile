@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 ruby '2.0.0'
 
-gem 'rails', '3.2.13'
+gem 'rails', '3.2.15'
 gem 'jquery-rails'
 gem 'maruku'
 gem 'friendly_id', '~> 4.0.9'
