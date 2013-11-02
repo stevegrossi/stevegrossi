@@ -1,0 +1,8 @@
+- provide :title, 'The kinds of things I think about'
+
+h1 I’ve been thinking about:
+ol class="column_list"
+  - @tags.sort_by(&:name).each do |tag|
+    li
+      => link_to(tag.name, tagged_posts_path(tag))
+      | (#{ tag.count })

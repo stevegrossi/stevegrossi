@@ -1,0 +1,9 @@
+- provide :title, 'What I’m Thinking About'
+- provide :description, 'Some thoughts I’ve liked enough to write down'
+
+- if @posts.present?
+  ol class="title_list"
+    = render @posts
+  = paginate @posts
+- else
+  p Nothing to see here.

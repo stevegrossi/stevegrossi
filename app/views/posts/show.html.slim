@@ -1,0 +1,28 @@
+- provide :title, @post.title
+- provide :description, @post.idea
+
+- if @post.book_post?
+  footer class="sidebar"
+    = image_tag(@post.book.cover_url, alt: '', class: 'cover')
+    span class="book_title" = @post.book.title
+    span class="book_author" = linked_author_list(@post.book)
+    span class="book_publisher" #{ @post.book.publisher }, #{ @post.book.pub_year }
+    - if @post.book.asin?
+      = link_to('Amazon', "http://www.amazon.com/gp/product/#{ @post.book.asin }?ie=UTF8&tag=stevgros-20")
+  hgroup
+    h1 = @post.book.title
+    - unless @post.book.subtitle.blank?
+      h2 = @post.book.subtitle
+- elsif @post.link_post?
+  h1 = link_to(@post.title, @post.link_url)
+- else
+  h1 = @post.title
+
+p class="meta"
+  = @post.pretty_published_at
+  = link_to_edit(@post)
+
+p class="idea" = @post.idea
+= markdown(@post.content)
+
+= render 'shared/disqus', commentable: @post

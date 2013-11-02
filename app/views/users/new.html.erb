@@ -1,10 +1,9 @@
-<h1>Sign Up</h1>
+h1 Sign Up
 
-<%= flash_errors(@user) %>
+= flash_errors(@user)
 
-<%= simple_form_for @user do |f| %>
-  <%= f.input :username %>
-  <%= f.input :password %>
-  <%= f.input :password_confirmation %>
-  <%= f.submit %>
-<% end %>
+= simple_form_for @user do |f|
+  = f.input :username
+  = f.input :password
+  = f.input :password_confirmation
+  = f.submit

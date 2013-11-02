@@ -1,0 +1,13 @@
+- provide :title, @query.blank? ? 'Search' : "Searching for “#{@query}”"
+
+h1 = content_for(:title)
+- if @query.present?
+  = comment_on_search_term(@query)
+
+= render 'layouts/search_form'
+- if @query.present?
+  - if @results.blank?
+    p Sorry, no results.
+  - else
+    ol
+      = render partial: 'static_pages/search_result', collection: @results

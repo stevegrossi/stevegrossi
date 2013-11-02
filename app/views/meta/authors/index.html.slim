@@ -1,0 +1,21 @@
+- provide :title, 'Everyone I’ve read'
+
+h1 Everyone I’ve read.
+= link_to_new :author
+table cellspacing="0"
+  thead
+    tr
+      th First Name
+      th Middle Name
+      th Last Name
+      th Book(s)
+  tbody
+    - @authors.each do |author|
+      tr
+        td
+          = link_to_edit(author)
+          = author.fname
+        td = author.mname
+        td = author.lname
+        td = books_by(author)
+

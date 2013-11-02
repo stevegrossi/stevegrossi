@@ -1,0 +1,8 @@
+- provide :title, 'All Authors I’ve Read'
+
+h1 I’ve read books by
+- if @authors.present?
+  ol class="column_list"
+    = render @authors
+- else
+  p Hm, actually it looks like I haven’t read any books yet. To the library!

@@ -24,6 +24,7 @@ gem 'dalli'
 gem 'sass-rails'
 gem 'coffee-rails'
 gem 'uglifier'
+gem 'slim'
 
 gem 'rails_12factor', group: [:staging, :production]
 

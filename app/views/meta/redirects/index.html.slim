@@ -1,0 +1,16 @@
+- provide :title, 'All the redirects'
+
+h1 All the redirects.
+= link_to_new :redirect
+table cellspacing="0"
+  thead
+    tr
+      th From
+      th To
+  tbody
+    - @redirects.each do |redirect|
+      tr
+        td
+          = link_to_edit(redirect)
+          = redirect.from
+        td = link_to(redirect.to, redirect.to)

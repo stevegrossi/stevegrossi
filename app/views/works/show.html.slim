@@ -1,0 +1,11 @@
+- provide :title, @work.title
+- provide :description, @work.description
+
+= link_to_edit(@work)
+h1 = @work.title
+figure
+  = image_tag(@work.image_filename, alt: '')
+  figcaption
+    ' Visit
+    = link_from_url(@work.url)
+= markdown( @work.about )

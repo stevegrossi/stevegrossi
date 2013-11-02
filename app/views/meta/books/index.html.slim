@@ -1,0 +1,24 @@
+- provide :title, 'Everything I’ve read'
+
+h1 Everything I’ve read.
+= link_to_new :book
+table cellspacing="0"
+  thead
+    tr
+      th Title
+      th Author
+      th Publisher
+      th Year
+      th Started
+      th Finished
+  tbody
+    - @books.each do |book|
+      tr
+        td
+          = link_to_edit(book)
+          = link_to book.title, book
+        td = linked_author_list(book)
+        td = book.publisher
+        td = book.pub_year
+        td = book.start_date
+        td = book.end_date

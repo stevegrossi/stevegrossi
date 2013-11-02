@@ -1,7 +1,0 @@
-<% provide :title, @page.title %>
-<% provide :description, @page.description if @page.description.present? %>
-
-<%= link_to_edit(@page) %>
-<h1><%= @page.title %></h1>
-
-<%= raw(@page.content) %>

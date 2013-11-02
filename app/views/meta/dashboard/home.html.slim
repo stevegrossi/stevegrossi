@@ -1,0 +1,15 @@
+h1 Dashboard
+p
+  ' You’ve written #{ pluralize(number_with_delimiter(@word_count), 'word') }.
+  - if current_user.birthdate?
+     | You’ve been alive #{ number_with_delimiter(current_user.days_alive) } days.
+     - if current_user.birthdate.today?
+      | Happy birthday!
+p You’ve got:
+ul
+  li = link_to(pluralize(@posts_count, 'post'), meta_posts_path)
+  li = link_to(pluralize(@books_count, 'book'), meta_books_path)
+  li = link_to(pluralize(@authors_count, 'author'), meta_authors_path)
+  li = link_to(pluralize(@works_count, 'work'), meta_works_path)
+  li = link_to(pluralize(@pages_count, 'page'), meta_pages_path)
+  li = link_to(pluralize(@redirects_count, 'redirect'), meta_redirects_path)

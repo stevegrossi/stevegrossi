@@ -1,0 +1,18 @@
+- provide :title, 'All the pages'
+
+h1 All the pages.
+= link_to_new :page
+table cellspacing="0"
+  thead
+    tr
+      th Title
+      th Permalink
+      th Description
+  tbody
+    - @pages.each do |page|
+      tr
+        td
+          = link_to_edit(page)
+          = link_to(page.title, page)
+        td = page.permalink
+        td = page.description

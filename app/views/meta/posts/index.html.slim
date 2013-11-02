@@ -1,0 +1,22 @@
+- provide :title, 'All the posts'
+
+h1 All the posts.
+= link_to_new :post
+table cellspacing="0"
+  thead
+    tr
+      th Type
+      th Title
+      th Idea
+      th Words
+      th Published
+  tbody
+    - @posts.each do |post|
+      tr
+        td
+          = link_to_edit(post)
+          = post.post_type
+        td = link_to post.title, post
+        td = post.idea
+        td = post.word_count
+        td = post.pretty_published_at
