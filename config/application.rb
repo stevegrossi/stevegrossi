@@ -1,10 +1,6 @@
 require File.expand_path('../boot', __FILE__)
-
 require 'rails/all'
-
-if defined?(Bundler)
-  Bundler.require *Rails.groups(assets: %w(development test))
-end
+Bundler.require(:default, Rails.env)
 
 module Stevegrossi
   class Application < Rails::Application
@@ -24,12 +20,6 @@ module Stevegrossi
     # Enable the asset pipeline
     config.assets.enabled = true
     config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
-
-    # Version of your assets
-    config.assets.version = "1.0"
-
-    # Prevent asset precompilation failure on Heroku
-    config.assets.initialize_on_precompile = false
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -56,9 +46,6 @@ module Stevegrossi
     config.autoload_paths += %W(#{config.root}/lib)
     config.autoload_paths += %W(#{config.root}/app/models/concerns)
 
-    # JavaScript files you want as :defaults (application.js is always included).
-    config.action_view.javascript_expansions[:defaults] = %w()
-
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
 
@@ -71,15 +58,11 @@ module Stevegrossi
     # Handle routing or errors meself
     config.exceptions_app = self.routes
 
-    FriendlyId.defaults do |config|
-      config.use :slugged
-    end
-
     # Use dalli/memcached
     config.cache_store = :dalli_store
 
     # Remove trailing slashes from URLs
-    config.middleware.insert_before(Rack::Lock, Rack::Rewrite) do
+    config.middleware.insert_before(Rack::Runtime, Rack::Rewrite) do
       r301 %r{^/(.*)/$}, '/$1'
     end
 

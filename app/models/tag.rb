@@ -13,6 +13,6 @@ class Tag < ActiveRecord::Base
   has_many :posts, through: :taggings
 
   extend FriendlyId
-  friendly_id :name, use: :slugged
+  friendly_id :name
 
 end

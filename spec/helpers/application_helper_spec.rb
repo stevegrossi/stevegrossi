@@ -6,25 +6,25 @@ describe ApplicationHelper do
     it 'parses markdown' do
       string = 'I *am* some **simple** markdown.'
       markdown_string = '<p>I <em>am</em> some <strong>simple</strong> markdown.</p>'
-      markdown(string).should eq(markdown_string)
+      markdown(string).should include(markdown_string)
     end
   end
   describe '#link_to_new' do
     it 'links to a new type of record' do
       link_to_new_post = link_to('New post', new_meta_post_path, class: 'link_to_new')
-      stub!(:current_user).and_return(true)
+      should_receive(:current_user).and_return(true)
       link_to_new(:post).should eq(link_to_new_post)
     end
   end
   describe '#nav_link_to' do
     it 'links to a page with the class "current" if it is the current page' do
       expected = link_to('Works', works_path, class: 'current')
-      stub!(:current_page?).and_return(true)
+      should_receive(:current_page?).and_return(true)
       nav_link_to('Works', works_path).should eq(expected)
     end
     it 'links to a page without the class "current" if it is not the current page' do
       expected = link_to('Works', works_path)
-      stub!(:current_page?).and_return(false)
+      should_receive(:current_page?).and_return(false)
       nav_link_to('Works', works_path).should eq(expected)
     end
     # TODO: figure out how to stub the current controller actions so

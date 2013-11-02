@@ -1,6 +1,6 @@
 class Meta::PostsController < Meta::DashboardController
 
-  cache_sweeper :post_sweeper
+  cache_sweeper :post_sweeper unless Rails.env.test?
 
   def index
     @posts = Post.includes(:book).order('created_at DESC')

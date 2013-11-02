@@ -9,3 +9,4 @@ config/database.yml
 config/application.yml
 .env
 .powenv
+coverage/

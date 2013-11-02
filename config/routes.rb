@@ -10,9 +10,9 @@ Stevegrossi::Application.routes.draw do
 
   root to: redirect('/on')
 
-  match '/404' => 'errors#error_404'
-  match '/422' => 'errors#error_422'
-  match '/500' => 'errors#error_500'
+  get '/404' => 'errors#error_404'
+  get '/422' => 'errors#error_422'
+  get '/500' => 'errors#error_500'
 
   namespace :meta do
     resources :books, :authors, :works, :redirects, :posts
@@ -36,7 +36,7 @@ Stevegrossi::Application.routes.draw do
   resources :users
 
   get 'log_in' => 'sessions#new', as: 'log_in'
-  post 'log_in' => 'sessions#create', as: 'log_in'
+  post 'log_in' => 'sessions#create'
   get 'log_out' => 'sessions#destroy', as: 'log_out'
   get 'search' => 'static_pages#search'
   get 'feed' => 'static_pages#feed', format: :rss

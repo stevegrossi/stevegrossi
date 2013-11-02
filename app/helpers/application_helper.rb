@@ -31,7 +31,7 @@ module ApplicationHelper
   def link_to_delete(thing)
     if current_user
       name = thing.class.name.titleize
-      link_to "Delete this #{name}", polymorphic_path([:meta, thing]), confirm: "Are you sure you want to delete this #{name}? This cannot be undone.", method: :delete, class: 'delete_link'
+      link_to "Delete this #{name}", polymorphic_path([:meta, thing]), data: { confirm: "Are you sure you want to delete this #{name}? This cannot be undone." }, method: :delete, class: 'delete_link'
     end
   end
 

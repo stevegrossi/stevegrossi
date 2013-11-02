@@ -47,9 +47,9 @@ class Post < ActiveRecord::Base
     end
   end
 
-  scope :book_posts, where("book_id IS NOT NULL")
-  scope :link_posts, where("link_url IS NOT NULL AND link_url != ''")
-  scope :writing_posts, where("(link_url IS NULL OR link_url = '') AND book_id IS NULL")
+  scope :book_posts, -> { where("book_id IS NOT NULL") }
+  scope :link_posts, -> { where("link_url IS NOT NULL AND link_url != ''") }
+  scope :writing_posts, -> { where("(link_url IS NULL OR link_url = '') AND book_id IS NULL") }
 
   def post_type
     if book_post?

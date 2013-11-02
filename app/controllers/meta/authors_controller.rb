@@ -1,7 +1,7 @@
 class Meta::AuthorsController < Meta::DashboardController
 
   def index
-    @authors = Author.includes(:books).all
+    @authors = Author.includes(:books)
   end
 
   def new

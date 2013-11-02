@@ -27,10 +27,10 @@ class Book < ActiveRecord::Base
   has_many :authorships, dependent: :destroy
   has_many :authors, through: :authorships
 
-  scope :read, where('end_date IS NOT NULL').order('end_date DESC')
-  scope :unread, where('end_date IS NULL').order('start_date')
-  scope :unposted, joins(:post).merge(Post.drafts).order('end_date DESC')
-  scope :posted, joins(:post).merge(Post.published).order('published_at DESC')
+  scope :read, -> { where('end_date IS NOT NULL').order('end_date DESC') }
+  scope :unread, -> { where('end_date IS NULL').order('start_date') }
+  scope :unposted, -> { joins(:post).merge(Post.drafts).order('end_date DESC') }
+  scope :posted, -> { joins(:post).merge(Post.published).order('published_at DESC') }
 
   validates :title,       presence: true
   validates :publisher,   presence: true

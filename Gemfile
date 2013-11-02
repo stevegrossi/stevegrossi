@@ -1,10 +1,13 @@
 source 'http://rubygems.org'
 ruby '2.0.0'
 
-gem 'rails', '3.2.15'
+gem 'rails', '4.0.1'
 gem 'jquery-rails'
+gem 'actionpack-action_caching'
+gem 'rails-observers'
+gem 'protected_attributes', github: 'rails/protected_attributes'
 gem 'maruku'
-gem 'friendly_id', '~> 4.0.9'
+gem 'friendly_id', github: 'norman/friendly_id' # 5.0.0, for Rails 4
 gem 'bcrypt-ruby', require: 'bcrypt'
 gem 'unicorn'
 gem 'foreman'
@@ -18,11 +21,11 @@ gem 'rack-canonical-host'
 gem 'memcachier'
 gem 'dalli'
 
-group :assets do
-  gem 'sass-rails'
-  gem 'coffee-rails'
-  gem 'uglifier'
-end
+gem 'sass-rails'
+gem 'coffee-rails'
+gem 'uglifier'
+
+gem 'rails_12factor', group: [:staging, :production]
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.5'
@@ -36,6 +39,7 @@ group :development do
 end
 
 group :test do
+  gem 'minitest'
   gem 'capybara'
   gem 'faker'
   gem 'guard-rspec'
