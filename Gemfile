@@ -5,7 +5,6 @@ gem 'rails', '4.0.1'
 gem 'jquery-rails'
 gem 'actionpack-action_caching'
 gem 'rails-observers'
-gem 'protected_attributes', github: 'rails/protected_attributes'
 gem 'maruku'
 gem 'friendly_id', github: 'norman/friendly_id' # 5.0.0, for Rails 4
 gem 'bcrypt-ruby', require: 'bcrypt'

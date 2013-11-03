@@ -19,8 +19,6 @@ class Work < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title
 
-  attr_accessible :title, :about, :url, :client, :image_filename, :published_at
-
   include Postable
 
   validates :title,           presence: true

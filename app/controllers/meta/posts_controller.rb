@@ -15,7 +15,7 @@ class Meta::PostsController < Meta::DashboardController
   end
 
   def create
-    @post = Post.new(params[:post])
+    @post = Post.new(post_params)
     if params[:commit] == 'Publish'
       @post.published_at ||= Time.now
     end
@@ -28,7 +28,7 @@ class Meta::PostsController < Meta::DashboardController
 
   def update
     @post = Post.find(params[:id])
-    @post.attributes = params[:post]
+    @post.attributes = post_params
     if params[:commit] == 'Publish'
       @post.published_at ||= Time.now
     elsif params[:commit] == 'Unpublish'
@@ -46,6 +46,12 @@ class Meta::PostsController < Meta::DashboardController
     title = @post.title
     @post.destroy
     redirect_to meta_posts_path, notice: "You deleted <b>#{title}</b>."
+  end
+
+  private
+
+  def post_params
+    params.require(:post).permit(:content, :idea, :link_url, :published_at, :title, :book_id, :tag_list)
   end
 
 end

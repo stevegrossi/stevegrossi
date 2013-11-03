@@ -8,9 +8,6 @@ Stevegrossi::Application.configure do
 
   config.eager_load = false
 
-  # TODO: remoove
-  config.active_record.whitelist_attributes = false
-
   # Show full error reports and disable caching
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
@@ -31,8 +28,5 @@ Stevegrossi::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = false
-
-  # Raise exception on mass assignment protection for Active Record models
-  config.active_record.mass_assignment_sanitizer = :strict
 end
 

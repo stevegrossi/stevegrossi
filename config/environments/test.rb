@@ -9,9 +9,6 @@ Stevegrossi::Application.configure do
 
   config.eager_load = false
 
-  # TODO: remoove
-  config.active_record.whitelist_attributes = false
-
   # Show full error reports and disable caching
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
@@ -44,8 +41,5 @@ Stevegrossi::Application.configure do
 
   # Log less to speed up tests
   config.log_level = :info
-
-  # Raise exception on mass assignment protection for Active Record models
-  config.active_record.mass_assignment_sanitizer = :strict
 
 end

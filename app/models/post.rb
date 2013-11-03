@@ -28,8 +28,6 @@ class Post < ActiveRecord::Base
   multisearchable against: [:title, :idea, :content],
                   if: :published?
 
-  attr_accessible :content, :idea, :link_url, :published_at, :title, :book_id, :tag_list
-
   belongs_to :book
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings

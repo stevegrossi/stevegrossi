@@ -52,9 +52,6 @@ module Stevegrossi
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
 
-    # Mass assignment protection
-    config.active_record.whitelist_attributes = true
-
     # Handle routing or errors meself
     config.exceptions_app = self.routes
 

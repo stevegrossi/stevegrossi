@@ -13,7 +13,7 @@ class Meta::RedirectsController < Meta::DashboardController
   end
 
   def create
-    @redirect = Redirect.new(params[:redirect])
+    @redirect = Redirect.new(redirect_params)
     if @redirect.save
       redirect_to meta_redirects_path, notice: view_context.notify(:new, :redirect)
     else
@@ -23,7 +23,7 @@ class Meta::RedirectsController < Meta::DashboardController
 
   def update
     @redirect = Redirect.find(params[:id])
-    if @redirect.update_attributes(params[:redirect])
+    if @redirect.update_attributes(redirect_params)
       redirect_to meta_redirects_path, notice: view_context.notify(:updated, :redirect)
     else
       render :edit
@@ -34,6 +34,12 @@ class Meta::RedirectsController < Meta::DashboardController
     @redirect = Redirect.find(params[:id])
     @redirect.destroy
     redirect_to meta_redirects_path, notice: "You deleted the redirect."
+  end
+
+  private
+
+  def redirect_params
+    params.require(:redirect).permit(:to, :from)
   end
 
 end

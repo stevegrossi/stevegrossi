@@ -13,7 +13,7 @@ class Meta::PagesController < Meta::DashboardController
   end
 
   def create
-    @page = Page.new(params[:page])
+    @page = Page.new(page_params)
     if @page.save
       redirect_to @page, notice: view_context.notify(:new, :page)
     else
@@ -23,7 +23,7 @@ class Meta::PagesController < Meta::DashboardController
 
   def update
     @page = Page.find_by_permalink!(params[:id])
-    if @page.update_attributes(params[:page])
+    if @page.update_attributes(page_params)
       redirect_to @page, notice: view_context.notify(:updated, :page)
     else
       render :edit
@@ -35,6 +35,12 @@ class Meta::PagesController < Meta::DashboardController
     title = @page.title
     @page.destroy
     redirect_to meta_pages_path, notice: "You deleted the page <b>#{title}</b>."
+  end
+
+  private
+
+  def page_params
+    params.require(:page).permit(:title, :permalink, :content, :description)
   end
 
 end

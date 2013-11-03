@@ -13,7 +13,7 @@ class Meta::WorksController < Meta::DashboardController
   end
 
   def create
-    @work = Work.new(params[:work])
+    @work = Work.new(work_params)
     if params[:commit] == 'Publish'
       @work.published_at ||= Time.now
     end
@@ -26,7 +26,7 @@ class Meta::WorksController < Meta::DashboardController
 
   def update
     @work = Work.find(params[:id])
-    @work.attributes = params[:work]
+    @work.attributes = work_params
     if params[:commit] == 'Publish'
       @work.published_at ||= Time.now
     elsif params[:commit] == 'Unpublish'
@@ -44,6 +44,12 @@ class Meta::WorksController < Meta::DashboardController
     title = @work.title
     @work.destroy
     redirect_to meta_works_path, notice: "You deleted <b>#{title}</b>."
+  end
+
+  private
+
+  def work_params
+    params.require(:work).permit(:title, :about, :url, :client, :image_filename, :published_at)
   end
 
 end

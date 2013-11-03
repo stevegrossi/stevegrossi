@@ -16,8 +16,6 @@ class Author < ActiveRecord::Base
   extend FriendlyId
   friendly_id :full_name
 
-  attr_accessible :fname, :mname, :lname
-
   has_many :authorships, dependent: :destroy
   has_many :books, through: :authorships
 

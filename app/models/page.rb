@@ -12,7 +12,6 @@
 #
 
 class Page < ActiveRecord::Base
-  attr_accessible :title, :permalink, :content, :description
 
   validates :title,     presence: true,
                         uniqueness: true

@@ -16,7 +16,7 @@ class Meta::BooksController < Meta::DashboardController
   end
 
   def create
-    @book = Book.new(params[:book])
+    @book = Book.new(book_params)
     @authors = Author.all
     if @book.save
       redirect_to @book, notice: view_context.notify(:new, :book)
@@ -28,8 +28,8 @@ class Meta::BooksController < Meta::DashboardController
   def update
     @book = Book.find(params[:id])
     @authors = Author.all
-    @book.attributes = params[:book]
-    params[:book][:published_at] = nil if params[:book][:published_at].blank?
+    @book.attributes = book_params
+    book_params[:published_at] = nil if book_params[:published_at].blank?
     if @book.save
       redirect_to @book, notice: view_context.notify(:updated, :book)
     else
@@ -42,6 +42,12 @@ class Meta::BooksController < Meta::DashboardController
     title = @book.title
     @book.destroy
     redirect_to meta_books_path, notice: "You deleted <b>#{title}</b>."
+  end
+
+  private
+
+  def book_params
+    params.require(:book).permit(:title, :subtitle, :asin, :publisher, :pub_year, { author_ids: [] }, :cover_image, :start_date, :end_date)
   end
 
 end
