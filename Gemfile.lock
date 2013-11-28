@@ -144,9 +144,6 @@ GEM
       method_source (~> 0.8)
       slop (~> 3.4)
     rack (1.5.2)
-    rack-canonical-host (0.0.8)
-      addressable
-      rack (~> 1.0)
     rack-contrib (1.1.0)
       rack (>= 0.9.1)
     rack-rewrite (1.4.01)
@@ -276,7 +273,6 @@ DEPENDENCIES
   newrelic_rpm
   pg
   pg_search
-  rack-canonical-host
   rack-rewrite
   rails (= 4.0.1)
   rails-observers
