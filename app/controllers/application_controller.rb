@@ -14,11 +14,11 @@ class ApplicationController < ActionController::Base
 
   def logged_in?
     unless session[:user_id]
-      session[:return_to] = request.fullpath
+      session[:return_to] = request.url
       redirect_to log_in_path, alert: 'Whoa! You need to log in to do that.'
-      return false
+      false
     else
-      return true
+      true
     end
   end
 end
