@@ -30,7 +30,7 @@ describe 'Authentication' do
       user = FactoryGirl.create(:user)
       visit new_meta_book_path
       fill_in 'Username', with: user.username
-      fill_in 'Password', with: 'secret'
+      fill_in 'Password', with: test_password
       click_button 'Log In'
       current_path.should == new_meta_book_path
     end
