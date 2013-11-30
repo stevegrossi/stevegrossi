@@ -29,8 +29,8 @@ describe 'Authentication' do
     it 'redirects to the intended path upon authentication' do
       user = FactoryGirl.create(:user)
       visit new_meta_book_path
-      fill_in 'username', with: user.username
-      fill_in 'password', with: 'secret'
+      fill_in 'Username', with: user.username
+      fill_in 'Password', with: 'secret'
       click_button 'Log In'
       current_path.should == new_meta_book_path
     end

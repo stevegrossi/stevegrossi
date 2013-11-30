@@ -6,11 +6,7 @@ h1 Log In
     b> #{ current_user.username }.
     = link_to('Log out?', log_out_path)
 - else
-  = form_tag(log_in_path) do
-    = label_tag :username
-    = text_field_tag :username, params[:username]
-
-    = label_tag :password
-    = password_field_tag :password
-
-    p = submit_tag 'Log In'
+  = simple_form_for :login, url: log_in_path do |f|
+    = f.input :username
+    = f.input :password
+    = f.button :submit, 'Log In'

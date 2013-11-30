@@ -6,8 +6,8 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by_username(params[:username])
-    if user && user.authenticate(params[:password])
+    user = User.find_by_username(params[:login][:username])
+    if user && user.authenticate(params[:login][:password])
       session[:user_id] = user.id
       redirect_to (session[:return_to] || meta_dashboard_path), notice: 'Hey there, good lookin!'
     else
