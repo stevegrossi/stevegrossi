@@ -44,6 +44,13 @@ class Meta::BooksController < Meta::DashboardController
     redirect_to meta_books_path, notice: "You deleted <b>#{title}</b>."
   end
 
+  def finish
+    book = Book.find(params[:book_id])
+    book.finish
+    book.save
+    redirect_to meta_books_path
+  end
+
   private
 
   def book_params

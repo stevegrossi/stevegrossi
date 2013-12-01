@@ -38,6 +38,11 @@ describe Book do
   it 'is valid with multiple authors' do
     FactoryGirl.build(:book_with_two_authors).should be_valid
   end
+  it 'can mark itself as finished' do
+    book = FactoryGirl.build(:book)
+    book.finish
+    book.end_date.should eq(Time.now.to_date)
+  end
   describe 'scopes' do
     before :each do
       @read = FactoryGirl.create(:book)

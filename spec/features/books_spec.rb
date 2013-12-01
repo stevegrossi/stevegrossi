@@ -44,6 +44,19 @@ describe 'Administrates books' do
       visit meta_books_path
       page.should have_content(book.title)
     end
+    context 'when a book is unread' do
+      it 'provides a link to mark as read' do
+        FactoryGirl.create(:unread_book)
+        visit meta_books_path
+        page.should have_selector(:link_or_button, 'Finish')
+      end
+      it 'marks a book as read when clicked' do
+        FactoryGirl.create(:unread_book)
+        visit meta_books_path
+        click_link 'Finish'
+        page.should have_content(Time.now.to_date)
+      end
+    end
   end
   describe 'new book page' do
     before :each do

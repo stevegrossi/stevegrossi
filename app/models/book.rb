@@ -48,4 +48,12 @@ class Book < ActiveRecord::Base
     end
   end
 
+  def finished?
+    end_date.present?
+  end
+
+  def finish
+    self.end_date = Time.now.to_date
+  end
+
 end

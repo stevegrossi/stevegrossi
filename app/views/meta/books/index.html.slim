@@ -21,4 +21,8 @@ table cellspacing="0"
         td = book.publisher
         td = book.pub_year
         td = book.start_date
-        td = book.end_date
+        td
+          - if book.finished?
+            = book.end_date
+          - else
+            = link_to('Finish', meta_book_finish_path(book), method: :post)

@@ -15,7 +15,10 @@ Stevegrossi::Application.routes.draw do
   get '/500' => 'errors#error_500'
 
   namespace :meta do
-    resources :books, :authors, :works, :redirects, :posts
+    resources :books do
+      post 'finish' => 'books#finish'
+    end
+    resources :authors, :works, :redirects, :posts
     resources :pages, constraints: { id: /.*/ }
     root to: 'dashboard#home', as: :dashboard
   end
