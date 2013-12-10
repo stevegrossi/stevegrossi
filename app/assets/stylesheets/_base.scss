@@ -7,6 +7,8 @@ body {
   font-family:$serif_stack;
   font-size:100%;
   line-height:$baseline;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   @include breakpoint(m) {
     font-size: 112.5%; // 18px
     line-height: 1.5555555556; // 28px
