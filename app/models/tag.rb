@@ -15,4 +15,6 @@ class Tag < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name
 
+  default_scope order('name')
+
 end
