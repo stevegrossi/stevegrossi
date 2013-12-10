@@ -1,18 +1,12 @@
 = flash_errors(@post)
 = simple_form_for([:meta, @post]) do |f|
   = f.input :title, hint: 'For book posts, defaults to book’s title'
-  = f.association :book
+  = f.association :book, collection: Book.all.order(:title), input_html: { data: { placeholder: 'Select book' } }
   = f.input :link_url
   = f.input :idea, input_html: { rows: 4 }
   = f.input :content
   = f.input :published_at, include_blank: true
-
-  = field_set_tag 'Topics', class: :topics do
-    = f.input :tag_list
-    h2 'Current Tags'
-    p
-      - Post.tag_counts.sort_by(&:name).each do |tag|
-        span class="tag" = tag.name
+  = f.association :tags
 
   div class="actions"
     = f.submit 'Publish'

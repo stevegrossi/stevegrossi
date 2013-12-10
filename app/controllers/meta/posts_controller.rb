@@ -51,7 +51,7 @@ class Meta::PostsController < Meta::DashboardController
   private
 
   def post_params
-    params.require(:post).permit(:content, :idea, :link_url, :published_at, :title, :book_id, :tag_list)
+    params.require(:post).permit(:content, :idea, :link_url, :published_at, :title, :book_id, { tag_ids: [] })
   end
 
 end

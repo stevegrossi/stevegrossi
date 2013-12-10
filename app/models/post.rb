@@ -71,16 +71,6 @@ class Post < ActiveRecord::Base
     content.scan(/\S+/).size
   end
 
-  def tag_list
-    tags.map(&:name).join(', ')
-  end
-
-  def tag_list=(names)
-    self.tags = names.split(",").map do |n|
-      Tag.where(name: n.strip).first_or_create!
-    end
-  end
-
   def self.tagged_with(tag)
     tag.posts
   end

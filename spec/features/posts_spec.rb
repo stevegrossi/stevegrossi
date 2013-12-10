@@ -43,9 +43,13 @@ describe 'Shows posts' do
 end
 
 describe 'post topics page' do
+    before :all do
+      @tag_kittens = Tag.create(name: 'kittens')
+      @tag_marshmallows = Tag.create(name: 'marshmallows')
+    end
     before :each do
-      @marshmallows = FactoryGirl.create(:post, tag_list: 'marshmallows')
-      @kittens_and_marshmallows = FactoryGirl.create(:post, tag_list: 'kittens, marshmallows')
+      @marshmallows = FactoryGirl.create(:post, tags: [@tag_marshmallows])
+      @kittens_and_marshmallows = FactoryGirl.create(:post, tags: [@tag_kittens, @tag_marshmallows])
     end
     it 'lists topics covered in posts' do
       visit tags_posts_path
