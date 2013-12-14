@@ -8,7 +8,7 @@
     span.book_author = linked_author_list(@post.book)
     span.book_publisher #{ @post.book.publisher }, #{ @post.book.pub_year }
     - if @post.book.asin?
-      = link_to('Amazon', "http://www.amazon.com/gp/product/#{ @post.book.asin }?ie=UTF8&tag=stevgros-20")
+      = link_to('Purchase', "http://www.amazon.com/gp/product/#{ @post.book.asin }?ie=UTF8&tag=stevgros-20", class: 'book_purchase')
   div.heading
     h1 = @post.book.title
     - unless @post.book.subtitle.blank?

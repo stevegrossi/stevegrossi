@@ -10,7 +10,7 @@ footer.sidebar
   span.book_publisher
     #{ @book.publisher }, #{ @book.pub_year }
   - if @book.asin?
-    = link_to('Amazon', "http://www.amazon.com/gp/product/#{ @book.asin }?ie=UTF8&tag=stevgros-20")
+    = link_to('Purchase', "http://www.amazon.com/gp/product/#{ @book.asin }?ie=UTF8&tag=stevgros-20", class: 'book_purchase')
 div.heading
   h1 = @book.title
   - if @book.subtitle.present?
