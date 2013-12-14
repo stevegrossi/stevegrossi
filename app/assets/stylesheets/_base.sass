@@ -28,12 +28,13 @@ a
   &:hover, &:active
     color: mix(white, $blue, 20%)
 
-h1, h2, h3, h4, h5, p, ul, ol, dl, hgroup, table, figure, fieldset, input[type="submit"]
+h1, h2, h3, h4, h5, p, ul, ol, dl, .heading, table, figure, fieldset, input[type="submit"]
   margin-top: $baseline
   margin-bottom: $baseline
 
-hgroup h1, hgroup h2, hgroup h3, hgroup h4, hgroup h5
-  margin-bottom: 0
+.heading
+  h1, h2, h3, h4, h5
+    margin-bottom: 0
 
 h1, h2, h3, h4, h5, h6
   line-height: 1

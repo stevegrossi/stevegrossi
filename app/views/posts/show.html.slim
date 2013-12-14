@@ -9,14 +9,17 @@
     span.book_publisher #{ @post.book.publisher }, #{ @post.book.pub_year }
     - if @post.book.asin?
       = link_to('Amazon', "http://www.amazon.com/gp/product/#{ @post.book.asin }?ie=UTF8&tag=stevgros-20")
-  hgroup
+  div.heading
     h1 = @post.book.title
     - unless @post.book.subtitle.blank?
       h2 = @post.book.subtitle
 - elsif @post.link_post?
-  h1 = link_to(@post.title, @post.link_url)
+  div.heading
+    h1 = @post.title
+    p.link = link_from_url(@post.link_url)
 - else
-  h1 = @post.title
+  div.heading
+    h1 = @post.title
 
 p.meta
   = @post.pretty_published_at
