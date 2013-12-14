@@ -8,7 +8,7 @@
   = f.input :published_at, include_blank: true
   = f.association :tags
 
-  div class="actions"
+  div.actions
     = f.submit 'Publish'
     = f.submit @post.published? ? 'Unpublish' : 'Save Draft', class: :secondary
     = link_to 'or go back', meta_posts_path, class: :cancel

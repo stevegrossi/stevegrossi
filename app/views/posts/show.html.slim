@@ -2,11 +2,11 @@
 - provide :description, @post.idea
 
 - if @post.book_post?
-  footer class="sidebar"
+  footer.sidebar
     = image_tag(@post.book.cover_url, alt: '', class: 'cover')
-    span class="book_title" = @post.book.title
-    span class="book_author" = linked_author_list(@post.book)
-    span class="book_publisher" #{ @post.book.publisher }, #{ @post.book.pub_year }
+    span.book_title = @post.book.title
+    span.book_author = linked_author_list(@post.book)
+    span.book_publisher #{ @post.book.publisher }, #{ @post.book.pub_year }
     - if @post.book.asin?
       = link_to('Amazon', "http://www.amazon.com/gp/product/#{ @post.book.asin }?ie=UTF8&tag=stevgros-20")
   hgroup
@@ -18,10 +18,10 @@
 - else
   h1 = @post.title
 
-p class="meta"
+p.meta
   = @post.pretty_published_at
 
-p class="idea" = @post.idea
+p.idea = @post.idea
 = markdown(@post.content)
 
 = render 'shared/disqus', commentable: @post

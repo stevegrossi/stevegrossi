@@ -2,7 +2,7 @@
 - provide :description, 'Some thoughts I’ve liked enough to write down'
 
 - if @posts.present?
-  ol class="title_list"
+  ol.title_list
     = render @posts
   = paginate @posts
 - else

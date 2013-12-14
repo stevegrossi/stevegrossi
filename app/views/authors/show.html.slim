@@ -1,6 +1,6 @@
 h1 Books I’ve read by #{ @author.full_name }:
 - if @books.present?
-  ol class="title_list"
+  ol.title_list
     = render @books
 - else
   p Hm, it looks like I actually haven’t read any of #{ @author.fname }’s books. To the library!

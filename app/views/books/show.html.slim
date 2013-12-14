@@ -1,20 +1,20 @@
 - provide :title, @book.title
 - provide :description, 'I read a book.'
 
-footer class="sidebar"
+footer.sidebar
   = image_tag(@book.cover_url, alt: '', class: 'cover')
-  span class="book_title"
+  span.book_title
     = @book.title
-  span class="book_author"
+  span.book_author
     = linked_author_list(@book)
-  span class="book_publisher"
+  span.book_publisher
     #{ @book.publisher }, #{ @book.pub_year }
   - if @book.asin?
     = link_to('Amazon', "http://www.amazon.com/gp/product/#{ @book.asin }?ie=UTF8&tag=stevgros-20")
-hgroup
+div.heading
   h1 = @book.title
   - if @book.subtitle.present?
     h2= @book.subtitle
 
-p class="meta"
+p.meta
   = @book.start_date

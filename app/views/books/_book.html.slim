@@ -1,11 +1,11 @@
-li class="book"
+li.book
   article
     = image_tag('placeholder.png', class: 'cover', data: { original: book.cover_url })
-    span class="title"
+    span.title
       - if book.posted?
         = link_to(book.title, book.post)
       - else
         = content_tag(:span, book.title)
     = author_list(book)
-    span class="meta"
+    span.meta
       #{ book.publisher }, #{ book.pub_year }

@@ -7,7 +7,7 @@
   = f.input :image_filename
   = f.input :published_at, include_blank: true
 
-  div class="actions"
+  div.actions
     = f.submit 'Publish'
     = f.submit @work.published? ? 'Unpublish' : 'Save Draft', class: :secondary
     = link_to 'or go back', @work, class: :cancel
