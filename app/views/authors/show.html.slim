@@ -1,4 +1,4 @@
-h1 Books I’ve read by #{ @author.full_name }:
+h1.centered Books I’ve read by #{ @author.full_name }
 - if @books.present?
   ol.title_list
     = render @books
@@ -9,4 +9,4 @@ p
 
 - content_for :page_js do
   javascript:
-    $(".book img").lazyload({ effect: 'fadeIn' });
+    $("._book img").lazyload({ effect: 'fadeIn' });

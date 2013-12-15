@@ -56,4 +56,8 @@ class Book < ActiveRecord::Base
     self.end_date = Time.now.to_date
   end
 
+  def publine
+    "#{ publisher }, #{ pub_year }"
+  end
+
 end

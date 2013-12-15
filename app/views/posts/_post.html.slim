@@ -1,8 +1,8 @@
-li class=['post', post.post_type.downcase]
+li class=['_post', post.post_type.downcase]
   article
-    span.meta.date = post.pretty_published_at
-    span.title = link_to(post.title, post)
+    div.date = post.pretty_published_at
+    div.title = link_to(post.title, post)
     = post.idea
     - if post.tags.present?
-      span.meta.topics
+      div.topics
         = raw "on #{ linked_tags_for(post) }"

@@ -20,10 +20,10 @@ div
 
   - if @post.book_post?
     hr
-    footer#book.post-footer-book
+    footer#book._book.centered
       = image_tag(@post.book.cover_url, alt: '', class: 'cover')
-      div.post-footer-book-meta
-        div.book_title = @post.book.title
+      div._book-meta
+        div._book-title = @post.book.title
         div = linked_author_list(@post.book)
         div #{ @post.book.publisher }, #{ @post.book.pub_year }
         - if @post.book.asin?
