@@ -75,6 +75,10 @@ class Post < ActiveRecord::Base
     tag.posts
   end
 
+  def subtitle
+    book.try(:subtitle)
+  end
+
   def self.tag_counts
     Tag.select("tags.*, count(taggings.tag_id) as count").
       joins(:taggings).group("taggings.tag_id, tags.id, tags.name, tags.slug")

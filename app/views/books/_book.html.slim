@@ -6,6 +6,6 @@ li.book
         = link_to(book.title, book.post)
       - else
         = content_tag(:span, book.title)
-    = author_list(book)
+    = linked_author_list(book)
     span.meta
       #{ book.publisher }, #{ book.pub_year }

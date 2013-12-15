@@ -1,7 +1,7 @@
 - provide :title, @book.title
 - provide :description, 'I read a book.'
 
-footer.sidebar
+footer
   = image_tag(@book.cover_url, alt: '', class: 'cover')
   span.book_title
     = @book.title

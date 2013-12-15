@@ -1,30 +1,32 @@
 - provide :title, @post.title
 - provide :description, @post.idea
 
-- if @post.book_post?
-  footer.sidebar
-    = image_tag(@post.book.cover_url, alt: '', class: 'cover')
-    span.book_title = @post.book.title
-    span.book_author = linked_author_list(@post.book)
-    span.book_publisher #{ @post.book.publisher }, #{ @post.book.pub_year }
-    - if @post.book.asin?
-      = link_to('Purchase', "http://www.amazon.com/gp/product/#{ @post.book.asin }?ie=UTF8&tag=stevgros-20", class: 'book_purchase')
-  div.heading
-    h1 = @post.book.title
-    - unless @post.book.subtitle.blank?
-      h2 = @post.book.subtitle
-- elsif @post.link_post?
-  div.heading
-    h1 = @post.title
-    p.link = link_from_url(@post.link_url)
-- else
-  div.heading
-    h1 = @post.title
+div
+  header.post-header
+    - if @post.book_post?
+      a.post-header-cover href="#book"
+        = image_tag(@post.book.cover_url, alt: '', width: 80)
+    div.heading
+      h1 = @post.title
+      - if @post.subtitle.present?
+        h2 = @post.subtitle
+      - if @post.link_post?
+        h2.post-header-link = link_from_url(@post.link_url)
+    p.post-date
+      = @post.pretty_published_at
+    p.post-idea = @post.idea
 
-p.meta
-  = @post.pretty_published_at
+  article = markdown(@post.content)
 
-p.idea = @post.idea
-= markdown(@post.content)
+  - if @post.book_post?
+    hr
+    footer#book.post-footer-book
+      = image_tag(@post.book.cover_url, alt: '', class: 'cover')
+      div.post-footer-book-meta
+        div.book_title = @post.book.title
+        div = linked_author_list(@post.book)
+        div #{ @post.book.publisher }, #{ @post.book.pub_year }
+        - if @post.book.asin?
+          = link_to('Purchase', "http://www.amazon.com/gp/product/#{ @post.book.asin }?ie=UTF8&tag=stevgros-20", class: 'post-footer-book-linkout')
 
-= render 'shared/disqus', commentable: @post
+  = render 'shared/disqus', commentable: @post
