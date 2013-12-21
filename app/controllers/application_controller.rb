@@ -2,23 +2,8 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery
 
-  helper_method :current_user
-
-  private
-
-  def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  def after_sign_in_path_for(user)
+    session[:user_return_to] || meta_dashboard_path
   end
 
-  protected
-
-  def logged_in?
-    unless session[:user_id]
-      session[:return_to] = request.url
-      redirect_to log_in_path, alert: 'Whoa! You need to log in to do that.'
-      false
-    else
-      true
-    end
-  end
 end

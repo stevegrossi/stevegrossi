@@ -1,3 +1,5 @@
+//= require jquery
+//= require jquery_ujs
 //= require jquery.facebox
 //= require jquery.chosen
 //= require_self

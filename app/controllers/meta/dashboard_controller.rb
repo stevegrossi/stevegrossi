@@ -1,6 +1,8 @@
 class Meta::DashboardController < ApplicationController
 
-  before_filter :logged_in?
+  layout 'meta'
+
+  before_action :authenticate_user!
 
   def home
     @posts_count = Post.count
@@ -10,5 +12,6 @@ class Meta::DashboardController < ApplicationController
     @works_count = Work.count
     @pages_count = Page.count
     @redirects_count = Redirect.count
+    @users_count = User.count
   end
 end

@@ -44,7 +44,14 @@
     &:before
       content: '$'
 
-@import post
+a[data-icon]
+  visibility: hidden
+  width: 1em
+  overflow: hidden
+  &:before
+    visibility: visible
+    content: attr(data-icon)
+    font-family: $icon_stack
 
 .cover
   +shadow
@@ -239,4 +246,18 @@ form.search
 .work
   text-align: center
 
-@import posts
+.pagination
+  margin: $baseline 0
+  text-align: center
+  span
+    display: inline-block
+    padding: 0 .5em
+    +round
+    &.current
+      background-color: $dark
+      color: #fff
+  a
+    color: $dark
+    text-decoration: none
+    &:hover, &:focus
+      text-decoration: underline

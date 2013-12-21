@@ -14,6 +14,15 @@ Stevegrossi::Application.routes.draw do
   get '/422' => 'errors#error_422'
   get '/500' => 'errors#error_500'
 
+  scope :meta do
+    devise_for :users, skip: [:sessions, :registrations]
+    as :user do
+      get 'in' => 'devise/sessions#new', as: :new_user_session
+      post 'in' => 'devise/sessions#create', as: :user_session
+      get 'out' => 'devise/sessions#destroy', as: :destroy_user_session
+    end
+  end
+
   namespace :meta do
     resources :books do
       post 'finish' => 'books#finish'
@@ -36,11 +45,7 @@ Stevegrossi::Application.routes.draw do
     end
   end
   resources :works, path: 'built', only: [:index, :show]
-  resources :users
 
-  get 'log_in' => 'sessions#new', as: 'log_in'
-  post 'log_in' => 'sessions#create'
-  get 'log_out' => 'sessions#destroy', as: 'log_out'
   get 'search' => 'static_pages#search'
   get 'feed' => 'static_pages#feed', format: :rss
 

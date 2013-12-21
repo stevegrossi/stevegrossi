@@ -1,5 +1,4 @@
-class UsersController < ApplicationController
-  before_filter :logged_in?
+class Meta::UsersController < Meta::DashboardController
 
   def new
     @user = User.new

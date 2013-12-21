@@ -1,13 +1,13 @@
 def test_password
-  'secret'
+  'password'
 end
 
 def log_in_user
   user = FactoryGirl.create(:user)
-  visit log_in_path
-  fill_in 'Username', with: user.username
+  visit new_user_session_path
+  fill_in 'Email', with: user.email
   fill_in 'Password', with: test_password
-  click_button 'Log In'
+  click_button 'Sign in'
 end
 
 def class_to_symbol(klass)

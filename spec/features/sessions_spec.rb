@@ -9,18 +9,18 @@ describe 'Authentication' do
     end
 
     it 'logs in a user' do
-      page.should have_content('Hey there')
+      page.should have_content('Signed in')
       current_path.should == meta_dashboard_path
     end
 
     it 'logs out a user' do
-      visit log_out_path
+      visit destroy_user_session_path
       current_path.should == posts_path # Not root_path for now, since I redirect to /on
     end
 
     it 'notifies a user if they are already logged in' do
-      visit log_in_path
-      page.should have_content('already logged in')
+      visit new_user_session_path
+      page.should have_content('already signed in')
     end
   end
 
@@ -29,9 +29,9 @@ describe 'Authentication' do
     it 'redirects to the intended path upon authentication' do
       user = FactoryGirl.create(:user)
       visit new_meta_book_path
-      fill_in 'Username', with: user.username
+      fill_in 'Email', with: user.email
       fill_in 'Password', with: test_password
-      click_button 'Log In'
+      click_button 'Sign in'
       current_path.should == new_meta_book_path
     end
   end
