@@ -4,14 +4,14 @@ describe 'Shows posts' do
 
   describe "posts archive" do
     it 'displays published posts' do
-      post1 = FactoryGirl.create(:post)
-      post2 = FactoryGirl.create(:post)
+      post1 = create(:post)
+      post2 = create(:post)
       visit posts_path
       page.should have_content(post1.title)
       page.should have_content(post2.title)
     end
     it 'does not display drafts' do
-      FactoryGirl.create(:draft_post, title: 'This is a draft')
+      create(:draft_post, title: 'This is a draft')
       visit posts_path
       page.should_not have_content('This is a draft')
     end
@@ -19,7 +19,7 @@ describe 'Shows posts' do
 
   describe "post page" do
     it 'displays a post' do
-      post = FactoryGirl.create(:post)
+      post = create(:post)
       visit post_path(post)
       within 'h1' do
         page.should have_content(post.title)
@@ -27,14 +27,14 @@ describe 'Shows posts' do
     end
     it 'displays drafts to authenticated users' do
       log_in_user
-      post = FactoryGirl.create(:draft_post)
+      post = create(:draft_post)
       visit post_path(post)
       within '.alert' do
         page.should have_content('This is a draft')
       end
     end
     it 'redirects unauthenticated requests to drafts to posts_path' do
-      post = FactoryGirl.create(:draft_post)
+      post = create(:draft_post)
       visit post_path(post)
       current_path.should == posts_path
       page.should have_content('You must be logged in')
@@ -48,8 +48,8 @@ describe 'post topics page' do
       @tag_marshmallows = Tag.create(name: 'marshmallows')
     end
     before :each do
-      @marshmallows = FactoryGirl.create(:post, tags: [@tag_marshmallows])
-      @kittens_and_marshmallows = FactoryGirl.create(:post, tags: [@tag_kittens, @tag_marshmallows])
+      @marshmallows = create(:post, tags: [@tag_marshmallows])
+      @kittens_and_marshmallows = create(:post, tags: [@tag_kittens, @tag_marshmallows])
     end
     it 'lists topics covered in posts' do
       visit tags_posts_path
@@ -69,8 +69,8 @@ describe 'Administrates posts' do
   end
   describe 'posts dashboard' do
     it 'displays published and draft posts' do
-      published = FactoryGirl.create(:post)
-      draft = FactoryGirl.create(:draft_post)
+      published = create(:post)
+      draft = create(:draft_post)
       visit meta_posts_path
       page.should have_content(published.title)
       page.should have_content(draft.title)
@@ -123,7 +123,7 @@ describe 'Administrates posts' do
   end
   describe 'edit post page' do
     before :each do
-      @post = FactoryGirl.create(:post)
+      @post = create(:post)
       visit edit_meta_post_path(@post)
     end
     context 'with valid attributes' do

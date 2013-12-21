@@ -5,8 +5,8 @@ describe 'Shows authors' do
 
   describe "authors archive" do
     it 'displays published authors' do
-      author1 = FactoryGirl.create(:author)
-      author2 = FactoryGirl.create(:author)
+      author1 = create(:author)
+      author2 = create(:author)
       visit authors_path
       page.should have_content(author1.full_name)
       page.should have_content(author2.full_name)
@@ -16,7 +16,7 @@ describe 'Shows authors' do
   describe 'author page' do
     context 'when an author has books' do
       it 'displays an author and their books' do
-        book = FactoryGirl.create(:book)
+        book = create(:book)
         author = book.authors.first
         visit author_path(author)
         within 'h1' do
@@ -27,7 +27,7 @@ describe 'Shows authors' do
     end
     context 'when an author has no books' do
       it 'shows a message' do
-        author = FactoryGirl.create(:author)
+        author = create(:author)
         visit author_path(author)
         page.should have_content('I actually haven’t read')
       end
@@ -41,7 +41,7 @@ describe 'Administrates authors' do
   end
   describe 'authors dashboard' do
     it 'displays all authors and their book' do
-      book = FactoryGirl.create(:book)
+      book = create(:book)
       author = book.authors.first
       visit meta_authors_path
       page.should have_content(author.fname)
@@ -77,7 +77,7 @@ describe 'Administrates authors' do
   end
   describe 'edit author page' do
     before :each do
-      @author = FactoryGirl.create(:author)
+      @author = create(:author)
       visit edit_meta_author_path(@author)
     end
     context 'with valid attributes' do

@@ -2,18 +2,18 @@ require 'spec_helper'
 
 describe 'Publicly' do
   it 'displays a page' do
-    the_page = FactoryGirl.create(:page)
+    the_page = create(:page)
     visit page_path(the_page)
     page.should have_content(the_page.title)
     page.should have_content(the_page.content)
   end
   it 'sets the permalink as the url' do
-    the_page = FactoryGirl.create(:page)
+    the_page = create(:page)
     visit page_path(the_page)
     current_path.should eq("/#{the_page.permalink}")
   end
   it 'allows slashes in permalinks' do
-    the_page = FactoryGirl.create(:page, permalink: 'is/awesome')
+    the_page = create(:page, permalink: 'is/awesome')
     visit page_path(the_page)
     current_path.should eq('/is/awesome')
   end
@@ -25,7 +25,7 @@ describe 'Administrates pages' do
   end
   describe 'pages dashboard' do
     it 'displays pages' do
-      the_page = FactoryGirl.create(:page)
+      the_page = create(:page)
       visit meta_pages_path
       page.should have_content(the_page.title)
     end
@@ -63,7 +63,7 @@ describe 'Administrates pages' do
   end
   describe 'editing pages' do
     before :each do
-      @page = FactoryGirl.create(:page, permalink: 'is/awesome')
+      @page = create(:page, permalink: 'is/awesome')
       visit edit_meta_page_path(@page)
     end
     context 'with valid attributes' do

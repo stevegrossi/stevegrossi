@@ -4,14 +4,14 @@ describe 'Shows works' do
 
   describe "works archive" do
     it 'displays published works' do
-      work1 = FactoryGirl.create(:work)
-      work2 = FactoryGirl.create(:work)
+      work1 = create(:work)
+      work2 = create(:work)
       visit works_path
       page.should have_content(work1.title)
       page.should have_content(work2.title)
     end
     it 'does not display drafts' do
-      FactoryGirl.create(:draft_work, title: 'This is a draft')
+      create(:draft_work, title: 'This is a draft')
       visit works_path
       page.should_not have_content('This is a draft')
     end
@@ -19,7 +19,7 @@ describe 'Shows works' do
 
   describe "work page" do
     it 'displays a work' do
-      work = FactoryGirl.create(:work)
+      work = create(:work)
       visit work_path(work)
       within 'h1' do
         page.should have_content(work.title)
@@ -27,14 +27,14 @@ describe 'Shows works' do
     end
     it 'displays drafts to authenticated users' do
       log_in_user
-      work = FactoryGirl.create(:draft_work)
+      work = create(:draft_work)
       visit work_path(work)
       within '.alert' do
         page.should have_content('This is a draft')
       end
     end
     it 'redirects unauthenticated requests to drafts to works_path' do
-      work = FactoryGirl.create(:draft_work)
+      work = create(:draft_work)
       visit work_path(work)
       current_path.should == works_path
       page.should have_content('You must be logged in')
@@ -48,8 +48,8 @@ describe 'Administrates works' do
   end
   describe 'works dashboard' do
     it 'displays published and draft works' do
-      published = FactoryGirl.create(:work)
-      draft = FactoryGirl.create(:draft_work)
+      published = create(:work)
+      draft = create(:draft_work)
       visit meta_works_path
       page.should have_content(published.title)
       page.should have_content(draft.title)
@@ -100,7 +100,7 @@ describe 'Administrates works' do
   end
   describe 'edit work page' do
     before :each do
-      @work = FactoryGirl.create(:work)
+      @work = create(:work)
       visit edit_meta_work_path(@work)
     end
     context 'with valid attributes' do

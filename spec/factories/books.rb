@@ -9,7 +9,7 @@ FactoryGirl.define do
     start_date   { Time.now - 1.month }
     end_date     { Time.now - 1.week }
     after :build do |book|
-      book.authors << FactoryGirl.build(:author)
+      book.authors << build(:author)
     end
   end
 
@@ -21,7 +21,7 @@ FactoryGirl.define do
 
   factory :book_with_two_authors, parent: Book do
     after :build do |book|
-      book.authors << FactoryGirl.build(:author)
+      book.authors << build(:author)
     end
   end
 

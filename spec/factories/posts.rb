@@ -12,7 +12,7 @@ FactoryGirl.define do
   end
   factory :book_post, parent: :post do
     title nil
-    book { FactoryGirl.create(:book) }
+    book { create(:book) }
   end
   factory :invalid_post, parent: :post do
     title nil

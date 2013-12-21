@@ -6,7 +6,7 @@ describe 'Search' do
     visit search_path
   end
   it 'returns search results with titles and excerpts' do
-    FactoryGirl.create(:post,
+    create(:post,
       title: 'Old MacDonald Had a Farm',
       content: 'Ee Ii Ee Ii Oo. And on this farm he had a pig.')
     fill_in 'for', with: 'pig'
@@ -15,7 +15,7 @@ describe 'Search' do
     page.should have_content('had a pig')
   end
   it 'doesn’t return draft posts' do
-    FactoryGirl.create(:draft_post,
+    create(:draft_post,
       title: 'Old MacDonald Had a Farm',
       content: 'Ee Ii Ee Ii Oo. And on this farm he had a pig.')
     fill_in 'for', with: 'pig'

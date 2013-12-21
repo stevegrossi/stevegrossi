@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'Publicly' do
   it 'performs the redirect' do
-    redirect = FactoryGirl.create(:redirect)
+    redirect = create(:redirect)
     visit "/#{redirect.from}"
     # This isn't right, but since I'm only redirecting root to /on temporarily and
     # that's what Rails wants to do, I can live with it if the test still works.
@@ -16,7 +16,7 @@ describe 'Administrates redirects' do
   end
   describe 'redirects dashboard' do
     it 'displays redirects' do
-      redirect = FactoryGirl.create(:redirect)
+      redirect = create(:redirect)
       visit meta_redirects_path
       page.should have_content(redirect.from)
     end
@@ -50,7 +50,7 @@ describe 'Administrates redirects' do
   end
   describe 'editing redirects' do
     before :each do
-      @redirect = FactoryGirl.create(:redirect, from: 'resume')
+      @redirect = create(:redirect, from: 'resume')
       visit edit_meta_redirect_path(@redirect)
     end
     context 'with valid attributes' do

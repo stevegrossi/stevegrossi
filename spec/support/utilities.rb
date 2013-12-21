@@ -3,7 +3,7 @@ def test_password
 end
 
 def log_in_user
-  user = FactoryGirl.create(:user)
+  user = create(:user)
   visit new_user_session_path
   fill_in 'Email', with: user.email
   fill_in 'Password', with: test_password

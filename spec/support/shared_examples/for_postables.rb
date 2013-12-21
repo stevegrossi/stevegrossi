@@ -1,8 +1,8 @@
 shared_examples_for 'a Postable' do |postable_symbol|
 
-  let!(:draft_postable) { FactoryGirl.create(postable_symbol, published_at: nil) }
-  let!(:first_published_postable) { FactoryGirl.create(postable_symbol, published_at: 2.days.ago) }
-  let!(:second_published_postable) { FactoryGirl.create(postable_symbol, published_at: 1.day.ago) }
+  let!(:draft_postable) { create(postable_symbol, published_at: nil) }
+  let!(:first_published_postable) { create(postable_symbol, published_at: 2.days.ago) }
+  let!(:second_published_postable) { create(postable_symbol, published_at: 1.day.ago) }
 
   describe '#previous' do
     it 'returns the previous published item of its class' do

@@ -3,25 +3,25 @@ require 'spec_helper'
 describe 'Shows books' do
   describe 'books archive' do
     it 'displays currently reading books' do
-      unread = FactoryGirl.create(:unread_book)
+      unread = create(:unread_book)
       visit books_path
       page.should have_content(unread.title)
     end
     it 'does not display read books I am not writing about' do
-      read = FactoryGirl.create(:book)
+      read = create(:book)
       visit books_path
       page.should_not have_content(read.title)
     end
     it 'displays books I am writing about' do
-      read = FactoryGirl.create(:book)
-      FactoryGirl.create(:draft_post, book: read)
+      read = create(:book)
+      create(:draft_post, book: read)
       visit books_path
       page.should have_content(read.title)
     end
   end
   describe 'book page' do
     it 'displays a book with multiple authors' do
-      book = FactoryGirl.create(:book_with_two_authors)
+      book = create(:book_with_two_authors)
       author1 = book.authors[0]
       author2 = book.authors[1]
       visit book_path(book)
@@ -40,18 +40,18 @@ describe 'Administrates books' do
   end
   describe 'books dashboard' do
     it 'displays all books' do
-      book = FactoryGirl.create(:book)
+      book = create(:book)
       visit meta_books_path
       page.should have_content(book.title)
     end
     context 'when a book is unread' do
       it 'provides a link to mark as read' do
-        FactoryGirl.create(:unread_book)
+        create(:unread_book)
         visit meta_books_path
         page.should have_selector(:link_or_button, 'Finish')
       end
       it 'marks a book as read when clicked' do
-        FactoryGirl.create(:unread_book)
+        create(:unread_book)
         visit meta_books_path
         click_link 'Finish'
         page.should have_content(Time.now.to_date)
@@ -60,7 +60,7 @@ describe 'Administrates books' do
   end
   describe 'new book page' do
     before :each do
-      @author = FactoryGirl.create(:author)
+      @author = create(:author)
       visit new_meta_book_path
     end
     context 'with valid attributes' do
@@ -94,7 +94,7 @@ describe 'Administrates books' do
   end
   describe 'edit book page' do
     before :each do
-      @book = FactoryGirl.create(:book)
+      @book = create(:book)
       visit edit_meta_book_path(@book)
     end
     context 'with valid attributes' do

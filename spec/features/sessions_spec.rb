@@ -27,7 +27,7 @@ describe 'Authentication' do
   context 'when logging in' do
 
     it 'redirects to the intended path upon authentication' do
-      user = FactoryGirl.create(:user)
+      user = create(:user)
       visit new_meta_book_path
       fill_in 'Email', with: user.email
       fill_in 'Password', with: test_password
