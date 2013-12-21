@@ -8,21 +8,15 @@ FactoryGirl.define do
     pub_year     { Time.now.year - 1 }
     start_date   { Time.now - 1.month }
     end_date     { Time.now - 1.week }
-    after :build do |book|
-      book.authors << build(:author)
-    end
+    authors      { [build(:author)] }
   end
 
   factory :book_without_author, parent: Book do
-    after :build do |book|
-      book.authors = []
-    end
+    authors []
   end
 
   factory :book_with_two_authors, parent: Book do
-    after :build do |book|
-      book.authors << build(:author)
-    end
+    authors { [build(:author), build(:author)] }
   end
 
   factory :unread_book, parent: Book do
