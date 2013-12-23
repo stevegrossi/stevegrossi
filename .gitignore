@@ -11,3 +11,4 @@ config/application.yml
 .powenv
 coverage/
 vendor/postgresql
+config/secrets.yml

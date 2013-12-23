@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 ruby '2.0.0'
 
-gem 'rails', '4.0.4'
+gem 'rails', '4.1.0.beta1'
 gem 'actionpack-action_caching'
 gem 'rails-observers'
 gem 'maruku'
@@ -40,8 +40,10 @@ end
 
 group :development do
   gem 'annotate'
-  gem 'bullet'
+  # gem 'bullet'
   gem 'meta_request'
+  gem 'spring'
+  gem 'spring-commands-rspec'
 end
 
 group :test do
