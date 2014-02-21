@@ -36,7 +36,7 @@ describe 'Shows works' do
     it 'redirects unauthenticated requests to drafts to works_path' do
       work = create(:draft_work)
       visit work_path(work)
-      current_path.should == works_path
+      current_path.should eq(works_path)
       page.should have_content('You must be logged in')
     end
   end

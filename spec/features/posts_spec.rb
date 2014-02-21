@@ -36,32 +36,32 @@ describe 'Shows posts' do
     it 'redirects unauthenticated requests to drafts to posts_path' do
       post = create(:draft_post)
       visit post_path(post)
-      current_path.should == posts_path
+      current_path.should eq(posts_path)
       page.should have_content('You must be logged in')
     end
   end
 end
 
 describe 'post topics page' do
-    before :all do
-      @tag_kittens = Tag.create(name: 'kittens')
-      @tag_marshmallows = Tag.create(name: 'marshmallows')
-    end
-    before :each do
-      @marshmallows = create(:post, tags: [@tag_marshmallows])
-      @kittens_and_marshmallows = create(:post, tags: [@tag_kittens, @tag_marshmallows])
-    end
-    it 'lists topics covered in posts' do
-      visit tags_posts_path
-      page.should have_content('kittens (1)')
-      page.should have_content('marshmallows (2)')
-    end
-    it 'lists posts about a topic' do
-      visit tagged_posts_path('marshmallows')
-      page.should have_content(@marshmallows.title)
-      page.should have_content(@kittens_and_marshmallows.title)
-    end
+  before :all do
+    @tag_kittens = Tag.create(name: 'kittens')
+    @tag_marshmallows = Tag.create(name: 'marshmallows')
   end
+  before :each do
+    @marshmallows = create(:post, tags: [@tag_marshmallows])
+    @kittens_and_marshmallows = create(:post, tags: [@tag_kittens, @tag_marshmallows])
+  end
+  it 'lists topics covered in posts' do
+    visit tags_posts_path
+    page.should have_content('kittens (1)')
+    page.should have_content('marshmallows (2)')
+  end
+  it 'lists posts about a topic' do
+    visit tagged_posts_path('marshmallows')
+    page.should have_content(@marshmallows.title)
+    page.should have_content(@kittens_and_marshmallows.title)
+  end
+end
 
 describe 'Administrates posts' do
   before :each do

@@ -29,7 +29,7 @@ class Work < ActiveRecord::Base
     desc = url? ? "I built #{url.gsub(/(^https?:\/\/(www.)?)|(\/$)/, '')}" : "I built #{title}"
     desc += " for #{client}" if client?
     desc += " in #{published_at.strftime('%B %Y')}" if published_at?
-    desc += '.'
+    desc + '.'
   end
 
 end

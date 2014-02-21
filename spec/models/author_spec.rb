@@ -30,7 +30,7 @@ describe Author do
   describe '#full_name' do
     it 'returns an author\'s full name as a string' do
       author = build(:author, fname: 'Steven', mname: 'Michael', lname: 'Grossi')
-      author.full_name.should == 'Steven Michael Grossi'
+      author.full_name.should eq('Steven Michael Grossi')
     end
   end
 end

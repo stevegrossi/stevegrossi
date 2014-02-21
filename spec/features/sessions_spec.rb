@@ -10,12 +10,12 @@ describe 'Authentication' do
 
     it 'logs in a user' do
       page.should have_content('Signed in')
-      current_path.should == meta_dashboard_path
+      current_path.should eq(meta_dashboard_path)
     end
 
     it 'logs out a user' do
       visit destroy_user_session_path
-      current_path.should == posts_path # Not root_path for now, since I redirect to /on
+      current_path.should eq(posts_path) # Not root_path for now, since I redirect to /on
     end
 
     it 'notifies a user if they are already logged in' do
@@ -32,7 +32,7 @@ describe 'Authentication' do
       fill_in 'Email', with: user.email
       fill_in 'Password', with: test_password
       click_button 'Sign in'
-      current_path.should == new_meta_book_path
+      current_path.should eq(new_meta_book_path)
     end
   end
 end

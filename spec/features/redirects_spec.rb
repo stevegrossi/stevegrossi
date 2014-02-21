@@ -6,7 +6,7 @@ describe 'Publicly' do
     visit "/#{redirect.from}"
     # This isn't right, but since I'm only redirecting root to /on temporarily and
     # that's what Rails wants to do, I can live with it if the test still works.
-    current_url.should == "#{redirect.to}/on"
+    current_url.should eq("#{redirect.to}/on")
   end
 end
 
