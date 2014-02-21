@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 ruby '2.0.0'
 
-gem 'rails', '4.1.0.beta1'
+gem 'rails', '4.1.0.rc1'
 gem 'actionpack-action_caching'
 gem 'rails-observers'
 gem 'maruku'
