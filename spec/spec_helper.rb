@@ -11,7 +11,7 @@ require 'database_cleaner'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
-Dir[Rails.root.join('spec/support/utilities.rb')].each {|f| require f}
+Dir[Rails.root.join('spec/support/utilities.rb')].each { |f| require f }
 
 RSpec.configure do |config|
 
@@ -35,4 +35,4 @@ end
 FactoryGirl.reload
 
 # Require shared examples on each run
-Dir[Rails.root.join("spec/support/shared_examples/*.rb")].each {|f| require f}
+Dir[Rails.root.join("spec/support/shared_examples/*.rb")].each { |f| require f }
