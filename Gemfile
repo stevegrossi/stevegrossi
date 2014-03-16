@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 ruby '2.0.0'
 
-gem 'rails', '4.0.1'
+gem 'rails', '4.0.4'
 gem 'actionpack-action_caching'
 gem 'rails-observers'
 gem 'maruku'
@@ -24,7 +24,7 @@ gem 'memcachier'
 gem 'dalli'
 
 gem 'jquery-rails'
-gem 'sass-rails'
+gem 'sass-rails', '~> 4.0.0'
 gem 'coffee-rails'
 gem 'uglifier'
 gem 'slim'
