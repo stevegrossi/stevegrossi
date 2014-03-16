@@ -1,21 +1,31 @@
-# PostgreSQL-only replacement for `heroku db:pull`,
-# which the Heroku toolbelt seems ot have broken:
-# http://stackoverflow.com/q/13001166/
-#
-# It throws some errors around reading `plpgsql`,
-# but everything still seems to work.
+ namespace :herokudb do
 
-namespace :herokudb do
-  task :capture do
-    system 'heroku pgbackups:capture --expire -a stevegrossi'
+  # Makes a backup of the production database
+  task :backup_production do
+    system 'heroku pgbackups:capture --expire -r production'
   end
-  task :save => :capture do
-    system 'curl -o tmp/latest.dump $(heroku pgbackups:url -a stevegrossi)'
+
+  # Makes a backup of the staging database
+  task :backup_staging do
+    system 'heroku pgbackups:capture --expire -r staging'
   end
-  task :import => :save do
-    system 'pg_restore --verbose --clean --no-acl --no-owner -h localhost -U rails -d stevegrossi_development tmp/latest.dump'
+
+  # Restores the staging site from the latest production backup
+  task :update_staging => [:backup_staging, :backup_production] do
+    system 'heroku pgbackups:restore DATABASE -r staging $(heroku pgbackups:url -r production)'
   end
-  task :update_staging => :capture do
-    system 'heroku pgbackups:restore DATABASE -a stevegrossi-staging --confirm stevegrossi-staging $(heroku pgbackups:url -a stevegrossi)'
+
+  # Dumps the production database to a local file
+  task :save_production => :backup_production do
+    system "curl -o #{Rails.root.join('tmp', 'production.dump')} $(heroku pgbackups:url -r production)"
+  end
+
+  # Restores the local development database from the production dump
+  task :import => :save_production do
+    local_config = Rails.configuration.database_configuration.fetch("development")
+    local_db     = local_config.fetch("database")
+    local_user   = local_config.fetch("username")
+    host         = local_config.fetch("host", 'localhost')
+    system "pg_restore --verbose --clean --no-acl --no-owner -h #{host} -U #{local_user} -d #{local_db} #{Rails.root.join('tmp', 'production.dump')}"
   end
 end
