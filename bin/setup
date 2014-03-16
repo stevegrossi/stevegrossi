@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# Sets up the app. Thanks for the idea:
+# http://robots.thoughtbot.com/post/41439635905/bin-setup
+
+# Install Gems
+bundle install
+
+# Create the database and user
+pg_ctl init -D vendor/postgresql
+createuser -d stevegrossi
+
+# Set up the database
+bundle exec rake db:setup
+
+# Light it up!
+bundle exec foreman start -f Procfile.dev

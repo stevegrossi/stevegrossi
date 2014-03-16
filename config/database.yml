@@ -2,10 +2,10 @@ development:
   adapter: postgresql
   encoding: utf8
   database: stevegrossi_development
-  username: rails
-  password: zomgsauce
+  username: stevegrossi
   min_messages: WARNING
   template: template0 # Required for UTF8 encoding
+  host: localhost
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -14,9 +14,9 @@ test:
   adapter: postgresql
   encoding: utf8
   database: stevegrossi_test
-  username: rails
-  password: zomgsauce
+  username: stevegrossi
   min_messages: WARNING
   template: template0 # Required for UTF8 encoding
+  host: localhost
 
 # Production is handled by Heroku
