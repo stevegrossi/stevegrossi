@@ -5,9 +5,11 @@
 //= require jquery.bigfoot
 //= require_self
 
-$(function() {
-  $('html').removeClass('no-js').addClass('js');
+$ ->
 
-  var bigfoot = $.bigfoot();
-  bigfoot.addBreakpoint('iPhone');
-});
+  $('html')
+    .removeClass 'no-js'
+    .addClass 'js'
+
+  $.bigfoot().addBreakpoint 'iPhone'
+
