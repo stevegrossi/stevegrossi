@@ -9,6 +9,7 @@ gem 'friendly_id', github: 'norman/friendly_id' # 5.0.0, for Rails 4
 gem 'simple_form'
 gem 'kaminari'
 gem 'devise'
+gem 'thread_safe', '0.2.0'
 
 # Database
 gem 'pg'
