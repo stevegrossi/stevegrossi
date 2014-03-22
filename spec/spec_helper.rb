@@ -3,6 +3,7 @@ require 'coveralls'
 Coveralls.wear!
 
 ENV['RAILS_ENV'] = 'test'
+ENV['SECRET_TOKEN'] = 'Shhhhhhhhhhhhhhhhhhhhhhhhhhhhh'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'capybara/rails'
