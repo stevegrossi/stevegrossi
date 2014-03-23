@@ -1,11 +1,11 @@
 source 'http://rubygems.org'
-ruby '2.0.0'
+ruby '2.1.1'
 
 gem 'rails', '4.1.0.rc1'
 gem 'actionpack-action_caching'
 gem 'rails-observers'
 gem 'maruku'
-gem 'friendly_id', github: 'norman/friendly_id' # 5.0.0, for Rails 4
+gem 'friendly_id', '~> 5.0.0'
 gem 'simple_form'
 gem 'kaminari'
 gem 'devise'
@@ -41,7 +41,7 @@ end
 
 group :development do
   gem 'annotate'
-  # gem 'bullet'
+  gem 'bullet'
   gem 'meta_request'
   gem 'spring'
   gem 'spring-commands-rspec'
