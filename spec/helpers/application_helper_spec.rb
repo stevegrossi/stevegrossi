@@ -18,14 +18,14 @@ describe ApplicationHelper do
   end
   describe '#nav_link_to' do
     it 'links to a page with the class "current" if it is the current page' do
-      expected = link_to('Works', works_path, class: 'current')
+      expected = link_to('Books', books_path, class: 'current')
       should_receive(:current_page?).and_return(true)
-      nav_link_to('Works', works_path).should eq(expected)
+      nav_link_to('Books', books_path).should eq(expected)
     end
     it 'links to a page without the class "current" if it is not the current page' do
-      expected = link_to('Works', works_path)
+      expected = link_to('Books', books_path)
       should_receive(:current_page?).and_return(false)
-      nav_link_to('Works', works_path).should eq(expected)
+      nav_link_to('Books', books_path).should eq(expected)
     end
     # TODO: figure out how to stub the current controller actions so
     # it 'works for children of the linked-to page'

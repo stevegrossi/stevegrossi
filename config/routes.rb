@@ -1,7 +1,8 @@
 Stevegrossi::Application.routes.draw do
 
   # Dynamic redirects
-  get '/made/:slug' => redirect("/built/%{slug}")
+  get '/built' => redirect("http://work.stevegrossi.com")
+  get '/built/:slug' => redirect("http://work.stevegrossi.com")
   get '/wrote/:slug' => redirect("/on/%{slug}")
   get '/thoughts/about/:slug' => redirect("/on/topics/%{slug}")
   get '/thoughts/:slug' => redirect("/on/%{slug}")
@@ -44,7 +45,6 @@ Stevegrossi::Application.routes.draw do
       end
     end
   end
-  resources :works, path: 'built', only: [:index, :show]
 
   get 'search' => 'static_pages#search'
   get 'feed' => 'static_pages#feed', format: :rss
