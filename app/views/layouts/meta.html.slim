@@ -18,7 +18,8 @@ html.no-js lang="en"
         = link_to(raw('Steve Grossi'), posts_path, title: 'Home', accesskey: '1', id: 'logo')
         ul
           li = nav_link_to('thoughts', meta_posts_path)
-          li = nav_link_to('work', meta_works_path)
+          li = nav_link_to('books', meta_books_path)
+          li = nav_link_to('authors', meta_authors_path)
           li = nav_link_to 'about', meta_pages_path, title: 'About Me'
           li = nav_link_to 'search', search_path, data: { icon: 's' }
     div.main role="main"

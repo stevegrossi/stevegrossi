@@ -9,7 +9,6 @@ class Meta::DashboardController < ApplicationController
     @word_count = Post.sum(:word_count)
     @books_count = Book.count
     @authors_count = Author.count
-    @works_count = Work.count
     @pages_count = Page.count
     @redirects_count = Redirect.count
     @users_count = User.count
