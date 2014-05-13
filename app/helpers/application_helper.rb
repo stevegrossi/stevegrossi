@@ -1,7 +1,8 @@
 module ApplicationHelper
 
   def markdown(text)
-    raw text.blank? ? '' : Maruku.new(text).to_html
+    return if text.blank?
+    Maruku.new(text).to_html.html_safe
   end
 
   def strip_markdown(text)
@@ -10,9 +11,7 @@ module ApplicationHelper
 
   def body_classes
     controller_slug = controller_path.sub('/', ' ') # so 'meta/books' becomes 'meta books'
-    [ controller_slug,
-      "#{controller_slug}-#{action_name}"
-    ].join ' '
+    "#{controller_slug} #{controller_slug}-#{action_name}"
   end
 
   def link_to_new(class_name)
@@ -34,26 +33,7 @@ module ApplicationHelper
     end
   end
 
-  def link_to_previous(thing)
-    if thing.previous
-      str = content_tag :span, 'Previous: '
-      str += link_to thing.previous.title, thing.previous
-      return content_tag :p, str, class: :previous
-    end
-  end
-
-  def link_to_next(thing)
-    if thing.next
-      str = content_tag :span, 'Next: '
-      str += link_to thing.next.title, thing.next
-      return content_tag :p, str, class: :next
-    end
-  end
-
-  def nav_link_to(*args)
-    text = args[0]
-    target = args[1]
-    options = args.extract_options!
+  def nav_link_to(text, target, options = {})
     path = Rails.application.routes.recognize_path(target)
     if current_page?(target) || (controller_path != 'pages' && path[:controller] == controller_path)
       options[:class] = 'current'
@@ -77,7 +57,7 @@ module ApplicationHelper
     end
   end
 
-  def mark_string(string, term='')
+  def mark_string(string, term = '')
     if term.blank?
       string
     else
@@ -100,9 +80,9 @@ module ApplicationHelper
 
   def bubble_up(array, items)
     if items.blank?
-      return array
+      array
     else
-      items = [items] unless items.is_a? Array
+      items = Array(items)
       (array - items).unshift(items).flatten
     end
   end
