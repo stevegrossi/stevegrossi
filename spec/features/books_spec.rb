@@ -25,9 +25,7 @@ describe 'Shows books' do
       author1 = book.authors[0]
       author2 = book.authors[1]
       visit book_path(book)
-      within 'h1' do
-        page.should have_content(book.title)
-      end
+      page.should have_content(book.title)
       page.should have_content(author1.full_name)
       page.should have_content(author2.full_name)
     end
@@ -77,9 +75,7 @@ describe 'Administrates books' do
         expect {
           click_button 'Publish'
         }.to change(Book, :count).by(1)
-        within 'h1' do
-          page.should have_content 'Test Title'
-        end
+        page.should have_content 'Test Title'
         page.should have_selector('.notice')
       end
     end
@@ -101,9 +97,7 @@ describe 'Administrates books' do
       it 'redirects to the updated book' do
         fill_in 'Title', with: 'Updated Title'
         click_button 'Publish'
-        within 'h1' do
-          page.should have_content('Updated Title')
-        end
+        page.should have_content('Updated Title')
         page.should have_selector('.notice')
       end
     end
