@@ -8,3 +8,11 @@ script:
   - RAILS_ENV=test bundle exec rake db:setup --trace
   - bundle exec rake db:test:prepare
   - bundle exec rake
+deploy:
+  provider: ninefold
+  app_id: '8880'
+  auth_token:
+    secure: L0NV8/k3gHrsJlemFsqHNXEHbshSVlaQqfmMDgSU1M4kHNBT3DFmk53zlcfzQFCs8mhvujSxZs3/XJcuI8OuwGuCFZt4PuxK95ODt4Ych9SAZMPR2lw2S7vtd194PmWcF0P0A8Ig669UHruyFKL50lhZ1MFgX1axz1DkDt2DXew=
+  on:
+    repo: stevegrossi/stevegrossi
+    branch: master
