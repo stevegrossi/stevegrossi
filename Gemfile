@@ -31,7 +31,6 @@ gem 'uglifier'
 gem 'slim'
 
 # Deployment
-gem 'rails_12factor', group: [:staging, :production]
 gem 'newrelic_rpm'
 
 group :development, :test do
