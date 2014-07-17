@@ -14,7 +14,7 @@ describe 'Publicly' do
   end
   it 'allows slashes in permalinks' do
     the_page = create(:page, permalink: 'is/awesome')
-    visit page_path(the_page)
+    visit 'is/awesome'
     current_path.should eq('/is/awesome')
   end
 end
