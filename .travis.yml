@@ -6,7 +6,6 @@ env:
 script:
   - createuser --createdb --no-superuser --no-createrole stevegrossi
   - RAILS_ENV=test bundle exec rake db:setup --trace
-  - bundle exec rake db:test:prepare
   - bundle exec rake
 deploy:
   provider: ninefold
