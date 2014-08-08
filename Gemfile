@@ -17,8 +17,8 @@ gem 'pg_search'
 
 # App Server
 gem 'unicorn'
-gem 'foreman'
 gem 'rack-rewrite'
+gem 'rack-canonical-host'
 
 # Memcache
 gem 'memcachier'
@@ -39,6 +39,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'foreman'
   gem 'annotate'
   gem 'bullet'
   gem 'meta_request'
