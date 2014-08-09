@@ -47,7 +47,7 @@ Stevegrossi::Application.routes.draw do
   end
 
   get 'search' => 'static_pages#search'
-  get 'feed' => 'static_pages#feed', format: :rss
+  get 'feed' => 'static_pages#feed', defaults: { format: :rss }
 
   get ':id', to: 'pages#show', as: :page, constraints: { id: /.*/ }
 
