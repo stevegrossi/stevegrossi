@@ -1,18 +1,17 @@
 language: ruby
 rvm:
-  - 2.1.2
+- 2.1.2
 env:
-  - DB=postgresql SECRET_TOKEN=Shhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-bundler_args: --without development
+- DB=postgresql SECRET_TOKEN=Shhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+bundler_args: "--without development"
 script:
-  - createuser --createdb --no-superuser --no-createrole stevegrossi
-  - RAILS_ENV=test bundle exec rake db:setup --trace
-  - bundle exec rake
+- createuser --createdb --no-superuser --no-createrole stevegrossi
+- RAILS_ENV=test bundle exec rake db:setup --trace
+- bundle exec rake
 deploy:
   provider: ninefold
   app_id: '8880'
   auth_token:
-    secure: L0NV8/k3gHrsJlemFsqHNXEHbshSVlaQqfmMDgSU1M4kHNBT3DFmk53zlcfzQFCs8mhvujSxZs3/XJcuI8OuwGuCFZt4PuxK95ODt4Ych9SAZMPR2lw2S7vtd194PmWcF0P0A8Ig669UHruyFKL50lhZ1MFgX1axz1DkDt2DXew=
+    secure: i0MZciQzyfqScDSLfhGvb5Jzl5FbyEsbjrMMpyouPpWbxuIxxHxfmYOyQxx+BNJa1jfJAcl8PZmYG8U8A3Mh2Y6F/BANmyewi1cvbyZoWStGk0+UxD/ovndBM1gNovO95o5+9CN+ILXQWodybW9whLw1dfe3lhkoWOlahUJ81zc=
   on:
     repo: stevegrossi/stevegrossi
-    branch: master
