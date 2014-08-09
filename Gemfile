@@ -9,7 +9,6 @@ gem 'friendly_id', '~> 5.0.0'
 gem 'simple_form'
 gem 'kaminari'
 gem 'devise'
-gem 'thread_safe', '0.2.0'
 
 # Database
 gem 'pg'
@@ -25,12 +24,11 @@ gem 'memcachier'
 gem 'dalli'
 
 gem 'jquery-rails'
-gem 'sass-rails', '~> 4.0.0'
+gem 'sass-rails'
 gem 'coffee-rails'
 gem 'uglifier'
 gem 'slim'
 
-# Deployment
 gem 'newrelic_rpm'
 
 group :development, :test do

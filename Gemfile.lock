@@ -288,11 +288,10 @@ DEPENDENCIES
   rails (= 4.1.4)
   rails-observers
   rspec-rails (~> 2.5)
-  sass-rails (~> 4.0.0)
+  sass-rails
   simple_form
   slim
   spring
   spring-commands-rspec
-  thread_safe (= 0.2.0)
   uglifier
   unicorn
