@@ -3,6 +3,7 @@ rvm:
   - 2.1.2
 env:
   - DB=postgresql SECRET_TOKEN=Shhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+bundler_args: --without development
 script:
   - createuser --createdb --no-superuser --no-createrole stevegrossi
   - RAILS_ENV=test bundle exec rake db:setup --trace
