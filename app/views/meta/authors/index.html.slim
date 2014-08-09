@@ -17,5 +17,5 @@ table cellspacing="0"
           = author.fname
         td = author.mname
         td = author.lname
-        td = books_by(author)
+        td = author.books.map{ |b| link_to(b.title, b)}.join(', ').html_safe
 
