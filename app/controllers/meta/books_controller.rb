@@ -11,7 +11,7 @@ class Meta::BooksController < Meta::DashboardController
   end
 
   def edit
-    @book = Book.find(params[:id])
+    @book = Book.friendly.find(params[:id])
     @authors = Author.all
   end
 
@@ -26,7 +26,7 @@ class Meta::BooksController < Meta::DashboardController
   end
 
   def update
-    @book = Book.find(params[:id])
+    @book = Book.friendly.find(params[:id])
     @authors = Author.all
     @book.attributes = book_params
     book_params[:published_at] = nil if book_params[:published_at].blank?
@@ -38,14 +38,14 @@ class Meta::BooksController < Meta::DashboardController
   end
 
   def destroy
-    @book = Book.find(params[:id])
+    @book = Book.friendly.find(params[:id])
     title = @book.title
     @book.destroy
     redirect_to meta_books_path, notice: "You deleted <b>#{title}</b>."
   end
 
   def finish
-    book = Book.find(params[:book_id])
+    book = Book.friendly.find(params[:book_id])
     book.finish
     book.save
     redirect_to meta_books_path

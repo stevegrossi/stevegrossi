@@ -25,7 +25,7 @@ describe Post do
   it 'is invalid without a title' do
     post = build(:post, title: nil)
     post.should_not be_valid
-    post.should have(1).error_on(:title)
+    expect(post.errors[:title].size).to eq(1)
   end
   it 'sets book post title to book title by default' do
     post = build(:book_post)
@@ -35,12 +35,12 @@ describe Post do
   it 'is invalid without content' do
     post = build(:post, content: nil)
     post.should_not be_valid
-    post.should have(1).error_on(:content)
+    expect(post.errors[:content].size).to eq(1)
   end
   it 'is invalid without an idea' do
     post = build(:post, idea: nil)
     post.should_not be_valid
-    post.should have(1).error_on(:idea)
+    expect(post.errors[:idea].size).to eq(1)
   end
   it 'counts its words' do
     post = create(:post, content: 'I’ve been workin’ on the railroad all the live-long day.')

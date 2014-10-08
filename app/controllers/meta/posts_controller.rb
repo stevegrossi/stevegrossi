@@ -11,7 +11,7 @@ class Meta::PostsController < Meta::DashboardController
   end
 
   def edit
-    @post = Post.find(params[:id])
+    @post = Post.friendly.find(params[:id])
   end
 
   def create
@@ -27,7 +27,7 @@ class Meta::PostsController < Meta::DashboardController
   end
 
   def update
-    @post = Post.find(params[:id])
+    @post = Post.friendly.find(params[:id])
     @post.attributes = post_params
     if params[:commit] == 'Publish'
       @post.published_at ||= Time.now
@@ -42,7 +42,7 @@ class Meta::PostsController < Meta::DashboardController
   end
 
   def destroy
-    @post = Post.find(params[:id])
+    @post = Post.friendly.find(params[:id])
     title = @post.title
     @post.destroy
     redirect_to meta_posts_path, notice: "You deleted <b>#{title}</b>."

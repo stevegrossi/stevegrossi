@@ -1,12 +1,12 @@
 source 'http://rubygems.org'
 ruby '2.1.3'
 
-gem 'rails', '4.1.5'
+gem 'rails', '4.2.0.beta2'
 gem 'actionpack-action_caching'
 gem 'rails-observers'
 gem 'maruku'
 gem 'friendly_id', '~> 5.0.0'
-gem 'simple_form'
+gem 'simple_form', github: 'plataformatec/simple_form'
 gem 'kaminari'
 gem 'devise'
 
@@ -24,7 +24,7 @@ gem 'memcachier'
 gem 'dalli'
 
 gem 'jquery-rails'
-gem 'sass-rails'
+gem 'sass-rails', '5.0.0.beta1'
 gem 'coffee-rails'
 gem 'uglifier'
 gem 'slim'

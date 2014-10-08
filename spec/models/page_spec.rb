@@ -20,17 +20,17 @@ describe Page do
   it 'is invalid without a title' do
     page = build(:page, title: nil)
     page.should_not be_valid
-    page.should have(1).error_on(:title)
+    expect(page.errors[:title].size).to eq(1)
   end
   it 'is invalid without a permalink' do
     page = build(:page, permalink: nil)
     page.should_not be_valid
-    page.should have(1).error_on(:permalink)
+    expect(page.errors[:permalink].size).to eq(1)
   end
   it 'is invalid without content' do
     page = build(:page, content: nil)
     page.should_not be_valid
-    page.should have(1).error_on(:content)
+    expect(page.errors[:content].size).to eq(1)
   end
   it 'has a unique title' do
     create(:page, title: 'About')

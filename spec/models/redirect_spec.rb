@@ -18,7 +18,7 @@ describe Redirect do
   it 'is invalid without somewhere to redirect from' do
     redirect = build(:redirect, from: nil)
     redirect.should_not be_valid
-    redirect.should have(1).error_on(:from)
+    expect(redirect.errors[:from].size).to eq(1)
   end
   it 'is invalid without somewhere to redirect to' do
     redirect = build(:redirect, to: nil)
