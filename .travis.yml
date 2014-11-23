@@ -1,6 +1,6 @@
 language: ruby
 rvm:
-- 2.1.3
+- 2.1.4
 env:
 - DB=postgresql SECRET_TOKEN=Shhhhhhhhhhhhhhhhhhhhhhhhhhhhh
 bundler_args: "--without development"
