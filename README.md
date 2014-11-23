@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/stevegrossi/stevegrossi.png?branch=master)](https://travis-ci.org/stevegrossi/stevegrossi)
+[![Build Status](https://codeship.com/projects/de77ce40-55ac-0132-5ab4-0a29efabe26e/status)](https://codeship.com/projects/49354)
 [![Coverage Status](https://coveralls.io/repos/stevegrossi/stevegrossi/badge.png?branch=master)](https://coveralls.io/r/stevegrossi/stevegrossi?branch=master)
 [![Code Climate](https://codeclimate.com/github/stevegrossi/stevegrossi.png)](https://codeclimate.com/github/stevegrossi/stevegrossi)
 
