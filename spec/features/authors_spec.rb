@@ -7,8 +7,8 @@ describe 'Shows authors' do
       author1 = create(:author)
       author2 = create(:author)
       visit authors_path
-      page.should have_content(author1.full_name)
-      page.should have_content(author2.full_name)
+      expect(page).to have_content(author1.full_name)
+      expect(page).to have_content(author2.full_name)
     end
   end
 
@@ -19,16 +19,16 @@ describe 'Shows authors' do
         author = book.authors.first
         visit author_path(author)
         within 'h1' do
-          page.should have_content(author.full_name)
+          expect(page).to have_content(author.full_name)
         end
-        page.should have_content(book.title)
+        expect(page).to have_content(book.title)
       end
     end
     context 'when an author has no books' do
       it 'shows a message' do
         author = create(:author)
         visit author_path(author)
-        page.should have_content('I actually haven’t read')
+        expect(page).to have_content('I actually haven’t read')
       end
     end
   end
@@ -43,8 +43,8 @@ describe 'Administrates authors' do
       book = create(:book)
       author = book.authors.first
       visit meta_authors_path
-      page.should have_content(author.fname)
-      page.should have_content(book.title)
+      expect(page).to have_content(author.fname)
+      expect(page).to have_content(book.title)
     end
   end
   describe 'new author page' do
@@ -60,9 +60,9 @@ describe 'Administrates authors' do
           click_button 'Create Author'
         }.to change(Author, :count).by(1)
         within 'h1' do
-          page.should have_content 'Steve M. Grossi'
+          expect(page).to have_content 'Steve M. Grossi'
         end
-        page.should have_selector('.notice')
+        expect(page).to have_selector('.notice')
       end
     end
     context 'with invalid attributes' do
@@ -70,7 +70,7 @@ describe 'Administrates authors' do
         expect {
           click_button 'Create Author'
         }.not_to change(Author, :count)
-        page.should have_selector('.error')
+        expect(page).to have_selector('.error')
       end
     end
   end
@@ -84,9 +84,9 @@ describe 'Administrates authors' do
         fill_in 'First', with: 'Newname'
         click_button 'Update Author'
         within 'h1' do
-          page.should have_content('Newname')
+          expect(page).to have_content('Newname')
         end
-        page.should have_selector('.notice')
+        expect(page).to have_selector('.notice')
       end
     end
     context 'with invalid attributes' do
@@ -94,7 +94,7 @@ describe 'Administrates authors' do
         fill_in 'First', with: ''
         click_button 'Update Author'
         within '.flash' do
-          page.should have_content('errors')
+          expect(page).to have_content('errors')
         end
       end
     end
@@ -104,7 +104,7 @@ describe 'Administrates authors' do
           click_link 'Delete this Author'
         }.to change(Author, :count).by(-1)
         within '.notice' do
-          page.should have_content("You deleted #{@author.full_name}")
+          expect(page).to have_content("You deleted #{@author.full_name}")
         end
       end
     end

@@ -6,31 +6,31 @@ shared_examples_for 'a Postable' do |postable_symbol|
 
   describe '#previous' do
     it 'returns the previous published item of its class' do
-      second_published_postable.previous.should eq(first_published_postable)
+      expect(second_published_postable.previous).to eq(first_published_postable)
     end
   end
   describe '#next' do
     it 'returns the next published item of its class' do
-      first_published_postable.next.should eq(second_published_postable)
+      expect(first_published_postable.next).to eq(second_published_postable)
     end
   end
   describe '#draft?' do
     it 'knows if it is a draft' do
-      draft_postable.draft?.should eq(true)
+      expect(draft_postable.draft?).to eq(true)
     end
   end
   describe '#published?' do
     it 'knows if it is published' do
-      first_published_postable.published?.should eq(true)
+      expect(first_published_postable.published?).to eq(true)
     end
   end
   describe '#pretty_published_at' do
     it 'returns "Unpublished" if it is a draft' do
-      draft_postable.pretty_published_at.should eq('Unpublished')
+      expect(draft_postable.pretty_published_at).to eq('Unpublished')
     end
     it 'returns its date as a pretty string if it is published' do
       expected = first_published_postable.published_at.strftime('%B %-e, %Y')
-      first_published_postable.pretty_published_at.should eq(expected)
+      expect(first_published_postable.pretty_published_at).to eq(expected)
     end
   end
 end

@@ -15,22 +15,22 @@ require 'spec_helper'
 
 describe Author do
   it 'has a valid factory' do
-    build(:author).should be_valid
+    expect(build(:author)).to be_valid
   end
   it 'is invalid without a first name' do
-    build(:author, fname: nil).should_not be_valid
+    expect(build(:author, fname: nil)).to_not be_valid
   end
   it 'is invalid without a last_name' do
-    build(:author, lname: nil).should_not be_valid
+    expect(build(:author, lname: nil)).to_not be_valid
   end
   it 'does not allow duplicates' do
     create(:author, fname: 'Steven', lname: 'Grossi')
-    build(:author, fname: 'Steven', lname: 'Grossi').should_not be_valid
+    expect(build(:author, fname: 'Steven', lname: 'Grossi')).to_not be_valid
   end
   describe '#full_name' do
     it 'returns an author\'s full name as a string' do
       author = build(:author, fname: 'Steven', mname: 'Michael', lname: 'Grossi')
-      author.full_name.should eq('Steven Michael Grossi')
+      expect(author.full_name).to eq('Steven Michael Grossi')
     end
   end
 end

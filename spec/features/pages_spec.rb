@@ -4,18 +4,18 @@ describe 'Publicly' do
   it 'displays a page' do
     the_page = create(:page)
     visit page_path(the_page)
-    page.should have_content(the_page.title)
-    page.should have_content(the_page.content)
+    expect(page).to have_content(the_page.title)
+    expect(page).to have_content(the_page.content)
   end
   it 'sets the permalink as the url' do
     the_page = create(:page)
     visit page_path(the_page)
-    current_path.should eq("/#{the_page.permalink}")
+    expect(current_path).to eq("/#{the_page.permalink}")
   end
   it 'allows slashes in permalinks' do
     the_page = create(:page, permalink: 'is/awesome')
     visit 'is/awesome'
-    current_path.should eq('/is/awesome')
+    expect(current_path).to eq('/is/awesome')
   end
 end
 
@@ -27,7 +27,7 @@ describe 'Administrates pages' do
     it 'displays pages' do
       the_page = create(:page)
       visit meta_pages_path
-      page.should have_content(the_page.title)
+      expect(page).to have_content(the_page.title)
     end
   end
   describe 'when creating a page' do
@@ -45,7 +45,7 @@ describe 'Administrates pages' do
           click_button 'Publish'
         }.to change(Page, :count).by(1)
         within 'h1' do
-          page.should have_content 'Test Title'
+          expect(page).to have_content 'Test Title'
         end
       end
     end
@@ -57,7 +57,7 @@ describe 'Administrates pages' do
           fill_in 'Content', with: 'A test page'
           click_button 'Publish'
         }.not_to change(Page, :count)
-        page.should have_selector('.error')
+        expect(page).to have_selector('.error')
       end
     end
   end
@@ -71,7 +71,7 @@ describe 'Administrates pages' do
         fill_in 'Title', with: 'Updated Title'
         click_button 'Publish'
         within 'h1' do
-          page.should have_content('Updated Title')
+          expect(page).to have_content('Updated Title')
         end
       end
     end
@@ -80,7 +80,7 @@ describe 'Administrates pages' do
         fill_in 'Title', with: ''
         click_button 'Publish'
         within '.flash' do
-          page.should have_content('errors')
+          expect(page).to have_content('errors')
         end
       end
     end
@@ -90,7 +90,7 @@ describe 'Administrates pages' do
           click_link 'Delete this Page'
         }.to change(Page, :count).by(-1)
         within '.notice' do
-          page.should have_content("You deleted the page #{@page.title}")
+          expect(page).to have_content("You deleted the page #{@page.title}")
         end
       end
     end

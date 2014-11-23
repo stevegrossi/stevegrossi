@@ -32,7 +32,7 @@ gem 'slim'
 gem 'newrelic_rpm'
 
 group :development, :test do
-  gem 'rspec-rails', '~> 2.5'
+  gem 'rspec-rails', '~> 3.0'
   gem 'factory_girl_rails'
 end
 

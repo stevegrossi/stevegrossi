@@ -7,13 +7,13 @@ describe 'Shows posts' do
       post1 = create(:post)
       post2 = create(:post)
       visit posts_path
-      page.should have_content(post1.title)
-      page.should have_content(post2.title)
+      expect(page).to have_content(post1.title)
+      expect(page).to have_content(post2.title)
     end
     it 'does not display drafts' do
       create(:draft_post, title: 'This is a draft')
       visit posts_path
-      page.should_not have_content('This is a draft')
+      expect(page).to_not have_content('This is a draft')
     end
   end
 
@@ -22,7 +22,7 @@ describe 'Shows posts' do
       post = create(:post)
       visit post_path(post)
       within 'h1' do
-        page.should have_content(post.title)
+        expect(page).to have_content(post.title)
       end
     end
     it 'displays drafts to authenticated users' do
@@ -30,14 +30,14 @@ describe 'Shows posts' do
       post = create(:draft_post)
       visit post_path(post)
       within '.alert' do
-        page.should have_content('This is a draft')
+        expect(page).to have_content('This is a draft')
       end
     end
     it 'redirects unauthenticated requests to drafts to posts_path' do
       post = create(:draft_post)
       visit post_path(post)
-      current_path.should eq(posts_path)
-      page.should have_content('You must be logged in')
+      expect(current_path).to eq(posts_path)
+      expect(page).to have_content('You must be logged in')
     end
   end
 end
@@ -53,13 +53,13 @@ describe 'post topics page' do
   end
   it 'lists topics covered in posts' do
     visit tags_posts_path
-    page.should have_content('kittens (1)')
-    page.should have_content('marshmallows (2)')
+    expect(page).to have_content('kittens (1)')
+    expect(page).to have_content('marshmallows (2)')
   end
   it 'lists posts about a topic' do
     visit tagged_posts_path('marshmallows')
-    page.should have_content(@marshmallows.title)
-    page.should have_content(@kittens_and_marshmallows.title)
+    expect(page).to have_content(@marshmallows.title)
+    expect(page).to have_content(@kittens_and_marshmallows.title)
   end
 end
 
@@ -72,8 +72,8 @@ describe 'Administrates posts' do
       published = create(:post)
       draft = create(:draft_post)
       visit meta_posts_path
-      page.should have_content(published.title)
-      page.should have_content(draft.title)
+      expect(page).to have_content(published.title)
+      expect(page).to have_content(draft.title)
     end
   end
   describe 'new post page' do
@@ -91,22 +91,22 @@ describe 'Administrates posts' do
           click_button 'Publish'
         }.to change(Post, :count).by(1)
         within 'h1' do
-          page.should have_content 'Test Title'
+          expect(page).to have_content 'Test Title'
         end
-        page.should_not have_content('draft')
-        page.should have_selector('.notice')
+        expect(page).to_not have_content('draft')
+        expect(page).to have_selector('.notice')
       end
       it 'creates a new draft post when you click "Save Draft"' do
         expect {
           click_button 'Save Draft'
         }.to change(Post, :count).by(1)
         within 'h1' do
-          page.should have_content 'Test Title'
+          expect(page).to have_content 'Test Title'
         end
         within '.alert' do
-          page.should have_content('This is a draft')
+          expect(page).to have_content('This is a draft')
         end
-        page.should have_selector('.notice')
+        expect(page).to have_selector('.notice')
       end
     end
     context 'with invalid attributes' do
@@ -117,7 +117,7 @@ describe 'Administrates posts' do
           fill_in 'Idea', with: 'A test post'
           click_button 'Publish'
         }.not_to change(Post, :count)
-        page.should have_selector('.error')
+        expect(page).to have_selector('.error')
       end
     end
   end
@@ -131,16 +131,16 @@ describe 'Administrates posts' do
         fill_in 'Title', with: 'Updated Title'
         click_button 'Publish'
         within 'h1' do
-          page.should have_content('Updated Title')
+          expect(page).to have_content('Updated Title')
         end
-        page.should have_selector('.notice')
+        expect(page).to have_selector('.notice')
       end
       it 'unpublishes a post when you click "Unpublish"' do
         click_button 'Unpublish'
         within '.alert' do
-          page.should have_content('draft')
+          expect(page).to have_content('draft')
         end
-        page.should have_selector('.notice')
+        expect(page).to have_selector('.notice')
       end
     end
     context 'with invalid attributes' do
@@ -148,7 +148,7 @@ describe 'Administrates posts' do
         fill_in 'Title', with: ''
         click_button 'Publish'
         within '.flash' do
-          page.should have_content('errors')
+          expect(page).to have_content('errors')
         end
       end
     end
@@ -158,7 +158,7 @@ describe 'Administrates posts' do
           click_link 'Delete this Post'
         }.to change(Post, :count).by(-1)
         within '.notice' do
-          page.should have_content("You deleted #{@post.title}")
+          expect(page).to have_content("You deleted #{@post.title}")
         end
       end
     end

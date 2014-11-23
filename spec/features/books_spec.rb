@@ -5,18 +5,18 @@ describe 'Shows books' do
     it 'displays currently reading books' do
       unread = create(:unread_book)
       visit books_path
-      page.should have_content(unread.title)
+      expect(page).to have_content(unread.title)
     end
     it 'does not display read books I am not writing about' do
       read = create(:book)
       visit books_path
-      page.should_not have_content(read.title)
+      expect(page).to_not have_content(read.title)
     end
     it 'displays books I am writing about' do
       read = create(:book)
       create(:draft_post, book: read)
       visit books_path
-      page.should have_content(read.title)
+      expect(page).to have_content(read.title)
     end
   end
   describe 'book page' do
@@ -25,9 +25,9 @@ describe 'Shows books' do
       author1 = book.authors[0]
       author2 = book.authors[1]
       visit book_path(book)
-      page.should have_content(book.title)
-      page.should have_content(author1.full_name)
-      page.should have_content(author2.full_name)
+      expect(page).to have_content(book.title)
+      expect(page).to have_content(author1.full_name)
+      expect(page).to have_content(author2.full_name)
     end
   end
 end
@@ -40,19 +40,19 @@ describe 'Administrates books' do
     it 'displays all books' do
       book = create(:book)
       visit meta_books_path
-      page.should have_content(book.title)
+      expect(page).to have_content(book.title)
     end
     context 'when a book is unread' do
       it 'provides a link to mark as read' do
         create(:unread_book)
         visit meta_books_path
-        page.should have_selector(:link_or_button, 'Finish')
+        expect(page).to have_selector(:link_or_button, 'Finish')
       end
       it 'marks a book as read when clicked' do
         create(:unread_book)
         visit meta_books_path
         click_link 'Finish'
-        page.should have_content(Time.now.to_date)
+        expect(page).to have_content(Time.now.to_date)
       end
     end
   end
@@ -75,8 +75,8 @@ describe 'Administrates books' do
         expect {
           click_button 'Publish'
         }.to change(Book, :count).by(1)
-        page.should have_content 'Test Title'
-        page.should have_selector('.notice')
+        expect(page).to have_content 'Test Title'
+        expect(page).to have_selector('.notice')
       end
     end
     context 'with invalid attributes' do
@@ -84,7 +84,7 @@ describe 'Administrates books' do
         expect {
           click_button 'Publish'
         }.not_to change(Book, :count)
-        page.should have_selector('.error')
+        expect(page).to have_selector('.error')
       end
     end
   end
@@ -97,8 +97,8 @@ describe 'Administrates books' do
       it 'redirects to the updated book' do
         fill_in 'Title', with: 'Updated Title'
         click_button 'Publish'
-        page.should have_content('Updated Title')
-        page.should have_selector('.notice')
+        expect(page).to have_content('Updated Title')
+        expect(page).to have_selector('.notice')
       end
     end
     context 'with invalid attributes' do
@@ -106,7 +106,7 @@ describe 'Administrates books' do
         fill_in 'Title', with: ''
         click_button 'Publish'
         within '.flash' do
-          page.should have_content('errors')
+          expect(page).to have_content('errors')
         end
       end
     end
@@ -116,7 +116,7 @@ describe 'Administrates books' do
           click_link 'Delete this Book'
         }.to change(Book, :count).by(-1)
         within '.notice' do
-          page.should have_content("You deleted #{@book.title}")
+          expect(page).to have_content("You deleted #{@book.title}")
         end
       end
     end

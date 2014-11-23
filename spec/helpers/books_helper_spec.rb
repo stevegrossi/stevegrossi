@@ -8,7 +8,7 @@ describe BooksHelper do
       author2 = build(:author)
       book = build(:book_without_author, authors: [author1, author2])
       expected = "#{author1.full_name} and #{author2.full_name}"
-      author_list(book).should eq(expected)
+      expect(author_list(book)).to eq(expected)
     end
   end
 
@@ -20,7 +20,7 @@ describe BooksHelper do
       expected = link_to(author1.full_name, author1)
       expected += ' and '
       expected += link_to(author2.full_name, author2)
-      linked_author_list(book).should eq(expected)
+      expect(linked_author_list(book)).to eq(expected)
     end
   end
 end

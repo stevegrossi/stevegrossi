@@ -21,27 +21,27 @@ require 'spec_helper'
 
 describe Book do
   it 'has a valid factory' do
-    build(:book).should be_valid
+    expect(build(:book)).to be_valid
   end
   it 'is invalid without a title' do
-    build(:book, title: nil).should_not be_valid
+    expect(build(:book, title: nil)).to_not be_valid
   end
   it 'is invalid without a publisher' do
-    build(:book, publisher: nil).should_not be_valid
+    expect(build(:book, publisher: nil)).to_not be_valid
   end
   it 'is invalid without a pub_year' do
-    build(:book, pub_year: nil).should_not be_valid
+    expect(build(:book, pub_year: nil)).to_not be_valid
   end
   it 'is invalid without an author or authors' do
-    build(:book_without_author).should_not be_valid
+    expect(build(:book_without_author)).to_not be_valid
   end
   it 'is valid with multiple authors' do
-    build(:book_with_two_authors).should be_valid
+    expect(build(:book_with_two_authors)).to be_valid
   end
   it 'can mark itself as finished' do
     book = build(:book)
     book.finish
-    book.end_date.should eq(Time.now.to_date)
+    expect(book.end_date).to eq(Time.now.to_date)
   end
   describe 'scopes' do
     before :each do
@@ -49,10 +49,10 @@ describe Book do
       @unread = create(:unread_book)
     end
     it 'selects unread books' do
-      Book.unread.should eq([@unread])
+      expect(Book.unread).to eq([@unread])
     end
     it 'selects read books' do
-      Book.read.should eq([@read])
+      expect(Book.read).to eq([@read])
     end
   end
 end

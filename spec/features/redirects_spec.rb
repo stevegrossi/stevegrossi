@@ -6,7 +6,7 @@ describe 'Publicly' do
     visit "/#{redirect.from}"
     # This isn't right, but since I'm only redirecting root to /on temporarily and
     # that's what Rails wants to do, I can live with it if the test still works.
-    current_url.should eq("#{redirect.to}/on")
+    expect(current_url).to eq("#{redirect.to}/on")
   end
 end
 
@@ -18,7 +18,7 @@ describe 'Administrates redirects' do
     it 'displays redirects' do
       redirect = create(:redirect)
       visit meta_redirects_path
-      page.should have_content(redirect.from)
+      expect(page).to have_content(redirect.from)
     end
   end
   describe 'when creating a redirect' do
@@ -34,7 +34,7 @@ describe 'Administrates redirects' do
         expect {
           click_button 'Publish'
         }.to change(Redirect, :count).by(1)
-        page.should have_content 'google'
+        expect(page).to have_content 'google'
       end
     end
     context 'with invalid attributes' do
@@ -44,7 +44,7 @@ describe 'Administrates redirects' do
           fill_in 'From', with: ''
           click_button 'Publish'
         }.not_to change(Redirect, :count)
-        page.should have_selector('.error')
+        expect(page).to have_selector('.error')
       end
     end
   end
@@ -58,7 +58,7 @@ describe 'Administrates redirects' do
         fill_in 'To', with: 'http://amazon.com'
         click_button 'Publish'
         within 'h1' do
-          page.should have_content('All the redirects.')
+          expect(page).to have_content('All the redirects.')
         end
       end
     end
@@ -67,7 +67,7 @@ describe 'Administrates redirects' do
         fill_in 'To', with: ''
         click_button 'Publish'
         within '.flash' do
-          page.should have_content('errors')
+          expect(page).to have_content('errors')
         end
       end
     end
@@ -77,7 +77,7 @@ describe 'Administrates redirects' do
           click_link 'Delete this Redirect'
         }.to change(Redirect, :count).by(-1)
         within '.notice' do
-          page.should have_content("You deleted the redirect.")
+          expect(page).to have_content("You deleted the redirect.")
         end
       end
     end
