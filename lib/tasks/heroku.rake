@@ -1,4 +1,4 @@
- namespace :herokudb do
+namespace :herokudb do
 
   # Makes a backup of the production database
   task :backup_production do
