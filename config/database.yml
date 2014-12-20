@@ -2,21 +2,14 @@ development:
   adapter: postgresql
   encoding: utf8
   database: stevegrossi_development
-  username: stevegrossi
   min_messages: WARNING
-  template: template0 # Required for UTF8 encoding
-  host: localhost
 
 test:
   adapter: postgresql
   encoding: utf8
   database: stevegrossi_test
-  username: stevegrossi
   min_messages: WARNING
-  template: template0 # Required for UTF8 encoding
-  host: localhost
 
-# Staging & Production are handled by Heroku
 staging:
   url: <%= ENV["DATABASE_URL"] %>
 production:
