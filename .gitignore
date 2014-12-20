@@ -9,3 +9,4 @@ config/application.yml
 coverage/
 vendor/postgresql
 config/secrets.yml
+Procfile.dev
