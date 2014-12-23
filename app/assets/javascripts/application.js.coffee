@@ -3,6 +3,7 @@
 //= require jquery.lazyload
 //= require respond
 //= require jquery.bigfoot
+//= require turbolinks
 //= require_self
 
 $ ->
@@ -13,3 +14,10 @@ $ ->
 
   $.bigfoot().addBreakpoint 'iPhone'
 
+Turbolinks.enableTransitionCache()
+Turbolinks.enableProgressBar()
+
+$(document).on 'ready page:load', ->
+
+  $("._book img").lazyload
+    effect: 'fadeIn'

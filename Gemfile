@@ -28,6 +28,7 @@ gem 'sass-rails'
 gem 'coffee-rails'
 gem 'uglifier'
 gem 'slim'
+gem 'turbolinks'
 
 # Monitoring
 gem 'newrelic_rpm'

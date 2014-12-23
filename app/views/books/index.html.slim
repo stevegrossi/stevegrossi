@@ -15,7 +15,3 @@
   h2 Recently Written About
   ol.title_list
     = render @posted
-
-- content_for :page_js do
-  javascript:
-    $("._book img").lazyload({ effect: 'fadeIn' });

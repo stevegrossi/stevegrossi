@@ -6,7 +6,3 @@ h1.centered Books I’ve read by #{ @author.full_name }
   p Hm, it looks like I actually haven’t read any of #{ @author.fname }’s books. To the library!
 p
   = link_to('« All authors', authors_path)
-
-- content_for :page_js do
-  javascript:
-    $("._book img").lazyload({ effect: 'fadeIn' });

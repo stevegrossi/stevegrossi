@@ -4,7 +4,7 @@ html.no-js lang="en"
     meta charset="UTF-8"
     meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"
     title = content_for?(:title) ? yield(:title) + ' | Steve Grossi' : 'Steve Grossi'
-    = stylesheet_link_tag 'meta', media: :all
+    = stylesheet_link_tag 'meta', media: :all, data: { turbolinks_track: true }
     link rel="shortcut icon" href="/favicon.ico"
     link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144x144-precomposed.png"
     link rel="apple-touch-icon-precomposed" sizes="114x114" href="/apple-touch-icon-114x114-precomposed.png"
@@ -12,6 +12,9 @@ html.no-js lang="en"
     link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-precomposed.png"
     link rel="search" type="application/opensearchdescription+xml" title="Search SteveGrossi.com" href="/opensearch.xml"
     = csrf_meta_tag
+    - if Rails.env.production?
+      = render 'layouts/analytics'
+    = javascript_include_tag 'meta', data: { turbolinks_track: true }
   body class=body_classes
     header.siteheader
       nav
@@ -27,7 +30,3 @@ html.no-js lang="en"
         p class=['flash', key] = raw(value)
       article
         = yield
-    - if Rails.env.production?
-      = render 'layouts/analytics'
-    = javascript_include_tag 'meta'
-    = yield :page_js
