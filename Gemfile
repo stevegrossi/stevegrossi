@@ -34,7 +34,6 @@ gem 'newrelic_rpm'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
-  gem 'factory_girl_rails'
 end
 
 group :development do
@@ -47,10 +46,10 @@ group :development do
 end
 
 group :test do
-  gem 'minitest'
   gem 'capybara'
   gem 'faker'
   gem 'guard-rspec'
+  gem 'factory_girl_rails'
   gem 'launchy'
   gem 'database_cleaner'
   gem 'coveralls', require: false

@@ -305,7 +305,6 @@ DEPENDENCIES
   launchy
   maruku
   meta_request
-  minitest
   newrelic_rpm
   pg
   pg_search
