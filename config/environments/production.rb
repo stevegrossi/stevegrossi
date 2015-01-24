@@ -48,4 +48,6 @@ Stevegrossi::Application.configure do
   # Generate digests for asset URLs
   config.assets.digest = true
 
+  config.log_level = :info
+
 end
