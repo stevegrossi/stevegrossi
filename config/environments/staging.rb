@@ -13,7 +13,7 @@ Stevegrossi::Application.configure do
   config.action_controller.perform_caching = true
 
   # Serve static assets with far-future expires headers
-  config.serve_static_assets = true
+  config.serve_static_files = true
   config.static_cache_control = "public, max-age=2592000"
 
   # Specifies the header that your server uses for sending files
@@ -22,9 +22,6 @@ Stevegrossi::Application.configure do
   # Have Unicorn log to STDOUT so full logs are captured
   config.logger = Logger.new(STDOUT)
   config.log_level = :debug
-
-  # Serve static assets, which Rack::cache will cache
-  config.serve_static_assets = true
 
   # Enable serving of images, stylesheets, and javascripts from an asset server
   # config.action_controller.asset_host = "http://assets.example.com"
