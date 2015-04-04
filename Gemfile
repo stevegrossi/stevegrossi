@@ -30,8 +30,10 @@ gem 'uglifier'
 gem 'slim'
 gem 'turbolinks'
 
-# Monitoring
-gem 'newrelic_rpm'
+group :production do
+  gem 'rails_12factor'
+  gem 'newrelic_rpm'
+end
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
