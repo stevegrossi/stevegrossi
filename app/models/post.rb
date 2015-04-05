@@ -79,9 +79,11 @@ class Post < ActiveRecord::Base
     book.try(:subtitle)
   end
 
-  def self.tag_counts
-    Tag.select("tags.*, count(taggings.tag_id) as count").
-      joins(:taggings).group("taggings.tag_id, tags.id, tags.name, tags.slug")
+  def self.published_tag_counts
+    Tag.select("tags.*, count(taggings.tag_id) as count")
+      .joins(taggings: :post)
+      .group("taggings.tag_id, tags.id, tags.name, tags.slug")
+      .where("posts.published_at IS NOT NULL")
   end
 
   private

@@ -19,7 +19,7 @@ class PostsController < ApplicationController
   end
 
   def tags
-    @tags = Post.tag_counts # TODO: only count published
+    @tags = Post.published_tag_counts
   end
 
   def tag
