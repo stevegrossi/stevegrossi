@@ -8,7 +8,7 @@ p
   =< link_to('Log out', destroy_user_session_path)
 p You’ve got:
 ul
-  li = link_to(pluralize(@posts_count, 'post'), meta_posts_path)
+  li = link_to(pluralize(@posts_count, 'published post'), meta_posts_path)
   li = link_to(pluralize(@books_count, 'book'), meta_books_path)
   li = link_to(pluralize(@authors_count, 'author'), meta_authors_path)
   li = link_to(pluralize(@pages_count, 'page'), meta_pages_path)

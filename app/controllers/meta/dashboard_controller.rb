@@ -5,8 +5,8 @@ class Meta::DashboardController < ApplicationController
   before_action :authenticate_user!
 
   def home
-    @posts_count = Post.count
-    @word_count = Post.sum(:word_count)
+    @posts_count = Post.published.count
+    @word_count = Post.published.sum(:word_count)
     @books_count = Book.count
     @authors_count = Author.count
     @pages_count = Page.count
