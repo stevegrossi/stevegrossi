@@ -14,7 +14,7 @@ Stevegrossi::Application.configure do
 
   # Serve static assets with far-future expires headers
   config.serve_static_files = true
-  config.static_cache_control = "public, max-age=2592000"
+  config.static_cache_control = "public, max-age=31536000"
 
   # Specifies the header that your server uses for sending files
   config.action_dispatch.x_sendfile_header = nil
