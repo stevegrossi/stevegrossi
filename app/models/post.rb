@@ -45,9 +45,9 @@ class Post < ActiveRecord::Base
     end
   end
 
-  scope :book_posts, -> { where("book_id IS NOT NULL") }
-  scope :link_posts, -> { where("link_url IS NOT NULL AND link_url != ''") }
-  scope :writing_posts, -> { where("(link_url IS NULL OR link_url = '') AND book_id IS NULL") }
+  scope :book_posts, -> { where.not(book_id: nil) }
+  scope :link_posts, -> { where.not(link_url: nil).where.not(link_url: '') }
+  scope :writing_posts, -> { where("link_url IS NULL OR link_url = ''").where(book_id: nil) }
 
   def post_type
     if book_post?
@@ -82,8 +82,8 @@ class Post < ActiveRecord::Base
   def self.published_tag_counts
     Tag.select("tags.*, count(taggings.tag_id) as count")
       .joins(taggings: :post)
-      .group("taggings.tag_id, tags.id, tags.name, tags.slug")
-      .where("posts.published_at IS NOT NULL")
+      .group([:id, :name, :slug])
+      .where.not(posts: { published_at: nil })
   end
 
   private

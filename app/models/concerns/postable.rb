@@ -3,8 +3,8 @@ module Postable
   extend ActiveSupport::Concern
 
   included do
-    scope :published, -> { where('published_at IS NOT NULL').order('published_at DESC') }
-    scope :drafts, -> { where('published_at IS NULL') }
+    scope :published, -> { where.not(published_at: nil).order(published_at: :desc) }
+    scope :drafts, -> { where(published_at: nil) }
   end
 
   def previous
