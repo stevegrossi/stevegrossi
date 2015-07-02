@@ -8,7 +8,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.friendly.find(params[:id])
+    @post = Post.friendly.includes(book: :authors).find(params[:id])
     if @post.draft?
       if current_user || params[:draft] == 'yep'
         flash.now.alert = 'This is a draft.'
