@@ -12,12 +12,12 @@ $ ->
     .removeClass 'no-js'
     .addClass 'js'
 
-  $.bigfoot().addBreakpoint 'iPhone'
-
 Turbolinks.enableTransitionCache()
 Turbolinks.enableProgressBar()
 
-$(document).on 'ready page:load', ->
+$(document).on 'page:load', ->
+
+  $.bigfoot().addBreakpoint 'iPhone'
 
   $("._book img").lazyload
     effect: 'fadeIn'
