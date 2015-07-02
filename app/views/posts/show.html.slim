@@ -4,7 +4,7 @@
 header.post-header
   - if @post.book_post?
     a.post-header-cover href="#book"
-      = image_tag(@post.book.cover_url, alt: '', width: 80)
+      = image_tag(@post.book.cover_url, alt: '', width: 80, class: "cover")
   div.heading
     h1 = @post.title
     - if @post.subtitle.present?
