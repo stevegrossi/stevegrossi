@@ -4,7 +4,7 @@
 
 header.FullPost-header
   - if @post.book_post?
-    a.FullPost-book href="#book"
+    a.FullPost-book.Cover href="#book"
       = image_tag(@post.book.cover_url, alt: '', width: 100)
   div
     h1.FullPost-title = @post.title
@@ -18,7 +18,7 @@ article = markdown(@post.content)
 
 - if @post.book_post?
   footer#book.MediaElement.Article
-    = image_tag(@post.book.cover_url, alt: '', class: "MediaElement-media")
+    = image_tag(@post.book.cover_url, alt: '', class: "MediaElement-media Cover")
     div.MediaElement-content
       div.Article-title = @post.book.title
       div = linked_author_list(@post.book)
