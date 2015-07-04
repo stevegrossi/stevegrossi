@@ -20,6 +20,7 @@ gem 'rack-rewrite'
 gem 'rack-canonical-host'
 
 # Memcache
+gem 'memcachier'
 gem 'dalli'
 
 # Assets and templating
