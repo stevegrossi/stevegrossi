@@ -1,43 +1,4 @@
-=clearfix
-  zoom: 1
-  &:before, &:after
-    content: ""
-    display: table
-  &:after
-    clear: both
-
-=round($rad: .25em)
-  -moz-border-radius: $rad
-  -webkit-border-radius: $rad
-  border-radius: $rad
-
-=shadow($params: 0 2px 4px rgba(0, 0, 0, 0.1))
-  -moz-box-shadow: $params
-  -webkit-box-shadow: $params
-  box-shadow: $params
-
-=transition($opts)
-  -webkit-transition: $opts
-  -moz-transition: $opts
-  -o-transition: $opts
-  -ms-transition: $opts
-  transition: $opts
-
-=columns($cols: 2, $gap: 0px)
-  -moz-column-count: $cols
-  -moz-column-gap: $gap
-  -webkit-column-count: $cols
-  -webkit-column-gap: $gap
-  column-count: $cols
-  column-gap: $gap
-
-=transform($opts)
-  -moz-transform: $opts
-  -webkit-transform: $opts
-  -webkit-backface-visibility: hidden
-  -o-transform: $opts
-  -ms-transform: $opts
-  transform: $opts
-
-=rotate($deg)
-  +transform(rotate($deg))
+@mixin columns($count)
+  -webkit-column-count: $count
+  -moz-column-count: $count
+  column-count: $count

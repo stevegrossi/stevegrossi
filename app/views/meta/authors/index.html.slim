@@ -5,6 +5,7 @@ h1 Everyone I’ve read.
 table cellspacing="0"
   thead
     tr
+      th
       th First Name
       th Middle Name
       th Last Name
@@ -12,9 +13,8 @@ table cellspacing="0"
   tbody
     - @authors.each do |author|
       tr
-        td
-          = link_to_edit(author)
-          = author.fname
+        td = link_to_edit(author)
+        td = author.fname
         td = author.mname
         td = author.lname
         td = author.books.map{ |b| link_to(b.title, b)}.join(', ').html_safe

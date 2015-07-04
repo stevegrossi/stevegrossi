@@ -3,6 +3,7 @@ require 'spec_helper'
 describe BooksHelper do
 
   describe '#author_list' do
+
     it 'lists authors' do
       author1 = build(:author)
       author2 = build(:author)
@@ -13,6 +14,7 @@ describe BooksHelper do
   end
 
   describe '#linked_author_list' do
+
     it 'lists authors linked to their pages' do
       author1 = build(:author)
       author2 = build(:author)

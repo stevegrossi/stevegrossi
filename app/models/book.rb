@@ -37,7 +37,7 @@ class Book < ActiveRecord::Base
   validates :start_date,  presence: true
 
   def posted?
-    post && post.published?
+    post.try(&:published?)
   end
 
   def cover_url
@@ -57,7 +57,11 @@ class Book < ActiveRecord::Base
   end
 
   def publine
-    "#{ publisher }, #{ pub_year }"
+    "#{publisher}, #{pub_year}"
+  end
+
+  def year_read
+    (end_date || start_date).year
   end
 
 end

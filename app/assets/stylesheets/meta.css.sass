@@ -3,16 +3,14 @@
 @import variables
 @import mixins
 @import base
-@import layout
-@import helpers
 @import chosen
+@import components/*
 
-.meta
-  h1
-    margin: .5em 0
-  .main, .sitefooter, .siteheader nav
-    max-width: 90%
-  table
-    font-size: 16px
-    clear: both
+body
+  font-size: 100%
 
+h1
+  margin: $baseline / 2 0
+
+.SiteHeader-container
+  max-width: none

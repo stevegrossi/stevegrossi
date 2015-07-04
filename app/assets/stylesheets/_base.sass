@@ -2,39 +2,33 @@ html
   overflow-y: scroll
 
 body
-  background: #fff
-  color: $darker_gray
-  font-family: $serif_stack
+  background: $sand
+  color: $darker-gray
+  font-family: $serif-stack
   font-size: 100%
+  @media screen and (min-width: 36em)
+    font-size: 120%
+  @media screen and (min-width: 48em)
+    font-size: 150%
   line-height: $baseline
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
-  +breakpoint(m)
-    font-size: 112.5% // 18px
-    line-height: 1.5555555556 // 28px
-  +breakpoint(l)
-    font-size: 131.25% // 21px
-    line-height: 1.5238095238 // 32px
-  +breakpoint(xl)
-    font-size: 150% // 24px
-    line-height: 1.5 // 36px
 
-a
-  &:link
+main
+  background-color: $white
+  a
     color: $blue
-    +transition(all 0.1s ease-in-out)
-  &:visited
-    color: mix(black, $blue, 20%)
-  &:hover, &:active
-    color: mix(white, $blue, 20%)
+    transition: all 0.1s ease-in-out
+    &:visited
+      color: mix(black, $blue, 20%)
+    &:hover, &:active
+      color: mix(white, $blue, 20%)
 
-h1, h2, h3, h4, h5, p, ul, ol, dl, .heading, table, figure, fieldset, input[type="submit"]
+h1, h2, h3, h4, h5,
+p, ul, ol, dl,
+table, figure, fieldset, input[type="submit"]
   margin-top: $baseline
   margin-bottom: $baseline
-
-.heading
-  h1, h2, h3, h4, h5
-    margin: 0
 
 h1, h2, h3, h4, h5, h6
   line-height: 1
@@ -80,7 +74,7 @@ sub
   bottom: -.25em
 
 mark
-  background: rgba(255, 255, 0, 0.5)
+  background: $highlight-color
   color: inherit
 
 blockquote
@@ -107,56 +101,6 @@ figure
     width: 100%
     display: block
     margin: 0 auto $baseline * 0.5
-  &.left
-    +breakpoint(m)
-      margin-right: $baseline
-      width: 50%
-
-    &.bleed
-      +breakpoint(m)
-        margin-left: -12.5%
-
-      +breakpoint(l)
-        margin-left: -16.5%
-
-      +breakpoint(xl)
-        margin-left: -21.5%
-
-      figcaption
-        padding-left: 2%
-  &.right
-    +breakpoint(m)
-      margin-left: $baseline
-      width: 50%
-    &.bleed
-      +breakpoint(m)
-        margin-right: -12.5%
-
-      +breakpoint(l)
-        margin-right: -16.5%
-
-      +breakpoint(xl)
-        margin-right: -21.5%
-
-      figcaption
-        padding-right: 2%
-  &.full_bleed
-    margin-left: -5.5%
-    margin-right: -5.5%
-    +breakpoint(s)
-      margin-left: -12.5%
-      margin-right: -12.5%
-
-    +breakpoint(l)
-      margin-left: -16.5%
-      margin-right: -16.5%
-
-    +breakpoint(xl)
-      margin-left: -21.5%
-      margin-right: -21.5%
-
-    figcaption
-      padding-left: 2%
 
 figcaption
   color: $gray
@@ -174,27 +118,25 @@ hr
     letter-spacing: .5em
 
 pre, code, kbd, samp
-  font-family: $mono_stack
+  font-family: $mono-stack
 
 table
   width: 100%
 
 th, td
-  border: 1px solid $light_gray
+  border: $border-light
   padding: 4px
 
 th
-  background-color: $lighter_gray
+  background-color: $lighter-gray
 
 tfoot td
   font-size: .8em
 
-button, input, textarea
+button,
+input,
+textarea
   padding: $baseline * 0.5
-
-form ul
-  list-style-type: none
-  margin: 0
 
 legend
   padding: 0 .5em
@@ -208,30 +150,17 @@ ul label
   margin-top: 0
 
 textarea
-  width: 98%
-  max-width: 40em
   min-height: $baseline * 4
-  border: 1px solid $light_gray
+  border: $border-light
 
-input, select[multiple='multiple']
-  border: 1px solid $light_gray
-  max-width: 100%
+input,
+select[multiple='multiple']
+  border: $border-light
 
 input[type="submit"]
   margin-right: .5em
   padding: $baseline * 0.5 $baseline
-  background: $darker_gray
+  background: $darker-gray
   color: #fff
-  border: 2px solid $darker_gray
-  +round
-
-input.secondary
-  background: #fff
-  color: inherit
-  &:hover, &:focus
-    background-color: $lighter_gray
-
-select[multiple="multiple"]
-  height: 4.5em
-  max-width: none
-  width: 102%
+  border: 2px solid $darker-gray
+  border-radius: .25em

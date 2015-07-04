@@ -3,8 +3,7 @@ class PostsController < ApplicationController
   caches_action :index, :show, :tag, if: proc{ !current_user }
 
   def index
-    posts = Post.published.includes(:book, :tags).to_a
-    @posts = Kaminari.paginate_array(posts).page(params[:page])
+    @posts = Post.published.includes(:book, :tags).page(params[:page])
   end
 
   def show

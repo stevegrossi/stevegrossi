@@ -66,7 +66,7 @@ describe 'Administrates redirects' do
       it 're-renders the new redirect form with a flash' do
         fill_in 'To', with: ''
         click_button 'Publish'
-        within '.flash' do
+        within '.Flash' do
           expect(page).to have_content('errors')
         end
       end
@@ -76,7 +76,7 @@ describe 'Administrates redirects' do
         expect {
           click_link 'Delete this Redirect'
         }.to change(Redirect, :count).by(-1)
-        within '.notice' do
+        within '.Flash--notice' do
           expect(page).to have_content("You deleted the redirect.")
         end
       end

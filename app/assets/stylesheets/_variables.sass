@@ -1,39 +1,23 @@
-$darker_gray:   #333333
-$dark_gray:     #666666
-$gray:          #888888
-$light_gray:    #cccccc
-$lighter_gray:  #eeeeee
-$serif_stack:   CharisSIL, Georgia, serif
-$mono_stack:    Monaco, monospace
-$icon_stack:    Icons
+$darker-gray:   #333
+$dark-gray:     #666
+$gray:          #888
+$light-gray:    #ccc
+$lighter-gray:  #eee
 
-// Solarized colors
-$yellow:  #b58900
-$orange:  #cb4b16
-$red:     #dc322f
-$magenta: #d33682
-$violet:  #6c71c4
-$blue:    #268bd2
-$cyan:    #2aa198
-$green:   #859900
-$white:   #fdf6e3
-$cream:   #eee8d5
-$dark:    #2f353e
-$slate:   #93a1a1
+$yellow:        #b58900
+$orange:        #cb4b16
+$red:           #dc322f
+$blue:          #268bd2
+$green:         #859900
+$sand:          #efece5
+$dark:          #2f353e
+$slate:         #93a1a1
+$white:         #fff
+
+$serif-stack:   CharisSIL, Georgia, serif
+$mono-stack:    Monaco, monospace
 
 $baseline: 1.5em
 $primary-color: $blue
-
-=breakpoint($name)
-  @if $name == xl
-    @media (min-width: 1200px)
-      @content
-  @else if $name == l
-    @media (min-width: 950px)
-      @content
-  @else if $name == m
-    @media (min-width: 768px)
-      @content
-  @else if $name == s
-    @media (min-width: 480px)
-      @content
+$highlight-color: rgba(255, 255, 0, 0.5)
+$border-light: 1px solid $light-gray

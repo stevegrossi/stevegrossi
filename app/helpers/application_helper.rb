@@ -9,34 +9,24 @@ module ApplicationHelper
     strip_tags(markdown(text))
   end
 
-  def body_classes
-    controller_slug = controller_path.sub('/', ' ') # so 'meta/books' becomes 'meta books'
-    "#{controller_slug} #{controller_slug}-#{action_name}"
-  end
-
   def link_to_new(class_name)
-    if current_user
-      link_to "New #{class_name}", new_polymorphic_path([:meta, class_name]), class: 'link_to_new'
-    end
+    link_to "New #{class_name}", new_polymorphic_path([:meta, class_name])
   end
 
   def link_to_edit(thing)
-    if current_user
-      link_to 'e', polymorphic_path([:meta, thing], action: :edit), class: 'edit_link'
-    end
+    link_to "Edit", polymorphic_path([:meta, thing], action: :edit)
   end
 
   def link_to_delete(thing)
-    if current_user
-      name = thing.class.name.titleize
-      link_to "Delete this #{name}", polymorphic_path([:meta, thing]), data: { confirm: "Are you sure you want to delete this #{name}? This cannot be undone." }, method: :delete, class: 'delete_link'
-    end
+    name = thing.class.name.titleize
+    link_to "Delete this #{name}", polymorphic_path([:meta, thing]), data: { confirm: "Are you sure you want to delete this #{name}? This cannot be undone." }, method: :delete, class: 'delete_link'
   end
 
   def nav_link_to(text, target, options = {})
+    options[:class] = ['SiteHeader-navLink']
     path = Rails.application.routes.recognize_path(target)
     if current_page?(target) || (controller_path != 'pages' && path[:controller] == controller_path)
-      options[:class] = 'current'
+      options[:class] << 'SiteHeader-navLink--current'
     end
     link_to(text, target, options)
   end
@@ -51,7 +41,7 @@ module ApplicationHelper
 
   def flash_errors(obj)
     if obj.errors.present?
-      content_tag :div, class: 'flash error' do
+      content_tag :div, class: 'Flash Flash--error' do
         "Could not save the #{obj.class.to_s.humanize.downcase} because of the errors below:"
       end
     end
@@ -75,15 +65,6 @@ module ApplicationHelper
       when 'shit', 'fuck', 'cunt', 'cocksucker', 'motherfucker'
         content_tag(:p, content_tag(:em, 'You kiss your mother with that mouth?'))
       end
-    end
-  end
-
-  def bubble_up(array, items)
-    if items.blank?
-      array
-    else
-      items = Array(items)
-      (array - items).unshift(items).flatten
     end
   end
 

@@ -1,0 +1,2 @@
+li.ThumbList-item
+  = link_to_if(book.posted?, image_tag('placeholder.png', class: 'ThumbList-thumb Cover', data: { original: book.cover_url }), book.post)

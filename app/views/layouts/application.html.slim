@@ -21,21 +21,37 @@ html.no-js lang="en"
       = render 'layouts/analytics'
     = javascript_include_tag 'application', data: { turbolinks_track: true }
 
-  body class=body_classes
-    header.siteheader
-      nav
-        = link_to(raw('Steve Grossi'), posts_path, title: 'Home', accesskey: '1', id: 'logo')
-        ul
-          li = nav_link_to('thoughts', posts_path)
-          li = nav_link_to('work', '//work.stevegrossi.com')
-          li = nav_link_to 'about', page_path('is'), title: 'About Me'
-          li = nav_link_to 'search', search_path, data: { icon: 's' }
-    div.main role="main"
+  body
+    header.SiteHeader
+      nav.SiteHeader-container
+        = link_to('Steve Grossi', posts_path, title: 'Home', accesskey: '1', class: 'SiteHeader-logo')
+        ul.SiteHeader-navList
+          li.SiteHeader-navItem = nav_link_to(t('nav.thoughts'), posts_path)
+          li.SiteHeader-navItem = nav_link_to(t('nav.work'), '//work.stevegrossi.com')
+          li.SiteHeader-navItem = nav_link_to(t('nav.about'), page_path('is'), title: 'About Me')
+          li.SiteHeader-navItem = nav_link_to(t('nav.search'), search_path)
+    main.MainContent role="main" class=content_for(:main_class)
       - flash.each do |key, value|
-        p class=['flash', key] = raw(value)
+        p class="Flash Flash--#{key}" = raw(value)
       article
         = yield
-    footer.sitefooter
+    footer.SiteFooter
+      p.SiteFooter-logo Steve Grossi
+
+      .SiteFooter-linkSection
+        h2.SiteFooter-heading Here
+        ul.SiteFooter-linkList
+          li= link_to(t('nav.thoughts'), posts_path)
+          li= link_to(t('nav.books'), books_path)
+          li= link_to(t('nav.tags'), tags_posts_path)
+          li= link_to(t('nav.about'), page_path('is'))
+
+      .SiteFooter-linkSection
+        h2.SiteFooter-heading Elsewhere
+        ul.SiteFooter-linkList
+          li= link_to(t('footer.work_blog'), '//work.stevegrossi.com')
+          li= link_to(t('footer.tumblr'), '//heresyourjetpack.tumblr.com')
+          li= link_to(t('footer.twitter'), '//twitter.com/stevegrossi')
+
       p
-        | © 2011—#{ Time.now.year } | #{ link_to('Colophon', page_path('colophon')) }
-        span.right me at stevegrossi dot com
+        small.SiteFooter-copyright= t('copyright', year: Date.current.year)

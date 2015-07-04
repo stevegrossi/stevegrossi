@@ -1,16 +1,13 @@
 = flash_errors(@book)
 
 = simple_form_for([:meta, @book]) do |f|
-  div.halves
-    div.half
-      = f.input :title
-      = f.input :subtitle
-      = link_to('New Author', new_meta_author_path, class: :ajax_new_link, remote: true)
-      = f.association :authors, label: 'Author(s)', label_method: :full_name, input_html: { data: { placeholder: 'Select author(s)' } }
-    div.half
-      = f.input :publisher
-      = f.input :pub_year
-      = f.input :asin, label: 'ASIN'
+  = f.input :title
+  = f.input :subtitle
+  = link_to('New Author', new_meta_author_path, class: :ajax_new_link, remote: true)
+  = f.association :authors, label: 'Author(s)', label_method: :full_name, input_html: { data: { placeholder: 'Select author(s)' } }
+  = f.input :publisher
+  = f.input :pub_year
+  = f.input :asin, label: 'ASIN'
   = f.input :cover_image
   = f.input :start_date, include_blank: true
   = f.input :end_date, include_blank: true

@@ -1,31 +1,31 @@
 - provide :title, @post.title
 - provide :description, @post.idea
+- provide :main_class, "MainContent--reader"
 
-header.post-header
+header.FullPost-header
   - if @post.book_post?
-    a.post-header-cover href="#book"
-      = image_tag(@post.book.cover_url, alt: '', width: 80, class: "cover")
-  div.heading
-    h1 = @post.title
+    a.FullPost-book href="#book"
+      = image_tag(@post.book.cover_url, alt: '', width: 100)
+  div
+    h1.FullPost-title = @post.title
     - if @post.subtitle.present?
-      h2 = @post.subtitle
-    - if @post.link_post?
-      h2.post-header-link = link_from_url(@post.link_url)
-  p.post-date
+      h2.FullPost-subtitle = @post.subtitle
+  p.FullPost-date
     = @post.pretty_published_at
-  p.post-idea = @post.idea
+  p.FullPost-summary = @post.idea
 
 article = markdown(@post.content)
 
 - if @post.book_post?
-  hr
-  footer#book._book.centered
-    = image_tag(@post.book.cover_url, alt: '', class: 'cover')
-    div._book-meta
-      div._book-title = @post.book.title
+  footer#book.MediaElement.Article
+    = image_tag(@post.book.cover_url, alt: '', class: "MediaElement-media")
+    div.MediaElement-content
+      div.Article-title = @post.book.title
       div = linked_author_list(@post.book)
-      div #{ @post.book.publisher }, #{ @post.book.pub_year }
-      - if @post.book.asin?
-        = link_to('Purchase', "http://www.amazon.com/gp/product/#{ @post.book.asin }?ie=UTF8&tag=stevgros-20", class: 'post-footer-book-linkout')
+      div.Article-meta
+        = "#{ @post.book.publisher }, #{ @post.book.pub_year }"
+        - if @post.book.asin.present?
+          | &nbsp;&bull;&nbsp;
+          = link_to('Purchase', "http://www.amazon.com/gp/product/#{ @post.book.asin }?ie=UTF8&tag=stevgros-20")
 
 = render 'shared/disqus', commentable: @post

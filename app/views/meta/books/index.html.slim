@@ -5,6 +5,7 @@ h1 Everything I’ve read.
 table cellspacing="0"
   thead
     tr
+      th
       th Title
       th Author
       th Publisher
@@ -14,9 +15,8 @@ table cellspacing="0"
   tbody
     - @books.each do |book|
       tr
-        td
-          = link_to_edit(book)
-          = link_to book.title, book
+        td = link_to_edit(book)
+        td = link_to(book.title, book)
         td = linked_author_list(book)
         td = book.publisher
         td = book.pub_year

@@ -1,5 +1,8 @@
-- provide :title, "Books I've read about #{@tag.name}"
+- provide :title, "Things I've Written About #{@tag.name}"
 
-h1.centered Thoughts on #{ @tag.name }
-ol.title_list
+h1.Title
+  span.Title-eyebrow Thoughts on
+  = @tag.name.titleize
+
+ol.ArticleList
   = render @posts

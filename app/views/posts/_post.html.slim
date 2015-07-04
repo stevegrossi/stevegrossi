@@ -1,8 +1,10 @@
-li class=['_post', post.post_type.downcase]
-  article
-    div.date = post.pretty_published_at
-    div.title = link_to(post.title, post)
-    = post.idea
+li.Article.MediaElement class=("Article--featured MediaElement--right" if defined?(feature_first) && feature_first && post_counter.zero?)
+  - if post.book_post?
+    = link_to(image_tag(post.book.cover_url, alt: '', class: "MediaElement-media Cover"), post)
+  div.MediaElement-content
+    div.Article-meta = post.pretty_published_at
+    = link_to(post.title, post, class: "Article-title")
+    p.Article-summary = post.idea
     - if post.tags.present?
-      div.topics
+      div.Article-meta
         = raw "on #{ linked_tags_for(post) }"

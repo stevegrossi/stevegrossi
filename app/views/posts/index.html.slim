@@ -2,8 +2,8 @@
 - provide :description, 'Some thoughts I’ve liked enough to write down'
 
 - if @posts.present?
-  ol.title_list
-    = render @posts
+  ol.ArticleList.ArticleList--featureFirst
+    = render @posts, feature_first: params[:page].nil?
   = paginate @posts
 - else
-  p Nothing to see here.
+  p= t("posts.none")

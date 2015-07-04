@@ -18,6 +18,10 @@ RSpec.configure do |config|
 
   config.include FactoryGirl::Syntax::Methods
 
+  # Allow focusing on particular specs
+  config.filter_run focus: true
+  config.run_all_when_everything_filtered = true
+
   # Configure 'database_cleaner' gem
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction

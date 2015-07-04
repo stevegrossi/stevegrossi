@@ -2,4 +2,18 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  nav:
+    thoughts: "Thoughts"
+    work: "Work"
+    about: "About"
+    search: "Search"
+    tags: "Topics"
+    books: "Books"
+  posts:
+    no_results: "Nothing to see here."
+    none: "Whoops, it looks like I haven’t written anything yet."
+  footer:
+    work_blog: "My Work Blog"
+    tumblr: "Here’s Your Jetpack"
+    twitter: "Twitter"
+  copyright: "© 2011–%{year} Steve Grossi. Be cool."

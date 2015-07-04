@@ -1,0 +1,56 @@
+.SiteHeader
+  padding: $baseline / 2 $baseline
+  @media screen and (min-width: 48em)
+    padding-bottom: 0
+    padding-top: .5em
+  background-color: $dark
+  text-align: center
+  @media screen and (min-width: 48em)
+    text-align: left
+
+  &-container
+    max-width: 36em
+    margin-left: auto
+    margin-right: auto
+
+  &-logo
+    color: #fff
+    text-decoration: none
+    font-size: 1.5em
+    @media screen and (min-width: 48em)
+      position: relative
+      top: .2em
+      font-size: 2em
+
+    font-weight: bold
+
+  &-navList
+    @media screen and (min-width: 48em)
+      float: right
+
+  &-navItem
+    display: inline-block
+    margin: 0 .5em
+    text-transform: lowercase
+
+  &-navLink
+    color: $slate
+    text-decoration: none
+
+    &--current
+      color: #fff
+      position: relative
+
+      &::after
+        content: ""
+        width: 0
+        height: 0
+        border-left: 0.5em solid transparent
+        border-right: 0.5em solid transparent
+        border-top-width: 0.5em
+        border-top-style: solid
+        border-top-color: #2f353e
+        position: absolute
+        bottom: -0.75em
+        left: 50%
+        margin-left: -0.5em

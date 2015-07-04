@@ -1,11 +1,9 @@
-li._book
-  article
-    = image_tag('placeholder.png', class: 'cover', data: { original: book.cover_url })
-    div._book-meta
-      div.title
-        - if book.posted?
-          = link_to(book.title, book.post)
-        - else
-          = content_tag(:span, book.title)
-      = linked_author_list(book)
-      div.meta = book.publine
+li.MediaElement.Article
+  = image_tag('placeholder.png', class: 'MediaElement-media Cover', data: { original: book.cover_url })
+  .MediaElement-content
+    - if book.posted?
+      = link_to(book.title, book.post, class: "Article-title")
+    - else
+      = content_tag(:span, book.title, class: "Article-title")
+    p.Article-summary = raw "by #{linked_author_list(book)}"
+    div.Article-meta = book.publine

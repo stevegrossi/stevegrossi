@@ -5,12 +5,12 @@ h1 All the redirects.
 table cellspacing="0"
   thead
     tr
+      th
       th From
       th To
   tbody
     - @redirects.each do |redirect|
       tr
-        td
-          = link_to_edit(redirect)
-          = redirect.from
+        td = link_to_edit(redirect)
+        td = redirect.from
         td = link_to(redirect.to, redirect.to)

@@ -29,7 +29,7 @@ describe 'Shows posts' do
       log_in_user
       post = create(:draft_post)
       visit post_path(post)
-      within '.alert' do
+      within '.Flash--alert' do
         expect(page).to have_content('This is a draft')
       end
     end
@@ -94,7 +94,7 @@ describe 'Administrates posts' do
           expect(page).to have_content 'Test Title'
         end
         expect(page).to_not have_content('draft')
-        expect(page).to have_selector('.notice')
+        expect(page).to have_selector('.Flash--notice')
       end
       it 'creates a new draft post when you click "Save Draft"' do
         expect {
@@ -103,10 +103,10 @@ describe 'Administrates posts' do
         within 'h1' do
           expect(page).to have_content 'Test Title'
         end
-        within '.alert' do
+        within '.Flash--alert' do
           expect(page).to have_content('This is a draft')
         end
-        expect(page).to have_selector('.notice')
+        expect(page).to have_selector('.Flash--notice')
       end
     end
     context 'with invalid attributes' do
@@ -133,21 +133,21 @@ describe 'Administrates posts' do
         within 'h1' do
           expect(page).to have_content('Updated Title')
         end
-        expect(page).to have_selector('.notice')
+        expect(page).to have_selector('.Flash--notice')
       end
       it 'unpublishes a post when you click "Unpublish"' do
         click_button 'Unpublish'
-        within '.alert' do
+        within '.Flash--alert' do
           expect(page).to have_content('draft')
         end
-        expect(page).to have_selector('.notice')
+        expect(page).to have_selector('.Flash--notice')
       end
     end
     context 'with invalid attributes' do
       it 're-renders the new post form with a flash' do
         fill_in 'Title', with: ''
         click_button 'Publish'
-        within '.flash' do
+        within '.Flash' do
           expect(page).to have_content('errors')
         end
       end
@@ -157,7 +157,7 @@ describe 'Administrates posts' do
         expect {
           click_link 'Delete this Post'
         }.to change(Post, :count).by(-1)
-        within '.notice' do
+        within '.Flash--notice' do
           expect(page).to have_content("You deleted #{@post.title}")
         end
       end

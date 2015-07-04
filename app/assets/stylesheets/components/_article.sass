@@ -1,0 +1,33 @@
+.Article
+  margin-bottom: .5em
+  border-top: 1px solid $lighter-gray
+  padding-top: 1em
+  padding-bottom: 1em
+  clear: both
+
+  &:first-child
+    border-top: 0
+
+  &-title
+    font-size: 1.5em
+    text-decoration: none
+    font-weight: bold
+
+  &-summary
+    margin: 0
+
+  &-meta
+    font-size: .75em
+    color: rgba(0, 0, 0, .25)
+
+    a
+      color: rgba(0, 0, 0, .4)
+
+  &--featured
+    background: rgba($yellow, .15)
+    margin-left: -2em
+    padding-left: 2em
+    padding-right: 1em
+
+    & + .Article
+      border-top: 0

@@ -1,6 +1,9 @@
-h1.centered Books I’ve read by #{ @author.full_name }
+h1.Title
+  span.Title-eyebrow Books I’ve Read By
+  = @author.full_name
+
 - if @books.present?
-  ol.title_list
+  ol.ArticleList
     = render @books
 - else
   p Hm, it looks like I actually haven’t read any of #{ @author.fname }’s books. To the library!

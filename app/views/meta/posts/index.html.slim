@@ -5,7 +5,7 @@ h1 All the posts.
 table cellspacing="0"
   thead
     tr
-      th Type
+      th
       th Title
       th Idea
       th Words
@@ -15,7 +15,6 @@ table cellspacing="0"
       tr
         td
           = link_to_edit(post)
-          = post.post_type
         td = link_to post.title, post
         td = post.idea
         td = post.word_count

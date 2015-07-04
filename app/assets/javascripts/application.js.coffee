@@ -15,9 +15,9 @@ $ ->
 Turbolinks.enableTransitionCache()
 Turbolinks.enableProgressBar()
 
-$(document).on 'page:load', ->
+$(document).on 'ready page:load', ->
 
   $.bigfoot().addBreakpoint 'iPhone'
 
-  $("._book img").lazyload
+  $(".MediaElement-media,.ThumbList-thumb").lazyload
     effect: 'fadeIn'
