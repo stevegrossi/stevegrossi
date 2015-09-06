@@ -3,11 +3,12 @@ require "spec_helper"
 describe "Shows authors" do
 
   describe "authors archive" do
+    let!(:author1) { create(:author) }
+    let!(:author2) { create(:author) }
 
     it "displays published authors" do
-      author1 = create(:author)
-      author2 = create(:author)
       visit authors_path
+
       expect(page).to have_content(author1.full_name)
       expect(page).to have_content(author2.full_name)
     end
@@ -15,25 +16,27 @@ describe "Shows authors" do
 
   describe "author page" do
 
+    before :each do
+      visit author_path(author)
+    end
+
+    context "when an author has no books" do
+      let!(:author) { create(:author) }
+
+      it "shows a message" do
+        expect(page).to have_content("I actually haven’t read")
+      end
+    end
+
     context "when an author has books" do
+      let(:book) { create(:book) }
+      let(:author) { book.authors.first }
 
       it "displays an author and their books" do
-        book = create(:book)
-        author = book.authors.first
-        visit author_path(author)
         within "h1" do
           expect(page).to have_content(author.full_name)
         end
         expect(page).to have_content(book.title)
-      end
-    end
-
-    context "when an author has no books" do
-
-      it "shows a message" do
-        author = create(:author)
-        visit author_path(author)
-        expect(page).to have_content("I actually haven’t read")
       end
     end
   end
@@ -46,11 +49,12 @@ describe "Administrates authors" do
   end
 
   describe "authors dashboard" do
+    let!(:book) { create(:book) }
+    let(:author) { book.authors.first }
 
     it "displays all authors and their book" do
-      book = create(:book)
-      author = book.authors.first
       visit meta_authors_path
+
       expect(page).to have_content(author.fname)
       expect(page).to have_content(book.title)
     end
@@ -90,10 +94,10 @@ describe "Administrates authors" do
   end
 
   describe "edit author page" do
+    let!(:author) { create(:author) }
 
     before :each do
-      @author = create(:author)
-      visit edit_meta_author_path(@author)
+      visit edit_meta_author_path(author)
     end
 
     context "with valid attributes" do
@@ -101,6 +105,7 @@ describe "Administrates authors" do
       it "redirects to the updated author" do
         fill_in "First", with: "Newname"
         click_button "Update Author"
+
         within "h1" do
           expect(page).to have_content("Newname")
         end
@@ -113,6 +118,7 @@ describe "Administrates authors" do
       it "re-renders the new author form with a flash" do
         fill_in "First", with: ""
         click_button "Update Author"
+
         within ".Flash" do
           expect(page).to have_content("errors")
         end
@@ -126,7 +132,7 @@ describe "Administrates authors" do
           click_link "Delete this Author"
         }.to change(Author, :count).by(-1)
         within ".Flash--notice" do
-          expect(page).to have_content("You deleted #{@author.full_name}")
+          expect(page).to have_content("You deleted #{author.full_name}")
         end
       end
     end

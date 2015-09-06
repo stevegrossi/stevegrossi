@@ -1,24 +1,29 @@
 require "spec_helper"
 
 describe "Publicly" do
+  let!(:the_page) { create(:page) }
 
   it "displays a page" do
-    the_page = create(:page)
     visit page_path(the_page)
+
     expect(page).to have_content(the_page.title)
     expect(page).to have_content(the_page.content)
   end
 
   it "sets the permalink as the url" do
-    the_page = create(:page)
     visit page_path(the_page)
+
     expect(current_path).to eq("/#{the_page.permalink}")
   end
 
-  it "allows slashes in permalinks" do
-    create(:page, permalink: "is/awesome")
-    visit "is/awesome"
-    expect(current_path).to eq("/is/awesome")
+  context "with a slash in the permalink" do
+    let(:the_page) { create(:page, permalink: "is/awesome") }
+
+    it "allows slashes" do
+      visit "is/awesome"
+
+      expect(current_path).to eq("/is/awesome")
+    end
   end
 end
 
@@ -29,10 +34,11 @@ describe "Administrates pages" do
   end
 
   describe "pages dashboard" do
+    let!(:the_page) { create(:page) }
 
     it "displays pages" do
-      the_page = create(:page)
       visit meta_pages_path
+
       expect(page).to have_content(the_page.title)
     end
   end
@@ -76,10 +82,10 @@ describe "Administrates pages" do
   end
 
   describe "editing pages" do
+    let!(:the_page) { create(:page, permalink: "is/awesome") }
 
     before :each do
-      @page = create(:page, permalink: "is/awesome")
-      visit edit_meta_page_path(@page)
+      visit edit_meta_page_path(the_page)
     end
 
     context "with valid attributes" do
@@ -111,10 +117,9 @@ describe "Administrates pages" do
           click_link "Delete this Page"
         }.to change(Page, :count).by(-1)
         within ".Flash--notice" do
-          expect(page).to have_content("You deleted the page #{@page.title}")
+          expect(page).to have_content("You deleted the page #{the_page.title}")
         end
       end
     end
   end
-
 end

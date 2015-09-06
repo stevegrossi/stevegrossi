@@ -15,23 +15,28 @@ describe "Authentication" do
 
     it "logs out a user" do
       visit destroy_user_session_path
-      expect(current_path).to eq(posts_path) # Not root_path for now, since I redirect to /on
+
+      # Not root_path for now, since I redirect to /on
+      expect(current_path).to eq(posts_path)
     end
 
     it "notifies a user if they are already logged in" do
       visit new_user_session_path
+
       expect(page).to have_content("already signed in")
     end
   end
 
   context "when logging in" do
+    let(:user) { create(:user) }
 
     it "redirects to the intended path upon authentication" do
-      user = create(:user)
       visit new_meta_book_path
+
       fill_in "Email", with: user.email
       fill_in "Password", with: test_password
       click_button "Sign in"
+
       expect(current_path).to eq(new_meta_book_path)
     end
   end
