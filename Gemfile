@@ -56,6 +56,5 @@ group :test do
   gem "guard-rspec"
   gem "factory_girl_rails"
   gem "launchy"
-  gem "database_cleaner"
   gem "coveralls", require: false
 end

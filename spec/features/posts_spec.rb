@@ -43,11 +43,9 @@ describe "Shows posts" do
 end
 
 describe "post topics page" do
-  before :all do
+  before :each do
     @tag_kittens = Tag.create(name: "kittens")
     @tag_marshmallows = Tag.create(name: "marshmallows")
-  end
-  before :each do
     @marshmallows = create(:post, tags: [@tag_marshmallows])
     @kittens_and_marshmallows = create(:post, tags: [@tag_kittens, @tag_marshmallows])
   end
