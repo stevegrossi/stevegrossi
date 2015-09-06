@@ -41,7 +41,7 @@ describe Book do
   it "can mark itself as finished" do
     book = build(:book)
     book.finish
-    expect(book.end_date).to eq(Time.now.to_date)
+    expect(book.end_date).to eq(Date.current)
   end
   describe "scopes" do
     before :each do

@@ -8,7 +8,7 @@ module Postable
   end
 
   def previous
-    self.class.published.where("created_at < ?", created_at).first
+    self.class.published.find_by("created_at < ?", created_at)
   end
 
   def next

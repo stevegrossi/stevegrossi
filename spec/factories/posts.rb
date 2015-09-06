@@ -5,7 +5,7 @@ FactoryGirl.define do
     title         { Faker::Lorem.sentence(6) }
     idea          { Faker::Lorem.sentence }
     content       { Faker::Lorem.paragraphs.join('\n\n') }
-    published_at  { Time.now - 1.day }
+    published_at  { Time.current - 1.day }
   end
   factory :link_post, parent: :post do
     link_url { Faker::Internet.url }

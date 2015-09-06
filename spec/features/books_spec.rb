@@ -51,7 +51,7 @@ describe "Administrates books" do
         create(:unread_book)
         visit meta_books_path
         click_link "Finish"
-        expect(page).to have_content(Time.now.to_date)
+        expect(page).to have_content(Date.current)
       end
     end
   end
@@ -67,9 +67,9 @@ describe "Administrates books" do
         fill_in "Title", with: "Test Title"
         fill_in "Publisher", with: "Test content."
         fill_in "Pub year", with: "A test book"
-        select Time.now.year.to_s, from: "book_start_date_1i"
-        select Date::MONTHNAMES[Time.now.month], from: "book_start_date_2i"
-        select Time.now.day.to_s, from: "book_start_date_3i"
+        select Time.current.year.to_s, from: "book_start_date_1i"
+        select Date::MONTHNAMES[Time.current.month], from: "book_start_date_2i"
+        select Time.current.day.to_s, from: "book_start_date_3i"
         select @author.full_name, from: "Author(s)"
       end
 

@@ -5,9 +5,9 @@ FactoryGirl.define do
   factory :book do
     title        { Faker::Lorem.sentence(6) }
     publisher    { Faker::Company.name }
-    pub_year     { Time.now.year - 1 }
-    start_date   { Time.now - 1.month }
-    end_date     { Time.now - 1.week }
+    pub_year     { Time.current.year - 1 }
+    start_date   { Time.current - 1.month }
+    end_date     { Time.current - 1.week }
     authors      { [build(:author)] }
   end
 
@@ -22,5 +22,4 @@ FactoryGirl.define do
   factory :unread_book, parent: Book do
     end_date nil
   end
-
 end

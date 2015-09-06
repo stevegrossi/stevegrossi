@@ -6,7 +6,7 @@ class Meta::BooksController < Meta::DashboardController
 
   def new
     @book = Book.new
-    @book.start_date = Time.now.to_date
+    @book.start_date = Date.current
     @authors = Author.all
   end
 

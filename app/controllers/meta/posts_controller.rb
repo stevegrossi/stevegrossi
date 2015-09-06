@@ -16,7 +16,7 @@ class Meta::PostsController < Meta::DashboardController
 
   def create
     @post = Post.new(post_params)
-    @post.published_at ||= Time.now if params[:commit] == "Publish"
+    @post.published_at ||= Time.current if params[:commit] == "Publish"
     if @post.save
       redirect_to @post, notice: view_context.notify(:new, :post)
     else
@@ -28,7 +28,7 @@ class Meta::PostsController < Meta::DashboardController
     @post = Post.friendly.find(params[:id])
     @post.attributes = post_params
     if params[:commit] == "Publish"
-      @post.published_at ||= Time.now
+      @post.published_at ||= Time.current
     elsif params[:commit] == "Unpublish"
       @post.published_at = nil
     end

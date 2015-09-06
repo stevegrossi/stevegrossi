@@ -53,7 +53,7 @@ class Book < ActiveRecord::Base
   end
 
   def finish
-    self.end_date = Time.now.to_date
+    self.end_date = Date.current
   end
 
   def publine

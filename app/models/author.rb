@@ -19,7 +19,7 @@ class Author < ActiveRecord::Base
   has_many :authorships, dependent: :destroy
   has_many :books, through: :authorships
 
-  default_scope -> { order("lower(lname), fname, mname") }
+  default_scope { order("lower(lname), fname, mname") }
 
   validates :fname, presence: true,
                     uniqueness: { scope: [:lname, :mname] }

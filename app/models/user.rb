@@ -32,7 +32,7 @@ class User < ActiveRecord::Base
 
   def days_alive
     if birthdate?
-      (Date.today - birthdate).to_i
+      (Date.current - birthdate).to_i
     else
       0
     end
