@@ -1,7 +1,7 @@
 class Meta::BooksController < Meta::DashboardController
 
   def index
-    @books = Book.includes(:authors).order('start_date DESC')
+    @books = Book.includes(:authors).order("start_date DESC")
   end
 
   def new

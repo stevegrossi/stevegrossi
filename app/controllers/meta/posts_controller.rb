@@ -3,7 +3,7 @@ class Meta::PostsController < Meta::DashboardController
   cache_sweeper :post_sweeper unless Rails.env.test?
 
   def index
-    @posts = Post.order('published_at DESC')
+    @posts = Post.order("published_at DESC")
   end
 
   def new
@@ -16,9 +16,7 @@ class Meta::PostsController < Meta::DashboardController
 
   def create
     @post = Post.new(post_params)
-    if params[:commit] == 'Publish'
-      @post.published_at ||= Time.now
-    end
+    @post.published_at ||= Time.now if params[:commit] == "Publish"
     if @post.save
       redirect_to @post, notice: view_context.notify(:new, :post)
     else
@@ -29,9 +27,9 @@ class Meta::PostsController < Meta::DashboardController
   def update
     @post = Post.friendly.find(params[:id])
     @post.attributes = post_params
-    if params[:commit] == 'Publish'
+    if params[:commit] == "Publish"
       @post.published_at ||= Time.now
-    elsif params[:commit] == 'Unpublish'
+    elsif params[:commit] == "Unpublish"
       @post.published_at = nil
     end
     if @post.save
@@ -51,7 +49,7 @@ class Meta::PostsController < Meta::DashboardController
   private
 
   def post_params
-    params.require(:post).permit(:content, :idea, :link_url, :published_at, :title, :book_id, { tag_ids: [] })
+    params.require(:post).permit(:content, :idea, :link_url, :published_at, :title, :book_id, tag_ids: [])
   end
 
 end

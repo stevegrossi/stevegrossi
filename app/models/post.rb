@@ -40,22 +40,20 @@ class Post < ActiveRecord::Base
   before_save :set_word_count
 
   def set_title_to_book_title
-    if title.blank? && book_post?
-      self.title = book.title
-    end
+    self.title = book.title if title.blank? && book_post?
   end
 
   scope :book_posts, -> { where.not(book_id: nil) }
-  scope :link_posts, -> { where.not(link_url: nil).where.not(link_url: '') }
+  scope :link_posts, -> { where.not(link_url: nil).where.not(link_url: "") }
   scope :writing_posts, -> { where("link_url IS NULL OR link_url = ''").where(book_id: nil) }
 
   def post_type
     if book_post?
-      'Book'
+      "Book"
     elsif link_post?
-      'Link'
+      "Link"
     else
-      'Writing'
+      "Writing"
     end
   end
 

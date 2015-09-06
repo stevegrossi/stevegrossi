@@ -19,20 +19,20 @@ module ApplicationHelper
 
   def link_to_delete(thing)
     name = thing.class.name.titleize
-    link_to "Delete this #{name}", polymorphic_path([:meta, thing]), data: { confirm: "Are you sure you want to delete this #{name}? This cannot be undone." }, method: :delete, class: 'delete_link'
+    link_to "Delete this #{name}", polymorphic_path([:meta, thing]), data: { confirm: "Are you sure you want to delete this #{name}? This cannot be undone." }, method: :delete, class: "delete_link"
   end
 
   def nav_link_to(text, target, options = {})
-    options[:class] = ['SiteHeader-navLink']
+    options[:class] = ["SiteHeader-navLink"]
     path = Rails.application.routes.recognize_path(target)
-    if current_page?(target) || (controller_path != 'pages' && path[:controller] == controller_path)
-      options[:class] << 'SiteHeader-navLink--current'
+    if current_page?(target) || (controller_path != "pages" && path[:controller] == controller_path)
+      options[:class] << "SiteHeader-navLink--current"
     end
     link_to(text, target, options)
   end
 
   def nice_url(url)
-    url.gsub(/(^https?:\/\/(www.)?)|(\/$)/, '') if url
+    url.gsub(/(^https?:\/\/(www.)?)|(\/$)/, "") if url
   end
 
   def link_from_url(url)
@@ -40,14 +40,14 @@ module ApplicationHelper
   end
 
   def flash_errors(obj)
-    if obj.errors.present?
-      content_tag :div, class: 'Flash Flash--error' do
-        "Could not save the #{obj.class.to_s.humanize.downcase} because of the errors below:"
-      end
+    return unless obj.errors.present?
+
+    content_tag :div, class: "Flash Flash--error" do
+      "Could not save the #{obj.class.to_s.humanize.downcase} because of the errors below:"
     end
   end
 
-  def mark_string(string, term = '')
+  def mark_string(string, term = "")
     if term.blank?
       string
     else
@@ -56,27 +56,27 @@ module ApplicationHelper
   end
 
   def serp_excerpt(text)
-    strip_markdown(text).gsub(/\{\{|\}\}/, '{{' => '<mark>', '}}' => '</mark>').html_safe
+    strip_markdown(text).gsub(/\{\{|\}\}/, "{{" => "<mark>", "}}" => "</mark>").html_safe
   end
 
   def comment_on_search_term(query)
-    unless query.blank?
-      case query.downcase
-      when 'shit', 'fuck', 'cunt', 'cocksucker', 'motherfucker'
-        content_tag(:p, content_tag(:em, 'You kiss your mother with that mouth?'))
-      end
+    return if query.blank?
+
+    case query.downcase
+    when "shit", "fuck", "cunt", "cocksucker", "motherfucker"
+      content_tag(:p, content_tag(:em, "You kiss your mother with that mouth?"))
     end
   end
 
   def notify(action, class_name)
-    view_all_link = link_to('View all', polymorphic_path("meta_#{class_name}s"))
+    view_all_link = link_to("View all", polymorphic_path("meta_#{class_name}s"))
     case action
     when :new
       message = "New #{class_name} created."
     when :updated
       message = "Updated #{class_name}."
     else
-      raise ArgumentError, 'Actions supported: :new and :updated'
+      fail ArgumentError, "Actions supported: :new and :updated"
     end
     "#{message} #{view_all_link}."
   end

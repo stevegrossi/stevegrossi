@@ -1,18 +1,18 @@
-require 'rubygems'
-require 'coveralls'
+require "rubygems"
+require "coveralls"
 Coveralls.wear!
 
-ENV['RAILS_ENV'] = 'test'
-ENV['SECRET_TOKEN'] = 'Shhhhhhhhhhhhhhhhhhhhhhhhhhhhh'
+ENV["RAILS_ENV"] = "test"
+ENV["SECRET_TOKEN"] = "Shhhhhhhhhhhhhhhhhhhhhhhhhhhhh"
 require File.expand_path("../../config/environment", __FILE__)
-require 'rspec/rails'
-require 'capybara/rails'
-require 'capybara/rspec'
-require 'database_cleaner'
+require "rspec/rails"
+require "capybara/rails"
+require "capybara/rspec"
+require "database_cleaner"
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
-Dir[Rails.root.join('spec/support/utilities.rb')].each { |f| require f }
+Dir[Rails.root.join("spec/support/utilities.rb")].each { |f| require f }
 
 RSpec.configure do |config|
 

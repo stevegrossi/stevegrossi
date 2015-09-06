@@ -10,6 +10,6 @@ class ErrorsController < ApplicationController
 
   def error_500
     render layout: false, status: 500,
-           file: Rails.root.join('/public/500.html')
+           file: Rails.root.join("/public/500.html")
   end
 end

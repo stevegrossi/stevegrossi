@@ -1,1 +1,1 @@
-Stevegrossi::Application.config.secret_token = ENV['SECRET_TOKEN']
+Stevegrossi::Application.config.secret_token = ENV["SECRET_TOKEN"]

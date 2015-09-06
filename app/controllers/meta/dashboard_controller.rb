@@ -1,6 +1,6 @@
 class Meta::DashboardController < ApplicationController
 
-  layout 'meta'
+  layout "meta"
 
   before_action :authenticate_user!
 

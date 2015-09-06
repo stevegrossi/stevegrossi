@@ -8,11 +8,11 @@ module Postable
   end
 
   def previous
-    self.class.published.where('created_at < ?', self.created_at).first
+    self.class.published.where("created_at < ?", created_at).first
   end
 
   def next
-    self.class.published.where('created_at > ?', self.created_at).last
+    self.class.published.where("created_at > ?", created_at).last
   end
 
   def draft?
@@ -24,6 +24,6 @@ module Postable
   end
 
   def pretty_published_at
-    published_at.nil? ? 'Unpublished' : published_at.strftime('%B %-e, %Y')
+    published_at.nil? ? "Unpublished" : published_at.strftime("%B %-e, %Y")
   end
 end

@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-  caches_action :index, :show, :tag, if: proc{ !current_user }
+  caches_action :index, :show, :tag, if: proc { !current_user }
 
   def index
     @posts = Post.published.includes(:book, :tags).page(params[:page])
@@ -8,12 +8,12 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.friendly.includes(book: :authors).find(params[:id])
-    if @post.draft?
-      if current_user || params[:draft] == 'yep'
-        flash.now.alert = 'This is a draft.'
-      else
-        redirect_to posts_path, flash: { error: 'You must be logged in to view that draft.' }
-      end
+    return unless @post.draft?
+
+    if current_user || params[:draft] == "yep"
+      flash.now.alert = "This is a draft."
+    else
+      redirect_to posts_path, flash: { error: "You must be logged in to view that draft." }
     end
   end
 

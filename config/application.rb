@@ -1,5 +1,5 @@
-require File.expand_path('../boot', __FILE__)
-require 'rails/all'
+require File.expand_path("../boot", __FILE__)
+require "rails/all"
 Bundler.require(:default, Rails.env)
 
 module Stevegrossi
@@ -7,19 +7,18 @@ module Stevegrossi
 
     # Configure generators for testing
     config.generators do |g|
-      g.test_framework :rspec,
-      fixtures: true,
-      view_specs: false,
-      helper_specs: false,
-      routing_specs: false,
-      controller_specs: true,
-      request_specs: true
+      g.test_framework :rspec, fixtures: true,
+                               view_specs: false,
+                               helper_specs: false,
+                               routing_specs: false,
+                               controller_specs: true,
+                               request_specs: true
       g.fixture_replacement :factory_girl, dir: "spec/factories"
     end
 
     # Enable the asset pipeline
     config.assets.enabled = true
-    config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+    config.assets.paths << Rails.root.join("app", "assets", "fonts")
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -55,14 +54,14 @@ module Stevegrossi
     config.filter_parameters += [:password]
 
     # Handle routing or errors meself
-    config.exceptions_app = self.routes
+    config.exceptions_app = routes
 
     # Use dalli/memcached
     config.cache_store = :dalli_store
 
     # Remove trailing slashes from URLs
     config.middleware.insert_before(Rack::Runtime, Rack::Rewrite) do
-      r301 %r{^/(.*)/$}, '/$1'
+      r301 %r{^/(.*)/$}, "/$1"
     end
 
   end

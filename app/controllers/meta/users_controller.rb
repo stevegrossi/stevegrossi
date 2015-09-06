@@ -7,9 +7,9 @@ class Meta::UsersController < Meta::DashboardController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to root_url, notice: 'Your ass signed up!'
+      redirect_to root_url, notice: "Your ass signed up!"
     else
-      render 'new'
+      render "new"
     end
   end
 

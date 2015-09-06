@@ -17,41 +17,41 @@
 #  start_date  :date
 #
 
-require 'spec_helper'
+require "spec_helper"
 
 describe Book do
-  it 'has a valid factory' do
+  it "has a valid factory" do
     expect(build(:book)).to be_valid
   end
-  it 'is invalid without a title' do
+  it "is invalid without a title" do
     expect(build(:book, title: nil)).to_not be_valid
   end
-  it 'is invalid without a publisher' do
+  it "is invalid without a publisher" do
     expect(build(:book, publisher: nil)).to_not be_valid
   end
-  it 'is invalid without a pub_year' do
+  it "is invalid without a pub_year" do
     expect(build(:book, pub_year: nil)).to_not be_valid
   end
-  it 'is invalid without an author or authors' do
+  it "is invalid without an author or authors" do
     expect(build(:book_without_author)).to_not be_valid
   end
-  it 'is valid with multiple authors' do
+  it "is valid with multiple authors" do
     expect(build(:book_with_two_authors)).to be_valid
   end
-  it 'can mark itself as finished' do
+  it "can mark itself as finished" do
     book = build(:book)
     book.finish
     expect(book.end_date).to eq(Time.now.to_date)
   end
-  describe 'scopes' do
+  describe "scopes" do
     before :each do
       @read = create(:book)
       @unread = create(:unread_book)
     end
-    it 'selects unread books' do
+    it "selects unread books" do
       expect(Book.unread).to eq([@unread])
     end
-    it 'selects read books' do
+    it "selects read books" do
       expect(Book.read).to eq([@read])
     end
   end

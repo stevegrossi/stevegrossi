@@ -1,37 +1,37 @@
-require 'spec_helper'
+require "spec_helper"
 
-describe 'Authentication' do
+describe "Authentication" do
 
-  context 'when logged in' do
+  context "when logged in" do
 
     before :each do
       log_in_user
     end
 
-    it 'logs in a user' do
-      expect(page).to have_content('Signed in')
+    it "logs in a user" do
+      expect(page).to have_content("Signed in")
       expect(current_path).to eq(meta_dashboard_path)
     end
 
-    it 'logs out a user' do
+    it "logs out a user" do
       visit destroy_user_session_path
       expect(current_path).to eq(posts_path) # Not root_path for now, since I redirect to /on
     end
 
-    it 'notifies a user if they are already logged in' do
+    it "notifies a user if they are already logged in" do
       visit new_user_session_path
-      expect(page).to have_content('already signed in')
+      expect(page).to have_content("already signed in")
     end
   end
 
-  context 'when logging in' do
+  context "when logging in" do
 
-    it 'redirects to the intended path upon authentication' do
+    it "redirects to the intended path upon authentication" do
       user = create(:user)
       visit new_meta_book_path
-      fill_in 'Email', with: user.email
-      fill_in 'Password', with: test_password
-      click_button 'Sign in'
+      fill_in "Email", with: user.email
+      fill_in "Password", with: test_password
+      click_button "Sign in"
       expect(current_path).to eq(new_meta_book_path)
     end
   end
