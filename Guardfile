@@ -10,6 +10,7 @@ guard :rspec, cmd: "bin/rspec", all_after_pass: false, all_on_start: false do
   watch("spec/support/utilities.rb")                  { "spec" }
   watch("config/routes.rb")                           { "spec/routing" }
   watch("app/controllers/application_controller.rb")  { "spec/controllers" }
+  watch(%r{^spec/factories/(.+)\.rb$})                { |m| "spec/models/#{m[1]}_spec.rb" }
 
   # Capybara request specs
   watch(%r{^app/views/(.+)/.*\.(erb|haml)$})          { |m| "spec/requests/#{m[1]}_spec.rb" }
