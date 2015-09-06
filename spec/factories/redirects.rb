@@ -1,9 +1,7 @@
-require "faker"
-
 FactoryGirl.define do
-  factory :redirect do
-    from { Faker::Lorem.words(1).first.downcase }
-    to { "http://#{Faker::Internet.domain_name}" }
-  end
 
+  factory :redirect do
+    from { Faker::Lorem.word.downcase }
+    to { Faker::Internet.url(Faker::Internet.domain_name, nil) }
+  end
 end
