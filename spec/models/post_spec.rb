@@ -1,21 +1,3 @@
-# coding: utf-8
-# == Schema Information
-#
-# Table name: posts
-#
-#  id           :integer          not null, primary key
-#  title        :string(255)
-#  link_url     :string(255)
-#  idea         :text
-#  content      :text
-#  book_id      :integer
-#  slug         :string(255)
-#  published_at :datetime
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
-#  word_count   :integer
-#
-
 require "spec_helper"
 
 describe Post do

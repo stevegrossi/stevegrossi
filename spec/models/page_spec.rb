@@ -1,16 +1,3 @@
-# == Schema Information
-#
-# Table name: pages
-#
-#  id          :integer          not null, primary key
-#  title       :string(255)
-#  permalink   :string(255)
-#  content     :text
-#  description :text
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#
-
 require "spec_helper"
 
 describe Page do

@@ -1,16 +1,3 @@
-# == Schema Information
-#
-# Table name: authors
-#
-#  id         :integer          not null, primary key
-#  fname      :string(255)
-#  mname      :string(255)
-#  lname      :string(255)
-#  created_at :datetime
-#  updated_at :datetime
-#  slug       :string(255)
-#
-
 class Author < ActiveRecord::Base
 
   extend FriendlyId

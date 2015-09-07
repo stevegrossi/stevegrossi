@@ -43,7 +43,6 @@ end
 
 group :development do
   gem "foreman"
-  gem "annotate"
   gem "bullet"
   gem "meta_request"
   gem "spring"
