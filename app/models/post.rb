@@ -30,22 +30,8 @@ class Post < ActiveRecord::Base
   scope :link_posts, -> { where.not(link_url: nil).where.not(link_url: "") }
   scope :writing_posts, -> { where("link_url IS NULL OR link_url = ''").where(book_id: nil) }
 
-  def post_type
-    if book_post?
-      "Book"
-    elsif link_post?
-      "Link"
-    else
-      "Writing"
-    end
-  end
-
   def book_post?
     book.present?
-  end
-
-  def link_post?
-    link_url.present?
   end
 
   def count_words
