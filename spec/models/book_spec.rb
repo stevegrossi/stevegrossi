@@ -2,10 +2,6 @@ require "spec_helper"
 
 describe Book do
 
-  it "has a valid factory" do
-    expect(build(:book)).to be_valid
-  end
-
   it "is invalid without a title" do
     expect(build(:book, title: nil)).to_not be_valid
   end
@@ -19,11 +15,11 @@ describe Book do
   end
 
   it "is invalid without an author or authors" do
-    expect(build(:book_without_author)).to_not be_valid
+    expect(build(:book, :without_author)).to_not be_valid
   end
 
   it "is valid with multiple authors" do
-    expect(build(:book_with_two_authors)).to be_valid
+    expect(build(:book, :with_two_authors)).to be_valid
   end
 
   it "can mark itself as finished" do
@@ -35,7 +31,7 @@ describe Book do
 
   describe "scopes" do
     let!(:read) { create(:book) }
-    let!(:unread) { create(:unread_book) }
+    let!(:unread) { create(:book, :unread) }
 
     it "selects unread books" do
       expect(Book.unread).to eq([unread])

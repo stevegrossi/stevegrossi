@@ -5,22 +5,14 @@ FactoryGirl.define do
     idea          { Faker::Lorem.sentence }
     content       { Faker::Lorem.paragraphs.join('\n\n') }
     published_at  { 1.day.ago }
-  end
 
-  factory :link_post, parent: :post do
-    link_url { Faker::Internet.url }
-  end
+    trait :book_post do
+      title nil
+      book { create(:book) }
+    end
 
-  factory :book_post, parent: :post do
-    title nil
-    book { create(:book) }
-  end
-
-  factory :invalid_post, parent: :post do
-    title nil
-  end
-
-  factory :draft_post, parent: :post do
-    published_at nil
+    trait :draft do
+      published_at nil
+    end
   end
 end

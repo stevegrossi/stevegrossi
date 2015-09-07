@@ -17,7 +17,7 @@ describe "Shows posts" do
     end
 
     context "with drafts" do
-      let!(:post) { create(:draft_post, title: "This is a draft") }
+      let!(:post) { create(:post, :draft, title: "This is a draft") }
 
       it "does not display them" do
         visit posts_path
@@ -39,7 +39,7 @@ describe "Shows posts" do
     end
 
     context "with a draft post" do
-      let!(:post) { create(:draft_post) }
+      let!(:post) { create(:post, :draft) }
 
       it "displays drafts to authenticated users" do
         log_in_user
@@ -89,7 +89,7 @@ describe "Administrates posts" do
 
   describe "posts dashboard" do
     let!(:published) { create(:post) }
-    let!(:draft) { create(:draft_post) }
+    let!(:draft) { create(:post, :draft) }
 
     it "displays published and draft posts" do
       visit meta_posts_path

@@ -2,10 +2,6 @@ require "spec_helper"
 
 describe Redirect do
 
-  it "has a valid factory" do
-    expect(build(:redirect)).to be_valid
-  end
-
   it "is invalid without somewhere to redirect from" do
     redirect = build(:redirect, from: nil)
     expect(redirect).to_not be_valid

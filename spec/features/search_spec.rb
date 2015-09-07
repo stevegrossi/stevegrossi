@@ -17,8 +17,8 @@ describe "Search" do
   end
 
   it "doesn’t return draft posts" do
-    create(:draft_post, title: "Old MacDonald Had a Farm",
-                        content: "Ee Ii Ee Ii Oo. And on this farm he had a pig.")
+    create(:post, :draft, title: "Old MacDonald Had a Farm",
+                          content: "Ee Ii Ee Ii Oo. And on this farm he had a pig.")
     fill_in "for", with: "pig"
     click_button "Search"
 

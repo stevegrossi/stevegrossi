@@ -3,10 +3,6 @@ require "spec_helper"
 describe Post do
   it_behaves_like "a Postable", :post
 
-  it "has a valid factory" do
-    expect(build(:post)).to be_valid
-  end
-
   it "is invalid without a title" do
     post = build(:post, title: nil)
     expect(post).to_not be_valid
@@ -14,7 +10,7 @@ describe Post do
   end
 
   it "sets book post title to book title by default" do
-    post = build(:book_post)
+    post = build(:post, :book_post)
     expect(post).to be_valid
     expect(post.title).to eq(post.book.title)
   end

@@ -5,7 +5,7 @@ describe BooksHelper do
   describe "#author_list" do
     let(:author1) { build(:author) }
     let(:author2) { build(:author) }
-    let(:book) { build(:book_without_author, authors: [author1, author2]) }
+    let(:book) { build(:book, :without_author, authors: [author1, author2]) }
 
     it "lists authors" do
       expected = "#{author1.full_name} and #{author2.full_name}"
@@ -16,7 +16,7 @@ describe BooksHelper do
   describe "#linked_author_list" do
     let(:author1) { build(:author) }
     let(:author2) { build(:author) }
-    let(:book) { build(:book_without_author, authors: [author1, author2]) }
+    let(:book) { build(:book, :without_author, authors: [author1, author2]) }
 
     it "lists authors linked to their pages" do
       expected = link_to(author1.full_name, author1)

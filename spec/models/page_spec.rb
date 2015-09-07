@@ -2,10 +2,6 @@ require "spec_helper"
 
 describe Page do
 
-  it "has a valid factory" do
-    expect(build(:page)).to be_valid
-  end
-
   it "is invalid without a title" do
     page = build(:page, title: nil)
     expect(page).to_not be_valid

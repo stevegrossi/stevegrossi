@@ -54,5 +54,6 @@ group :test do
   gem "faker"
   gem "guard-rspec"
   gem "factory_girl_rails"
+  gem "database_cleaner"
   gem "codeclimate-test-reporter", require: nil
 end

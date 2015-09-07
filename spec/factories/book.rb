@@ -7,17 +7,17 @@ FactoryGirl.define do
     start_date   { 1.month.ago }
     end_date     { 1.week.ago }
     authors      { build_list(:author, 1) }
-  end
 
-  factory :book_without_author, parent: Book do
-    authors []
-  end
+    trait :without_author do
+      authors []
+    end
 
-  factory :book_with_two_authors, parent: Book do
-    authors { build_list(:author, 2) }
-  end
+    trait :with_two_authors do
+      authors { build_list(:author, 2) }
+    end
 
-  factory :unread_book, parent: Book do
-    end_date nil
+    trait :unread do
+      end_date nil
+    end
   end
 end

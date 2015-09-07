@@ -14,7 +14,7 @@ describe "Shows books" do
   end
 
   describe "book page" do
-    let(:book) { create(:book_with_two_authors) }
+    let(:book) { create(:book, :with_two_authors) }
     let(:author1) { book.authors.first }
     let(:author2) { book.authors.second }
 
@@ -47,7 +47,7 @@ describe "Administrates books" do
     end
 
     context "when a book is unread" do
-      let!(:unread_book) { create(:unread_book) }
+      let!(:unread_book) { create(:book, :unread) }
 
       before :each do
         visit meta_books_path
