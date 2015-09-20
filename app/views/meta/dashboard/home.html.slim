@@ -3,7 +3,7 @@ p
   ' You’ve written #{ pluralize(number_with_delimiter(@word_count), 'word') }.
   - if current_user.birthdate?
      | You’ve been alive #{ number_with_delimiter(current_user.days_alive) } days.
-     - if current_user.birthDate.current?
+     - if current_user.birthdate.today?
       | Happy birthday!
   =< link_to('Log out', destroy_user_session_path)
 p You’ve got:
