@@ -4,7 +4,7 @@
 
 header.FullPost-header
   - if @post.book_post?
-    a.FullPost-book.Cover href="#book"
+    a.Cover href="#book"
       = image_tag(@post.book.cover_url, alt: '', width: 100)
   div
     h1.FullPost-title = @post.title
