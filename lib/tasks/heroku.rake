@@ -2,22 +2,22 @@ namespace :herokudb do
 
   # Makes a backup of the production database
   task :backup_production do
-    system "heroku pgbackups:capture --expire -r production"
+    system "heroku pg:backups capture -r production"
   end
 
   # Makes a backup of the staging database
   task :backup_staging do
-    system "heroku pgbackups:capture --expire -r staging"
+    system "heroku pg:backups capture -r staging"
   end
 
   # Restores the staging site from the latest production backup
   task update_staging: [:backup_staging, :backup_production] do
-    system "heroku pgbackups:restore DATABASE -r staging $(heroku pgbackups:url -r production)"
+    system "heroku pgbackups:restore DATABASE -r staging $(heroku pg:backups public-url -r production)"
   end
 
   # Dumps the production database to a local file
   task save_production: :backup_production do
-    system "curl -o #{Rails.root.join('tmp', 'production.dump')} $(heroku pgbackups:url -r production)"
+    system "curl -o #{Rails.root.join('tmp', 'production.dump')} $(heroku pg:backups public-url -r production)"
   end
 
   # Restores the local development database from the production dump
