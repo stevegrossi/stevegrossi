@@ -1,4 +1,4 @@
-Stevegrossi::Application.routes.draw do
+Rails.application.routes.draw do
 
   # Dynamic redirects
   get "/built" => redirect("http://work.stevegrossi.com")
