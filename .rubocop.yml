@@ -1,10 +1,12 @@
 AllCops:
-  RunRailsCops: true
   Exclude:
     - 'bin/*'
     - 'db/migrate/*'
     - 'db/schema.rb'
     - 'script/*'
+
+Rails:
+  Enabled: true
 
 # Cop supports --auto-correct.
 Lint/UnusedBlockArgument:
@@ -58,3 +60,6 @@ Style/RegexpLiteral:
 # Configuration parameters: EnforcedStyle, SupportedStyles.
 Style/StringLiterals:
   EnforcedStyle: double_quotes
+
+Style/Alias:
+  EnforcedStyle: prefer_alias_method

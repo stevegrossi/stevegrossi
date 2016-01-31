@@ -47,7 +47,8 @@ class Post < ActiveRecord::Base
   end
 
   def self.published_tag_counts
-    Tag.select("tags.*, count(taggings.tag_id) as count")
+    Tag
+      .select("tags.*, count(taggings.tag_id) as count")
       .joins(taggings: :post)
       .group([:id, :name, :slug])
       .where.not(posts: { published_at: nil })
