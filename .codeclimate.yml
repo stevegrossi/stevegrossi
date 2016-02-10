@@ -1,0 +1,21 @@
+engines:
+  rubocop:
+    enabled: true
+  brakeman:
+    enabled: true
+  bundler-audit:
+    enabled: true
+  duplication:
+    enabled: true
+    config:
+      languages:
+        - ruby
+  csslint:
+    enabled: false
+  eslint:
+    enabled: false
+ratings:
+  paths:
+  - Gemfile.lock # for bundler-audit
+  - app/**
+  - lib/**
