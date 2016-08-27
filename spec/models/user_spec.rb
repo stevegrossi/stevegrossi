@@ -6,7 +6,7 @@ describe User do
     let(:user) { build(:user, birthdate: 1.year.ago.to_date) }
 
     it "returns the number of days since the user’s date of birth" do
-      expect(user.days_alive).to be 365
+      expect(user.days_alive).to be_in 365..366 # timezones
     end
 
     context "when the user has no birthday" do
